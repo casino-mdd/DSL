@@ -2,8 +2,62 @@ grammar org.xtext.casino.dsl.Dsl with org.eclipse.xtext.common.Terminals
 
 generate dsl "http://www.xtext.org/casino/dsl/Dsl"
 
-Model:
-	greetings+=Greeting*;
+Domain:	'{'
+	(modules+=Module)+
+	'}';
 	
-Greeting:
-	'Hello' name=ID '!';
+	
+Module: 'module' name=ID '{'
+	(submodules+=Submodule)+
+	'}';
+	
+Submodule: 'submodule' name=ID '{'
+	(operations+=Operation)+
+	(entities+=(SpecialEntity|GeneralEntity))+
+	(relations+=RelationDom)+
+	'}';
+	
+Operation:'{'
+	'type:' SubOperation
+	'}'	
+;
+
+SubOperation:
+	'Read' | 'Create'
+;
+
+GeneralEntity: 'generalEntity' name=ID '{'
+	(properties+=Property)+
+	'}'
+;
+
+Property: 'property' name=ID
+;
+
+SpecialEntity: 'specialEntity' name=ID '{'
+	(properties+=Property)+
+	Role
+	(transactions+=Transaction)+	
+	'}'	
+;
+
+Role:
+	'Admin' | 'Aux'
+;
+	
+Transaction: '{'
+	'type:' SubTransaction
+	'operates_on:' GeneralEntity
+	'}'
+;
+
+SubTransaction:
+	'Exchange' | 'Sale'
+;
+
+RelationDom: '{'
+	'type:' 'Composition'
+	'source:' GeneralEntity
+	'target:' type=[SpecialEntity] | type=[GeneralEntity]
+	'}'
+;

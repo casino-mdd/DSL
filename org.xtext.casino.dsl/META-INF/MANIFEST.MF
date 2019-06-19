@@ -8,5 +8,23 @@ Bundle-SymbolicName: org.xtext.casino.dsl; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.14.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xtext.casino.dsl.parser.antlr,
+ org.xtext.casino.dsl,
+ org.xtext.casino.dsl.dsl.impl,
+ org.xtext.casino.dsl.generator,
+ org.xtext.casino.dsl.serializer,
+ org.xtext.casino.dsl.parser.antlr.internal,
+ org.xtext.casino.dsl.dsl,
+ org.xtext.casino.dsl.dsl.util,
+ org.xtext.casino.dsl.scoping,
+ org.xtext.casino.dsl.services,
+ org.xtext.casino.dsl.validation
+Import-Package: org.apache.log4j
