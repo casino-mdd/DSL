@@ -2,6 +2,11 @@ grammar org.xtext.casino.dsl.Dsl with org.eclipse.xtext.common.Terminals
 
 generate dsl "http://www.xtext.org/casino/dsl/Dsl"
 
+System: 
+	domain=Domain
+	arch=Architecture
+;
+
 Domain:	'{'
 	(modules+=Module)+
 	'}';
@@ -59,5 +64,50 @@ RelationDom: '{'
 	'type:' 'Composition'
 	'source:' GeneralEntity
 	'target:' type=[SpecialEntity] | type=[GeneralEntity]
+	'}'
+;
+
+Architecture:
+	'{' 
+		componentes+=Component+
+		relationArch+=RelationArch+
+	'}'
+;
+
+Component:
+	'component' ComponentName '{' 
+		layer+=Layer+ ','		
+	'}' 
+;
+
+ComponentName:
+	'Back' | 'Front'	
+;
+
+Layer:
+	'layer' LayerName '{'
+		layerSegments+=LayerSegment*
+	'}'
+;
+
+LayerName:
+	'JavaScript' | 'Ejb' | 'War'
+;
+
+LayerSegment:
+	'layerSegment' LayerSegmentName '{'
+		('allowToUse:' LayerSegmentName)* ','
+		layerSegments+=LayerSegmentName*
+	'}'	
+;
+
+LayerSegmentName: 
+	'Services'|'Ui'|'Store'|'RestEntity'|'Pojo'|'Facade'|'Dto'|'Actions'|'Reducers'|'Util'|'Containers'
+;
+
+RelationArch:
+	'relationArch' name=ID '{'
+		'source:' LayerName ','
+		'target:' LayerName 
 	'}'
 ;
