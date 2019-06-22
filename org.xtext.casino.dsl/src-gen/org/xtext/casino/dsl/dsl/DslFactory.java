@@ -87,6 +87,15 @@ public interface DslFactory extends EFactory
   QualifiedName createQualifiedName();
 
   /**
+   * Returns a new object of class '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operation</em>'.
+   * @generated
+   */
+  Operation createOperation();
+
+  /**
    * Returns a new object of class '<em>General Entity</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

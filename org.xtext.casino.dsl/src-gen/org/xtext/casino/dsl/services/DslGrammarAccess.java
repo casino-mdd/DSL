@@ -234,15 +234,19 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cTypeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final RuleCall cSubOperationParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cOperates_onKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cTargetAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cTargetEntityParserRuleCall_5_0 = (RuleCall)cTargetAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Operation:
 		//	'op' '{'
 		//	'type:' SubOperation
+		//	'operates_on:' target+=Entity
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'op' '{' 'type:' SubOperation '}'
+		//'op' '{' 'type:' SubOperation 'operates_on:' target+=Entity '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'op'
@@ -257,8 +261,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//SubOperation
 		public RuleCall getSubOperationParserRuleCall_3() { return cSubOperationParserRuleCall_3; }
 		
+		//'operates_on:'
+		public Keyword getOperates_onKeyword_4() { return cOperates_onKeyword_4; }
+		
+		//target+=Entity
+		public Assignment getTargetAssignment_5() { return cTargetAssignment_5; }
+		
+		//Entity
+		public RuleCall getTargetEntityParserRuleCall_5_0() { return cTargetEntityParserRuleCall_5_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class SubOperationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.SubOperation");
@@ -382,20 +395,18 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPropertiesAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPropertiesPropertyParserRuleCall_3_0 = (RuleCall)cPropertiesAssignment_3.eContents().get(0);
-		private final RuleCall cRoleParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cTransactionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTransactionsTransactionParserRuleCall_5_0 = (RuleCall)cTransactionsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cTransactionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTransactionsTransactionParserRuleCall_4_0 = (RuleCall)cTransactionsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//SpecialEntity:
 		//	'specialEntity' QualifiedName '{'
 		//	properties+=Property+
-		//	Role
 		//	transactions+=Transaction+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'specialEntity' QualifiedName '{' properties+=Property+ Role transactions+=Transaction+ '}'
+		//'specialEntity' QualifiedName '{' properties+=Property+ transactions+=Transaction+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'specialEntity'
@@ -413,44 +424,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//Property
 		public RuleCall getPropertiesPropertyParserRuleCall_3_0() { return cPropertiesPropertyParserRuleCall_3_0; }
 		
-		//Role
-		public RuleCall getRoleParserRuleCall_4() { return cRoleParserRuleCall_4; }
-		
 		//transactions+=Transaction+
-		public Assignment getTransactionsAssignment_5() { return cTransactionsAssignment_5; }
+		public Assignment getTransactionsAssignment_4() { return cTransactionsAssignment_4; }
 		
 		//Transaction
-		public RuleCall getTransactionsTransactionParserRuleCall_5_0() { return cTransactionsTransactionParserRuleCall_5_0; }
+		public RuleCall getTransactionsTransactionParserRuleCall_4_0() { return cTransactionsTransactionParserRuleCall_4_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
-	}
-	public class RoleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Role");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRoleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cAdminKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cAuxKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		
-		//Role:
-		//	'role:' ('Admin' | 'Aux');
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'role:' ('Admin' | 'Aux')
-		public Group getGroup() { return cGroup; }
-		
-		//'role:'
-		public Keyword getRoleKeyword_0() { return cRoleKeyword_0; }
-		
-		//'Admin' | 'Aux'
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//'Admin'
-		public Keyword getAdminKeyword_1_0() { return cAdminKeyword_1_0; }
-		
-		//'Aux'
-		public Keyword getAuxKeyword_1_1() { return cAuxKeyword_1_1; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class TransactionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Transaction");
@@ -618,7 +599,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final PropertyElements pProperty;
 	private final TypeElements pType;
 	private final SpecialEntityElements pSpecialEntity;
-	private final RoleElements pRole;
 	private final TransactionElements pTransaction;
 	private final OperatesonElements pOperateson;
 	private final SubTransactionElements pSubTransaction;
@@ -646,7 +626,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pProperty = new PropertyElements();
 		this.pType = new TypeElements();
 		this.pSpecialEntity = new SpecialEntityElements();
-		this.pRole = new RoleElements();
 		this.pTransaction = new TransactionElements();
 		this.pOperateson = new OperatesonElements();
 		this.pSubTransaction = new SubTransactionElements();
@@ -760,6 +739,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//Operation:
 	//	'op' '{'
 	//	'type:' SubOperation
+	//	'operates_on:' target+=Entity
 	//	'}';
 	public OperationElements getOperationAccess() {
 		return pOperation;
@@ -814,7 +794,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//SpecialEntity:
 	//	'specialEntity' QualifiedName '{'
 	//	properties+=Property+
-	//	Role
 	//	transactions+=Transaction+
 	//	'}';
 	public SpecialEntityElements getSpecialEntityAccess() {
@@ -823,16 +802,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSpecialEntityRule() {
 		return getSpecialEntityAccess().getRule();
-	}
-	
-	//Role:
-	//	'role:' ('Admin' | 'Aux');
-	public RoleElements getRoleAccess() {
-		return pRole;
-	}
-	
-	public ParserRule getRoleRule() {
-		return getRoleAccess().getRule();
 	}
 	
 	//Transaction:

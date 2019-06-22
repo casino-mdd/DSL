@@ -19,6 +19,7 @@ import org.xtext.casino.dsl.dsl.Domainmodel;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.Operateson;
+import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
 import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
@@ -55,6 +56,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.OPERATESON:
 				sequence_Operateson(context, (Operateson) semanticObject); 
+				return; 
+			case DslPackage.OPERATION:
+				sequence_Operation(context, (Operation) semanticObject); 
 				return; 
 			case DslPackage.PROPERTY:
 				sequence_Property(context, (Property) semanticObject); 
@@ -188,6 +192,18 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getOperatesonAccess().getTypeGeneralEntityIDTerminalRuleCall_1_0_1(), semanticObject.eGet(DslPackage.Literals.OPERATESON__TYPE, false));
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Operation returns Operation
+	 *
+	 * Constraint:
+	 *     target+=Entity
+	 */
+	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -15,6 +15,7 @@ import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
 import org.xtext.casino.dsl.dsl.Operateson;
+import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
 import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
@@ -136,6 +137,13 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = caseGeneralEntity(qualifiedName);
         if (result == null) result = caseSpecialEntity(qualifiedName);
         if (result == null) result = caseAbstractElement(qualifiedName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.OPERATION:
+      {
+        Operation operation = (Operation)theEObject;
+        T result = caseOperation(operation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -304,6 +312,22 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseQualifiedName(QualifiedName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperation(Operation object)
   {
     return null;
   }

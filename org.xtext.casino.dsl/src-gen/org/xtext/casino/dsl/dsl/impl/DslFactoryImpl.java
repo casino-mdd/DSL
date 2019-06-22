@@ -19,6 +19,7 @@ import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
 import org.xtext.casino.dsl.dsl.Operateson;
+import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
 import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
@@ -86,6 +87,7 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.SUBMODULE: return createSubmodule();
       case DslPackage.ENTITY: return createEntity();
       case DslPackage.QUALIFIED_NAME: return createQualifiedName();
+      case DslPackage.OPERATION: return createOperation();
       case DslPackage.GENERAL_ENTITY: return createGeneralEntity();
       case DslPackage.PROPERTY: return createProperty();
       case DslPackage.TYPE: return createType();
@@ -180,6 +182,18 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     QualifiedNameImpl qualifiedName = new QualifiedNameImpl();
     return qualifiedName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Operation createOperation()
+  {
+    OperationImpl operation = new OperationImpl();
+    return operation;
   }
 
   /**

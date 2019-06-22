@@ -33,7 +33,6 @@ public class DslParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, DslGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getAbstractElementAccess().getAlternatives(), "rule__AbstractElement__Alternatives");
 			builder.put(grammarAccess.getSubOperationAccess().getAlternatives(), "rule__SubOperation__Alternatives");
-			builder.put(grammarAccess.getRoleAccess().getAlternatives_1(), "rule__Role__Alternatives_1");
 			builder.put(grammarAccess.getSubTransactionAccess().getAlternatives(), "rule__SubTransaction__Alternatives");
 			builder.put(grammarAccess.getDomainAccess().getGroup(), "rule__Domain__Group__0");
 			builder.put(grammarAccess.getModuleAccess().getGroup(), "rule__Module__Group__0");
@@ -43,7 +42,6 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPropertyAccess().getGroup(), "rule__Property__Group__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup(), "rule__Type__Group__0");
 			builder.put(grammarAccess.getSpecialEntityAccess().getGroup(), "rule__SpecialEntity__Group__0");
-			builder.put(grammarAccess.getRoleAccess().getGroup(), "rule__Role__Group__0");
 			builder.put(grammarAccess.getTransactionAccess().getGroup(), "rule__Transaction__Group__0");
 			builder.put(grammarAccess.getOperatesonAccess().getGroup(), "rule__Operateson__Group__0");
 			builder.put(grammarAccess.getRelationDomAccess().getGroup(), "rule__RelationDom__Group__0");
@@ -56,12 +54,13 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSubmoduleAccess().getEntitiesAssignment_4(), "rule__Submodule__EntitiesAssignment_4");
 			builder.put(grammarAccess.getEntityAccess().getTypeAssignment(), "rule__Entity__TypeAssignment");
 			builder.put(grammarAccess.getQualifiedNameAccess().getNameAssignment(), "rule__QualifiedName__NameAssignment");
+			builder.put(grammarAccess.getOperationAccess().getTargetAssignment_5(), "rule__Operation__TargetAssignment_5");
 			builder.put(grammarAccess.getGeneralEntityAccess().getPropertiesAssignment_3(), "rule__GeneralEntity__PropertiesAssignment_3");
 			builder.put(grammarAccess.getPropertyAccess().getNameAssignment_0(), "rule__Property__NameAssignment_0");
 			builder.put(grammarAccess.getPropertyAccess().getTypeAssignment_2(), "rule__Property__TypeAssignment_2");
 			builder.put(grammarAccess.getTypeAccess().getNameAssignment_1(), "rule__Type__NameAssignment_1");
 			builder.put(grammarAccess.getSpecialEntityAccess().getPropertiesAssignment_3(), "rule__SpecialEntity__PropertiesAssignment_3");
-			builder.put(grammarAccess.getSpecialEntityAccess().getTransactionsAssignment_5(), "rule__SpecialEntity__TransactionsAssignment_5");
+			builder.put(grammarAccess.getSpecialEntityAccess().getTransactionsAssignment_4(), "rule__SpecialEntity__TransactionsAssignment_4");
 			builder.put(grammarAccess.getTransactionAccess().getOperatesonAssignment_4(), "rule__Transaction__OperatesonAssignment_4");
 			builder.put(grammarAccess.getOperatesonAccess().getTypeAssignment_1(), "rule__Operateson__TypeAssignment_1");
 			builder.put(grammarAccess.getRelationDomAccess().getTypeAssignment_5(), "rule__RelationDom__TypeAssignment_5");

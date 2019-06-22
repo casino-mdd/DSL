@@ -35,6 +35,7 @@ QualifiedName:
 
 Operation: 'op' '{'
 	'type:' SubOperation
+	'operates_on:' target+=Entity
 	'}'	
 ;
 
@@ -58,13 +59,8 @@ Type:
 SpecialEntity: 
 	'specialEntity' QualifiedName '{'
 	(properties+=Property)+
-	Role
 	(transactions+=Transaction)+	
 	'}'	
-;
-
-Role: 
-	'role:' ('Admin' | 'Aux')
 ;
 	
 Transaction: 'trx' '{'

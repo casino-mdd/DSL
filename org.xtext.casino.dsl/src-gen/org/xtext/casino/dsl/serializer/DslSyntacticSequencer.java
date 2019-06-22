@@ -31,22 +31,22 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getRoleRule())
-			return getRoleToken(semanticObject, ruleCall, node);
+		if (ruleCall.getRule() == grammarAccess.getSubOperationRule())
+			return getSubOperationToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSubTransactionRule())
 			return getSubTransactionToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * Role: 
-	 * 	'role:' ('Admin' | 'Aux')
+	 * SubOperation:
+	 * 	'Read' | 'Create'
 	 * ;
 	 */
-	protected String getRoleToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSubOperationToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "role: Admin";
+		return "Read";
 	}
 	
 	/**

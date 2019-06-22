@@ -19,7 +19,7 @@
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Submodule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Submodule/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Submodule/operations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Submodule/operations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Submodule/entities"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Entity">
@@ -29,6 +29,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//QualifiedName/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//QualifiedName/properties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//QualifiedName/transactions"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Operation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Operation/target"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//GeneralEntity"/>
     <genClasses ecoreClass="Dsl.ecore#//Property">

@@ -189,7 +189,7 @@ public interface DslPackage extends EPackage
   int SUBMODULE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Operations</b></em>' attribute list.
+   * The feature id for the '<em><b>Operations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -251,7 +251,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getGeneralEntity()
    * @generated
    */
-  int GENERAL_ENTITY = 7;
+  int GENERAL_ENTITY = 8;
 
   /**
    * The number of structural features of the '<em>General Entity</em>' class.
@@ -309,6 +309,34 @@ public interface DslPackage extends EPackage
   int QUALIFIED_NAME_FEATURE_COUNT = GENERAL_ENTITY_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.OperationImpl <em>Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.OperationImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getOperation()
+   * @generated
+   */
+  int OPERATION = 7;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__TARGET = 0;
+
+  /**
+   * The number of structural features of the '<em>Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.PropertyImpl <em>Property</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -316,7 +344,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 8;
+  int PROPERTY = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -353,7 +381,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getType()
    * @generated
    */
-  int TYPE = 9;
+  int TYPE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -381,7 +409,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getSpecialEntity()
    * @generated
    */
-  int SPECIAL_ENTITY = 10;
+  int SPECIAL_ENTITY = 11;
 
   /**
    * The number of structural features of the '<em>Special Entity</em>' class.
@@ -400,7 +428,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getTransaction()
    * @generated
    */
-  int TRANSACTION = 11;
+  int TRANSACTION = 12;
 
   /**
    * The feature id for the '<em><b>Operateson</b></em>' containment reference list.
@@ -428,7 +456,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getOperateson()
    * @generated
    */
-  int OPERATESON = 12;
+  int OPERATESON = 13;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -456,7 +484,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getRelationDom()
    * @generated
    */
-  int RELATION_DOM = 13;
+  int RELATION_DOM = 14;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -592,15 +620,15 @@ public interface DslPackage extends EPackage
   EAttribute getSubmodule_Name();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.casino.dsl.dsl.Submodule#getOperations <em>Operations</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Submodule#getOperations <em>Operations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Operations</em>'.
+   * @return the meta object for the containment reference list '<em>Operations</em>'.
    * @see org.xtext.casino.dsl.dsl.Submodule#getOperations()
    * @see #getSubmodule()
    * @generated
    */
-  EAttribute getSubmodule_Operations();
+  EReference getSubmodule_Operations();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Submodule#getEntities <em>Entities</em>}'.
@@ -676,6 +704,27 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EReference getQualifiedName_Transactions();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operation</em>'.
+   * @see org.xtext.casino.dsl.dsl.Operation
+   * @generated
+   */
+  EClass getOperation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Operation#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Target</em>'.
+   * @see org.xtext.casino.dsl.dsl.Operation#getTarget()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_Target();
 
   /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.GeneralEntity <em>General Entity</em>}'.
@@ -938,12 +987,12 @@ public interface DslPackage extends EPackage
     EAttribute SUBMODULE__NAME = eINSTANCE.getSubmodule_Name();
 
     /**
-     * The meta object literal for the '<em><b>Operations</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SUBMODULE__OPERATIONS = eINSTANCE.getSubmodule_Operations();
+    EReference SUBMODULE__OPERATIONS = eINSTANCE.getSubmodule_Operations();
 
     /**
      * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
@@ -1004,6 +1053,24 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EReference QUALIFIED_NAME__TRANSACTIONS = eINSTANCE.getQualifiedName_Transactions();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.OperationImpl <em>Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.OperationImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getOperation()
+     * @generated
+     */
+    EClass OPERATION = eINSTANCE.getOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__TARGET = eINSTANCE.getOperation_Target();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.GeneralEntityImpl <em>General Entity</em>}' class.

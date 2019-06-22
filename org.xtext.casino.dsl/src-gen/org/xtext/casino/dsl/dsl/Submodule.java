@@ -50,16 +50,16 @@ public interface Submodule extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Operations</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Operation}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Operations</em>' attribute list.
+   * @return the value of the '<em>Operations</em>' containment reference list.
    * @see org.xtext.casino.dsl.dsl.DslPackage#getSubmodule_Operations()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getOperations();
+  EList<Operation> getOperations();
 
   /**
    * Returns the value of the '<em><b>Entities</b></em>' containment reference list.

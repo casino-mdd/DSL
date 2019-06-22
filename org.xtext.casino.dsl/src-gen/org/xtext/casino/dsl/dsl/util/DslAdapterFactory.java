@@ -17,6 +17,7 @@ import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
 import org.xtext.casino.dsl.dsl.Operateson;
+import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
 import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
@@ -122,6 +123,11 @@ public class DslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseQualifiedName(QualifiedName object)
       {
         return createQualifiedNameAdapter();
+      }
+      @Override
+      public Adapter caseOperation(Operation object)
+      {
+        return createOperationAdapter();
       }
       @Override
       public Adapter caseGeneralEntity(GeneralEntity object)
@@ -281,6 +287,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createQualifiedNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Operation
+   * @generated
+   */
+  public Adapter createOperationAdapter()
   {
     return null;
   }

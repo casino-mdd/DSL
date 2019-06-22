@@ -16,12 +16,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
+import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Submodule;
 
 /**
@@ -62,14 +62,14 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getOperations() <em>Operations</em>}' attribute list.
+   * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOperations()
    * @generated
    * @ordered
    */
-  protected EList<String> operations;
+  protected EList<Operation> operations;
 
   /**
    * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference list.
@@ -133,11 +133,11 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
    * @generated
    */
   @Override
-  public EList<String> getOperations()
+  public EList<Operation> getOperations()
   {
     if (operations == null)
     {
-      operations = new EDataTypeEList<String>(String.class, this, DslPackage.SUBMODULE__OPERATIONS);
+      operations = new EObjectContainmentEList<Operation>(Operation.class, this, DslPackage.SUBMODULE__OPERATIONS);
     }
     return operations;
   }
@@ -167,6 +167,8 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
   {
     switch (featureID)
     {
+      case DslPackage.SUBMODULE__OPERATIONS:
+        return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
       case DslPackage.SUBMODULE__ENTITIES:
         return ((InternalEList<?>)getEntities()).basicRemove(otherEnd, msgs);
     }
@@ -209,7 +211,7 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
         return;
       case DslPackage.SUBMODULE__OPERATIONS:
         getOperations().clear();
-        getOperations().addAll((Collection<? extends String>)newValue);
+        getOperations().addAll((Collection<? extends Operation>)newValue);
         return;
       case DslPackage.SUBMODULE__ENTITIES:
         getEntities().clear();
@@ -275,8 +277,6 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", operations: ");
-    result.append(operations);
     result.append(')');
     return result.toString();
   }

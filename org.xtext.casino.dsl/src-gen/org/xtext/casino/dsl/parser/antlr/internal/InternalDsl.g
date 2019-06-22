@@ -430,14 +430,14 @@ ruleQualifiedName returns [EObject current=null]
 ;
 
 // Entry rule entryRuleOperation
-entryRuleOperation returns [String current=null]:
+entryRuleOperation returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getOperationRule()); }
 	iv_ruleOperation=ruleOperation
-	{ $current=$iv_ruleOperation.current.getText(); }
+	{ $current=$iv_ruleOperation.current; }
 	EOF;
 
 // Rule Operation
-ruleOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleOperation returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -445,35 +445,51 @@ ruleOperation returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
 	leaveRule();
 }:
 	(
-		kw='op'
+		otherlv_0='op'
 		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getOperationAccess().getOpKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getOperationAccess().getOpKeyword_0());
 		}
-		kw='{'
+		otherlv_1='{'
 		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getOperationAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getOperationAccess().getLeftCurlyBracketKeyword_1());
 		}
-		kw='type:'
+		otherlv_2='type:'
 		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getOperationAccess().getTypeKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getOperationAccess().getTypeKeyword_2());
 		}
 		{
 			newCompositeNode(grammarAccess.getOperationAccess().getSubOperationParserRuleCall_3());
 		}
-		this_SubOperation_3=ruleSubOperation
-		{
-			$current.merge(this_SubOperation_3);
-		}
+		ruleSubOperation
 		{
 			afterParserOrEnumRuleCall();
 		}
-		kw='}'
+		otherlv_4='operates_on:'
 		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getOperationAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getOperationAccess().getOperates_onKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getOperationAccess().getTargetEntityParserRuleCall_5_0());
+				}
+				lv_target_5_0=ruleEntity
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getOperationRule());
+					}
+					add(
+						$current,
+						"target",
+						lv_target_5_0,
+						"org.xtext.casino.dsl.Dsl.Entity");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6='}'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getOperationAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;
@@ -712,19 +728,12 @@ ruleSpecialEntity returns [EObject current=null]
 				}
 			)
 		)+
-		{
-			newCompositeNode(grammarAccess.getSpecialEntityAccess().getRoleParserRuleCall_4());
-		}
-		ruleRole
-		{
-			afterParserOrEnumRuleCall();
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSpecialEntityAccess().getTransactionsTransactionParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getSpecialEntityAccess().getTransactionsTransactionParserRuleCall_4_0());
 				}
-				lv_transactions_5_0=ruleTransaction
+				lv_transactions_4_0=ruleTransaction
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSpecialEntityRule());
@@ -732,53 +741,16 @@ ruleSpecialEntity returns [EObject current=null]
 					add(
 						$current,
 						"transactions",
-						lv_transactions_5_0,
+						lv_transactions_4_0,
 						"org.xtext.casino.dsl.Dsl.Transaction");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)+
-		otherlv_6='}'
+		otherlv_5='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getSpecialEntityAccess().getRightCurlyBracketKeyword_6());
+			newLeafNode(otherlv_5, grammarAccess.getSpecialEntityAccess().getRightCurlyBracketKeyword_5());
 		}
-	)
-;
-
-// Entry rule entryRuleRole
-entryRuleRole returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getRoleRule()); }
-	iv_ruleRole=ruleRole
-	{ $current=$iv_ruleRole.current.getText(); }
-	EOF;
-
-// Rule Role
-ruleRole returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		kw='role:'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getRoleAccess().getRoleKeyword_0());
-		}
-		(
-			kw='Admin'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getRoleAccess().getAdminKeyword_1_0());
-			}
-			    |
-			kw='Aux'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getRoleAccess().getAuxKeyword_1_1());
-			}
-		)
 	)
 ;
 
