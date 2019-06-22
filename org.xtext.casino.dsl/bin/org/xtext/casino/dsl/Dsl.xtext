@@ -2,22 +2,38 @@ grammar org.xtext.casino.dsl.Dsl with org.eclipse.xtext.common.Terminals
 
 generate dsl "http://www.xtext.org/casino/dsl/Dsl"
 
-Domain:	'{'
+Domainmodel:
+    (elements+=AbstractElement)*;
+    
+AbstractElement:
+    Domain | SpecialEntity | GeneralEntity | RelationDom | Type;
+
+Domain: 'domain' '{'
 	(modules+=Module)+
-	'}';
-	
+	'}'
+
+;	
 	
 Module: 'module' name=ID '{'
 	(submodules+=Submodule)+
-	'}';
+	'}' 
+;
 	
 Submodule: 'submodule' name=ID '{'
 	(operations+=Operation)+
-	(entities+=(SpecialEntity|GeneralEntity))+
-	(relations+=RelationDom)+
-	'}';
-	
-Operation:'{'
+	(entities+=Entity)+
+	'}'
+	;
+   
+Entity:
+	  type=[QualifiedName];
+
+   
+QualifiedName:
+     name=ID
+;
+
+Operation: 'op' '{'
 	'type:' SubOperation
 	'}'	
 ;
@@ -26,38 +42,48 @@ SubOperation:
 	'Read' | 'Create'
 ;
 
-GeneralEntity: 'generalEntity' name=ID '{'
+GeneralEntity: 
+	'generalEntity' QualifiedName '{'
 	(properties+=Property)+
 	'}'
 ;
 
-Property: 'property' name=ID
+Property: 
+	name=ID ':' type=[Type];
+
+Type:
+	'dataType' name=ID	
 ;
 
-SpecialEntity: 'specialEntity' name=ID '{'
+SpecialEntity: 
+	'specialEntity' QualifiedName '{'
 	(properties+=Property)+
 	Role
 	(transactions+=Transaction)+	
 	'}'	
 ;
 
-Role:
-	'Admin' | 'Aux'
+Role: 
+	'role:' ('Admin' | 'Aux')
 ;
 	
-Transaction: '{'
+Transaction: 'trx' '{'
 	'type:' SubTransaction
-	'operates_on:' GeneralEntity
+	(operateson+=Operateson)+
 	'}'
 ;
 
+Operateson:
+	'operates_on:' type=[GeneralEntity]
+;
 SubTransaction:
-	'Exchange' | 'Sale'
+	'exchange' | 'sale'
 ;
 
-RelationDom: '{'
+RelationDom: 'rel' '{'
 	'type:' 'Composition'
-	'source:' GeneralEntity
-	'target:' type=[SpecialEntity] | type=[GeneralEntity]
+	'source:' type=[GeneralEntity]
+	'target:' target+=Entity
 	'}'
 ;
+

@@ -5,24 +5,26 @@ package org.xtext.casino.dsl.dsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.DslPackage;
-import org.xtext.casino.dsl.dsl.GeneralEntity;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>General Entity</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Element</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class GeneralEntityImpl extends AbstractElementImpl implements GeneralEntity
+public class AbstractElementImpl extends MinimalEObjectImpl.Container implements AbstractElement
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected GeneralEntityImpl()
+  protected AbstractElementImpl()
   {
     super();
   }
@@ -35,7 +37,7 @@ public class GeneralEntityImpl extends AbstractElementImpl implements GeneralEnt
   @Override
   protected EClass eStaticClass()
   {
-    return DslPackage.Literals.GENERAL_ENTITY;
+    return DslPackage.Literals.ABSTRACT_ELEMENT;
   }
 
-} //GeneralEntityImpl
+} //AbstractElementImpl

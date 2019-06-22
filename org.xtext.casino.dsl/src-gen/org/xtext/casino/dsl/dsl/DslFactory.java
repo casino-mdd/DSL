@@ -24,6 +24,24 @@ public interface DslFactory extends EFactory
   DslFactory eINSTANCE = org.xtext.casino.dsl.dsl.impl.DslFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Domainmodel</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Domainmodel</em>'.
+   * @generated
+   */
+  Domainmodel createDomainmodel();
+
+  /**
+   * Returns a new object of class '<em>Abstract Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Element</em>'.
+   * @generated
+   */
+  AbstractElement createAbstractElement();
+
+  /**
    * Returns a new object of class '<em>Domain</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -51,6 +69,24 @@ public interface DslFactory extends EFactory
   Submodule createSubmodule();
 
   /**
+   * Returns a new object of class '<em>Entity</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entity</em>'.
+   * @generated
+   */
+  Entity createEntity();
+
+  /**
+   * Returns a new object of class '<em>Qualified Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Qualified Name</em>'.
+   * @generated
+   */
+  QualifiedName createQualifiedName();
+
+  /**
    * Returns a new object of class '<em>General Entity</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,6 +105,15 @@ public interface DslFactory extends EFactory
   Property createProperty();
 
   /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
    * Returns a new object of class '<em>Special Entity</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,6 +130,15 @@ public interface DslFactory extends EFactory
    * @generated
    */
   Transaction createTransaction();
+
+  /**
+   * Returns a new object of class '<em>Operateson</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operateson</em>'.
+   * @generated
+   */
+  Operateson createOperateson();
 
   /**
    * Returns a new object of class '<em>Relation Dom</em>'.

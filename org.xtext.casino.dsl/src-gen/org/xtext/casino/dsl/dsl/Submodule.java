@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.casino.dsl.dsl.Submodule#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.Submodule#getOperations <em>Operations</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.Submodule#getEntities <em>Entities</em>}</li>
- *   <li>{@link org.xtext.casino.dsl.dsl.Submodule#getRelations <em>Relations</em>}</li>
  * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getSubmodule()
@@ -64,7 +63,7 @@ public interface Submodule extends EObject
 
   /**
    * Returns the value of the '<em><b>Entities</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Entity}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Entities</em>' containment reference list.
@@ -72,18 +71,6 @@ public interface Submodule extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<EObject> getEntities();
-
-  /**
-   * Returns the value of the '<em><b>Relations</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.casino.dsl.dsl.RelationDom}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Relations</em>' containment reference list.
-   * @see org.xtext.casino.dsl.dsl.DslPackage#getSubmodule_Relations()
-   * @model containment="true"
-   * @generated
-   */
-  EList<RelationDom> getRelations();
+  EList<Entity> getEntities();
 
 } // Submodule

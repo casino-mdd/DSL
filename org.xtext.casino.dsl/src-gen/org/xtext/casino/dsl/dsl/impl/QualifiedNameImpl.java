@@ -14,32 +14,31 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.casino.dsl.dsl.DslPackage;
-import org.xtext.casino.dsl.dsl.Entity;
-import org.xtext.casino.dsl.dsl.Submodule;
+import org.xtext.casino.dsl.dsl.Property;
+import org.xtext.casino.dsl.dsl.QualifiedName;
+import org.xtext.casino.dsl.dsl.Transaction;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Submodule</b></em>'.
+ * An implementation of the model object '<em><b>Qualified Name</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.casino.dsl.dsl.impl.SubmoduleImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.casino.dsl.dsl.impl.SubmoduleImpl#getOperations <em>Operations</em>}</li>
- *   <li>{@link org.xtext.casino.dsl.dsl.impl.SubmoduleImpl#getEntities <em>Entities</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.QualifiedNameImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.QualifiedNameImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.QualifiedNameImpl#getTransactions <em>Transactions</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submodule
+public class QualifiedNameImpl extends GeneralEntityImpl implements QualifiedName
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -62,31 +61,31 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getOperations() <em>Operations</em>}' attribute list.
+   * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperations()
+   * @see #getProperties()
    * @generated
    * @ordered
    */
-  protected EList<String> operations;
+  protected EList<Property> properties;
 
   /**
-   * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference list.
+   * The cached value of the '{@link #getTransactions() <em>Transactions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEntities()
+   * @see #getTransactions()
    * @generated
    * @ordered
    */
-  protected EList<Entity> entities;
+  protected EList<Transaction> transactions;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SubmoduleImpl()
+  protected QualifiedNameImpl()
   {
     super();
   }
@@ -99,7 +98,7 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
   @Override
   protected EClass eStaticClass()
   {
-    return DslPackage.Literals.SUBMODULE;
+    return DslPackage.Literals.QUALIFIED_NAME;
   }
 
   /**
@@ -124,7 +123,7 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.SUBMODULE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.QUALIFIED_NAME__NAME, oldName, name));
   }
 
   /**
@@ -133,13 +132,13 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
    * @generated
    */
   @Override
-  public EList<String> getOperations()
+  public EList<Property> getProperties()
   {
-    if (operations == null)
+    if (properties == null)
     {
-      operations = new EDataTypeEList<String>(String.class, this, DslPackage.SUBMODULE__OPERATIONS);
+      properties = new EObjectContainmentEList<Property>(Property.class, this, DslPackage.QUALIFIED_NAME__PROPERTIES);
     }
-    return operations;
+    return properties;
   }
 
   /**
@@ -148,13 +147,13 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
    * @generated
    */
   @Override
-  public EList<Entity> getEntities()
+  public EList<Transaction> getTransactions()
   {
-    if (entities == null)
+    if (transactions == null)
     {
-      entities = new EObjectContainmentEList<Entity>(Entity.class, this, DslPackage.SUBMODULE__ENTITIES);
+      transactions = new EObjectContainmentEList<Transaction>(Transaction.class, this, DslPackage.QUALIFIED_NAME__TRANSACTIONS);
     }
-    return entities;
+    return transactions;
   }
 
   /**
@@ -167,8 +166,10 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
   {
     switch (featureID)
     {
-      case DslPackage.SUBMODULE__ENTITIES:
-        return ((InternalEList<?>)getEntities()).basicRemove(otherEnd, msgs);
+      case DslPackage.QUALIFIED_NAME__PROPERTIES:
+        return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+      case DslPackage.QUALIFIED_NAME__TRANSACTIONS:
+        return ((InternalEList<?>)getTransactions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -183,12 +184,12 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
   {
     switch (featureID)
     {
-      case DslPackage.SUBMODULE__NAME:
+      case DslPackage.QUALIFIED_NAME__NAME:
         return getName();
-      case DslPackage.SUBMODULE__OPERATIONS:
-        return getOperations();
-      case DslPackage.SUBMODULE__ENTITIES:
-        return getEntities();
+      case DslPackage.QUALIFIED_NAME__PROPERTIES:
+        return getProperties();
+      case DslPackage.QUALIFIED_NAME__TRANSACTIONS:
+        return getTransactions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -204,16 +205,16 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
   {
     switch (featureID)
     {
-      case DslPackage.SUBMODULE__NAME:
+      case DslPackage.QUALIFIED_NAME__NAME:
         setName((String)newValue);
         return;
-      case DslPackage.SUBMODULE__OPERATIONS:
-        getOperations().clear();
-        getOperations().addAll((Collection<? extends String>)newValue);
+      case DslPackage.QUALIFIED_NAME__PROPERTIES:
+        getProperties().clear();
+        getProperties().addAll((Collection<? extends Property>)newValue);
         return;
-      case DslPackage.SUBMODULE__ENTITIES:
-        getEntities().clear();
-        getEntities().addAll((Collection<? extends Entity>)newValue);
+      case DslPackage.QUALIFIED_NAME__TRANSACTIONS:
+        getTransactions().clear();
+        getTransactions().addAll((Collection<? extends Transaction>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -229,14 +230,14 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
   {
     switch (featureID)
     {
-      case DslPackage.SUBMODULE__NAME:
+      case DslPackage.QUALIFIED_NAME__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DslPackage.SUBMODULE__OPERATIONS:
-        getOperations().clear();
+      case DslPackage.QUALIFIED_NAME__PROPERTIES:
+        getProperties().clear();
         return;
-      case DslPackage.SUBMODULE__ENTITIES:
-        getEntities().clear();
+      case DslPackage.QUALIFIED_NAME__TRANSACTIONS:
+        getTransactions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -252,12 +253,12 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
   {
     switch (featureID)
     {
-      case DslPackage.SUBMODULE__NAME:
+      case DslPackage.QUALIFIED_NAME__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DslPackage.SUBMODULE__OPERATIONS:
-        return operations != null && !operations.isEmpty();
-      case DslPackage.SUBMODULE__ENTITIES:
-        return entities != null && !entities.isEmpty();
+      case DslPackage.QUALIFIED_NAME__PROPERTIES:
+        return properties != null && !properties.isEmpty();
+      case DslPackage.QUALIFIED_NAME__TRANSACTIONS:
+        return transactions != null && !transactions.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -275,10 +276,8 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", operations: ");
-    result.append(operations);
     result.append(')');
     return result.toString();
   }
 
-} //SubmoduleImpl
+} //QualifiedNameImpl

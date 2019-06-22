@@ -8,14 +8,20 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.Domain;
+import org.xtext.casino.dsl.dsl.Domainmodel;
 import org.xtext.casino.dsl.dsl.DslPackage;
+import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Property;
+import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Transaction;
+import org.xtext.casino.dsl.dsl.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,10 +86,25 @@ public class DslSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case DslPackage.DOMAINMODEL:
+      {
+        Domainmodel domainmodel = (Domainmodel)theEObject;
+        T result = caseDomainmodel(domainmodel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.ABSTRACT_ELEMENT:
+      {
+        AbstractElement abstractElement = (AbstractElement)theEObject;
+        T result = caseAbstractElement(abstractElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DslPackage.DOMAIN:
       {
         Domain domain = (Domain)theEObject;
         T result = caseDomain(domain);
+        if (result == null) result = caseAbstractElement(domain);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -101,12 +122,28 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DslPackage.ENTITY:
+      {
+        Entity entity = (Entity)theEObject;
+        T result = caseEntity(entity);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.QUALIFIED_NAME:
+      {
+        QualifiedName qualifiedName = (QualifiedName)theEObject;
+        T result = caseQualifiedName(qualifiedName);
+        if (result == null) result = caseGeneralEntity(qualifiedName);
+        if (result == null) result = caseSpecialEntity(qualifiedName);
+        if (result == null) result = caseAbstractElement(qualifiedName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DslPackage.GENERAL_ENTITY:
       {
         GeneralEntity generalEntity = (GeneralEntity)theEObject;
         T result = caseGeneralEntity(generalEntity);
-        if (result == null) result = caseTransaction(generalEntity);
-        if (result == null) result = caseRelationDom(generalEntity);
+        if (result == null) result = caseAbstractElement(generalEntity);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -117,10 +154,19 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DslPackage.TYPE:
+      {
+        Type type = (Type)theEObject;
+        T result = caseType(type);
+        if (result == null) result = caseAbstractElement(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DslPackage.SPECIAL_ENTITY:
       {
         SpecialEntity specialEntity = (SpecialEntity)theEObject;
         T result = caseSpecialEntity(specialEntity);
+        if (result == null) result = caseAbstractElement(specialEntity);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -131,15 +177,55 @@ public class DslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DslPackage.OPERATESON:
+      {
+        Operateson operateson = (Operateson)theEObject;
+        T result = caseOperateson(operateson);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DslPackage.RELATION_DOM:
       {
         RelationDom relationDom = (RelationDom)theEObject;
         T result = caseRelationDom(relationDom);
+        if (result == null) result = caseAbstractElement(relationDom);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Domainmodel</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Domainmodel</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDomainmodel(Domainmodel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractElement(AbstractElement object)
+  {
+    return null;
   }
 
   /**
@@ -191,6 +277,38 @@ public class DslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEntity(Entity object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Qualified Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Qualified Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQualifiedName(QualifiedName object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>General Entity</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -223,6 +341,22 @@ public class DslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Special Entity</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -250,6 +384,22 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTransaction(Transaction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operateson</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operateson</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperateson(Operateson object)
   {
     return null;
   }

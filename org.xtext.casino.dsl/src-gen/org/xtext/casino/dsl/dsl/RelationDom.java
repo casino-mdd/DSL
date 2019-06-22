@@ -3,7 +3,7 @@
  */
 package org.xtext.casino.dsl.dsl;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,25 +15,26 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.RelationDom#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.RelationDom#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getRelationDom()
  * @model
  * @generated
  */
-public interface RelationDom extends EObject
+public interface RelationDom extends AbstractElement
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(EObject)
+   * @see #setType(GeneralEntity)
    * @see org.xtext.casino.dsl.dsl.DslPackage#getRelationDom_Type()
    * @model
    * @generated
    */
-  EObject getType();
+  GeneralEntity getType();
 
   /**
    * Sets the value of the '{@link org.xtext.casino.dsl.dsl.RelationDom#getType <em>Type</em>}' reference.
@@ -43,6 +44,18 @@ public interface RelationDom extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(EObject value);
+  void setType(GeneralEntity value);
+
+  /**
+   * Returns the value of the '<em><b>Target</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Entity}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Target</em>' containment reference list.
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getRelationDom_Target()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Entity> getTarget();
 
 } // RelationDom

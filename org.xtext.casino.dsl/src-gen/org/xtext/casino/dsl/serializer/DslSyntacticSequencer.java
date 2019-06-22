@@ -10,6 +10,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.casino.dsl.services.DslGrammarAccess;
@@ -18,10 +21,12 @@ import org.xtext.casino.dsl.services.DslGrammarAccess;
 public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
+		match_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getGeneralEntityAccess().getGeneralEntityKeyword_0()), new TokenAlias(false, false, grammarAccess.getSpecialEntityAccess().getSpecialEntityKeyword_0()));
 	}
 	
 	@Override
@@ -34,25 +39,25 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * Role:
-	 * 	'Admin' | 'Aux'
+	 * Role: 
+	 * 	'role:' ('Admin' | 'Aux')
 	 * ;
 	 */
 	protected String getRoleToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "Admin";
+		return "role: Admin";
 	}
 	
 	/**
 	 * SubTransaction:
-	 * 	'Exchange' | 'Sale'
+	 * 	'exchange' | 'sale'
 	 * ;
 	 */
 	protected String getSubTransactionToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "Exchange";
+		return "exchange";
 	}
 	
 	@Override
@@ -61,8 +66,21 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0.equals(syntax))
+				emit_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'generalEntity' | 'specialEntity'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) name=ID
+	 */
+	protected void emit_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

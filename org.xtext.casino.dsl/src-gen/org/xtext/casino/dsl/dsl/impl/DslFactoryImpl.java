@@ -11,15 +11,21 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.Domain;
+import org.xtext.casino.dsl.dsl.Domainmodel;
 import org.xtext.casino.dsl.dsl.DslFactory;
 import org.xtext.casino.dsl.dsl.DslPackage;
+import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Property;
+import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Transaction;
+import org.xtext.casino.dsl.dsl.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,17 +79,47 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     switch (eClass.getClassifierID())
     {
+      case DslPackage.DOMAINMODEL: return createDomainmodel();
+      case DslPackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case DslPackage.DOMAIN: return createDomain();
       case DslPackage.MODULE: return createModule();
       case DslPackage.SUBMODULE: return createSubmodule();
+      case DslPackage.ENTITY: return createEntity();
+      case DslPackage.QUALIFIED_NAME: return createQualifiedName();
       case DslPackage.GENERAL_ENTITY: return createGeneralEntity();
       case DslPackage.PROPERTY: return createProperty();
+      case DslPackage.TYPE: return createType();
       case DslPackage.SPECIAL_ENTITY: return createSpecialEntity();
       case DslPackage.TRANSACTION: return createTransaction();
+      case DslPackage.OPERATESON: return createOperateson();
       case DslPackage.RELATION_DOM: return createRelationDom();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Domainmodel createDomainmodel()
+  {
+    DomainmodelImpl domainmodel = new DomainmodelImpl();
+    return domainmodel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AbstractElement createAbstractElement()
+  {
+    AbstractElementImpl abstractElement = new AbstractElementImpl();
+    return abstractElement;
   }
 
   /**
@@ -128,6 +164,30 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * @generated
    */
   @Override
+  public Entity createEntity()
+  {
+    EntityImpl entity = new EntityImpl();
+    return entity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public QualifiedName createQualifiedName()
+  {
+    QualifiedNameImpl qualifiedName = new QualifiedNameImpl();
+    return qualifiedName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public GeneralEntity createGeneralEntity()
   {
     GeneralEntityImpl generalEntity = new GeneralEntityImpl();
@@ -152,6 +212,18 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * @generated
    */
   @Override
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SpecialEntity createSpecialEntity()
   {
     SpecialEntityImpl specialEntity = new SpecialEntityImpl();
@@ -168,6 +240,18 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     TransactionImpl transaction = new TransactionImpl();
     return transaction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Operateson createOperateson()
+  {
+    OperatesonImpl operateson = new OperatesonImpl();
+    return operateson;
   }
 
   /**

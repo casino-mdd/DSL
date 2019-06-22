@@ -3,52 +3,49 @@
  */
 package org.xtext.casino.dsl.dsl.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
+import org.xtext.casino.dsl.dsl.Entity;
+import org.xtext.casino.dsl.dsl.QualifiedName;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Domain</b></em>'.
+ * An implementation of the model object '<em><b>Entity</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.EntityImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DomainImpl extends AbstractElementImpl implements Domain
+public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
 {
   /**
-   * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getModules()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected EList<org.xtext.casino.dsl.dsl.Module> modules;
+  protected QualifiedName type;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DomainImpl()
+  protected EntityImpl()
   {
     super();
   }
@@ -61,7 +58,7 @@ public class DomainImpl extends AbstractElementImpl implements Domain
   @Override
   protected EClass eStaticClass()
   {
-    return DslPackage.Literals.DOMAIN;
+    return DslPackage.Literals.ENTITY;
   }
 
   /**
@@ -70,13 +67,29 @@ public class DomainImpl extends AbstractElementImpl implements Domain
    * @generated
    */
   @Override
-  public EList<org.xtext.casino.dsl.dsl.Module> getModules()
+  public QualifiedName getType()
   {
-    if (modules == null)
+    if (type != null && type.eIsProxy())
     {
-      modules = new EObjectContainmentEList<org.xtext.casino.dsl.dsl.Module>(org.xtext.casino.dsl.dsl.Module.class, this, DslPackage.DOMAIN__MODULES);
+      InternalEObject oldType = (InternalEObject)type;
+      type = (QualifiedName)eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DslPackage.ENTITY__TYPE, oldType, type));
+      }
     }
-    return modules;
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QualifiedName basicGetType()
+  {
+    return type;
   }
 
   /**
@@ -85,14 +98,12 @@ public class DomainImpl extends AbstractElementImpl implements Domain
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setType(QualifiedName newType)
   {
-    switch (featureID)
-    {
-      case DslPackage.DOMAIN__MODULES:
-        return ((InternalEList<?>)getModules()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    QualifiedName oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ENTITY__TYPE, oldType, type));
   }
 
   /**
@@ -105,8 +116,9 @@ public class DomainImpl extends AbstractElementImpl implements Domain
   {
     switch (featureID)
     {
-      case DslPackage.DOMAIN__MODULES:
-        return getModules();
+      case DslPackage.ENTITY__TYPE:
+        if (resolve) return getType();
+        return basicGetType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,15 +128,13 @@ public class DomainImpl extends AbstractElementImpl implements Domain
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case DslPackage.DOMAIN__MODULES:
-        getModules().clear();
-        getModules().addAll((Collection<? extends org.xtext.casino.dsl.dsl.Module>)newValue);
+      case DslPackage.ENTITY__TYPE:
+        setType((QualifiedName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +150,8 @@ public class DomainImpl extends AbstractElementImpl implements Domain
   {
     switch (featureID)
     {
-      case DslPackage.DOMAIN__MODULES:
-        getModules().clear();
+      case DslPackage.ENTITY__TYPE:
+        setType((QualifiedName)null);
         return;
     }
     super.eUnset(featureID);
@@ -157,10 +167,10 @@ public class DomainImpl extends AbstractElementImpl implements Domain
   {
     switch (featureID)
     {
-      case DslPackage.DOMAIN__MODULES:
-        return modules != null && !modules.isEmpty();
+      case DslPackage.ENTITY__TYPE:
+        return type != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //DomainImpl
+} //EntityImpl

@@ -6,6 +6,10 @@
     copyrightFields="false" runtimeVersion="2.17">
   <genPackages prefix="Dsl" basePackage="org.xtext.casino.dsl" disposableProviderFactory="true"
       fileExtensions="dsl" ecorePackage="Dsl.ecore#/">
+    <genClasses ecoreClass="Dsl.ecore#//Domainmodel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Domainmodel/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//AbstractElement"/>
     <genClasses ecoreClass="Dsl.ecore#//Domain">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Domain/modules"/>
     </genClasses>
@@ -17,23 +21,33 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Submodule/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Submodule/operations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Submodule/entities"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Submodule/relations"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//GeneralEntity">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//GeneralEntity/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//GeneralEntity/properties"/>
+    <genClasses ecoreClass="Dsl.ecore#//Entity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Entity/type"/>
     </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//QualifiedName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//QualifiedName/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//QualifiedName/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//QualifiedName/transactions"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//GeneralEntity"/>
     <genClasses ecoreClass="Dsl.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Property/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Property/type"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//SpecialEntity">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//SpecialEntity/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//SpecialEntity/properties"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//SpecialEntity/transactions"/>
+    <genClasses ecoreClass="Dsl.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Type/name"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//Transaction"/>
+    <genClasses ecoreClass="Dsl.ecore#//SpecialEntity"/>
+    <genClasses ecoreClass="Dsl.ecore#//Transaction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Transaction/operateson"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Operateson">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Operateson/type"/>
+    </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//RelationDom">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//RelationDom/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//RelationDom/target"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

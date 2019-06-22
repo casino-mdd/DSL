@@ -3,22 +3,49 @@
  */
 package org.xtext.casino.dsl.dsl.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.xtext.casino.dsl.dsl.DslPackage;
+import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Transaction;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Transaction</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.TransactionImpl#getOperateson <em>Operateson</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class TransactionImpl extends MinimalEObjectImpl.Container implements Transaction
 {
+  /**
+   * The cached value of the '{@link #getOperateson() <em>Operateson</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperateson()
+   * @generated
+   * @ordered
+   */
+  protected EList<Operateson> operateson;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +65,105 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
   protected EClass eStaticClass()
   {
     return DslPackage.Literals.TRANSACTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Operateson> getOperateson()
+  {
+    if (operateson == null)
+    {
+      operateson = new EObjectContainmentEList<Operateson>(Operateson.class, this, DslPackage.TRANSACTION__OPERATESON);
+    }
+    return operateson;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DslPackage.TRANSACTION__OPERATESON:
+        return ((InternalEList<?>)getOperateson()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case DslPackage.TRANSACTION__OPERATESON:
+        return getOperateson();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case DslPackage.TRANSACTION__OPERATESON:
+        getOperateson().clear();
+        getOperateson().addAll((Collection<? extends Operateson>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case DslPackage.TRANSACTION__OPERATESON:
+        getOperateson().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case DslPackage.TRANSACTION__OPERATESON:
+        return operateson != null && !operateson.isEmpty();
+    }
+    return super.eIsSet(featureID);
   }
 
 } //TransactionImpl
