@@ -104,7 +104,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Domain returns Domain
 	 *
 	 * Constraint:
-	 *     modules+=Module+
+	 *     (modules+=Module+ relations+=RelationDom+)
 	 */
 	protected void sequence_Domain(ISerializationContext context, Domain semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -260,7 +260,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns RelationDom
 	 *     RelationDom returns RelationDom
 	 *
 	 * Constraint:

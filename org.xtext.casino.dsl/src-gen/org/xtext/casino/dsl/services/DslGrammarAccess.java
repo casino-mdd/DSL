@@ -44,14 +44,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDomainParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSpecialEntityParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cGeneralEntityParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cRelationDomParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//AbstractElement:
-		//	Domain | SpecialEntity | GeneralEntity | RelationDom | Type;
+		//	Domain | SpecialEntity | GeneralEntity | Type;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Domain | SpecialEntity | GeneralEntity | RelationDom | Type
+		//Domain | SpecialEntity | GeneralEntity | Type
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Domain
@@ -63,11 +62,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//GeneralEntity
 		public RuleCall getGeneralEntityParserRuleCall_2() { return cGeneralEntityParserRuleCall_2; }
 		
-		//RelationDom
-		public RuleCall getRelationDomParserRuleCall_3() { return cRelationDomParserRuleCall_3; }
-		
 		//Type
-		public RuleCall getTypeParserRuleCall_4() { return cTypeParserRuleCall_4; }
+		public RuleCall getTypeParserRuleCall_3() { return cTypeParserRuleCall_3; }
 	}
 	public class DomainElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Domain");
@@ -76,15 +72,18 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cModulesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cModulesModuleParserRuleCall_2_0 = (RuleCall)cModulesAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cRelationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRelationsRelationDomParserRuleCall_3_0 = (RuleCall)cRelationsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Domain:
 		//	'domain' '{'
 		//	modules+=Module+
+		//	relations+=RelationDom+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'domain' '{' modules+=Module+ '}'
+		//'domain' '{' modules+=Module+ relations+=RelationDom+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'domain'
@@ -99,8 +98,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//Module
 		public RuleCall getModulesModuleParserRuleCall_2_0() { return cModulesModuleParserRuleCall_2_0; }
 		
+		//relations+=RelationDom+
+		public Assignment getRelationsAssignment_3() { return cRelationsAssignment_3; }
+		
+		//RelationDom
+		public RuleCall getRelationsRelationDomParserRuleCall_3_0() { return cRelationsRelationDomParserRuleCall_3_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class ModuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Module");
@@ -475,6 +480,25 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
+	public class SubTransactionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.SubTransaction");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cExchangeKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cSaleKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//SubTransaction:
+		//	'exchange' | 'sale';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'exchange' | 'sale'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'exchange'
+		public Keyword getExchangeKeyword_0() { return cExchangeKeyword_0; }
+		
+		//'sale'
+		public Keyword getSaleKeyword_1() { return cSaleKeyword_1; }
+	}
 	public class OperatesonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Operateson");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -501,25 +525,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getTypeGeneralEntityIDTerminalRuleCall_1_0_1() { return cTypeGeneralEntityIDTerminalRuleCall_1_0_1; }
-	}
-	public class SubTransactionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.SubTransaction");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cExchangeKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cSaleKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//SubTransaction:
-		//	'exchange' | 'sale';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'exchange' | 'sale'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'exchange'
-		public Keyword getExchangeKeyword_0() { return cExchangeKeyword_0; }
-		
-		//'sale'
-		public Keyword getSaleKeyword_1() { return cSaleKeyword_1; }
 	}
 	public class RelationDomElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.RelationDom");
@@ -600,8 +605,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TypeElements pType;
 	private final SpecialEntityElements pSpecialEntity;
 	private final TransactionElements pTransaction;
-	private final OperatesonElements pOperateson;
 	private final SubTransactionElements pSubTransaction;
+	private final OperatesonElements pOperateson;
 	private final RelationDomElements pRelationDom;
 	
 	private final Grammar grammar;
@@ -627,8 +632,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pType = new TypeElements();
 		this.pSpecialEntity = new SpecialEntityElements();
 		this.pTransaction = new TransactionElements();
-		this.pOperateson = new OperatesonElements();
 		this.pSubTransaction = new SubTransactionElements();
+		this.pOperateson = new OperatesonElements();
 		this.pRelationDom = new RelationDomElements();
 	}
 	
@@ -670,7 +675,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AbstractElement:
-	//	Domain | SpecialEntity | GeneralEntity | RelationDom | Type;
+	//	Domain | SpecialEntity | GeneralEntity | Type;
 	public AbstractElementElements getAbstractElementAccess() {
 		return pAbstractElement;
 	}
@@ -682,6 +687,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//Domain:
 	//	'domain' '{'
 	//	modules+=Module+
+	//	relations+=RelationDom+
 	//	'}';
 	public DomainElements getDomainAccess() {
 		return pDomain;
@@ -817,16 +823,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransactionAccess().getRule();
 	}
 	
-	//Operateson:
-	//	'operates_on:' type=[GeneralEntity];
-	public OperatesonElements getOperatesonAccess() {
-		return pOperateson;
-	}
-	
-	public ParserRule getOperatesonRule() {
-		return getOperatesonAccess().getRule();
-	}
-	
 	//SubTransaction:
 	//	'exchange' | 'sale';
 	public SubTransactionElements getSubTransactionAccess() {
@@ -835,6 +831,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSubTransactionRule() {
 		return getSubTransactionAccess().getRule();
+	}
+	
+	//Operateson:
+	//	'operates_on:' type=[GeneralEntity];
+	public OperatesonElements getOperatesonAccess() {
+		return pOperateson;
+	}
+	
+	public ParserRule getOperatesonRule() {
+		return getOperatesonAccess().getRule();
 	}
 	
 	//RelationDom:

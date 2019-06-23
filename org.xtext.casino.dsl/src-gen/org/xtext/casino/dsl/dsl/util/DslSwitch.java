@@ -196,7 +196,6 @@ public class DslSwitch<T> extends Switch<T>
       {
         RelationDom relationDom = (RelationDom)theEObject;
         T result = caseRelationDom(relationDom);
-        if (result == null) result = caseAbstractElement(relationDom);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

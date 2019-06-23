@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
+import org.xtext.casino.dsl.dsl.RelationDom;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +28,7 @@ import org.xtext.casino.dsl.dsl.DslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getRelations <em>Relations</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +44,16 @@ public class DomainImpl extends AbstractElementImpl implements Domain
    * @ordered
    */
   protected EList<org.xtext.casino.dsl.dsl.Module> modules;
+
+  /**
+   * The cached value of the '{@link #getRelations() <em>Relations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRelations()
+   * @generated
+   * @ordered
+   */
+  protected EList<RelationDom> relations;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,12 +97,29 @@ public class DomainImpl extends AbstractElementImpl implements Domain
    * @generated
    */
   @Override
+  public EList<RelationDom> getRelations()
+  {
+    if (relations == null)
+    {
+      relations = new EObjectContainmentEList<RelationDom>(RelationDom.class, this, DslPackage.DOMAIN__RELATIONS);
+    }
+    return relations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case DslPackage.DOMAIN__MODULES:
         return ((InternalEList<?>)getModules()).basicRemove(otherEnd, msgs);
+      case DslPackage.DOMAIN__RELATIONS:
+        return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,6 +136,8 @@ public class DomainImpl extends AbstractElementImpl implements Domain
     {
       case DslPackage.DOMAIN__MODULES:
         return getModules();
+      case DslPackage.DOMAIN__RELATIONS:
+        return getRelations();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -126,6 +157,10 @@ public class DomainImpl extends AbstractElementImpl implements Domain
         getModules().clear();
         getModules().addAll((Collection<? extends org.xtext.casino.dsl.dsl.Module>)newValue);
         return;
+      case DslPackage.DOMAIN__RELATIONS:
+        getRelations().clear();
+        getRelations().addAll((Collection<? extends RelationDom>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -143,6 +178,9 @@ public class DomainImpl extends AbstractElementImpl implements Domain
       case DslPackage.DOMAIN__MODULES:
         getModules().clear();
         return;
+      case DslPackage.DOMAIN__RELATIONS:
+        getRelations().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -159,6 +197,8 @@ public class DomainImpl extends AbstractElementImpl implements Domain
     {
       case DslPackage.DOMAIN__MODULES:
         return modules != null && !modules.isEmpty();
+      case DslPackage.DOMAIN__RELATIONS:
+        return relations != null && !relations.isEmpty();
     }
     return super.eIsSet(featureID);
   }

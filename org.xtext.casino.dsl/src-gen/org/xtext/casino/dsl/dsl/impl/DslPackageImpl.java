@@ -264,6 +264,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EReference getDomain_Relations()
+  {
+    return (EReference)domainEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getModule()
   {
     return moduleEClass;
@@ -615,6 +626,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     domainEClass = createEClass(DOMAIN);
     createEReference(domainEClass, DOMAIN__MODULES);
+    createEReference(domainEClass, DOMAIN__RELATIONS);
 
     moduleEClass = createEClass(MODULE);
     createEAttribute(moduleEClass, MODULE__NAME);
@@ -693,7 +705,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     generalEntityEClass.getESuperTypes().add(this.getAbstractElement());
     typeEClass.getESuperTypes().add(this.getAbstractElement());
     specialEntityEClass.getESuperTypes().add(this.getAbstractElement());
-    relationDomEClass.getESuperTypes().add(this.getAbstractElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(domainmodelEClass, Domainmodel.class, "Domainmodel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -703,6 +714,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDomain_Modules(), this.getModule(), null, "modules", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomain_Relations(), this.getRelationDom(), null, "relations", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moduleEClass, org.xtext.casino.dsl.dsl.Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.casino.dsl.dsl.Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -6,12 +6,12 @@ Domainmodel:
     (elements+=AbstractElement)*;
     
 AbstractElement:
-    Domain | SpecialEntity | GeneralEntity | RelationDom | Type;
+    Domain | SpecialEntity | GeneralEntity |  Type;
 
 Domain: 'domain' '{'
 	(modules+=Module)+
+	(relations+=RelationDom)+
 	'}'
-
 ;	
 	
 Module: 'module' name=ID '{'
@@ -23,11 +23,11 @@ Submodule: 'submodule' name=ID '{'
 	(operations+=Operation)+
 	(entities+=Entity)+
 	'}'
-	;
+;
    
 Entity:
-	  type=[QualifiedName];
-
+	  type=[QualifiedName]
+;
    
 QualifiedName:
      name=ID
@@ -69,11 +69,12 @@ Transaction: 'trx' '{'
 	'}'
 ;
 
-Operateson:
-	'operates_on:' type=[GeneralEntity]
-;
 SubTransaction:
 	'exchange' | 'sale'
+;
+
+Operateson:
+	'operates_on:' type=[GeneralEntity]
 ;
 
 RelationDom: 'rel' '{'

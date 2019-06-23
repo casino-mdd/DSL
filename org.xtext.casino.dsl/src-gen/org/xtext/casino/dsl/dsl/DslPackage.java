@@ -124,13 +124,22 @@ public interface DslPackage extends EPackage
   int DOMAIN__MODULES = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Relations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN__RELATIONS = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Domain</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+  int DOMAIN_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ModuleImpl <em>Module</em>}' class.
@@ -493,7 +502,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RELATION_DOM__TYPE = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+  int RELATION_DOM__TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' containment reference list.
@@ -502,7 +511,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RELATION_DOM__TARGET = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+  int RELATION_DOM__TARGET = 1;
 
   /**
    * The number of structural features of the '<em>Relation Dom</em>' class.
@@ -511,7 +520,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RELATION_DOM_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+  int RELATION_DOM_FEATURE_COUNT = 2;
 
 
   /**
@@ -565,6 +574,17 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EReference getDomain_Modules();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Domain#getRelations <em>Relations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Relations</em>'.
+   * @see org.xtext.casino.dsl.dsl.Domain#getRelations()
+   * @see #getDomain()
+   * @generated
+   */
+  EReference getDomain_Relations();
 
   /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Module <em>Module</em>}'.
@@ -941,6 +961,14 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EReference DOMAIN__MODULES = eINSTANCE.getDomain_Modules();
+
+    /**
+     * The meta object literal for the '<em><b>Relations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DOMAIN__RELATIONS = eINSTANCE.getDomain_Relations();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ModuleImpl <em>Module</em>}' class.

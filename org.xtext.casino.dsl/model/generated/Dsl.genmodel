@@ -12,6 +12,7 @@
     <genClasses ecoreClass="Dsl.ecore#//AbstractElement"/>
     <genClasses ecoreClass="Dsl.ecore#//Domain">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Domain/modules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Domain/relations"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Module">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Module/name"/>

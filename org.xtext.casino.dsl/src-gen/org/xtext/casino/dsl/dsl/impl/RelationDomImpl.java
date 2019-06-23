@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,7 +38,7 @@ import org.xtext.casino.dsl.dsl.RelationDom;
  *
  * @generated
  */
-public class RelationDomImpl extends AbstractElementImpl implements RelationDom
+public class RelationDomImpl extends MinimalEObjectImpl.Container implements RelationDom
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' reference.

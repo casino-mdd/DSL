@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.Domain#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.Domain#getRelations <em>Relations</em>}</li>
  * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getDomain()
@@ -34,5 +35,17 @@ public interface Domain extends AbstractElement
    * @generated
    */
   EList<org.xtext.casino.dsl.dsl.Module> getModules();
+
+  /**
+   * Returns the value of the '<em><b>Relations</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.RelationDom}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Relations</em>' containment reference list.
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getDomain_Relations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<RelationDom> getRelations();
 
 } // Domain

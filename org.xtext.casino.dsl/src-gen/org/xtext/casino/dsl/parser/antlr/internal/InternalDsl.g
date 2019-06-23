@@ -140,20 +140,11 @@ ruleAbstractElement returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getRelationDomParserRuleCall_3());
+			newCompositeNode(grammarAccess.getAbstractElementAccess().getTypeParserRuleCall_3());
 		}
-		this_RelationDom_3=ruleRelationDom
+		this_Type_3=ruleType
 		{
-			$current = $this_RelationDom_3.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getTypeParserRuleCall_4());
-		}
-		this_Type_4=ruleType
-		{
-			$current = $this_Type_4.current;
+			$current = $this_Type_3.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -202,9 +193,28 @@ ruleDomain returns [EObject current=null]
 				}
 			)
 		)+
-		otherlv_3='}'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDomainAccess().getRelationsRelationDomParserRuleCall_3_0());
+				}
+				lv_relations_3_0=ruleRelationDom
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDomainRule());
+					}
+					add(
+						$current,
+						"relations",
+						lv_relations_3_0,
+						"org.xtext.casino.dsl.Dsl.RelationDom");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_4='}'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getDomainAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getDomainAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;
@@ -815,6 +825,36 @@ ruleTransaction returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleSubTransaction
+entryRuleSubTransaction returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getSubTransactionRule()); }
+	iv_ruleSubTransaction=ruleSubTransaction
+	{ $current=$iv_ruleSubTransaction.current.getText(); }
+	EOF;
+
+// Rule SubTransaction
+ruleSubTransaction returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='exchange'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getSubTransactionAccess().getExchangeKeyword_0());
+		}
+		    |
+		kw='sale'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getSubTransactionAccess().getSaleKeyword_1());
+		}
+	)
+;
+
 // Entry rule entryRuleOperateson
 entryRuleOperateson returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getOperatesonRule()); }
@@ -848,36 +888,6 @@ ruleOperateson returns [EObject current=null]
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleSubTransaction
-entryRuleSubTransaction returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getSubTransactionRule()); }
-	iv_ruleSubTransaction=ruleSubTransaction
-	{ $current=$iv_ruleSubTransaction.current.getText(); }
-	EOF;
-
-// Rule SubTransaction
-ruleSubTransaction returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		kw='exchange'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getSubTransactionAccess().getExchangeKeyword_0());
-		}
-		    |
-		kw='sale'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getSubTransactionAccess().getSaleKeyword_1());
-		}
 	)
 ;
 

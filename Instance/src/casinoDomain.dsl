@@ -3,16 +3,7 @@ dataType Boolean
 dataType Num
 dataType Date
 
-generalEntity Points {   
-	idPoint:Num
-	idSale:Num
-	totalPoints:Num
-	expDate:Date
-	createdAt:Date
-}
-
 generalEntity Client {   
-	idPerson:Num
 	idClient:Num
 	age:Num
 	gender:String
@@ -26,7 +17,7 @@ generalEntity Client {
 }
 
 generalEntity Employee {   
-	idPerson:Num
+	idEmployee:Num
 	age:Num
 	gender:String
 	name:String
@@ -36,7 +27,6 @@ generalEntity Employee {
 	indentificationNumber:Num
 	createdAt:Date
 	updatedAt:Date		
-	idEmployee:Num
 	idOffice:Num
 	position:String
 	admitionDate:Date
@@ -48,6 +38,14 @@ generalEntity Reward {
 	name: String
 	pointNeed:Num
 	isAvailable:Boolean	
+}
+
+generalEntity Points {   
+	idPoint:Num
+	idSale:Num
+	totalPoints:Num
+	expDate:Date
+	createdAt:Date
 }
 
 generalEntity Office {  
@@ -207,31 +205,23 @@ domain {
 			Sale
 		}
 	}
-}
+	
+	rel {
+		type:Composition
+		source: Office
+		target: Employee
+	}
 
-rel {
-	type:Composition
-	source: Office
-	target: Employee
-}
+	rel {
+		type:Composition
+		source: Office
+		target: Reward
+	}
 
-rel {
-	type:Composition
-	source: Office
-	target: Reward
-}
-
-rel {
-	type:Composition
-	source: Employee
-	target: UserAcc
-}
-
-
-
-
-
-
-
-
+	rel {
+		type:Composition
+		source: Employee
+		target: UserAcc
+	}
+} //Domain
 
