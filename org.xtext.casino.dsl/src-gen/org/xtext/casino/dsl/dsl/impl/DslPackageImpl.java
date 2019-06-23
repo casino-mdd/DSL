@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.Domain;
-import org.xtext.casino.dsl.dsl.Domainmodel;
 import org.xtext.casino.dsl.dsl.DslFactory;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
@@ -24,6 +23,7 @@ import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
 import org.xtext.casino.dsl.dsl.Submodule;
+import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
 import org.xtext.casino.dsl.dsl.Type;
 
@@ -40,14 +40,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass domainmodelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass abstractElementEClass = null;
+  private EClass systemEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -55,6 +48,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass domainEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -141,6 +141,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   private EClass relationDomEClass = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass technologyEClass = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -209,9 +216,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EClass getDomainmodel()
+  public EClass getSystem()
   {
-    return domainmodelEClass;
+    return systemEClass;
   }
 
   /**
@@ -220,9 +227,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EReference getDomainmodel_Elements()
+  public EReference getSystem_Dom()
   {
-    return (EReference)domainmodelEClass.getEStructuralFeatures().get(0);
+    return (EReference)systemEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -231,9 +238,20 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EClass getAbstractElement()
+  public EAttribute getSystem_Arch()
   {
-    return abstractElementEClass;
+    return (EAttribute)systemEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSystem_Tech()
+  {
+    return (EReference)systemEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -253,7 +271,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EReference getDomain_Modules()
+  public EReference getDomain_Elements()
   {
     return (EReference)domainEClass.getEStructuralFeatures().get(0);
   }
@@ -264,9 +282,31 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EReference getDomain_Relations()
+  public EReference getDomain_Modules()
   {
     return (EReference)domainEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDomain_Relations()
+  {
+    return (EReference)domainEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAbstractElement()
+  {
+    return abstractElementEClass;
   }
 
   /**
@@ -594,6 +634,39 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EClass getTechnology()
+  {
+    return technologyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTechnology_Java()
+  {
+    return (EAttribute)technologyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTechnology_React()
+  {
+    return (EAttribute)technologyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public DslFactory getDslFactory()
   {
     return (DslFactory)getEFactoryInstance();
@@ -619,14 +692,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     isCreated = true;
 
     // Create classes and their features
-    domainmodelEClass = createEClass(DOMAINMODEL);
-    createEReference(domainmodelEClass, DOMAINMODEL__ELEMENTS);
-
-    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
+    systemEClass = createEClass(SYSTEM);
+    createEReference(systemEClass, SYSTEM__DOM);
+    createEAttribute(systemEClass, SYSTEM__ARCH);
+    createEReference(systemEClass, SYSTEM__TECH);
 
     domainEClass = createEClass(DOMAIN);
+    createEReference(domainEClass, DOMAIN__ELEMENTS);
     createEReference(domainEClass, DOMAIN__MODULES);
     createEReference(domainEClass, DOMAIN__RELATIONS);
+
+    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
 
     moduleEClass = createEClass(MODULE);
     createEAttribute(moduleEClass, MODULE__NAME);
@@ -668,6 +744,10 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     relationDomEClass = createEClass(RELATION_DOM);
     createEReference(relationDomEClass, RELATION_DOM__TYPE);
     createEReference(relationDomEClass, RELATION_DOM__TARGET);
+
+    technologyEClass = createEClass(TECHNOLOGY);
+    createEAttribute(technologyEClass, TECHNOLOGY__JAVA);
+    createEAttribute(technologyEClass, TECHNOLOGY__REACT);
   }
 
   /**
@@ -699,7 +779,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    domainEClass.getESuperTypes().add(this.getAbstractElement());
     qualifiedNameEClass.getESuperTypes().add(this.getGeneralEntity());
     qualifiedNameEClass.getESuperTypes().add(this.getSpecialEntity());
     generalEntityEClass.getESuperTypes().add(this.getAbstractElement());
@@ -707,14 +786,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     specialEntityEClass.getESuperTypes().add(this.getAbstractElement());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(domainmodelEClass, Domainmodel.class, "Domainmodel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomainmodel_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, Domainmodel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(systemEClass, org.xtext.casino.dsl.dsl.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSystem_Dom(), this.getDomain(), null, "dom", null, 0, 1, org.xtext.casino.dsl.dsl.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSystem_Arch(), ecorePackage.getEString(), "arch", null, 0, 1, org.xtext.casino.dsl.dsl.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSystem_Tech(), this.getTechnology(), null, "tech", null, 0, 1, org.xtext.casino.dsl.dsl.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDomain_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomain_Modules(), this.getModule(), null, "modules", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomain_Relations(), this.getRelationDom(), null, "relations", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(moduleEClass, org.xtext.casino.dsl.dsl.Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.casino.dsl.dsl.Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -756,6 +838,10 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEClass(relationDomEClass, RelationDom.class, "RelationDom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRelationDom_Type(), this.getGeneralEntity(), null, "type", null, 0, 1, RelationDom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRelationDom_Target(), this.getEntity(), null, "target", null, 0, -1, RelationDom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(technologyEClass, Technology.class, "Technology", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTechnology_Java(), ecorePackage.getEString(), "java", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTechnology_React(), ecorePackage.getEString(), "react", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

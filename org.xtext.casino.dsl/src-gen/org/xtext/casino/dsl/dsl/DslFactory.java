@@ -24,22 +24,13 @@ public interface DslFactory extends EFactory
   DslFactory eINSTANCE = org.xtext.casino.dsl.dsl.impl.DslFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Domainmodel</em>'.
+   * Returns a new object of class '<em>System</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Domainmodel</em>'.
+   * @return a new object of class '<em>System</em>'.
    * @generated
    */
-  Domainmodel createDomainmodel();
-
-  /**
-   * Returns a new object of class '<em>Abstract Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Element</em>'.
-   * @generated
-   */
-  AbstractElement createAbstractElement();
+  System createSystem();
 
   /**
    * Returns a new object of class '<em>Domain</em>'.
@@ -49,6 +40,15 @@ public interface DslFactory extends EFactory
    * @generated
    */
   Domain createDomain();
+
+  /**
+   * Returns a new object of class '<em>Abstract Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Element</em>'.
+   * @generated
+   */
+  AbstractElement createAbstractElement();
 
   /**
    * Returns a new object of class '<em>Module</em>'.
@@ -157,6 +157,15 @@ public interface DslFactory extends EFactory
    * @generated
    */
   RelationDom createRelationDom();
+
+  /**
+   * Returns a new object of class '<em>Technology</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Technology</em>'.
+   * @generated
+   */
+  Technology createTechnology();
 
   /**
    * Returns the package supported by this factory.

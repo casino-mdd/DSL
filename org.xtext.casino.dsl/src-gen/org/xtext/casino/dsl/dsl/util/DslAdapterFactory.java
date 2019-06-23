@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.Domain;
-import org.xtext.casino.dsl.dsl.Domainmodel;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
@@ -23,6 +22,7 @@ import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
 import org.xtext.casino.dsl.dsl.Submodule;
+import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
 import org.xtext.casino.dsl.dsl.Type;
 
@@ -90,19 +90,19 @@ public class DslAdapterFactory extends AdapterFactoryImpl
     new DslSwitch<Adapter>()
     {
       @Override
-      public Adapter caseDomainmodel(Domainmodel object)
+      public Adapter caseSystem(org.xtext.casino.dsl.dsl.System object)
       {
-        return createDomainmodelAdapter();
-      }
-      @Override
-      public Adapter caseAbstractElement(AbstractElement object)
-      {
-        return createAbstractElementAdapter();
+        return createSystemAdapter();
       }
       @Override
       public Adapter caseDomain(Domain object)
       {
         return createDomainAdapter();
+      }
+      @Override
+      public Adapter caseAbstractElement(AbstractElement object)
+      {
+        return createAbstractElementAdapter();
       }
       @Override
       public Adapter caseModule(org.xtext.casino.dsl.dsl.Module object)
@@ -165,6 +165,11 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createRelationDomAdapter();
       }
       @Override
+      public Adapter caseTechnology(Technology object)
+      {
+        return createTechnologyAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -187,31 +192,16 @@ public class DslAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Domainmodel <em>Domainmodel</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.System <em>System</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.casino.dsl.dsl.Domainmodel
+   * @see org.xtext.casino.dsl.dsl.System
    * @generated
    */
-  public Adapter createDomainmodelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.AbstractElement <em>Abstract Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.casino.dsl.dsl.AbstractElement
-   * @generated
-   */
-  public Adapter createAbstractElementAdapter()
+  public Adapter createSystemAdapter()
   {
     return null;
   }
@@ -227,6 +217,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDomainAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.AbstractElement <em>Abstract Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.AbstractElement
+   * @generated
+   */
+  public Adapter createAbstractElementAdapter()
   {
     return null;
   }
@@ -407,6 +412,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRelationDomAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Technology <em>Technology</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Technology
+   * @generated
+   */
+  public Adapter createTechnologyAdapter()
   {
     return null;
   }

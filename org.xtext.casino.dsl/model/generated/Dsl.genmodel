@@ -6,14 +6,17 @@
     copyrightFields="false" runtimeVersion="2.17">
   <genPackages prefix="Dsl" basePackage="org.xtext.casino.dsl" disposableProviderFactory="true"
       fileExtensions="dsl" ecorePackage="Dsl.ecore#/">
-    <genClasses ecoreClass="Dsl.ecore#//Domainmodel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Domainmodel/elements"/>
+    <genClasses ecoreClass="Dsl.ecore#//System">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//System/dom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//System/arch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//System/tech"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//AbstractElement"/>
     <genClasses ecoreClass="Dsl.ecore#//Domain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Domain/elements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Domain/modules"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Domain/relations"/>
     </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//AbstractElement"/>
     <genClasses ecoreClass="Dsl.ecore#//Module">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Module/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Module/submodules"/>
@@ -52,6 +55,10 @@
     <genClasses ecoreClass="Dsl.ecore#//RelationDom">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//RelationDom/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//RelationDom/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Technology">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Technology/java"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Technology/react"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

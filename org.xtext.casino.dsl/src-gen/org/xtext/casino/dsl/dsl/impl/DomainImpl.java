@@ -12,9 +12,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.RelationDom;
@@ -27,14 +30,25 @@ import org.xtext.casino.dsl.dsl.RelationDom;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getModules <em>Modules</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getRelations <em>Relations</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DomainImpl extends AbstractElementImpl implements Domain
+public class DomainImpl extends MinimalEObjectImpl.Container implements Domain
 {
+  /**
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getElements()
+   * @generated
+   * @ordered
+   */
+  protected EList<AbstractElement> elements;
+
   /**
    * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -82,6 +96,21 @@ public class DomainImpl extends AbstractElementImpl implements Domain
    * @generated
    */
   @Override
+  public EList<AbstractElement> getElements()
+  {
+    if (elements == null)
+    {
+      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, DslPackage.DOMAIN__ELEMENTS);
+    }
+    return elements;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<org.xtext.casino.dsl.dsl.Module> getModules()
   {
     if (modules == null)
@@ -116,6 +145,8 @@ public class DomainImpl extends AbstractElementImpl implements Domain
   {
     switch (featureID)
     {
+      case DslPackage.DOMAIN__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
       case DslPackage.DOMAIN__MODULES:
         return ((InternalEList<?>)getModules()).basicRemove(otherEnd, msgs);
       case DslPackage.DOMAIN__RELATIONS:
@@ -134,6 +165,8 @@ public class DomainImpl extends AbstractElementImpl implements Domain
   {
     switch (featureID)
     {
+      case DslPackage.DOMAIN__ELEMENTS:
+        return getElements();
       case DslPackage.DOMAIN__MODULES:
         return getModules();
       case DslPackage.DOMAIN__RELATIONS:
@@ -153,6 +186,10 @@ public class DomainImpl extends AbstractElementImpl implements Domain
   {
     switch (featureID)
     {
+      case DslPackage.DOMAIN__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends AbstractElement>)newValue);
+        return;
       case DslPackage.DOMAIN__MODULES:
         getModules().clear();
         getModules().addAll((Collection<? extends org.xtext.casino.dsl.dsl.Module>)newValue);
@@ -175,6 +212,9 @@ public class DomainImpl extends AbstractElementImpl implements Domain
   {
     switch (featureID)
     {
+      case DslPackage.DOMAIN__ELEMENTS:
+        getElements().clear();
+        return;
       case DslPackage.DOMAIN__MODULES:
         getModules().clear();
         return;
@@ -195,6 +235,8 @@ public class DomainImpl extends AbstractElementImpl implements Domain
   {
     switch (featureID)
     {
+      case DslPackage.DOMAIN__ELEMENTS:
+        return elements != null && !elements.isEmpty();
       case DslPackage.DOMAIN__MODULES:
         return modules != null && !modules.isEmpty();
       case DslPackage.DOMAIN__RELATIONS:

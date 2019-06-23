@@ -2,18 +2,27 @@ grammar org.xtext.casino.dsl.Dsl with org.eclipse.xtext.common.Terminals
 
 generate dsl "http://www.xtext.org/casino/dsl/Dsl"
 
-Domainmodel:
-    (elements+=AbstractElement)*;
-    
-AbstractElement:
-    Domain | SpecialEntity | GeneralEntity |  Type;
+//---------------------- System ------------------------------------------------
+System: 'Casino' '{' 
+	dom=Domain
+	arch=Architecture
+	tech=Technology
+	'}'
+;
 
+// --------------------- Domain ------------------------------------------------
 Domain: 'domain' '{'
+	(elements+=AbstractElement)*
 	(modules+=Module)+
 	(relations+=RelationDom)+
+
 	'}'
 ;	
-	
+
+AbstractElement:
+     SpecialEntity | GeneralEntity |  Type
+;
+     
 Module: 'module' name=ID '{'
 	(submodules+=Submodule)+
 	'}' 
@@ -84,3 +93,28 @@ RelationDom: 'rel' '{'
 	'}'
 ;
 
+// --------------------- Architecture ----------------------------------------------
+
+Architecture:
+	'arch' '{'
+	'}'
+;
+// --------------------- Technology ------------------------------------------------
+
+Technology:
+	'tech' '{'
+		java=JavaApp
+		react=ReactApp
+	'}'
+;
+// --------------------- Backend----- ----------------------------------------------
+JavaApp:
+	'javaApp' '{'
+	'}'
+;
+// --------------------- Frontend---- ----------------------------------------------
+
+ReactApp:
+	'reactApp' '{'
+	'}'
+;

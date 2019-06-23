@@ -23,67 +23,81 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class DomainmodelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Domainmodel");
-		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElementsAbstractElementParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
+	public class SystemElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.System");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCasinoKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDomAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDomDomainParserRuleCall_2_0 = (RuleCall)cDomAssignment_2.eContents().get(0);
+		private final Assignment cArchAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cArchArchitectureParserRuleCall_3_0 = (RuleCall)cArchAssignment_3.eContents().get(0);
+		private final Assignment cTechAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTechTechnologyParserRuleCall_4_0 = (RuleCall)cTechAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//Domainmodel:
-		//	elements+=AbstractElement*;
+		////---------------------- System ------------------------------------------------
+		//System:
+		//	'Casino' '{'
+		//	dom=Domain
+		//	arch=Architecture
+		//	tech=Technology
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//elements+=AbstractElement*
-		public Assignment getElementsAssignment() { return cElementsAssignment; }
+		//'Casino' '{' dom=Domain arch=Architecture tech=Technology '}'
+		public Group getGroup() { return cGroup; }
 		
-		//AbstractElement
-		public RuleCall getElementsAbstractElementParserRuleCall_0() { return cElementsAbstractElementParserRuleCall_0; }
-	}
-	public class AbstractElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.AbstractElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDomainParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSpecialEntityParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cGeneralEntityParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		//'Casino'
+		public Keyword getCasinoKeyword_0() { return cCasinoKeyword_0; }
 		
-		//AbstractElement:
-		//	Domain | SpecialEntity | GeneralEntity | Type;
-		@Override public ParserRule getRule() { return rule; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//Domain | SpecialEntity | GeneralEntity | Type
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//dom=Domain
+		public Assignment getDomAssignment_2() { return cDomAssignment_2; }
 		
 		//Domain
-		public RuleCall getDomainParserRuleCall_0() { return cDomainParserRuleCall_0; }
+		public RuleCall getDomDomainParserRuleCall_2_0() { return cDomDomainParserRuleCall_2_0; }
 		
-		//SpecialEntity
-		public RuleCall getSpecialEntityParserRuleCall_1() { return cSpecialEntityParserRuleCall_1; }
+		//arch=Architecture
+		public Assignment getArchAssignment_3() { return cArchAssignment_3; }
 		
-		//GeneralEntity
-		public RuleCall getGeneralEntityParserRuleCall_2() { return cGeneralEntityParserRuleCall_2; }
+		//Architecture
+		public RuleCall getArchArchitectureParserRuleCall_3_0() { return cArchArchitectureParserRuleCall_3_0; }
 		
-		//Type
-		public RuleCall getTypeParserRuleCall_3() { return cTypeParserRuleCall_3; }
+		//tech=Technology
+		public Assignment getTechAssignment_4() { return cTechAssignment_4; }
+		
+		//Technology
+		public RuleCall getTechTechnologyParserRuleCall_4_0() { return cTechTechnologyParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class DomainElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Domain");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDomainKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cModulesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cModulesModuleParserRuleCall_2_0 = (RuleCall)cModulesAssignment_2.eContents().get(0);
-		private final Assignment cRelationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRelationsRelationDomParserRuleCall_3_0 = (RuleCall)cRelationsAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsAbstractElementParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
+		private final Assignment cModulesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cModulesModuleParserRuleCall_3_0 = (RuleCall)cModulesAssignment_3.eContents().get(0);
+		private final Assignment cRelationsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRelationsRelationDomParserRuleCall_4_0 = (RuleCall)cRelationsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
+		//// --------------------- Domain ------------------------------------------------
 		//Domain:
 		//	'domain' '{'
+		//	elements+=AbstractElement*
 		//	modules+=Module+
 		//	relations+=RelationDom+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'domain' '{' modules+=Module+ relations+=RelationDom+ '}'
+		//'domain' '{' elements+=AbstractElement* modules+=Module+ relations+=RelationDom+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'domain'
@@ -92,20 +106,49 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
+		//elements+=AbstractElement*
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
+		
+		//AbstractElement
+		public RuleCall getElementsAbstractElementParserRuleCall_2_0() { return cElementsAbstractElementParserRuleCall_2_0; }
+		
 		//modules+=Module+
-		public Assignment getModulesAssignment_2() { return cModulesAssignment_2; }
+		public Assignment getModulesAssignment_3() { return cModulesAssignment_3; }
 		
 		//Module
-		public RuleCall getModulesModuleParserRuleCall_2_0() { return cModulesModuleParserRuleCall_2_0; }
+		public RuleCall getModulesModuleParserRuleCall_3_0() { return cModulesModuleParserRuleCall_3_0; }
 		
 		//relations+=RelationDom+
-		public Assignment getRelationsAssignment_3() { return cRelationsAssignment_3; }
+		public Assignment getRelationsAssignment_4() { return cRelationsAssignment_4; }
 		
 		//RelationDom
-		public RuleCall getRelationsRelationDomParserRuleCall_3_0() { return cRelationsRelationDomParserRuleCall_3_0; }
+		public RuleCall getRelationsRelationDomParserRuleCall_4_0() { return cRelationsRelationDomParserRuleCall_4_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class AbstractElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.AbstractElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSpecialEntityParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cGeneralEntityParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//AbstractElement:
+		//	SpecialEntity | GeneralEntity | Type;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//SpecialEntity | GeneralEntity | Type
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//SpecialEntity
+		public RuleCall getSpecialEntityParserRuleCall_0() { return cSpecialEntityParserRuleCall_0; }
+		
+		//GeneralEntity
+		public RuleCall getGeneralEntityParserRuleCall_1() { return cGeneralEntityParserRuleCall_1; }
+		
+		//Type
+		public RuleCall getTypeParserRuleCall_2() { return cTypeParserRuleCall_2; }
 	}
 	public class ModuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Module");
@@ -589,11 +632,129 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
+	public class ArchitectureElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Architecture");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cArchKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//// --------------------- Architecture ----------------------------------------------
+		//Architecture:
+		//	'arch' '{'
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'arch' '{' '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'arch'
+		public Keyword getArchKeyword_0() { return cArchKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+	public class TechnologyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Technology");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTechKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cJavaAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cJavaJavaAppParserRuleCall_2_0 = (RuleCall)cJavaAssignment_2.eContents().get(0);
+		private final Assignment cReactAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cReactReactAppParserRuleCall_3_0 = (RuleCall)cReactAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//// --------------------- Technology ------------------------------------------------
+		//Technology:
+		//	'tech' '{'
+		//	java=JavaApp
+		//	react=ReactApp
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'tech' '{' java=JavaApp react=ReactApp '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'tech'
+		public Keyword getTechKeyword_0() { return cTechKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//java=JavaApp
+		public Assignment getJavaAssignment_2() { return cJavaAssignment_2; }
+		
+		//JavaApp
+		public RuleCall getJavaJavaAppParserRuleCall_2_0() { return cJavaJavaAppParserRuleCall_2_0; }
+		
+		//react=ReactApp
+		public Assignment getReactAssignment_3() { return cReactAssignment_3; }
+		
+		//ReactApp
+		public RuleCall getReactReactAppParserRuleCall_3_0() { return cReactReactAppParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class JavaAppElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.JavaApp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cJavaAppKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//// --------------------- Backend----- ----------------------------------------------
+		//JavaApp:
+		//	'javaApp' '{'
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'javaApp' '{' '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'javaApp'
+		public Keyword getJavaAppKeyword_0() { return cJavaAppKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+	public class ReactAppElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.ReactApp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cReactAppKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//// --------------------- Frontend---- ----------------------------------------------
+		//ReactApp:
+		//	'reactApp' '{'
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'reactApp' '{' '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'reactApp'
+		public Keyword getReactAppKeyword_0() { return cReactAppKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
 	
 	
-	private final DomainmodelElements pDomainmodel;
-	private final AbstractElementElements pAbstractElement;
+	private final SystemElements pSystem;
 	private final DomainElements pDomain;
+	private final AbstractElementElements pAbstractElement;
 	private final ModuleElements pModule;
 	private final SubmoduleElements pSubmodule;
 	private final EntityElements pEntity;
@@ -608,6 +769,10 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final SubTransactionElements pSubTransaction;
 	private final OperatesonElements pOperateson;
 	private final RelationDomElements pRelationDom;
+	private final ArchitectureElements pArchitecture;
+	private final TechnologyElements pTechnology;
+	private final JavaAppElements pJavaApp;
+	private final ReactAppElements pReactApp;
 	
 	private final Grammar grammar;
 	
@@ -618,9 +783,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pDomainmodel = new DomainmodelElements();
-		this.pAbstractElement = new AbstractElementElements();
+		this.pSystem = new SystemElements();
 		this.pDomain = new DomainElements();
+		this.pAbstractElement = new AbstractElementElements();
 		this.pModule = new ModuleElements();
 		this.pSubmodule = new SubmoduleElements();
 		this.pEntity = new EntityElements();
@@ -635,6 +800,10 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSubTransaction = new SubTransactionElements();
 		this.pOperateson = new OperatesonElements();
 		this.pRelationDom = new RelationDomElements();
+		this.pArchitecture = new ArchitectureElements();
+		this.pTechnology = new TechnologyElements();
+		this.pJavaApp = new JavaAppElements();
+		this.pReactApp = new ReactAppElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -664,28 +833,25 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Domainmodel:
-	//	elements+=AbstractElement*;
-	public DomainmodelElements getDomainmodelAccess() {
-		return pDomainmodel;
+	////---------------------- System ------------------------------------------------
+	//System:
+	//	'Casino' '{'
+	//	dom=Domain
+	//	arch=Architecture
+	//	tech=Technology
+	//	'}';
+	public SystemElements getSystemAccess() {
+		return pSystem;
 	}
 	
-	public ParserRule getDomainmodelRule() {
-		return getDomainmodelAccess().getRule();
+	public ParserRule getSystemRule() {
+		return getSystemAccess().getRule();
 	}
 	
-	//AbstractElement:
-	//	Domain | SpecialEntity | GeneralEntity | Type;
-	public AbstractElementElements getAbstractElementAccess() {
-		return pAbstractElement;
-	}
-	
-	public ParserRule getAbstractElementRule() {
-		return getAbstractElementAccess().getRule();
-	}
-	
+	//// --------------------- Domain ------------------------------------------------
 	//Domain:
 	//	'domain' '{'
+	//	elements+=AbstractElement*
 	//	modules+=Module+
 	//	relations+=RelationDom+
 	//	'}';
@@ -695,6 +861,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDomainRule() {
 		return getDomainAccess().getRule();
+	}
+	
+	//AbstractElement:
+	//	SpecialEntity | GeneralEntity | Type;
+	public AbstractElementElements getAbstractElementAccess() {
+		return pAbstractElement;
+	}
+	
+	public ParserRule getAbstractElementRule() {
+		return getAbstractElementAccess().getRule();
 	}
 	
 	//Module:
@@ -855,6 +1031,56 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getRelationDomRule() {
 		return getRelationDomAccess().getRule();
+	}
+	
+	//// --------------------- Architecture ----------------------------------------------
+	//Architecture:
+	//	'arch' '{'
+	//	'}';
+	public ArchitectureElements getArchitectureAccess() {
+		return pArchitecture;
+	}
+	
+	public ParserRule getArchitectureRule() {
+		return getArchitectureAccess().getRule();
+	}
+	
+	//// --------------------- Technology ------------------------------------------------
+	//Technology:
+	//	'tech' '{'
+	//	java=JavaApp
+	//	react=ReactApp
+	//	'}';
+	public TechnologyElements getTechnologyAccess() {
+		return pTechnology;
+	}
+	
+	public ParserRule getTechnologyRule() {
+		return getTechnologyAccess().getRule();
+	}
+	
+	//// --------------------- Backend----- ----------------------------------------------
+	//JavaApp:
+	//	'javaApp' '{'
+	//	'}';
+	public JavaAppElements getJavaAppAccess() {
+		return pJavaApp;
+	}
+	
+	public ParserRule getJavaAppRule() {
+		return getJavaAppAccess().getRule();
+	}
+	
+	//// --------------------- Frontend---- ----------------------------------------------
+	//ReactApp:
+	//	'reactApp' '{'
+	//	'}';
+	public ReactAppElements getReactAppAccess() {
+		return pReactApp;
+	}
+	
+	public ParserRule getReactAppRule() {
+		return getReactAppAccess().getRule();
 	}
 	
 	//terminal ID:

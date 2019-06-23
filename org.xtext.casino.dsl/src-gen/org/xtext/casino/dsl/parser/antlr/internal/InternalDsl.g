@@ -43,7 +43,7 @@ import org.xtext.casino.dsl.services.DslGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Domainmodel";
+    	return "System";
    	}
 
    	@Override
@@ -60,15 +60,15 @@ import org.xtext.casino.dsl.services.DslGrammarAccess;
     }
 }
 
-// Entry rule entryRuleDomainmodel
-entryRuleDomainmodel returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDomainmodelRule()); }
-	iv_ruleDomainmodel=ruleDomainmodel
-	{ $current=$iv_ruleDomainmodel.current; }
+// Entry rule entryRuleSystem
+entryRuleSystem returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSystemRule()); }
+	iv_ruleSystem=ruleSystem
+	{ $current=$iv_ruleSystem.current; }
 	EOF;
 
-// Rule Domainmodel
-ruleDomainmodel returns [EObject current=null]
+// Rule System
+ruleSystem returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -76,76 +76,74 @@ ruleDomainmodel returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='Casino'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSystemAccess().getCasinoKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getSystemAccess().getLeftCurlyBracketKeyword_1());
+		}
 		(
-			{
-				newCompositeNode(grammarAccess.getDomainmodelAccess().getElementsAbstractElementParserRuleCall_0());
-			}
-			lv_elements_0_0=ruleAbstractElement
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getDomainmodelRule());
+			(
+				{
+					newCompositeNode(grammarAccess.getSystemAccess().getDomDomainParserRuleCall_2_0());
 				}
-				add(
-					$current,
-					"elements",
-					lv_elements_0_0,
-					"org.xtext.casino.dsl.Dsl.AbstractElement");
-				afterParserOrEnumRuleCall();
-			}
+				lv_dom_2_0=ruleDomain
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSystemRule());
+					}
+					set(
+						$current,
+						"dom",
+						lv_dom_2_0,
+						"org.xtext.casino.dsl.Dsl.Domain");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
-	)*
-;
-
-// Entry rule entryRuleAbstractElement
-entryRuleAbstractElement returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAbstractElementRule()); }
-	iv_ruleAbstractElement=ruleAbstractElement
-	{ $current=$iv_ruleAbstractElement.current; }
-	EOF;
-
-// Rule AbstractElement
-ruleAbstractElement returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSystemAccess().getArchArchitectureParserRuleCall_3_0());
+				}
+				lv_arch_3_0=ruleArchitecture
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSystemRule());
+					}
+					set(
+						$current,
+						"arch",
+						lv_arch_3_0,
+						"org.xtext.casino.dsl.Dsl.Architecture");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSystemAccess().getTechTechnologyParserRuleCall_4_0());
+				}
+				lv_tech_4_0=ruleTechnology
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSystemRule());
+					}
+					set(
+						$current,
+						"tech",
+						lv_tech_4_0,
+						"org.xtext.casino.dsl.Dsl.Technology");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='}'
 		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getDomainParserRuleCall_0());
-		}
-		this_Domain_0=ruleDomain
-		{
-			$current = $this_Domain_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getSpecialEntityParserRuleCall_1());
-		}
-		this_SpecialEntity_1=ruleSpecialEntity
-		{
-			$current = $this_SpecialEntity_1.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getGeneralEntityParserRuleCall_2());
-		}
-		this_GeneralEntity_2=ruleGeneralEntity
-		{
-			$current = $this_GeneralEntity_2.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getTypeParserRuleCall_3());
-		}
-		this_Type_3=ruleType
-		{
-			$current = $this_Type_3.current;
-			afterParserOrEnumRuleCall();
+			newLeafNode(otherlv_5, grammarAccess.getSystemAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -177,9 +175,28 @@ ruleDomain returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDomainAccess().getModulesModuleParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDomainAccess().getElementsAbstractElementParserRuleCall_2_0());
 				}
-				lv_modules_2_0=ruleModule
+				lv_elements_2_0=ruleAbstractElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDomainRule());
+					}
+					add(
+						$current,
+						"elements",
+						lv_elements_2_0,
+						"org.xtext.casino.dsl.Dsl.AbstractElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDomainAccess().getModulesModuleParserRuleCall_3_0());
+				}
+				lv_modules_3_0=ruleModule
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDomainRule());
@@ -187,7 +204,7 @@ ruleDomain returns [EObject current=null]
 					add(
 						$current,
 						"modules",
-						lv_modules_2_0,
+						lv_modules_3_0,
 						"org.xtext.casino.dsl.Dsl.Module");
 					afterParserOrEnumRuleCall();
 				}
@@ -196,9 +213,9 @@ ruleDomain returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDomainAccess().getRelationsRelationDomParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getDomainAccess().getRelationsRelationDomParserRuleCall_4_0());
 				}
-				lv_relations_3_0=ruleRelationDom
+				lv_relations_4_0=ruleRelationDom
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDomainRule());
@@ -206,15 +223,60 @@ ruleDomain returns [EObject current=null]
 					add(
 						$current,
 						"relations",
-						lv_relations_3_0,
+						lv_relations_4_0,
 						"org.xtext.casino.dsl.Dsl.RelationDom");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)+
-		otherlv_4='}'
+		otherlv_5='}'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDomainAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getDomainAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRuleAbstractElement
+entryRuleAbstractElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAbstractElementRule()); }
+	iv_ruleAbstractElement=ruleAbstractElement
+	{ $current=$iv_ruleAbstractElement.current; }
+	EOF;
+
+// Rule AbstractElement
+ruleAbstractElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getAbstractElementAccess().getSpecialEntityParserRuleCall_0());
+		}
+		this_SpecialEntity_0=ruleSpecialEntity
+		{
+			$current = $this_SpecialEntity_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getAbstractElementAccess().getGeneralEntityParserRuleCall_1());
+		}
+		this_GeneralEntity_1=ruleGeneralEntity
+		{
+			$current = $this_GeneralEntity_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getAbstractElementAccess().getTypeParserRuleCall_2());
+		}
+		this_Type_2=ruleType
+		{
+			$current = $this_Type_2.current;
+			afterParserOrEnumRuleCall();
 		}
 	)
 ;
@@ -966,6 +1028,177 @@ ruleRelationDom returns [EObject current=null]
 		otherlv_8='}'
 		{
 			newLeafNode(otherlv_8, grammarAccess.getRelationDomAccess().getRightCurlyBracketKeyword_8());
+		}
+	)
+;
+
+// Entry rule entryRuleArchitecture
+entryRuleArchitecture returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getArchitectureRule()); }
+	iv_ruleArchitecture=ruleArchitecture
+	{ $current=$iv_ruleArchitecture.current.getText(); }
+	EOF;
+
+// Rule Architecture
+ruleArchitecture returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='arch'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getArchitectureAccess().getArchKeyword_0());
+		}
+		kw='{'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getArchitectureAccess().getLeftCurlyBracketKeyword_1());
+		}
+		kw='}'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getArchitectureAccess().getRightCurlyBracketKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleTechnology
+entryRuleTechnology returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTechnologyRule()); }
+	iv_ruleTechnology=ruleTechnology
+	{ $current=$iv_ruleTechnology.current; }
+	EOF;
+
+// Rule Technology
+ruleTechnology returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='tech'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getTechnologyAccess().getTechKeyword_0());
+		}
+		otherlv_1='{'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getTechnologyAccess().getLeftCurlyBracketKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTechnologyAccess().getJavaJavaAppParserRuleCall_2_0());
+				}
+				lv_java_2_0=ruleJavaApp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTechnologyRule());
+					}
+					set(
+						$current,
+						"java",
+						lv_java_2_0,
+						"org.xtext.casino.dsl.Dsl.JavaApp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTechnologyAccess().getReactReactAppParserRuleCall_3_0());
+				}
+				lv_react_3_0=ruleReactApp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTechnologyRule());
+					}
+					set(
+						$current,
+						"react",
+						lv_react_3_0,
+						"org.xtext.casino.dsl.Dsl.ReactApp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getTechnologyAccess().getRightCurlyBracketKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleJavaApp
+entryRuleJavaApp returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getJavaAppRule()); }
+	iv_ruleJavaApp=ruleJavaApp
+	{ $current=$iv_ruleJavaApp.current.getText(); }
+	EOF;
+
+// Rule JavaApp
+ruleJavaApp returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='javaApp'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getJavaAppAccess().getJavaAppKeyword_0());
+		}
+		kw='{'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getJavaAppAccess().getLeftCurlyBracketKeyword_1());
+		}
+		kw='}'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getJavaAppAccess().getRightCurlyBracketKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleReactApp
+entryRuleReactApp returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getReactAppRule()); }
+	iv_ruleReactApp=ruleReactApp
+	{ $current=$iv_ruleReactApp.current.getText(); }
+	EOF;
+
+// Rule ReactApp
+ruleReactApp returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='reactApp'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactAppAccess().getReactAppKeyword_0());
+		}
+		kw='{'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactAppAccess().getLeftCurlyBracketKeyword_1());
+		}
+		kw='}'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getReactAppAccess().getRightCurlyBracketKeyword_2());
 		}
 	)
 ;

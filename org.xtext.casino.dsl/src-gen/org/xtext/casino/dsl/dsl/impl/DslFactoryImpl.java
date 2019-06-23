@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.Domain;
-import org.xtext.casino.dsl.dsl.Domainmodel;
 import org.xtext.casino.dsl.dsl.DslFactory;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
@@ -25,6 +24,7 @@ import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
 import org.xtext.casino.dsl.dsl.Submodule;
+import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
 import org.xtext.casino.dsl.dsl.Type;
 
@@ -80,9 +80,9 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     switch (eClass.getClassifierID())
     {
-      case DslPackage.DOMAINMODEL: return createDomainmodel();
-      case DslPackage.ABSTRACT_ELEMENT: return createAbstractElement();
+      case DslPackage.SYSTEM: return createSystem();
       case DslPackage.DOMAIN: return createDomain();
+      case DslPackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case DslPackage.MODULE: return createModule();
       case DslPackage.SUBMODULE: return createSubmodule();
       case DslPackage.ENTITY: return createEntity();
@@ -95,6 +95,7 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.TRANSACTION: return createTransaction();
       case DslPackage.OPERATESON: return createOperateson();
       case DslPackage.RELATION_DOM: return createRelationDom();
+      case DslPackage.TECHNOLOGY: return createTechnology();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -106,22 +107,10 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * @generated
    */
   @Override
-  public Domainmodel createDomainmodel()
+  public org.xtext.casino.dsl.dsl.System createSystem()
   {
-    DomainmodelImpl domainmodel = new DomainmodelImpl();
-    return domainmodel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public AbstractElement createAbstractElement()
-  {
-    AbstractElementImpl abstractElement = new AbstractElementImpl();
-    return abstractElement;
+    SystemImpl system = new SystemImpl();
+    return system;
   }
 
   /**
@@ -134,6 +123,18 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     DomainImpl domain = new DomainImpl();
     return domain;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AbstractElement createAbstractElement()
+  {
+    AbstractElementImpl abstractElement = new AbstractElementImpl();
+    return abstractElement;
   }
 
   /**
@@ -278,6 +279,18 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     RelationDomImpl relationDom = new RelationDomImpl();
     return relationDom;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Technology createTechnology()
+  {
+    TechnologyImpl technology = new TechnologyImpl();
+    return technology;
   }
 
   /**

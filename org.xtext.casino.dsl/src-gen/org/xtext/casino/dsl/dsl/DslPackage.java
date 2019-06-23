@@ -58,51 +58,50 @@ public interface DslPackage extends EPackage
   DslPackage eINSTANCE = org.xtext.casino.dsl.dsl.impl.DslPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.DomainmodelImpl <em>Domainmodel</em>}' class.
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.SystemImpl <em>System</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.casino.dsl.dsl.impl.DomainmodelImpl
-   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getDomainmodel()
+   * @see org.xtext.casino.dsl.dsl.impl.SystemImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getSystem()
    * @generated
    */
-  int DOMAINMODEL = 0;
+  int SYSTEM = 0;
 
   /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * The feature id for the '<em><b>Dom</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAINMODEL__ELEMENTS = 0;
+  int SYSTEM__DOM = 0;
 
   /**
-   * The number of structural features of the '<em>Domainmodel</em>' class.
+   * The feature id for the '<em><b>Arch</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAINMODEL_FEATURE_COUNT = 1;
+  int SYSTEM__ARCH = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.casino.dsl.dsl.impl.AbstractElementImpl
-   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAbstractElement()
-   * @generated
-   */
-  int ABSTRACT_ELEMENT = 1;
-
-  /**
-   * The number of structural features of the '<em>Abstract Element</em>' class.
+   * The feature id for the '<em><b>Tech</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
+  int SYSTEM__TECH = 2;
+
+  /**
+   * The number of structural features of the '<em>System</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.DomainImpl <em>Domain</em>}' class.
@@ -112,7 +111,16 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getDomain()
    * @generated
    */
-  int DOMAIN = 2;
+  int DOMAIN = 1;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN__ELEMENTS = 0;
 
   /**
    * The feature id for the '<em><b>Modules</b></em>' containment reference list.
@@ -121,7 +129,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN__MODULES = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+  int DOMAIN__MODULES = 1;
 
   /**
    * The feature id for the '<em><b>Relations</b></em>' containment reference list.
@@ -130,7 +138,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN__RELATIONS = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+  int DOMAIN__RELATIONS = 2;
 
   /**
    * The number of structural features of the '<em>Domain</em>' class.
@@ -139,7 +147,26 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+  int DOMAIN_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.AbstractElementImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAbstractElement()
+   * @generated
+   */
+  int ABSTRACT_ELEMENT = 2;
+
+  /**
+   * The number of structural features of the '<em>Abstract Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ModuleImpl <em>Module</em>}' class.
@@ -522,37 +549,86 @@ public interface DslPackage extends EPackage
    */
   int RELATION_DOM_FEATURE_COUNT = 2;
 
-
   /**
-   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Domainmodel <em>Domainmodel</em>}'.
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.TechnologyImpl <em>Technology</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Domainmodel</em>'.
-   * @see org.xtext.casino.dsl.dsl.Domainmodel
+   * @see org.xtext.casino.dsl.dsl.impl.TechnologyImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getTechnology()
    * @generated
    */
-  EClass getDomainmodel();
+  int TECHNOLOGY = 15;
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Domainmodel#getElements <em>Elements</em>}'.
+   * The feature id for the '<em><b>Java</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see org.xtext.casino.dsl.dsl.Domainmodel#getElements()
-   * @see #getDomainmodel()
    * @generated
+   * @ordered
    */
-  EReference getDomainmodel_Elements();
+  int TECHNOLOGY__JAVA = 0;
 
   /**
-   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.AbstractElement <em>Abstract Element</em>}'.
+   * The feature id for the '<em><b>React</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Abstract Element</em>'.
-   * @see org.xtext.casino.dsl.dsl.AbstractElement
+   * @generated
+   * @ordered
+   */
+  int TECHNOLOGY__REACT = 1;
+
+  /**
+   * The number of structural features of the '<em>Technology</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TECHNOLOGY_FEATURE_COUNT = 2;
+
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.System <em>System</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>System</em>'.
+   * @see org.xtext.casino.dsl.dsl.System
    * @generated
    */
-  EClass getAbstractElement();
+  EClass getSystem();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.casino.dsl.dsl.System#getDom <em>Dom</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Dom</em>'.
+   * @see org.xtext.casino.dsl.dsl.System#getDom()
+   * @see #getSystem()
+   * @generated
+   */
+  EReference getSystem_Dom();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.System#getArch <em>Arch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Arch</em>'.
+   * @see org.xtext.casino.dsl.dsl.System#getArch()
+   * @see #getSystem()
+   * @generated
+   */
+  EAttribute getSystem_Arch();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.casino.dsl.dsl.System#getTech <em>Tech</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tech</em>'.
+   * @see org.xtext.casino.dsl.dsl.System#getTech()
+   * @see #getSystem()
+   * @generated
+   */
+  EReference getSystem_Tech();
 
   /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Domain <em>Domain</em>}'.
@@ -563,6 +639,17 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EClass getDomain();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Domain#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see org.xtext.casino.dsl.dsl.Domain#getElements()
+   * @see #getDomain()
+   * @generated
+   */
+  EReference getDomain_Elements();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Domain#getModules <em>Modules</em>}'.
@@ -585,6 +672,16 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EReference getDomain_Relations();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.AbstractElement <em>Abstract Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Abstract Element</em>'.
+   * @see org.xtext.casino.dsl.dsl.AbstractElement
+   * @generated
+   */
+  EClass getAbstractElement();
 
   /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Module <em>Module</em>}'.
@@ -894,6 +991,38 @@ public interface DslPackage extends EPackage
   EReference getRelationDom_Target();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Technology <em>Technology</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Technology</em>'.
+   * @see org.xtext.casino.dsl.dsl.Technology
+   * @generated
+   */
+  EClass getTechnology();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Technology#getJava <em>Java</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Java</em>'.
+   * @see org.xtext.casino.dsl.dsl.Technology#getJava()
+   * @see #getTechnology()
+   * @generated
+   */
+  EAttribute getTechnology_Java();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Technology#getReact <em>React</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>React</em>'.
+   * @see org.xtext.casino.dsl.dsl.Technology#getReact()
+   * @see #getTechnology()
+   * @generated
+   */
+  EAttribute getTechnology_React();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -917,32 +1046,38 @@ public interface DslPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.DomainmodelImpl <em>Domainmodel</em>}' class.
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.SystemImpl <em>System</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.casino.dsl.dsl.impl.DomainmodelImpl
-     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getDomainmodel()
+     * @see org.xtext.casino.dsl.dsl.impl.SystemImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getSystem()
      * @generated
      */
-    EClass DOMAINMODEL = eINSTANCE.getDomainmodel();
+    EClass SYSTEM = eINSTANCE.getSystem();
 
     /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Dom</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DOMAINMODEL__ELEMENTS = eINSTANCE.getDomainmodel_Elements();
+    EReference SYSTEM__DOM = eINSTANCE.getSystem_Dom();
 
     /**
-     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
+     * The meta object literal for the '<em><b>Arch</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.casino.dsl.dsl.impl.AbstractElementImpl
-     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAbstractElement()
      * @generated
      */
-    EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
+    EAttribute SYSTEM__ARCH = eINSTANCE.getSystem_Arch();
+
+    /**
+     * The meta object literal for the '<em><b>Tech</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SYSTEM__TECH = eINSTANCE.getSystem_Tech();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.DomainImpl <em>Domain</em>}' class.
@@ -953,6 +1088,14 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EClass DOMAIN = eINSTANCE.getDomain();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DOMAIN__ELEMENTS = eINSTANCE.getDomain_Elements();
 
     /**
      * The meta object literal for the '<em><b>Modules</b></em>' containment reference list feature.
@@ -969,6 +1112,16 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EReference DOMAIN__RELATIONS = eINSTANCE.getDomain_Relations();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.AbstractElementImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAbstractElement()
+     * @generated
+     */
+    EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ModuleImpl <em>Module</em>}' class.
@@ -1225,6 +1378,32 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EReference RELATION_DOM__TARGET = eINSTANCE.getRelationDom_Target();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.TechnologyImpl <em>Technology</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.TechnologyImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getTechnology()
+     * @generated
+     */
+    EClass TECHNOLOGY = eINSTANCE.getTechnology();
+
+    /**
+     * The meta object literal for the '<em><b>Java</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TECHNOLOGY__JAVA = eINSTANCE.getTechnology_Java();
+
+    /**
+     * The meta object literal for the '<em><b>React</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TECHNOLOGY__REACT = eINSTANCE.getTechnology_React();
 
   }
 

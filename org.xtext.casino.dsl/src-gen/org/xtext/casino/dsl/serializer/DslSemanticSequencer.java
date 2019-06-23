@@ -15,7 +15,6 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.casino.dsl.dsl.Domain;
-import org.xtext.casino.dsl.dsl.Domainmodel;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.Operateson;
@@ -24,6 +23,7 @@ import org.xtext.casino.dsl.dsl.Property;
 import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.Submodule;
+import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
 import org.xtext.casino.dsl.dsl.Type;
 import org.xtext.casino.dsl.services.DslGrammarAccess;
@@ -44,9 +44,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			switch (semanticObject.eClass().getClassifierID()) {
 			case DslPackage.DOMAIN:
 				sequence_Domain(context, (Domain) semanticObject); 
-				return; 
-			case DslPackage.DOMAINMODEL:
-				sequence_Domainmodel(context, (Domainmodel) semanticObject); 
 				return; 
 			case DslPackage.ENTITY:
 				sequence_Entity(context, (Entity) semanticObject); 
@@ -87,6 +84,12 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.SUBMODULE:
 				sequence_Submodule(context, (Submodule) semanticObject); 
 				return; 
+			case DslPackage.SYSTEM:
+				sequence_System(context, (org.xtext.casino.dsl.dsl.System) semanticObject); 
+				return; 
+			case DslPackage.TECHNOLOGY:
+				sequence_Technology(context, (Technology) semanticObject); 
+				return; 
 			case DslPackage.TRANSACTION:
 				sequence_Transaction(context, (Transaction) semanticObject); 
 				return; 
@@ -100,25 +103,12 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns Domain
 	 *     Domain returns Domain
 	 *
 	 * Constraint:
-	 *     (modules+=Module+ relations+=RelationDom+)
+	 *     (elements+=AbstractElement* modules+=Module+ relations+=RelationDom+)
 	 */
 	protected void sequence_Domain(ISerializationContext context, Domain semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Domainmodel returns Domainmodel
-	 *
-	 * Constraint:
-	 *     elements+=AbstractElement+
-	 */
-	protected void sequence_Domainmodel(ISerializationContext context, Domainmodel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -279,6 +269,51 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Submodule(ISerializationContext context, Submodule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     System returns System
+	 *
+	 * Constraint:
+	 *     (dom=Domain arch=Architecture tech=Technology)
+	 */
+	protected void sequence_System(ISerializationContext context, org.xtext.casino.dsl.dsl.System semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SYSTEM__DOM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SYSTEM__DOM));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SYSTEM__ARCH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SYSTEM__ARCH));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SYSTEM__TECH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SYSTEM__TECH));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSystemAccess().getDomDomainParserRuleCall_2_0(), semanticObject.getDom());
+		feeder.accept(grammarAccess.getSystemAccess().getArchArchitectureParserRuleCall_3_0(), semanticObject.getArch());
+		feeder.accept(grammarAccess.getSystemAccess().getTechTechnologyParserRuleCall_4_0(), semanticObject.getTech());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Technology returns Technology
+	 *
+	 * Constraint:
+	 *     (java=JavaApp react=ReactApp)
+	 */
+	protected void sequence_Technology(ISerializationContext context, Technology semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.TECHNOLOGY__JAVA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.TECHNOLOGY__JAVA));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.TECHNOLOGY__REACT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.TECHNOLOGY__REACT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTechnologyAccess().getJavaJavaAppParserRuleCall_2_0(), semanticObject.getJava());
+		feeder.accept(grammarAccess.getTechnologyAccess().getReactReactAppParserRuleCall_3_0(), semanticObject.getReact());
+		feeder.finish();
 	}
 	
 	
