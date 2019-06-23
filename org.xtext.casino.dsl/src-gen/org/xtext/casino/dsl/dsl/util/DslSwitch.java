@@ -9,16 +9,22 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.xtext.casino.dsl.dsl.AbstractElement;
+import org.xtext.casino.dsl.dsl.Architecture;
+import org.xtext.casino.dsl.dsl.Component;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.Layer;
+import org.xtext.casino.dsl.dsl.LayerSegment;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
 import org.xtext.casino.dsl.dsl.QualifiedName;
+import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
+import org.xtext.casino.dsl.dsl.SublayerSegment;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
@@ -195,6 +201,48 @@ public class DslSwitch<T> extends Switch<T>
       {
         RelationDom relationDom = (RelationDom)theEObject;
         T result = caseRelationDom(relationDom);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.ARCHITECTURE:
+      {
+        Architecture architecture = (Architecture)theEObject;
+        T result = caseArchitecture(architecture);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.COMPONENT:
+      {
+        Component component = (Component)theEObject;
+        T result = caseComponent(component);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.LAYER:
+      {
+        Layer layer = (Layer)theEObject;
+        T result = caseLayer(layer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.LAYER_SEGMENT:
+      {
+        LayerSegment layerSegment = (LayerSegment)theEObject;
+        T result = caseLayerSegment(layerSegment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.SUBLAYER_SEGMENT:
+      {
+        SublayerSegment sublayerSegment = (SublayerSegment)theEObject;
+        T result = caseSublayerSegment(sublayerSegment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.RELATION_ARCH:
+      {
+        RelationArch relationArch = (RelationArch)theEObject;
+        T result = caseRelationArch(relationArch);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -445,6 +493,102 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRelationDom(RelationDom object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Architecture</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Architecture</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArchitecture(Architecture object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Component</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComponent(Component object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayer(Layer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layer Segment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layer Segment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayerSegment(LayerSegment object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sublayer Segment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sublayer Segment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSublayerSegment(SublayerSegment object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Relation Arch</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Relation Arch</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRelationArch(RelationArch object)
   {
     return null;
   }

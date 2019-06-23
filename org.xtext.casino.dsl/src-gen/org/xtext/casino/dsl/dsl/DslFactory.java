@@ -159,6 +159,60 @@ public interface DslFactory extends EFactory
   RelationDom createRelationDom();
 
   /**
+   * Returns a new object of class '<em>Architecture</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Architecture</em>'.
+   * @generated
+   */
+  Architecture createArchitecture();
+
+  /**
+   * Returns a new object of class '<em>Component</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Component</em>'.
+   * @generated
+   */
+  Component createComponent();
+
+  /**
+   * Returns a new object of class '<em>Layer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layer</em>'.
+   * @generated
+   */
+  Layer createLayer();
+
+  /**
+   * Returns a new object of class '<em>Layer Segment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layer Segment</em>'.
+   * @generated
+   */
+  LayerSegment createLayerSegment();
+
+  /**
+   * Returns a new object of class '<em>Sublayer Segment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sublayer Segment</em>'.
+   * @generated
+   */
+  SublayerSegment createSublayerSegment();
+
+  /**
+   * Returns a new object of class '<em>Relation Arch</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Relation Arch</em>'.
+   * @generated
+   */
+  RelationArch createRelationArch();
+
+  /**
    * Returns a new object of class '<em>Technology</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

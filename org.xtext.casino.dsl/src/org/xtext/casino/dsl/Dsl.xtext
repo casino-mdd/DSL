@@ -97,8 +97,60 @@ RelationDom: 'rel' '{'
 
 Architecture:
 	'arch' '{'
+		componentes+=Component+
+		relationArch+=RelationArch+
 	'}'
 ;
+Component:
+	'component' ComponentName '{' 
+		layer+=Layer+		
+	'}' 
+;
+
+ComponentName:
+	'Back' | 'Front'	
+;
+
+Layer:
+	'layer' name=LayerName '{'
+		layerSegments+=LayerSegment*
+	'}'
+;
+
+LayerName:
+	'JavaScript' | 'Ejb' | 'War'
+;
+
+LayerSegment:
+	'layerSegment' name=LayerSegmentName '{'
+		('{' relations+=LayerSegmentRelation* '}')?
+		sublayerSegments+=SublayerSegment*
+	'}'	
+;
+
+LayerSegmentName: 
+	'Services'|'Ui'|'Store'|'RestEntity'|'Pojo'|'Facade'|'Dto'|'Util'|'Containers'
+;
+
+LayerSegmentRelation:
+	'allowedToUse:' LayerSegmentName
+;
+
+SublayerSegment:
+	'sublayerSegment' name=SublayerSegmentName	
+;
+
+SublayerSegmentName:
+	'Actions'|'Reducers'
+;
+
+RelationArch:
+	'relationArch' name=ID '{'
+		'source:' LayerName ','
+		'target:' LayerName
+	'}'
+;
+
 // --------------------- Technology ------------------------------------------------
 
 Technology:

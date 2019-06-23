@@ -231,6 +231,51 @@ Casino{
 
 	//------------------- Architecture -------------------------------
 	arch {
+		component Front {
+			layer JavaScript {
+				layerSegment Ui {
+					{ allowedToUse: Containers}
+				}
+				layerSegment Containers { 
+					{ allowedToUse: Store }
+				}
+				layerSegment Store {
+					{
+						allowedToUse: Services
+					}
+					sublayerSegment Reducers					
+					sublayerSegment Actions				
+				}
+				layerSegment Services { 
+					{ allowedToUse: RestEntity }
+				}
+			}
+		}
+		component Back {
+			layer War {
+				layerSegment RestEntity { }
+			}
+			layer Ejb {
+				layerSegment Facade {
+					{
+						allowedToUse: Pojo
+						allowedToUse: Dto
+						allowedToUse: Util				
+					}				
+				}
+				layerSegment Dto {}
+				layerSegment Pojo {}
+				layerSegment Util {}
+			}
+		}
+		relationArch FrontBack{
+			source: JavaScript, 
+			target:	War
+		}
+		relationArch RestBussiness {
+			source: War,
+			target: Ejb
+		}
 		
 	}
 

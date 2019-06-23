@@ -48,26 +48,26 @@ public interface System extends EObject
   void setDom(Domain value);
 
   /**
-   * Returns the value of the '<em><b>Arch</b></em>' attribute.
+   * Returns the value of the '<em><b>Arch</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Arch</em>' attribute.
-   * @see #setArch(String)
+   * @return the value of the '<em>Arch</em>' containment reference.
+   * @see #setArch(Architecture)
    * @see org.xtext.casino.dsl.dsl.DslPackage#getSystem_Arch()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getArch();
+  Architecture getArch();
 
   /**
-   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.System#getArch <em>Arch</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.System#getArch <em>Arch</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Arch</em>' attribute.
+   * @param value the new value of the '<em>Arch</em>' containment reference.
    * @see #getArch()
    * @generated
    */
-  void setArch(String value);
+  void setArch(Architecture value);
 
   /**
    * Returns the value of the '<em><b>Tech</b></em>' containment reference.

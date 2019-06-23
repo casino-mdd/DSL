@@ -14,14 +14,20 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.casino.dsl.dsl.Architecture;
+import org.xtext.casino.dsl.dsl.Component;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
+import org.xtext.casino.dsl.dsl.Layer;
+import org.xtext.casino.dsl.dsl.LayerSegment;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
 import org.xtext.casino.dsl.dsl.QualifiedName;
+import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
+import org.xtext.casino.dsl.dsl.SublayerSegment;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
@@ -42,11 +48,23 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case DslPackage.ARCHITECTURE:
+				sequence_Architecture(context, (Architecture) semanticObject); 
+				return; 
+			case DslPackage.COMPONENT:
+				sequence_Component(context, (Component) semanticObject); 
+				return; 
 			case DslPackage.DOMAIN:
 				sequence_Domain(context, (Domain) semanticObject); 
 				return; 
 			case DslPackage.ENTITY:
 				sequence_Entity(context, (Entity) semanticObject); 
+				return; 
+			case DslPackage.LAYER:
+				sequence_Layer(context, (Layer) semanticObject); 
+				return; 
+			case DslPackage.LAYER_SEGMENT:
+				sequence_LayerSegment(context, (LayerSegment) semanticObject); 
 				return; 
 			case DslPackage.MODULE:
 				sequence_Module(context, (org.xtext.casino.dsl.dsl.Module) semanticObject); 
@@ -78,8 +96,14 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case DslPackage.RELATION_ARCH:
+				sequence_RelationArch(context, (RelationArch) semanticObject); 
+				return; 
 			case DslPackage.RELATION_DOM:
 				sequence_RelationDom(context, (RelationDom) semanticObject); 
+				return; 
+			case DslPackage.SUBLAYER_SEGMENT:
+				sequence_SublayerSegment(context, (SublayerSegment) semanticObject); 
 				return; 
 			case DslPackage.SUBMODULE:
 				sequence_Submodule(context, (Submodule) semanticObject); 
@@ -100,6 +124,30 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Architecture returns Architecture
+	 *
+	 * Constraint:
+	 *     (componentes+=Component+ relationArch+=RelationArch+)
+	 */
+	protected void sequence_Architecture(ISerializationContext context, Architecture semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Component returns Component
+	 *
+	 * Constraint:
+	 *     layer+=Layer+
+	 */
+	protected void sequence_Component(ISerializationContext context, Component semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -151,6 +199,30 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=ID (properties+=Property+ | (properties+=Property+ transactions+=Transaction+)))
 	 */
 	protected void sequence_GeneralEntity_QualifiedName_SpecialEntity(ISerializationContext context, QualifiedName semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LayerSegment returns LayerSegment
+	 *
+	 * Constraint:
+	 *     (name=LayerSegmentName relations+=LayerSegmentRelation* sublayerSegments+=SublayerSegment*)
+	 */
+	protected void sequence_LayerSegment(ISerializationContext context, LayerSegment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Layer returns Layer
+	 *
+	 * Constraint:
+	 *     (name=LayerName layerSegments+=LayerSegment*)
+	 */
+	protected void sequence_Layer(ISerializationContext context, Layer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -250,6 +322,24 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     RelationArch returns RelationArch
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_RelationArch(ISerializationContext context, RelationArch semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.RELATION_ARCH__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.RELATION_ARCH__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRelationArchAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     RelationDom returns RelationDom
 	 *
 	 * Constraint:
@@ -257,6 +347,24 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_RelationDom(ISerializationContext context, RelationDom semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SublayerSegment returns SublayerSegment
+	 *
+	 * Constraint:
+	 *     name=SublayerSegmentName
+	 */
+	protected void sequence_SublayerSegment(ISerializationContext context, SublayerSegment semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SUBLAYER_SEGMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SUBLAYER_SEGMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSublayerSegmentAccess().getNameSublayerSegmentNameParserRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

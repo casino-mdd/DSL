@@ -12,17 +12,23 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.xtext.casino.dsl.dsl.AbstractElement;
+import org.xtext.casino.dsl.dsl.Architecture;
+import org.xtext.casino.dsl.dsl.Component;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslFactory;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.Layer;
+import org.xtext.casino.dsl.dsl.LayerSegment;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
 import org.xtext.casino.dsl.dsl.QualifiedName;
+import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
+import org.xtext.casino.dsl.dsl.SublayerSegment;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
@@ -95,6 +101,12 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.TRANSACTION: return createTransaction();
       case DslPackage.OPERATESON: return createOperateson();
       case DslPackage.RELATION_DOM: return createRelationDom();
+      case DslPackage.ARCHITECTURE: return createArchitecture();
+      case DslPackage.COMPONENT: return createComponent();
+      case DslPackage.LAYER: return createLayer();
+      case DslPackage.LAYER_SEGMENT: return createLayerSegment();
+      case DslPackage.SUBLAYER_SEGMENT: return createSublayerSegment();
+      case DslPackage.RELATION_ARCH: return createRelationArch();
       case DslPackage.TECHNOLOGY: return createTechnology();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -279,6 +291,78 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     RelationDomImpl relationDom = new RelationDomImpl();
     return relationDom;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Architecture createArchitecture()
+  {
+    ArchitectureImpl architecture = new ArchitectureImpl();
+    return architecture;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Component createComponent()
+  {
+    ComponentImpl component = new ComponentImpl();
+    return component;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Layer createLayer()
+  {
+    LayerImpl layer = new LayerImpl();
+    return layer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayerSegment createLayerSegment()
+  {
+    LayerSegmentImpl layerSegment = new LayerSegmentImpl();
+    return layerSegment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SublayerSegment createSublayerSegment()
+  {
+    SublayerSegmentImpl sublayerSegment = new SublayerSegmentImpl();
+    return sublayerSegment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RelationArch createRelationArch()
+  {
+    RelationArchImpl relationArch = new RelationArchImpl();
+    return relationArch;
   }
 
   /**

@@ -637,15 +637,21 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cArchKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cComponentesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cComponentesComponentParserRuleCall_2_0 = (RuleCall)cComponentesAssignment_2.eContents().get(0);
+		private final Assignment cRelationArchAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRelationArchRelationArchParserRuleCall_3_0 = (RuleCall)cRelationArchAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//// --------------------- Architecture ----------------------------------------------
 		//Architecture:
 		//	'arch' '{'
+		//	componentes+=Component+
+		//	relationArch+=RelationArch+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'arch' '{' '}'
+		//'arch' '{' componentes+=Component+ relationArch+=RelationArch+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'arch'
@@ -654,8 +660,364 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
+		//componentes+=Component+
+		public Assignment getComponentesAssignment_2() { return cComponentesAssignment_2; }
+		
+		//Component
+		public RuleCall getComponentesComponentParserRuleCall_2_0() { return cComponentesComponentParserRuleCall_2_0; }
+		
+		//relationArch+=RelationArch+
+		public Assignment getRelationArchAssignment_3() { return cRelationArchAssignment_3; }
+		
+		//RelationArch
+		public RuleCall getRelationArchRelationArchParserRuleCall_3_0() { return cRelationArchRelationArchParserRuleCall_3_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class ComponentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Component");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cComponentNameParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLayerAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLayerLayerParserRuleCall_3_0 = (RuleCall)cLayerAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Component:
+		//	'component' ComponentName '{'
+		//	layer+=Layer+
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'component' ComponentName '{' layer+=Layer+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'component'
+		public Keyword getComponentKeyword_0() { return cComponentKeyword_0; }
+		
+		//ComponentName
+		public RuleCall getComponentNameParserRuleCall_1() { return cComponentNameParserRuleCall_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//layer+=Layer+
+		public Assignment getLayerAssignment_3() { return cLayerAssignment_3; }
+		
+		//Layer
+		public RuleCall getLayerLayerParserRuleCall_3_0() { return cLayerLayerParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class ComponentNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.ComponentName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cBackKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cFrontKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//ComponentName:
+		//	'Back' | 'Front';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Back' | 'Front'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'Back'
+		public Keyword getBackKeyword_0() { return cBackKeyword_0; }
+		
+		//'Front'
+		public Keyword getFrontKeyword_1() { return cFrontKeyword_1; }
+	}
+	public class LayerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Layer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLayerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameLayerNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLayerSegmentsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLayerSegmentsLayerSegmentParserRuleCall_3_0 = (RuleCall)cLayerSegmentsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Layer:
+		//	'layer' name=LayerName '{'
+		//	layerSegments+=LayerSegment*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'layer' name=LayerName '{' layerSegments+=LayerSegment* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'layer'
+		public Keyword getLayerKeyword_0() { return cLayerKeyword_0; }
+		
+		//name=LayerName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//LayerName
+		public RuleCall getNameLayerNameParserRuleCall_1_0() { return cNameLayerNameParserRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//layerSegments+=LayerSegment*
+		public Assignment getLayerSegmentsAssignment_3() { return cLayerSegmentsAssignment_3; }
+		
+		//LayerSegment
+		public RuleCall getLayerSegmentsLayerSegmentParserRuleCall_3_0() { return cLayerSegmentsLayerSegmentParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class LayerNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.LayerName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cJavaScriptKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cEjbKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cWarKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//LayerName:
+		//	'JavaScript' | 'Ejb' | 'War';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'JavaScript' | 'Ejb' | 'War'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'JavaScript'
+		public Keyword getJavaScriptKeyword_0() { return cJavaScriptKeyword_0; }
+		
+		//'Ejb'
+		public Keyword getEjbKeyword_1() { return cEjbKeyword_1; }
+		
+		//'War'
+		public Keyword getWarKeyword_2() { return cWarKeyword_2; }
+	}
+	public class LayerSegmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.LayerSegment");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLayerSegmentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameLayerSegmentNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cRelationsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cRelationsLayerSegmentRelationParserRuleCall_3_1_0 = (RuleCall)cRelationsAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cSublayerSegmentsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSublayerSegmentsSublayerSegmentParserRuleCall_4_0 = (RuleCall)cSublayerSegmentsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//LayerSegment:
+		//	'layerSegment' name=LayerSegmentName '{' ('{' relations+=LayerSegmentRelation* '}')?
+		//	sublayerSegments+=SublayerSegment*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'layerSegment' name=LayerSegmentName '{' ('{' relations+=LayerSegmentRelation* '}')? sublayerSegments+=SublayerSegment*
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'layerSegment'
+		public Keyword getLayerSegmentKeyword_0() { return cLayerSegmentKeyword_0; }
+		
+		//name=LayerSegmentName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//LayerSegmentName
+		public RuleCall getNameLayerSegmentNameParserRuleCall_1_0() { return cNameLayerSegmentNameParserRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('{' relations+=LayerSegmentRelation* '}')?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
+		
+		//relations+=LayerSegmentRelation*
+		public Assignment getRelationsAssignment_3_1() { return cRelationsAssignment_3_1; }
+		
+		//LayerSegmentRelation
+		public RuleCall getRelationsLayerSegmentRelationParserRuleCall_3_1_0() { return cRelationsLayerSegmentRelationParserRuleCall_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
+		
+		//sublayerSegments+=SublayerSegment*
+		public Assignment getSublayerSegmentsAssignment_4() { return cSublayerSegmentsAssignment_4; }
+		
+		//SublayerSegment
+		public RuleCall getSublayerSegmentsSublayerSegmentParserRuleCall_4_0() { return cSublayerSegmentsSublayerSegmentParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class LayerSegmentNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.LayerSegmentName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cServicesKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cUiKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cStoreKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cRestEntityKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cPojoKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cFacadeKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cDtoKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cUtilKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cContainersKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		
+		//LayerSegmentName:
+		//	'Services' | 'Ui' | 'Store' | 'RestEntity' | 'Pojo' | 'Facade' | 'Dto' | 'Util' | 'Containers';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Services' | 'Ui' | 'Store' | 'RestEntity' | 'Pojo' | 'Facade' | 'Dto' | 'Util' | 'Containers'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'Services'
+		public Keyword getServicesKeyword_0() { return cServicesKeyword_0; }
+		
+		//'Ui'
+		public Keyword getUiKeyword_1() { return cUiKeyword_1; }
+		
+		//'Store'
+		public Keyword getStoreKeyword_2() { return cStoreKeyword_2; }
+		
+		//'RestEntity'
+		public Keyword getRestEntityKeyword_3() { return cRestEntityKeyword_3; }
+		
+		//'Pojo'
+		public Keyword getPojoKeyword_4() { return cPojoKeyword_4; }
+		
+		//'Facade'
+		public Keyword getFacadeKeyword_5() { return cFacadeKeyword_5; }
+		
+		//'Dto'
+		public Keyword getDtoKeyword_6() { return cDtoKeyword_6; }
+		
+		//'Util'
+		public Keyword getUtilKeyword_7() { return cUtilKeyword_7; }
+		
+		//'Containers'
+		public Keyword getContainersKeyword_8() { return cContainersKeyword_8; }
+	}
+	public class LayerSegmentRelationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.LayerSegmentRelation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAllowedToUseKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cLayerSegmentNameParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//LayerSegmentRelation:
+		//	'allowedToUse:' LayerSegmentName;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'allowedToUse:' LayerSegmentName
+		public Group getGroup() { return cGroup; }
+		
+		//'allowedToUse:'
+		public Keyword getAllowedToUseKeyword_0() { return cAllowedToUseKeyword_0; }
+		
+		//LayerSegmentName
+		public RuleCall getLayerSegmentNameParserRuleCall_1() { return cLayerSegmentNameParserRuleCall_1; }
+	}
+	public class SublayerSegmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.SublayerSegment");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSublayerSegmentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSublayerSegmentNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//SublayerSegment:
+		//	'sublayerSegment' name=SublayerSegmentName;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'sublayerSegment' name=SublayerSegmentName
+		public Group getGroup() { return cGroup; }
+		
+		//'sublayerSegment'
+		public Keyword getSublayerSegmentKeyword_0() { return cSublayerSegmentKeyword_0; }
+		
+		//name=SublayerSegmentName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//SublayerSegmentName
+		public RuleCall getNameSublayerSegmentNameParserRuleCall_1_0() { return cNameSublayerSegmentNameParserRuleCall_1_0; }
+	}
+	public class SublayerSegmentNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.SublayerSegmentName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cActionsKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cReducersKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//SublayerSegmentName:
+		//	'Actions' | 'Reducers';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Actions' | 'Reducers'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'Actions'
+		public Keyword getActionsKeyword_0() { return cActionsKeyword_0; }
+		
+		//'Reducers'
+		public Keyword getReducersKeyword_1() { return cReducersKeyword_1; }
+	}
+	public class RelationArchElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.RelationArch");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRelationArchKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cSourceKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cLayerNameParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cTargetKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final RuleCall cLayerNameParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//RelationArch:
+		//	'relationArch' name=ID '{'
+		//	'source:' LayerName ','
+		//	'target:' LayerName
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'relationArch' name=ID '{' 'source:' LayerName ',' 'target:' LayerName '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'relationArch'
+		public Keyword getRelationArchKeyword_0() { return cRelationArchKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'source:'
+		public Keyword getSourceKeyword_3() { return cSourceKeyword_3; }
+		
+		//LayerName
+		public RuleCall getLayerNameParserRuleCall_4() { return cLayerNameParserRuleCall_4; }
+		
+		//','
+		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
+		
+		//'target:'
+		public Keyword getTargetKeyword_6() { return cTargetKeyword_6; }
+		
+		//LayerName
+		public RuleCall getLayerNameParserRuleCall_7() { return cLayerNameParserRuleCall_7; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class TechnologyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Technology");
@@ -770,6 +1132,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final OperatesonElements pOperateson;
 	private final RelationDomElements pRelationDom;
 	private final ArchitectureElements pArchitecture;
+	private final ComponentElements pComponent;
+	private final ComponentNameElements pComponentName;
+	private final LayerElements pLayer;
+	private final LayerNameElements pLayerName;
+	private final LayerSegmentElements pLayerSegment;
+	private final LayerSegmentNameElements pLayerSegmentName;
+	private final LayerSegmentRelationElements pLayerSegmentRelation;
+	private final SublayerSegmentElements pSublayerSegment;
+	private final SublayerSegmentNameElements pSublayerSegmentName;
+	private final RelationArchElements pRelationArch;
 	private final TechnologyElements pTechnology;
 	private final JavaAppElements pJavaApp;
 	private final ReactAppElements pReactApp;
@@ -801,6 +1173,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pOperateson = new OperatesonElements();
 		this.pRelationDom = new RelationDomElements();
 		this.pArchitecture = new ArchitectureElements();
+		this.pComponent = new ComponentElements();
+		this.pComponentName = new ComponentNameElements();
+		this.pLayer = new LayerElements();
+		this.pLayerName = new LayerNameElements();
+		this.pLayerSegment = new LayerSegmentElements();
+		this.pLayerSegmentName = new LayerSegmentNameElements();
+		this.pLayerSegmentRelation = new LayerSegmentRelationElements();
+		this.pSublayerSegment = new SublayerSegmentElements();
+		this.pSublayerSegmentName = new SublayerSegmentNameElements();
+		this.pRelationArch = new RelationArchElements();
 		this.pTechnology = new TechnologyElements();
 		this.pJavaApp = new JavaAppElements();
 		this.pReactApp = new ReactAppElements();
@@ -1036,6 +1418,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//// --------------------- Architecture ----------------------------------------------
 	//Architecture:
 	//	'arch' '{'
+	//	componentes+=Component+
+	//	relationArch+=RelationArch+
 	//	'}';
 	public ArchitectureElements getArchitectureAccess() {
 		return pArchitecture;
@@ -1043,6 +1427,115 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getArchitectureRule() {
 		return getArchitectureAccess().getRule();
+	}
+	
+	//Component:
+	//	'component' ComponentName '{'
+	//	layer+=Layer+
+	//	'}';
+	public ComponentElements getComponentAccess() {
+		return pComponent;
+	}
+	
+	public ParserRule getComponentRule() {
+		return getComponentAccess().getRule();
+	}
+	
+	//ComponentName:
+	//	'Back' | 'Front';
+	public ComponentNameElements getComponentNameAccess() {
+		return pComponentName;
+	}
+	
+	public ParserRule getComponentNameRule() {
+		return getComponentNameAccess().getRule();
+	}
+	
+	//Layer:
+	//	'layer' name=LayerName '{'
+	//	layerSegments+=LayerSegment*
+	//	'}';
+	public LayerElements getLayerAccess() {
+		return pLayer;
+	}
+	
+	public ParserRule getLayerRule() {
+		return getLayerAccess().getRule();
+	}
+	
+	//LayerName:
+	//	'JavaScript' | 'Ejb' | 'War';
+	public LayerNameElements getLayerNameAccess() {
+		return pLayerName;
+	}
+	
+	public ParserRule getLayerNameRule() {
+		return getLayerNameAccess().getRule();
+	}
+	
+	//LayerSegment:
+	//	'layerSegment' name=LayerSegmentName '{' ('{' relations+=LayerSegmentRelation* '}')?
+	//	sublayerSegments+=SublayerSegment*
+	//	'}';
+	public LayerSegmentElements getLayerSegmentAccess() {
+		return pLayerSegment;
+	}
+	
+	public ParserRule getLayerSegmentRule() {
+		return getLayerSegmentAccess().getRule();
+	}
+	
+	//LayerSegmentName:
+	//	'Services' | 'Ui' | 'Store' | 'RestEntity' | 'Pojo' | 'Facade' | 'Dto' | 'Util' | 'Containers';
+	public LayerSegmentNameElements getLayerSegmentNameAccess() {
+		return pLayerSegmentName;
+	}
+	
+	public ParserRule getLayerSegmentNameRule() {
+		return getLayerSegmentNameAccess().getRule();
+	}
+	
+	//LayerSegmentRelation:
+	//	'allowedToUse:' LayerSegmentName;
+	public LayerSegmentRelationElements getLayerSegmentRelationAccess() {
+		return pLayerSegmentRelation;
+	}
+	
+	public ParserRule getLayerSegmentRelationRule() {
+		return getLayerSegmentRelationAccess().getRule();
+	}
+	
+	//SublayerSegment:
+	//	'sublayerSegment' name=SublayerSegmentName;
+	public SublayerSegmentElements getSublayerSegmentAccess() {
+		return pSublayerSegment;
+	}
+	
+	public ParserRule getSublayerSegmentRule() {
+		return getSublayerSegmentAccess().getRule();
+	}
+	
+	//SublayerSegmentName:
+	//	'Actions' | 'Reducers';
+	public SublayerSegmentNameElements getSublayerSegmentNameAccess() {
+		return pSublayerSegmentName;
+	}
+	
+	public ParserRule getSublayerSegmentNameRule() {
+		return getSublayerSegmentNameAccess().getRule();
+	}
+	
+	//RelationArch:
+	//	'relationArch' name=ID '{'
+	//	'source:' LayerName ','
+	//	'target:' LayerName
+	//	'}';
+	public RelationArchElements getRelationArchAccess() {
+		return pRelationArch;
+	}
+	
+	public ParserRule getRelationArchRule() {
+		return getRelationArchAccess().getRule();
 	}
 	
 	//// --------------------- Technology ------------------------------------------------

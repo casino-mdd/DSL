@@ -34,6 +34,10 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAbstractElementAccess().getAlternatives(), "rule__AbstractElement__Alternatives");
 			builder.put(grammarAccess.getSubOperationAccess().getAlternatives(), "rule__SubOperation__Alternatives");
 			builder.put(grammarAccess.getSubTransactionAccess().getAlternatives(), "rule__SubTransaction__Alternatives");
+			builder.put(grammarAccess.getComponentNameAccess().getAlternatives(), "rule__ComponentName__Alternatives");
+			builder.put(grammarAccess.getLayerNameAccess().getAlternatives(), "rule__LayerName__Alternatives");
+			builder.put(grammarAccess.getLayerSegmentNameAccess().getAlternatives(), "rule__LayerSegmentName__Alternatives");
+			builder.put(grammarAccess.getSublayerSegmentNameAccess().getAlternatives(), "rule__SublayerSegmentName__Alternatives");
 			builder.put(grammarAccess.getSystemAccess().getGroup(), "rule__System__Group__0");
 			builder.put(grammarAccess.getDomainAccess().getGroup(), "rule__Domain__Group__0");
 			builder.put(grammarAccess.getModuleAccess().getGroup(), "rule__Module__Group__0");
@@ -47,6 +51,13 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOperatesonAccess().getGroup(), "rule__Operateson__Group__0");
 			builder.put(grammarAccess.getRelationDomAccess().getGroup(), "rule__RelationDom__Group__0");
 			builder.put(grammarAccess.getArchitectureAccess().getGroup(), "rule__Architecture__Group__0");
+			builder.put(grammarAccess.getComponentAccess().getGroup(), "rule__Component__Group__0");
+			builder.put(grammarAccess.getLayerAccess().getGroup(), "rule__Layer__Group__0");
+			builder.put(grammarAccess.getLayerSegmentAccess().getGroup(), "rule__LayerSegment__Group__0");
+			builder.put(grammarAccess.getLayerSegmentAccess().getGroup_3(), "rule__LayerSegment__Group_3__0");
+			builder.put(grammarAccess.getLayerSegmentRelationAccess().getGroup(), "rule__LayerSegmentRelation__Group__0");
+			builder.put(grammarAccess.getSublayerSegmentAccess().getGroup(), "rule__SublayerSegment__Group__0");
+			builder.put(grammarAccess.getRelationArchAccess().getGroup(), "rule__RelationArch__Group__0");
 			builder.put(grammarAccess.getTechnologyAccess().getGroup(), "rule__Technology__Group__0");
 			builder.put(grammarAccess.getJavaAppAccess().getGroup(), "rule__JavaApp__Group__0");
 			builder.put(grammarAccess.getReactAppAccess().getGroup(), "rule__ReactApp__Group__0");
@@ -74,6 +85,16 @@ public class DslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOperatesonAccess().getTypeAssignment_1(), "rule__Operateson__TypeAssignment_1");
 			builder.put(grammarAccess.getRelationDomAccess().getTypeAssignment_5(), "rule__RelationDom__TypeAssignment_5");
 			builder.put(grammarAccess.getRelationDomAccess().getTargetAssignment_7(), "rule__RelationDom__TargetAssignment_7");
+			builder.put(grammarAccess.getArchitectureAccess().getComponentesAssignment_2(), "rule__Architecture__ComponentesAssignment_2");
+			builder.put(grammarAccess.getArchitectureAccess().getRelationArchAssignment_3(), "rule__Architecture__RelationArchAssignment_3");
+			builder.put(grammarAccess.getComponentAccess().getLayerAssignment_3(), "rule__Component__LayerAssignment_3");
+			builder.put(grammarAccess.getLayerAccess().getNameAssignment_1(), "rule__Layer__NameAssignment_1");
+			builder.put(grammarAccess.getLayerAccess().getLayerSegmentsAssignment_3(), "rule__Layer__LayerSegmentsAssignment_3");
+			builder.put(grammarAccess.getLayerSegmentAccess().getNameAssignment_1(), "rule__LayerSegment__NameAssignment_1");
+			builder.put(grammarAccess.getLayerSegmentAccess().getRelationsAssignment_3_1(), "rule__LayerSegment__RelationsAssignment_3_1");
+			builder.put(grammarAccess.getLayerSegmentAccess().getSublayerSegmentsAssignment_4(), "rule__LayerSegment__SublayerSegmentsAssignment_4");
+			builder.put(grammarAccess.getSublayerSegmentAccess().getNameAssignment_1(), "rule__SublayerSegment__NameAssignment_1");
+			builder.put(grammarAccess.getRelationArchAccess().getNameAssignment_1(), "rule__RelationArch__NameAssignment_1");
 			builder.put(grammarAccess.getTechnologyAccess().getJavaAssignment_2(), "rule__Technology__JavaAssignment_2");
 			builder.put(grammarAccess.getTechnologyAccess().getReactAssignment_3(), "rule__Technology__ReactAssignment_3");
 		}

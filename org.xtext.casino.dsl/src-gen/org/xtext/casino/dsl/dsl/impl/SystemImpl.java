@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.casino.dsl.dsl.Architecture;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Technology;
@@ -44,24 +45,14 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.xtex
   protected Domain dom;
 
   /**
-   * The default value of the '{@link #getArch() <em>Arch</em>}' attribute.
+   * The cached value of the '{@link #getArch() <em>Arch</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getArch()
    * @generated
    * @ordered
    */
-  protected static final String ARCH_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getArch() <em>Arch</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArch()
-   * @generated
-   * @ordered
-   */
-  protected String arch = ARCH_EDEFAULT;
+  protected Architecture arch;
 
   /**
    * The cached value of the '{@link #getTech() <em>Tech</em>}' containment reference.
@@ -150,7 +141,7 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.xtex
    * @generated
    */
   @Override
-  public String getArch()
+  public Architecture getArch()
   {
     return arch;
   }
@@ -160,13 +151,38 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.xtex
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setArch(String newArch)
+  public NotificationChain basicSetArch(Architecture newArch, NotificationChain msgs)
   {
-    String oldArch = arch;
+    Architecture oldArch = arch;
     arch = newArch;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.SYSTEM__ARCH, oldArch, arch));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.SYSTEM__ARCH, oldArch, newArch);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setArch(Architecture newArch)
+  {
+    if (newArch != arch)
+    {
+      NotificationChain msgs = null;
+      if (arch != null)
+        msgs = ((InternalEObject)arch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.SYSTEM__ARCH, null, msgs);
+      if (newArch != null)
+        msgs = ((InternalEObject)newArch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.SYSTEM__ARCH, null, msgs);
+      msgs = basicSetArch(newArch, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.SYSTEM__ARCH, newArch, newArch));
   }
 
   /**
@@ -231,6 +247,8 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.xtex
     {
       case DslPackage.SYSTEM__DOM:
         return basicSetDom(null, msgs);
+      case DslPackage.SYSTEM__ARCH:
+        return basicSetArch(null, msgs);
       case DslPackage.SYSTEM__TECH:
         return basicSetTech(null, msgs);
     }
@@ -271,7 +289,7 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.xtex
         setDom((Domain)newValue);
         return;
       case DslPackage.SYSTEM__ARCH:
-        setArch((String)newValue);
+        setArch((Architecture)newValue);
         return;
       case DslPackage.SYSTEM__TECH:
         setTech((Technology)newValue);
@@ -294,7 +312,7 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.xtex
         setDom((Domain)null);
         return;
       case DslPackage.SYSTEM__ARCH:
-        setArch(ARCH_EDEFAULT);
+        setArch((Architecture)null);
         return;
       case DslPackage.SYSTEM__TECH:
         setTech((Technology)null);
@@ -316,28 +334,11 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.xtex
       case DslPackage.SYSTEM__DOM:
         return dom != null;
       case DslPackage.SYSTEM__ARCH:
-        return ARCH_EDEFAULT == null ? arch != null : !ARCH_EDEFAULT.equals(arch);
+        return arch != null;
       case DslPackage.SYSTEM__TECH:
         return tech != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (arch: ");
-    result.append(arch);
-    result.append(')');
-    return result.toString();
   }
 
 } //SystemImpl

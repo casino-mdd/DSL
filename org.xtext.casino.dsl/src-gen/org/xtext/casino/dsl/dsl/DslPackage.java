@@ -77,7 +77,7 @@ public interface DslPackage extends EPackage
   int SYSTEM__DOM = 0;
 
   /**
-   * The feature id for the '<em><b>Arch</b></em>' attribute.
+   * The feature id for the '<em><b>Arch</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -550,6 +550,210 @@ public interface DslPackage extends EPackage
   int RELATION_DOM_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ArchitectureImpl <em>Architecture</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.ArchitectureImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getArchitecture()
+   * @generated
+   */
+  int ARCHITECTURE = 15;
+
+  /**
+   * The feature id for the '<em><b>Componentes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARCHITECTURE__COMPONENTES = 0;
+
+  /**
+   * The feature id for the '<em><b>Relation Arch</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARCHITECTURE__RELATION_ARCH = 1;
+
+  /**
+   * The number of structural features of the '<em>Architecture</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARCHITECTURE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ComponentImpl <em>Component</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.ComponentImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getComponent()
+   * @generated
+   */
+  int COMPONENT = 16;
+
+  /**
+   * The feature id for the '<em><b>Layer</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__LAYER = 0;
+
+  /**
+   * The number of structural features of the '<em>Component</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.LayerImpl <em>Layer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.LayerImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getLayer()
+   * @generated
+   */
+  int LAYER = 17;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Layer Segments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER__LAYER_SEGMENTS = 1;
+
+  /**
+   * The number of structural features of the '<em>Layer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.LayerSegmentImpl <em>Layer Segment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.LayerSegmentImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getLayerSegment()
+   * @generated
+   */
+  int LAYER_SEGMENT = 18;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER_SEGMENT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Relations</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER_SEGMENT__RELATIONS = 1;
+
+  /**
+   * The feature id for the '<em><b>Sublayer Segments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER_SEGMENT__SUBLAYER_SEGMENTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Layer Segment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER_SEGMENT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.SublayerSegmentImpl <em>Sublayer Segment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.SublayerSegmentImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getSublayerSegment()
+   * @generated
+   */
+  int SUBLAYER_SEGMENT = 19;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBLAYER_SEGMENT__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Sublayer Segment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUBLAYER_SEGMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.RelationArchImpl <em>Relation Arch</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.RelationArchImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getRelationArch()
+   * @generated
+   */
+  int RELATION_ARCH = 20;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATION_ARCH__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Relation Arch</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATION_ARCH_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.TechnologyImpl <em>Technology</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -557,7 +761,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getTechnology()
    * @generated
    */
-  int TECHNOLOGY = 15;
+  int TECHNOLOGY = 21;
 
   /**
    * The feature id for the '<em><b>Java</b></em>' attribute.
@@ -609,15 +813,15 @@ public interface DslPackage extends EPackage
   EReference getSystem_Dom();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.System#getArch <em>Arch</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.casino.dsl.dsl.System#getArch <em>Arch</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Arch</em>'.
+   * @return the meta object for the containment reference '<em>Arch</em>'.
    * @see org.xtext.casino.dsl.dsl.System#getArch()
    * @see #getSystem()
    * @generated
    */
-  EAttribute getSystem_Arch();
+  EReference getSystem_Arch();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.casino.dsl.dsl.System#getTech <em>Tech</em>}'.
@@ -991,6 +1195,176 @@ public interface DslPackage extends EPackage
   EReference getRelationDom_Target();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Architecture <em>Architecture</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Architecture</em>'.
+   * @see org.xtext.casino.dsl.dsl.Architecture
+   * @generated
+   */
+  EClass getArchitecture();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Architecture#getComponentes <em>Componentes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Componentes</em>'.
+   * @see org.xtext.casino.dsl.dsl.Architecture#getComponentes()
+   * @see #getArchitecture()
+   * @generated
+   */
+  EReference getArchitecture_Componentes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Architecture#getRelationArch <em>Relation Arch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Relation Arch</em>'.
+   * @see org.xtext.casino.dsl.dsl.Architecture#getRelationArch()
+   * @see #getArchitecture()
+   * @generated
+   */
+  EReference getArchitecture_RelationArch();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Component <em>Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Component</em>'.
+   * @see org.xtext.casino.dsl.dsl.Component
+   * @generated
+   */
+  EClass getComponent();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Component#getLayer <em>Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Layer</em>'.
+   * @see org.xtext.casino.dsl.dsl.Component#getLayer()
+   * @see #getComponent()
+   * @generated
+   */
+  EReference getComponent_Layer();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Layer <em>Layer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layer</em>'.
+   * @see org.xtext.casino.dsl.dsl.Layer
+   * @generated
+   */
+  EClass getLayer();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Layer#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.Layer#getName()
+   * @see #getLayer()
+   * @generated
+   */
+  EAttribute getLayer_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Layer#getLayerSegments <em>Layer Segments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Layer Segments</em>'.
+   * @see org.xtext.casino.dsl.dsl.Layer#getLayerSegments()
+   * @see #getLayer()
+   * @generated
+   */
+  EReference getLayer_LayerSegments();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.LayerSegment <em>Layer Segment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layer Segment</em>'.
+   * @see org.xtext.casino.dsl.dsl.LayerSegment
+   * @generated
+   */
+  EClass getLayerSegment();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.LayerSegment#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.LayerSegment#getName()
+   * @see #getLayerSegment()
+   * @generated
+   */
+  EAttribute getLayerSegment_Name();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.casino.dsl.dsl.LayerSegment#getRelations <em>Relations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Relations</em>'.
+   * @see org.xtext.casino.dsl.dsl.LayerSegment#getRelations()
+   * @see #getLayerSegment()
+   * @generated
+   */
+  EAttribute getLayerSegment_Relations();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.LayerSegment#getSublayerSegments <em>Sublayer Segments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Sublayer Segments</em>'.
+   * @see org.xtext.casino.dsl.dsl.LayerSegment#getSublayerSegments()
+   * @see #getLayerSegment()
+   * @generated
+   */
+  EReference getLayerSegment_SublayerSegments();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.SublayerSegment <em>Sublayer Segment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sublayer Segment</em>'.
+   * @see org.xtext.casino.dsl.dsl.SublayerSegment
+   * @generated
+   */
+  EClass getSublayerSegment();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.SublayerSegment#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.SublayerSegment#getName()
+   * @see #getSublayerSegment()
+   * @generated
+   */
+  EAttribute getSublayerSegment_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.RelationArch <em>Relation Arch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Relation Arch</em>'.
+   * @see org.xtext.casino.dsl.dsl.RelationArch
+   * @generated
+   */
+  EClass getRelationArch();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.RelationArch#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.RelationArch#getName()
+   * @see #getRelationArch()
+   * @generated
+   */
+  EAttribute getRelationArch_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Technology <em>Technology</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1064,12 +1438,12 @@ public interface DslPackage extends EPackage
     EReference SYSTEM__DOM = eINSTANCE.getSystem_Dom();
 
     /**
-     * The meta object literal for the '<em><b>Arch</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Arch</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SYSTEM__ARCH = eINSTANCE.getSystem_Arch();
+    EReference SYSTEM__ARCH = eINSTANCE.getSystem_Arch();
 
     /**
      * The meta object literal for the '<em><b>Tech</b></em>' containment reference feature.
@@ -1378,6 +1752,146 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EReference RELATION_DOM__TARGET = eINSTANCE.getRelationDom_Target();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ArchitectureImpl <em>Architecture</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.ArchitectureImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getArchitecture()
+     * @generated
+     */
+    EClass ARCHITECTURE = eINSTANCE.getArchitecture();
+
+    /**
+     * The meta object literal for the '<em><b>Componentes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARCHITECTURE__COMPONENTES = eINSTANCE.getArchitecture_Componentes();
+
+    /**
+     * The meta object literal for the '<em><b>Relation Arch</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARCHITECTURE__RELATION_ARCH = eINSTANCE.getArchitecture_RelationArch();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ComponentImpl <em>Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.ComponentImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getComponent()
+     * @generated
+     */
+    EClass COMPONENT = eINSTANCE.getComponent();
+
+    /**
+     * The meta object literal for the '<em><b>Layer</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENT__LAYER = eINSTANCE.getComponent_Layer();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.LayerImpl <em>Layer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.LayerImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getLayer()
+     * @generated
+     */
+    EClass LAYER = eINSTANCE.getLayer();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAYER__NAME = eINSTANCE.getLayer_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Layer Segments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYER__LAYER_SEGMENTS = eINSTANCE.getLayer_LayerSegments();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.LayerSegmentImpl <em>Layer Segment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.LayerSegmentImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getLayerSegment()
+     * @generated
+     */
+    EClass LAYER_SEGMENT = eINSTANCE.getLayerSegment();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAYER_SEGMENT__NAME = eINSTANCE.getLayerSegment_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Relations</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAYER_SEGMENT__RELATIONS = eINSTANCE.getLayerSegment_Relations();
+
+    /**
+     * The meta object literal for the '<em><b>Sublayer Segments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYER_SEGMENT__SUBLAYER_SEGMENTS = eINSTANCE.getLayerSegment_SublayerSegments();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.SublayerSegmentImpl <em>Sublayer Segment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.SublayerSegmentImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getSublayerSegment()
+     * @generated
+     */
+    EClass SUBLAYER_SEGMENT = eINSTANCE.getSublayerSegment();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUBLAYER_SEGMENT__NAME = eINSTANCE.getSublayerSegment_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.RelationArchImpl <em>Relation Arch</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.RelationArchImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getRelationArch()
+     * @generated
+     */
+    EClass RELATION_ARCH = eINSTANCE.getRelationArch();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RELATION_ARCH__NAME = eINSTANCE.getRelationArch_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.TechnologyImpl <em>Technology</em>}' class.
