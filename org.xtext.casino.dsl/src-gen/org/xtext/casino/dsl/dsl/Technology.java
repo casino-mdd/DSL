@@ -47,25 +47,25 @@ public interface Technology extends EObject
   void setJava(String value);
 
   /**
-   * Returns the value of the '<em><b>React</b></em>' attribute.
+   * Returns the value of the '<em><b>React</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>React</em>' attribute.
-   * @see #setReact(String)
+   * @return the value of the '<em>React</em>' containment reference.
+   * @see #setReact(ReactApp)
    * @see org.xtext.casino.dsl.dsl.DslPackage#getTechnology_React()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getReact();
+  ReactApp getReact();
 
   /**
-   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.Technology#getReact <em>React</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.Technology#getReact <em>React</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>React</em>' attribute.
+   * @param value the new value of the '<em>React</em>' containment reference.
    * @see #getReact()
    * @generated
    */
-  void setReact(String value);
+  void setReact(ReactApp value);
 
 } // Technology

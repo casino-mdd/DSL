@@ -4,13 +4,16 @@
 package org.xtext.casino.dsl.dsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.casino.dsl.dsl.DslPackage;
+import org.xtext.casino.dsl.dsl.ReactApp;
 import org.xtext.casino.dsl.dsl.Technology;
 
 /**
@@ -50,24 +53,14 @@ public class TechnologyImpl extends MinimalEObjectImpl.Container implements Tech
   protected String java = JAVA_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getReact() <em>React</em>}' attribute.
+   * The cached value of the '{@link #getReact() <em>React</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getReact()
    * @generated
    * @ordered
    */
-  protected static final String REACT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getReact() <em>React</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReact()
-   * @generated
-   * @ordered
-   */
-  protected String react = REACT_EDEFAULT;
+  protected ReactApp react;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,7 +114,7 @@ public class TechnologyImpl extends MinimalEObjectImpl.Container implements Tech
    * @generated
    */
   @Override
-  public String getReact()
+  public ReactApp getReact()
   {
     return react;
   }
@@ -131,13 +124,54 @@ public class TechnologyImpl extends MinimalEObjectImpl.Container implements Tech
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setReact(String newReact)
+  public NotificationChain basicSetReact(ReactApp newReact, NotificationChain msgs)
   {
-    String oldReact = react;
+    ReactApp oldReact = react;
     react = newReact;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.TECHNOLOGY__REACT, oldReact, react));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.TECHNOLOGY__REACT, oldReact, newReact);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setReact(ReactApp newReact)
+  {
+    if (newReact != react)
+    {
+      NotificationChain msgs = null;
+      if (react != null)
+        msgs = ((InternalEObject)react).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.TECHNOLOGY__REACT, null, msgs);
+      if (newReact != null)
+        msgs = ((InternalEObject)newReact).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.TECHNOLOGY__REACT, null, msgs);
+      msgs = basicSetReact(newReact, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.TECHNOLOGY__REACT, newReact, newReact));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DslPackage.TECHNOLOGY__REACT:
+        return basicSetReact(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -172,7 +206,7 @@ public class TechnologyImpl extends MinimalEObjectImpl.Container implements Tech
         setJava((String)newValue);
         return;
       case DslPackage.TECHNOLOGY__REACT:
-        setReact((String)newValue);
+        setReact((ReactApp)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -192,7 +226,7 @@ public class TechnologyImpl extends MinimalEObjectImpl.Container implements Tech
         setJava(JAVA_EDEFAULT);
         return;
       case DslPackage.TECHNOLOGY__REACT:
-        setReact(REACT_EDEFAULT);
+        setReact((ReactApp)null);
         return;
     }
     super.eUnset(featureID);
@@ -211,7 +245,7 @@ public class TechnologyImpl extends MinimalEObjectImpl.Container implements Tech
       case DslPackage.TECHNOLOGY__JAVA:
         return JAVA_EDEFAULT == null ? java != null : !JAVA_EDEFAULT.equals(java);
       case DslPackage.TECHNOLOGY__REACT:
-        return REACT_EDEFAULT == null ? react != null : !REACT_EDEFAULT.equals(react);
+        return react != null;
     }
     return super.eIsSet(featureID);
   }
@@ -229,8 +263,6 @@ public class TechnologyImpl extends MinimalEObjectImpl.Container implements Tech
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (java: ");
     result.append(java);
-    result.append(", react: ");
-    result.append(react);
     result.append(')');
     return result.toString();
   }

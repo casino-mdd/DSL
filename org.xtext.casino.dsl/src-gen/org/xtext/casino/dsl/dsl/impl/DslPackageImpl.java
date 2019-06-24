@@ -10,26 +10,45 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.casino.dsl.dsl.AbstractFrontElement;
+import org.xtext.casino.dsl.dsl.Action;
+import org.xtext.casino.dsl.dsl.ActionCreator;
+import org.xtext.casino.dsl.dsl.ActionDispatcher;
 import org.xtext.casino.dsl.dsl.Architecture;
 import org.xtext.casino.dsl.dsl.Component;
+import org.xtext.casino.dsl.dsl.Css;
+import org.xtext.casino.dsl.dsl.Directory;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslFactory;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.EntityName;
+import org.xtext.casino.dsl.dsl.File;
+import org.xtext.casino.dsl.dsl.Functionality;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.Js;
+import org.xtext.casino.dsl.dsl.JsModule;
+import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
+import org.xtext.casino.dsl.dsl.ReactApp;
+import org.xtext.casino.dsl.dsl.Reducer;
 import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
+import org.xtext.casino.dsl.dsl.RouterComponent;
+import org.xtext.casino.dsl.dsl.ServiceFront;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
+import org.xtext.casino.dsl.dsl.State;
 import org.xtext.casino.dsl.dsl.SublayerSegment;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
 import org.xtext.casino.dsl.dsl.Type;
+import org.xtext.casino.dsl.dsl.UIComponent;
+import org.xtext.casino.dsl.dsl.Visualizer;
 
 /**
  * <!-- begin-user-doc -->
@@ -178,6 +197,146 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass technologyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractFrontElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reactAppEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionalityEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass routerComponentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass uiComponentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass containerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass visualizerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass serviceFrontEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass directoryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fileEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mdEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass jsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass jsonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass cssEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass actionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass actionCreatorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass actionDispatcherEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass reducerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass jsModuleEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -831,9 +990,647 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EAttribute getTechnology_React()
+  public EReference getTechnology_React()
   {
-    return (EAttribute)technologyEClass.getEStructuralFeatures().get(1);
+    return (EReference)technologyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAbstractFrontElement()
+  {
+    return abstractFrontElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReactApp()
+  {
+    return reactAppEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReactApp_Elements()
+  {
+    return (EReference)reactAppEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReactApp_Func()
+  {
+    return (EReference)reactAppEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReactApp_Dir()
+  {
+    return (EReference)reactAppEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReactApp_Mod()
+  {
+    return (EReference)reactAppEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunctionality()
+  {
+    return functionalityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFunctionality_Name()
+  {
+    return (EAttribute)functionalityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionality_Route()
+  {
+    return (EReference)functionalityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionality_Wrap()
+  {
+    return (EReference)functionalityEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionality_Render()
+  {
+    return (EReference)functionalityEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionality_State()
+  {
+    return (EReference)functionalityEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionality_Service()
+  {
+    return (EReference)functionalityEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionality_Type()
+  {
+    return (EReference)functionalityEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRouterComponent()
+  {
+    return routerComponentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRouterComponent_Name()
+  {
+    return (EAttribute)routerComponentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRouterComponent_Type()
+  {
+    return (EReference)routerComponentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRouterComponent_Route()
+  {
+    return (EReference)routerComponentEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getUIComponent()
+  {
+    return uiComponentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getContainer()
+  {
+    return containerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getContainer_Name()
+  {
+    return (EAttribute)containerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getContainer_Type()
+  {
+    return (EReference)containerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getVisualizer()
+  {
+    return visualizerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVisualizer_Name()
+  {
+    return (EAttribute)visualizerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getVisualizer_Type()
+  {
+    return (EReference)visualizerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getServiceFront()
+  {
+    return serviceFrontEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getServiceFront_Name()
+  {
+    return (EAttribute)serviceFrontEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getServiceFront_Type()
+  {
+    return (EReference)serviceFrontEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDirectory()
+  {
+    return directoryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDirectory_Name()
+  {
+    return (EAttribute)directoryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDirectory_File()
+  {
+    return (EReference)directoryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDirectory_Subdirectory()
+  {
+    return (EReference)directoryEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFile()
+  {
+    return fileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFile_Name()
+  {
+    return (EAttribute)fileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMd()
+  {
+    return mdEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getJs()
+  {
+    return jsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getJson()
+  {
+    return jsonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCss()
+  {
+    return cssEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getState()
+  {
+    return stateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getState_Name()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getState_Action()
+  {
+    return (EReference)stateEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getState_Reducer()
+  {
+    return (EReference)stateEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAction()
+  {
+    return actionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAction_Name()
+  {
+    return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAction_ActionCreator()
+  {
+    return (EReference)actionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAction_ActionDispatcher()
+  {
+    return (EReference)actionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAction_Dir()
+  {
+    return (EReference)actionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getActionCreator()
+  {
+    return actionCreatorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getActionCreator_Name()
+  {
+    return (EAttribute)actionCreatorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getActionDispatcher()
+  {
+    return actionDispatcherEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getActionDispatcher_Name()
+  {
+    return (EAttribute)actionDispatcherEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getActionDispatcher_Type()
+  {
+    return (EReference)actionDispatcherEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReducer()
+  {
+    return reducerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getReducer_Name()
+  {
+    return (EAttribute)reducerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getReducer_Type()
+  {
+    return (EReference)reducerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getJsModule()
+  {
+    return jsModuleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getJsModule_Name()
+  {
+    return (EAttribute)jsModuleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getJsModule_Type()
+  {
+    return (EReference)jsModuleEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -939,7 +1736,85 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     technologyEClass = createEClass(TECHNOLOGY);
     createEAttribute(technologyEClass, TECHNOLOGY__JAVA);
-    createEAttribute(technologyEClass, TECHNOLOGY__REACT);
+    createEReference(technologyEClass, TECHNOLOGY__REACT);
+
+    abstractFrontElementEClass = createEClass(ABSTRACT_FRONT_ELEMENT);
+
+    reactAppEClass = createEClass(REACT_APP);
+    createEReference(reactAppEClass, REACT_APP__ELEMENTS);
+    createEReference(reactAppEClass, REACT_APP__FUNC);
+    createEReference(reactAppEClass, REACT_APP__DIR);
+    createEReference(reactAppEClass, REACT_APP__MOD);
+
+    functionalityEClass = createEClass(FUNCTIONALITY);
+    createEAttribute(functionalityEClass, FUNCTIONALITY__NAME);
+    createEReference(functionalityEClass, FUNCTIONALITY__ROUTE);
+    createEReference(functionalityEClass, FUNCTIONALITY__WRAP);
+    createEReference(functionalityEClass, FUNCTIONALITY__RENDER);
+    createEReference(functionalityEClass, FUNCTIONALITY__STATE);
+    createEReference(functionalityEClass, FUNCTIONALITY__SERVICE);
+    createEReference(functionalityEClass, FUNCTIONALITY__TYPE);
+
+    routerComponentEClass = createEClass(ROUTER_COMPONENT);
+    createEAttribute(routerComponentEClass, ROUTER_COMPONENT__NAME);
+    createEReference(routerComponentEClass, ROUTER_COMPONENT__TYPE);
+    createEReference(routerComponentEClass, ROUTER_COMPONENT__ROUTE);
+
+    uiComponentEClass = createEClass(UI_COMPONENT);
+
+    containerEClass = createEClass(CONTAINER);
+    createEAttribute(containerEClass, CONTAINER__NAME);
+    createEReference(containerEClass, CONTAINER__TYPE);
+
+    visualizerEClass = createEClass(VISUALIZER);
+    createEAttribute(visualizerEClass, VISUALIZER__NAME);
+    createEReference(visualizerEClass, VISUALIZER__TYPE);
+
+    serviceFrontEClass = createEClass(SERVICE_FRONT);
+    createEAttribute(serviceFrontEClass, SERVICE_FRONT__NAME);
+    createEReference(serviceFrontEClass, SERVICE_FRONT__TYPE);
+
+    directoryEClass = createEClass(DIRECTORY);
+    createEAttribute(directoryEClass, DIRECTORY__NAME);
+    createEReference(directoryEClass, DIRECTORY__FILE);
+    createEReference(directoryEClass, DIRECTORY__SUBDIRECTORY);
+
+    fileEClass = createEClass(FILE);
+    createEAttribute(fileEClass, FILE__NAME);
+
+    mdEClass = createEClass(MD);
+
+    jsEClass = createEClass(JS);
+
+    jsonEClass = createEClass(JSON);
+
+    cssEClass = createEClass(CSS);
+
+    stateEClass = createEClass(STATE);
+    createEAttribute(stateEClass, STATE__NAME);
+    createEReference(stateEClass, STATE__ACTION);
+    createEReference(stateEClass, STATE__REDUCER);
+
+    actionEClass = createEClass(ACTION);
+    createEAttribute(actionEClass, ACTION__NAME);
+    createEReference(actionEClass, ACTION__ACTION_CREATOR);
+    createEReference(actionEClass, ACTION__ACTION_DISPATCHER);
+    createEReference(actionEClass, ACTION__DIR);
+
+    actionCreatorEClass = createEClass(ACTION_CREATOR);
+    createEAttribute(actionCreatorEClass, ACTION_CREATOR__NAME);
+
+    actionDispatcherEClass = createEClass(ACTION_DISPATCHER);
+    createEAttribute(actionDispatcherEClass, ACTION_DISPATCHER__NAME);
+    createEReference(actionDispatcherEClass, ACTION_DISPATCHER__TYPE);
+
+    reducerEClass = createEClass(REDUCER);
+    createEAttribute(reducerEClass, REDUCER__NAME);
+    createEReference(reducerEClass, REDUCER__TYPE);
+
+    jsModuleEClass = createEClass(JS_MODULE);
+    createEAttribute(jsModuleEClass, JS_MODULE__NAME);
+    createEReference(jsModuleEClass, JS_MODULE__TYPE);
   }
 
   /**
@@ -973,6 +1848,27 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     // Add supertypes to classes
     entityNameEClass.getESuperTypes().add(this.getGeneralEntity());
     entityNameEClass.getESuperTypes().add(this.getSpecialEntity());
+    typeEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    reactAppEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    functionalityEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    routerComponentEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    routerComponentEClass.getESuperTypes().add(this.getUIComponent());
+    containerEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    visualizerEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    visualizerEClass.getESuperTypes().add(this.getUIComponent());
+    serviceFrontEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    directoryEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    fileEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    mdEClass.getESuperTypes().add(this.getFile());
+    jsEClass.getESuperTypes().add(this.getFile());
+    jsonEClass.getESuperTypes().add(this.getFile());
+    cssEClass.getESuperTypes().add(this.getFile());
+    stateEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    actionEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    actionCreatorEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    actionDispatcherEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    reducerEClass.getESuperTypes().add(this.getAbstractFrontElement());
+    jsModuleEClass.getESuperTypes().add(this.getAbstractFrontElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(systemEClass, org.xtext.casino.dsl.dsl.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1047,7 +1943,85 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     initEClass(technologyEClass, Technology.class, "Technology", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTechnology_Java(), ecorePackage.getEString(), "java", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTechnology_React(), ecorePackage.getEString(), "react", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTechnology_React(), this.getReactApp(), null, "react", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractFrontElementEClass, AbstractFrontElement.class, "AbstractFrontElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(reactAppEClass, ReactApp.class, "ReactApp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReactApp_Elements(), this.getAbstractFrontElement(), null, "elements", null, 0, -1, ReactApp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReactApp_Func(), this.getFunctionality(), null, "func", null, 0, 1, ReactApp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReactApp_Dir(), this.getDirectory(), null, "dir", null, 0, 1, ReactApp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReactApp_Mod(), this.getJsModule(), null, "mod", null, 0, 1, ReactApp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionalityEClass, Functionality.class, "Functionality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunctionality_Name(), ecorePackage.getEString(), "name", null, 0, 1, Functionality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionality_Route(), this.getRouterComponent(), null, "route", null, 0, 1, Functionality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionality_Wrap(), this.getContainer(), null, "wrap", null, 0, 1, Functionality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionality_Render(), this.getVisualizer(), null, "render", null, 0, 1, Functionality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionality_State(), this.getState(), null, "state", null, 0, 1, Functionality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionality_Service(), this.getServiceFront(), null, "service", null, 0, 1, Functionality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionality_Type(), this.getDirectory(), null, "type", null, 0, 1, Functionality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(routerComponentEClass, RouterComponent.class, "RouterComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRouterComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, RouterComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRouterComponent_Type(), this.getAbstractFrontElement(), null, "type", null, 0, 1, RouterComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRouterComponent_Route(), this.getUIComponent(), null, "route", null, 0, 1, RouterComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(uiComponentEClass, UIComponent.class, "UIComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(containerEClass, org.xtext.casino.dsl.dsl.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.casino.dsl.dsl.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContainer_Type(), this.getAbstractFrontElement(), null, "type", null, 0, 1, org.xtext.casino.dsl.dsl.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(visualizerEClass, Visualizer.class, "Visualizer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVisualizer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Visualizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVisualizer_Type(), this.getAbstractFrontElement(), null, "type", null, 0, 1, Visualizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(serviceFrontEClass, ServiceFront.class, "ServiceFront", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getServiceFront_Name(), ecorePackage.getEString(), "name", null, 0, 1, ServiceFront.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getServiceFront_Type(), this.getJsModule(), null, "type", null, 0, 1, ServiceFront.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(directoryEClass, Directory.class, "Directory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDirectory_Name(), ecorePackage.getEString(), "name", null, 0, 1, Directory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDirectory_File(), this.getFile(), null, "file", null, 0, 1, Directory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDirectory_Subdirectory(), this.getDirectory(), null, "subdirectory", null, 0, 1, Directory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFile_Name(), ecorePackage.getEString(), "name", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mdEClass, Md.class, "Md", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(jsEClass, Js.class, "Js", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(jsonEClass, Json.class, "Json", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(cssEClass, Css.class, "Css", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getState_Action(), this.getAction(), null, "action", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getState_Reducer(), this.getReducer(), null, "reducer", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAction_ActionCreator(), this.getActionCreator(), null, "actionCreator", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAction_ActionDispatcher(), this.getActionDispatcher(), null, "actionDispatcher", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAction_Dir(), this.getDirectory(), null, "dir", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(actionCreatorEClass, ActionCreator.class, "ActionCreator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getActionCreator_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActionCreator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(actionDispatcherEClass, ActionDispatcher.class, "ActionDispatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getActionDispatcher_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActionDispatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getActionDispatcher_Type(), this.getActionCreator(), null, "type", null, 0, 1, ActionDispatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(reducerEClass, Reducer.class, "Reducer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReducer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Reducer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReducer_Type(), this.getAbstractFrontElement(), null, "type", null, 0, 1, Reducer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(jsModuleEClass, JsModule.class, "JsModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getJsModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, JsModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJsModule_Type(), this.getDirectory(), null, "type", null, 0, 1, JsModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

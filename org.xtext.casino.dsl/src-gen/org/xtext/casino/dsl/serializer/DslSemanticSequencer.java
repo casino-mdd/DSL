@@ -14,23 +14,39 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.casino.dsl.dsl.ActionCreator;
+import org.xtext.casino.dsl.dsl.ActionDispatcher;
 import org.xtext.casino.dsl.dsl.Architecture;
 import org.xtext.casino.dsl.dsl.Component;
+import org.xtext.casino.dsl.dsl.Container;
+import org.xtext.casino.dsl.dsl.Css;
+import org.xtext.casino.dsl.dsl.Directory;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.EntityName;
+import org.xtext.casino.dsl.dsl.Functionality;
+import org.xtext.casino.dsl.dsl.Js;
+import org.xtext.casino.dsl.dsl.JsModule;
+import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
+import org.xtext.casino.dsl.dsl.ReactApp;
+import org.xtext.casino.dsl.dsl.Reducer;
 import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
+import org.xtext.casino.dsl.dsl.RouterComponent;
+import org.xtext.casino.dsl.dsl.ServiceFront;
+import org.xtext.casino.dsl.dsl.State;
 import org.xtext.casino.dsl.dsl.SublayerSegment;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
 import org.xtext.casino.dsl.dsl.Type;
+import org.xtext.casino.dsl.dsl.Visualizer;
 import org.xtext.casino.dsl.services.DslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -47,11 +63,29 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case DslPackage.ACTION:
+				sequence_Action(context, (org.xtext.casino.dsl.dsl.Action) semanticObject); 
+				return; 
+			case DslPackage.ACTION_CREATOR:
+				sequence_ActionCreator(context, (ActionCreator) semanticObject); 
+				return; 
+			case DslPackage.ACTION_DISPATCHER:
+				sequence_ActionDispatcher(context, (ActionDispatcher) semanticObject); 
+				return; 
 			case DslPackage.ARCHITECTURE:
 				sequence_Architecture(context, (Architecture) semanticObject); 
 				return; 
 			case DslPackage.COMPONENT:
 				sequence_Component(context, (Component) semanticObject); 
+				return; 
+			case DslPackage.CONTAINER:
+				sequence_Container(context, (Container) semanticObject); 
+				return; 
+			case DslPackage.CSS:
+				sequence_Css(context, (Css) semanticObject); 
+				return; 
+			case DslPackage.DIRECTORY:
+				sequence_Directory(context, (Directory) semanticObject); 
 				return; 
 			case DslPackage.DOMAIN:
 				sequence_Domain(context, (Domain) semanticObject); 
@@ -70,11 +104,26 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case DslPackage.FUNCTIONALITY:
+				sequence_Functionality(context, (Functionality) semanticObject); 
+				return; 
+			case DslPackage.JS:
+				sequence_Js(context, (Js) semanticObject); 
+				return; 
+			case DslPackage.JS_MODULE:
+				sequence_JsModule(context, (JsModule) semanticObject); 
+				return; 
+			case DslPackage.JSON:
+				sequence_Json(context, (Json) semanticObject); 
+				return; 
 			case DslPackage.LAYER:
 				sequence_Layer(context, (Layer) semanticObject); 
 				return; 
 			case DslPackage.LAYER_SEGMENT:
 				sequence_LayerSegment(context, (LayerSegment) semanticObject); 
+				return; 
+			case DslPackage.MD:
+				sequence_Md(context, (Md) semanticObject); 
 				return; 
 			case DslPackage.MODULE:
 				sequence_Module(context, (org.xtext.casino.dsl.dsl.Module) semanticObject); 
@@ -88,11 +137,26 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.PROPERTY:
 				sequence_Property(context, (Property) semanticObject); 
 				return; 
+			case DslPackage.REACT_APP:
+				sequence_ReactApp(context, (ReactApp) semanticObject); 
+				return; 
+			case DslPackage.REDUCER:
+				sequence_Reducer(context, (Reducer) semanticObject); 
+				return; 
 			case DslPackage.RELATION_ARCH:
 				sequence_RelationArch(context, (RelationArch) semanticObject); 
 				return; 
 			case DslPackage.RELATION_DOM:
 				sequence_RelationDom(context, (RelationDom) semanticObject); 
+				return; 
+			case DslPackage.ROUTER_COMPONENT:
+				sequence_RouterComponent(context, (RouterComponent) semanticObject); 
+				return; 
+			case DslPackage.SERVICE_FRONT:
+				sequence_ServiceFront(context, (ServiceFront) semanticObject); 
+				return; 
+			case DslPackage.STATE:
+				sequence_State(context, (State) semanticObject); 
 				return; 
 			case DslPackage.SUBLAYER_SEGMENT:
 				sequence_SublayerSegment(context, (SublayerSegment) semanticObject); 
@@ -112,10 +176,58 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
 				return; 
+			case DslPackage.VISUALIZER:
+				sequence_Visualizer(context, (Visualizer) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns ActionCreator
+	 *     ActionCreator returns ActionCreator
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_ActionCreator(ISerializationContext context, ActionCreator semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ACTION_CREATOR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ACTION_CREATOR__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getActionCreatorAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns ActionDispatcher
+	 *     ActionDispatcher returns ActionDispatcher
+	 *
+	 * Constraint:
+	 *     (name=ID type=[ActionCreator|ID]*)
+	 */
+	protected void sequence_ActionDispatcher(ISerializationContext context, ActionDispatcher semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns Action
+	 *     Action returns Action
+	 *
+	 * Constraint:
+	 *     (name=ID actionCreator=[ActionCreator|ID]* actionDispatcher=[ActionDispatcher|ID]* dir=[Directory|ID])
+	 */
+	protected void sequence_Action(ISerializationContext context, org.xtext.casino.dsl.dsl.Action semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -137,6 +249,52 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     layer+=Layer+
 	 */
 	protected void sequence_Component(ISerializationContext context, Component semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns Container
+	 *     Container returns Container
+	 *
+	 * Constraint:
+	 *     (name=ID type=[Directory|ID] type=[ActionDispatcher|ID]? type=[Reducer|ID]* type=[JsModule|ID])
+	 */
+	protected void sequence_Container(ISerializationContext context, Container semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns Css
+	 *     File returns Css
+	 *     Css returns Css
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Css(ISerializationContext context, Css semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCssAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns Directory
+	 *     Directory returns Directory
+	 *
+	 * Constraint:
+	 *     (name=ID file=[File|ID]* subdirectory=[Directory|ID]*)
+	 */
+	protected void sequence_Directory(ISerializationContext context, Directory semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -197,6 +355,89 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     AbstractFrontElement returns Functionality
+	 *     Functionality returns Functionality
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         route=[RouterComponent|ID]* 
+	 *         wrap=[Container|ID]* 
+	 *         render=[Visualizer|ID]+ 
+	 *         state=[State|ID]* 
+	 *         service=[ServiceFront|ID]* 
+	 *         type=[Directory|ID]
+	 *     )
+	 */
+	protected void sequence_Functionality(ISerializationContext context, Functionality semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns JsModule
+	 *     JsModule returns JsModule
+	 *
+	 * Constraint:
+	 *     (name=ID type=[Directory|ID])
+	 */
+	protected void sequence_JsModule(ISerializationContext context, JsModule semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.JS_MODULE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.JS_MODULE__NAME));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.JS_MODULE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.JS_MODULE__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getJsModuleAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getJsModuleAccess().getTypeDirectoryIDTerminalRuleCall_4_0_1(), semanticObject.eGet(DslPackage.Literals.JS_MODULE__TYPE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns Js
+	 *     File returns Js
+	 *     Js returns Js
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Js(ISerializationContext context, Js semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getJsAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns Json
+	 *     File returns Json
+	 *     Json returns Json
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Json(ISerializationContext context, Json semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getJsonAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     LayerSegment returns LayerSegment
 	 *
 	 * Constraint:
@@ -216,6 +457,26 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Layer(ISerializationContext context, Layer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns Md
+	 *     File returns Md
+	 *     Md returns Md
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Md(ISerializationContext context, Md semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMdAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -278,6 +539,32 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     AbstractFrontElement returns ReactApp
+	 *     ReactApp returns ReactApp
+	 *
+	 * Constraint:
+	 *     (elements+=AbstractFrontElement+ func=[Functionality|ID]+ dir=[Directory|ID]+ mod=[JsModule|ID]+)
+	 */
+	protected void sequence_ReactApp(ISerializationContext context, ReactApp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns Reducer
+	 *     Reducer returns Reducer
+	 *
+	 * Constraint:
+	 *     (name=ID type=[ActionCreator|ID]+ type=[Directory|ID])
+	 */
+	protected void sequence_Reducer(ISerializationContext context, Reducer semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     RelationArch returns RelationArch
 	 *
 	 * Constraint:
@@ -302,6 +589,55 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (source+=EntityName target+=EntityName)
 	 */
 	protected void sequence_RelationDom(ISerializationContext context, RelationDom semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns RouterComponent
+	 *     RouterComponent returns RouterComponent
+	 *     UIComponent returns RouterComponent
+	 *
+	 * Constraint:
+	 *     (name=ID type=[Directory|ID] type=[JsModule|ID] route=[UIComponent|ID])
+	 */
+	protected void sequence_RouterComponent(ISerializationContext context, RouterComponent semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns ServiceFront
+	 *     ServiceFront returns ServiceFront
+	 *
+	 * Constraint:
+	 *     (name=ID type=[JsModule|ID])
+	 */
+	protected void sequence_ServiceFront(ISerializationContext context, ServiceFront semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SERVICE_FRONT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SERVICE_FRONT__NAME));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SERVICE_FRONT__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SERVICE_FRONT__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getServiceFrontAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getServiceFrontAccess().getTypeJsModuleIDTerminalRuleCall_4_0_1(), semanticObject.eGet(DslPackage.Literals.SERVICE_FRONT__TYPE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns State
+	 *     State returns State
+	 *
+	 * Constraint:
+	 *     (name=ID action=[Action|ID]* reducer=[Reducer|ID]*)
+	 */
+	protected void sequence_State(ISerializationContext context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -396,6 +732,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     Type returns Type
+	 *     AbstractFrontElement returns Type
 	 *
 	 * Constraint:
 	 *     name=ID
@@ -408,6 +745,20 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTypeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractFrontElement returns Visualizer
+	 *     UIComponent returns Visualizer
+	 *     Visualizer returns Visualizer
+	 *
+	 * Constraint:
+	 *     (name=ID type=[Directory|ID] type=[JsModule|ID]+)
+	 */
+	protected void sequence_Visualizer(ISerializationContext context, Visualizer semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

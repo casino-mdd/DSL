@@ -8,25 +8,45 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.xtext.casino.dsl.dsl.AbstractFrontElement;
+import org.xtext.casino.dsl.dsl.Action;
+import org.xtext.casino.dsl.dsl.ActionCreator;
+import org.xtext.casino.dsl.dsl.ActionDispatcher;
 import org.xtext.casino.dsl.dsl.Architecture;
 import org.xtext.casino.dsl.dsl.Component;
+import org.xtext.casino.dsl.dsl.Container;
+import org.xtext.casino.dsl.dsl.Css;
+import org.xtext.casino.dsl.dsl.Directory;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.EntityName;
+import org.xtext.casino.dsl.dsl.File;
+import org.xtext.casino.dsl.dsl.Functionality;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.Js;
+import org.xtext.casino.dsl.dsl.JsModule;
+import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
+import org.xtext.casino.dsl.dsl.ReactApp;
+import org.xtext.casino.dsl.dsl.Reducer;
 import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
+import org.xtext.casino.dsl.dsl.RouterComponent;
+import org.xtext.casino.dsl.dsl.ServiceFront;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
+import org.xtext.casino.dsl.dsl.State;
 import org.xtext.casino.dsl.dsl.SublayerSegment;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
 import org.xtext.casino.dsl.dsl.Type;
+import org.xtext.casino.dsl.dsl.UIComponent;
+import org.xtext.casino.dsl.dsl.Visualizer;
 
 /**
  * <!-- begin-user-doc -->
@@ -153,6 +173,7 @@ public class DslSwitch<T> extends Switch<T>
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
+        if (result == null) result = caseAbstractFrontElement(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -230,6 +251,170 @@ public class DslSwitch<T> extends Switch<T>
       {
         Technology technology = (Technology)theEObject;
         T result = caseTechnology(technology);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.ABSTRACT_FRONT_ELEMENT:
+      {
+        AbstractFrontElement abstractFrontElement = (AbstractFrontElement)theEObject;
+        T result = caseAbstractFrontElement(abstractFrontElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.REACT_APP:
+      {
+        ReactApp reactApp = (ReactApp)theEObject;
+        T result = caseReactApp(reactApp);
+        if (result == null) result = caseAbstractFrontElement(reactApp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.FUNCTIONALITY:
+      {
+        Functionality functionality = (Functionality)theEObject;
+        T result = caseFunctionality(functionality);
+        if (result == null) result = caseAbstractFrontElement(functionality);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.ROUTER_COMPONENT:
+      {
+        RouterComponent routerComponent = (RouterComponent)theEObject;
+        T result = caseRouterComponent(routerComponent);
+        if (result == null) result = caseAbstractFrontElement(routerComponent);
+        if (result == null) result = caseUIComponent(routerComponent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.UI_COMPONENT:
+      {
+        UIComponent uiComponent = (UIComponent)theEObject;
+        T result = caseUIComponent(uiComponent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.CONTAINER:
+      {
+        Container container = (Container)theEObject;
+        T result = caseContainer(container);
+        if (result == null) result = caseAbstractFrontElement(container);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.VISUALIZER:
+      {
+        Visualizer visualizer = (Visualizer)theEObject;
+        T result = caseVisualizer(visualizer);
+        if (result == null) result = caseAbstractFrontElement(visualizer);
+        if (result == null) result = caseUIComponent(visualizer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.SERVICE_FRONT:
+      {
+        ServiceFront serviceFront = (ServiceFront)theEObject;
+        T result = caseServiceFront(serviceFront);
+        if (result == null) result = caseAbstractFrontElement(serviceFront);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.DIRECTORY:
+      {
+        Directory directory = (Directory)theEObject;
+        T result = caseDirectory(directory);
+        if (result == null) result = caseAbstractFrontElement(directory);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.FILE:
+      {
+        File file = (File)theEObject;
+        T result = caseFile(file);
+        if (result == null) result = caseAbstractFrontElement(file);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.MD:
+      {
+        Md md = (Md)theEObject;
+        T result = caseMd(md);
+        if (result == null) result = caseFile(md);
+        if (result == null) result = caseAbstractFrontElement(md);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.JS:
+      {
+        Js js = (Js)theEObject;
+        T result = caseJs(js);
+        if (result == null) result = caseFile(js);
+        if (result == null) result = caseAbstractFrontElement(js);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.JSON:
+      {
+        Json json = (Json)theEObject;
+        T result = caseJson(json);
+        if (result == null) result = caseFile(json);
+        if (result == null) result = caseAbstractFrontElement(json);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.CSS:
+      {
+        Css css = (Css)theEObject;
+        T result = caseCss(css);
+        if (result == null) result = caseFile(css);
+        if (result == null) result = caseAbstractFrontElement(css);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.STATE:
+      {
+        State state = (State)theEObject;
+        T result = caseState(state);
+        if (result == null) result = caseAbstractFrontElement(state);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.ACTION:
+      {
+        Action action = (Action)theEObject;
+        T result = caseAction(action);
+        if (result == null) result = caseAbstractFrontElement(action);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.ACTION_CREATOR:
+      {
+        ActionCreator actionCreator = (ActionCreator)theEObject;
+        T result = caseActionCreator(actionCreator);
+        if (result == null) result = caseAbstractFrontElement(actionCreator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.ACTION_DISPATCHER:
+      {
+        ActionDispatcher actionDispatcher = (ActionDispatcher)theEObject;
+        T result = caseActionDispatcher(actionDispatcher);
+        if (result == null) result = caseAbstractFrontElement(actionDispatcher);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.REDUCER:
+      {
+        Reducer reducer = (Reducer)theEObject;
+        T result = caseReducer(reducer);
+        if (result == null) result = caseAbstractFrontElement(reducer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.JS_MODULE:
+      {
+        JsModule jsModule = (JsModule)theEObject;
+        T result = caseJsModule(jsModule);
+        if (result == null) result = caseAbstractFrontElement(jsModule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -553,6 +738,326 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTechnology(Technology object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Front Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Front Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractFrontElement(AbstractFrontElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>React App</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>React App</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReactApp(ReactApp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Functionality</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Functionality</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionality(Functionality object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Router Component</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Router Component</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRouterComponent(RouterComponent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Component</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Component</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIComponent(UIComponent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Container</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContainer(Container object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Visualizer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Visualizer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVisualizer(Visualizer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Service Front</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Service Front</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseServiceFront(ServiceFront object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Directory</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Directory</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDirectory(Directory object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>File</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>File</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFile(File object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Md</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Md</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMd(Md object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Js</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Js</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJs(Js object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Json</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Json</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJson(Json object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Css</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Css</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCss(Css object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseState(State object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAction(Action object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Action Creator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action Creator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActionCreator(ActionCreator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Action Dispatcher</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action Dispatcher</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActionDispatcher(ActionDispatcher object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Reducer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Reducer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReducer(Reducer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Js Module</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Js Module</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJsModule(JsModule object)
   {
     return null;
   }

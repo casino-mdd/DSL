@@ -204,6 +204,186 @@ public interface DslFactory extends EFactory
   Technology createTechnology();
 
   /**
+   * Returns a new object of class '<em>Abstract Front Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Front Element</em>'.
+   * @generated
+   */
+  AbstractFrontElement createAbstractFrontElement();
+
+  /**
+   * Returns a new object of class '<em>React App</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>React App</em>'.
+   * @generated
+   */
+  ReactApp createReactApp();
+
+  /**
+   * Returns a new object of class '<em>Functionality</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Functionality</em>'.
+   * @generated
+   */
+  Functionality createFunctionality();
+
+  /**
+   * Returns a new object of class '<em>Router Component</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Router Component</em>'.
+   * @generated
+   */
+  RouterComponent createRouterComponent();
+
+  /**
+   * Returns a new object of class '<em>UI Component</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Component</em>'.
+   * @generated
+   */
+  UIComponent createUIComponent();
+
+  /**
+   * Returns a new object of class '<em>Container</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Container</em>'.
+   * @generated
+   */
+  Container createContainer();
+
+  /**
+   * Returns a new object of class '<em>Visualizer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Visualizer</em>'.
+   * @generated
+   */
+  Visualizer createVisualizer();
+
+  /**
+   * Returns a new object of class '<em>Service Front</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Service Front</em>'.
+   * @generated
+   */
+  ServiceFront createServiceFront();
+
+  /**
+   * Returns a new object of class '<em>Directory</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Directory</em>'.
+   * @generated
+   */
+  Directory createDirectory();
+
+  /**
+   * Returns a new object of class '<em>File</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>File</em>'.
+   * @generated
+   */
+  File createFile();
+
+  /**
+   * Returns a new object of class '<em>Md</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Md</em>'.
+   * @generated
+   */
+  Md createMd();
+
+  /**
+   * Returns a new object of class '<em>Js</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Js</em>'.
+   * @generated
+   */
+  Js createJs();
+
+  /**
+   * Returns a new object of class '<em>Json</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Json</em>'.
+   * @generated
+   */
+  Json createJson();
+
+  /**
+   * Returns a new object of class '<em>Css</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Css</em>'.
+   * @generated
+   */
+  Css createCss();
+
+  /**
+   * Returns a new object of class '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State</em>'.
+   * @generated
+   */
+  State createState();
+
+  /**
+   * Returns a new object of class '<em>Action</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action</em>'.
+   * @generated
+   */
+  Action createAction();
+
+  /**
+   * Returns a new object of class '<em>Action Creator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action Creator</em>'.
+   * @generated
+   */
+  ActionCreator createActionCreator();
+
+  /**
+   * Returns a new object of class '<em>Action Dispatcher</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action Dispatcher</em>'.
+   * @generated
+   */
+  ActionDispatcher createActionDispatcher();
+
+  /**
+   * Returns a new object of class '<em>Reducer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reducer</em>'.
+   * @generated
+   */
+  Reducer createReducer();
+
+  /**
+   * Returns a new object of class '<em>Js Module</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Js Module</em>'.
+   * @generated
+   */
+  JsModule createJsModule();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

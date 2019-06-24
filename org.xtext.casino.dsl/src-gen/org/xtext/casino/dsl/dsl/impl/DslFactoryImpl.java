@@ -11,26 +11,45 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.xtext.casino.dsl.dsl.AbstractFrontElement;
+import org.xtext.casino.dsl.dsl.Action;
+import org.xtext.casino.dsl.dsl.ActionCreator;
+import org.xtext.casino.dsl.dsl.ActionDispatcher;
 import org.xtext.casino.dsl.dsl.Architecture;
 import org.xtext.casino.dsl.dsl.Component;
+import org.xtext.casino.dsl.dsl.Css;
+import org.xtext.casino.dsl.dsl.Directory;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslFactory;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.EntityName;
+import org.xtext.casino.dsl.dsl.File;
+import org.xtext.casino.dsl.dsl.Functionality;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.Js;
+import org.xtext.casino.dsl.dsl.JsModule;
+import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
+import org.xtext.casino.dsl.dsl.ReactApp;
+import org.xtext.casino.dsl.dsl.Reducer;
 import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
+import org.xtext.casino.dsl.dsl.RouterComponent;
+import org.xtext.casino.dsl.dsl.ServiceFront;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
+import org.xtext.casino.dsl.dsl.State;
 import org.xtext.casino.dsl.dsl.SublayerSegment;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
 import org.xtext.casino.dsl.dsl.Type;
+import org.xtext.casino.dsl.dsl.UIComponent;
+import org.xtext.casino.dsl.dsl.Visualizer;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,6 +123,26 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.SUBLAYER_SEGMENT: return createSublayerSegment();
       case DslPackage.RELATION_ARCH: return createRelationArch();
       case DslPackage.TECHNOLOGY: return createTechnology();
+      case DslPackage.ABSTRACT_FRONT_ELEMENT: return createAbstractFrontElement();
+      case DslPackage.REACT_APP: return createReactApp();
+      case DslPackage.FUNCTIONALITY: return createFunctionality();
+      case DslPackage.ROUTER_COMPONENT: return createRouterComponent();
+      case DslPackage.UI_COMPONENT: return createUIComponent();
+      case DslPackage.CONTAINER: return createContainer();
+      case DslPackage.VISUALIZER: return createVisualizer();
+      case DslPackage.SERVICE_FRONT: return createServiceFront();
+      case DslPackage.DIRECTORY: return createDirectory();
+      case DslPackage.FILE: return createFile();
+      case DslPackage.MD: return createMd();
+      case DslPackage.JS: return createJs();
+      case DslPackage.JSON: return createJson();
+      case DslPackage.CSS: return createCss();
+      case DslPackage.STATE: return createState();
+      case DslPackage.ACTION: return createAction();
+      case DslPackage.ACTION_CREATOR: return createActionCreator();
+      case DslPackage.ACTION_DISPATCHER: return createActionDispatcher();
+      case DslPackage.REDUCER: return createReducer();
+      case DslPackage.JS_MODULE: return createJsModule();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -347,6 +386,246 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     TechnologyImpl technology = new TechnologyImpl();
     return technology;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AbstractFrontElement createAbstractFrontElement()
+  {
+    AbstractFrontElementImpl abstractFrontElement = new AbstractFrontElementImpl();
+    return abstractFrontElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ReactApp createReactApp()
+  {
+    ReactAppImpl reactApp = new ReactAppImpl();
+    return reactApp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Functionality createFunctionality()
+  {
+    FunctionalityImpl functionality = new FunctionalityImpl();
+    return functionality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RouterComponent createRouterComponent()
+  {
+    RouterComponentImpl routerComponent = new RouterComponentImpl();
+    return routerComponent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UIComponent createUIComponent()
+  {
+    UIComponentImpl uiComponent = new UIComponentImpl();
+    return uiComponent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public org.xtext.casino.dsl.dsl.Container createContainer()
+  {
+    ContainerImpl container = new ContainerImpl();
+    return container;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Visualizer createVisualizer()
+  {
+    VisualizerImpl visualizer = new VisualizerImpl();
+    return visualizer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ServiceFront createServiceFront()
+  {
+    ServiceFrontImpl serviceFront = new ServiceFrontImpl();
+    return serviceFront;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Directory createDirectory()
+  {
+    DirectoryImpl directory = new DirectoryImpl();
+    return directory;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public File createFile()
+  {
+    FileImpl file = new FileImpl();
+    return file;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Md createMd()
+  {
+    MdImpl md = new MdImpl();
+    return md;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Js createJs()
+  {
+    JsImpl js = new JsImpl();
+    return js;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Json createJson()
+  {
+    JsonImpl json = new JsonImpl();
+    return json;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Css createCss()
+  {
+    CssImpl css = new CssImpl();
+    return css;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public State createState()
+  {
+    StateImpl state = new StateImpl();
+    return state;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Action createAction()
+  {
+    ActionImpl action = new ActionImpl();
+    return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ActionCreator createActionCreator()
+  {
+    ActionCreatorImpl actionCreator = new ActionCreatorImpl();
+    return actionCreator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ActionDispatcher createActionDispatcher()
+  {
+    ActionDispatcherImpl actionDispatcher = new ActionDispatcherImpl();
+    return actionDispatcher;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Reducer createReducer()
+  {
+    ReducerImpl reducer = new ReducerImpl();
+    return reducer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public JsModule createJsModule()
+  {
+    JsModuleImpl jsModule = new JsModuleImpl();
+    return jsModule;
   }
 
   /**

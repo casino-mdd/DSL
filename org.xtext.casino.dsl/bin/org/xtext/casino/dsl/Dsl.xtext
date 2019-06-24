@@ -153,11 +153,144 @@ Technology:
 // --------------------- Backend----- ----------------------------------------------
 JavaApp:
 	'javaApp' '{'
+	
+	
 	'}'
 ;
 // --------------------- Frontend---- ----------------------------------------------
 
+AbstractFrontElement:
+	ReactApp | Functionality | Directory | JsModule | Type |
+	RouterComponent | Container | Visualizer | ServiceFront |
+	File | State | Action | ActionCreator | ActionDispatcher |
+	Reducer;	
+	
 ReactApp:
-	'reactApp' '{'
-	'}'
+'reactApp' '{'	
+	(elements+=AbstractFrontElement)+
+	('performs:' func=[Functionality])+
+	('holds:' dir=[Directory])+
+	('use:' mod=[JsModule])+
+'}'
+;
+
+Functionality:
+'functionality' name=ID '{' 
+	('uses:' route=[RouterComponent])*
+	('wraps:'wrap=[Container])*
+	('render:'render=[Visualizer])+
+	('state:'state=[State])*
+	('calls:'service=[ServiceFront])*
+	'organizedBy:' type=[Directory]
+'}'
+;
+
+RouterComponent:
+'router' name=ID '{'
+	'inWithin:' type=[Directory]
+	'use:' type=[JsModule]
+	'route:' route=[UIComponent]
+'}'
+;
+
+UIComponent:
+	RouterComponent | Visualizer
+;
+
+Container:
+'container' name=ID '{'
+	'inWithin:' type=[Directory]
+	('dispatch:' type=[ActionDispatcher])?
+	('map:' type=[Reducer])*
+	'use:' type=[JsModule]
+'}'	
+;
+
+Visualizer:
+'visualizer' name=ID '{'
+	'inWithin:' type=[Directory]
+	('use:' type=[JsModule])+
+'}'
+;
+
+ServiceFront: 
+'service' name=ID '{' 
+	'use:' type=[JsModule]
+	('method:' STRING)+
+'}'
+;
+
+
+Directory:
+'directory' name=ID '{' 
+	('has:'+file=[File])*
+	('contains:'subdirectory=[Directory])*
+	'purpose:' STRING	
+'}'
+;
+
+File:
+	Md | Js | Json | Css;
+
+Md:
+'md' name=ID '{'
+	'type:' STRING
+'}'
+;
+
+Js: 
+'js' name=ID '{'
+	'type:' STRING
+'}'
+;
+
+Json:
+'json' name=ID '{'
+	'type:' STRING
+'}';
+
+Css:
+'css' name=ID '{'
+	'type:' STRING
+'}'
+;
+
+State:
+'state' name=ID '{'
+	('handleAction:' action=[Action])*
+	('handleReducer:' reducer=[Reducer])*
+'}'
+;
+
+Action:
+'action' name=ID '{' 
+	('create:'actionCreator=[ActionCreator])*
+	('dispatch:'actionDispatcher=[ActionDispatcher])*
+	'actionDirectory:' dir=[Directory]
+'}'
+;
+
+ActionCreator:
+'actionCreator' name=ID '{'
+	'type:' STRING
+'}'
+;
+
+ActionDispatcher:
+'actionDispatcher' name=ID '{'
+	('use:' type=[ActionCreator])*
+'}'
+;
+
+Reducer:
+'reducer' name=ID '{'
+	('catch:' type=[ActionCreator])+
+	'reducerDirectory:' type=[Directory]
+'}'
+;
+
+JsModule:
+'module' name=ID '{'
+	'presentIn:' type=[Directory]
+'}'
 ;

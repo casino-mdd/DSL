@@ -10,25 +10,45 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.xtext.casino.dsl.dsl.AbstractFrontElement;
+import org.xtext.casino.dsl.dsl.Action;
+import org.xtext.casino.dsl.dsl.ActionCreator;
+import org.xtext.casino.dsl.dsl.ActionDispatcher;
 import org.xtext.casino.dsl.dsl.Architecture;
 import org.xtext.casino.dsl.dsl.Component;
+import org.xtext.casino.dsl.dsl.Container;
+import org.xtext.casino.dsl.dsl.Css;
+import org.xtext.casino.dsl.dsl.Directory;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.EntityName;
+import org.xtext.casino.dsl.dsl.File;
+import org.xtext.casino.dsl.dsl.Functionality;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.Js;
+import org.xtext.casino.dsl.dsl.JsModule;
+import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
+import org.xtext.casino.dsl.dsl.ReactApp;
+import org.xtext.casino.dsl.dsl.Reducer;
 import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
+import org.xtext.casino.dsl.dsl.RouterComponent;
+import org.xtext.casino.dsl.dsl.ServiceFront;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
+import org.xtext.casino.dsl.dsl.State;
 import org.xtext.casino.dsl.dsl.SublayerSegment;
 import org.xtext.casino.dsl.dsl.Submodule;
 import org.xtext.casino.dsl.dsl.Technology;
 import org.xtext.casino.dsl.dsl.Transaction;
 import org.xtext.casino.dsl.dsl.Type;
+import org.xtext.casino.dsl.dsl.UIComponent;
+import org.xtext.casino.dsl.dsl.Visualizer;
 
 /**
  * <!-- begin-user-doc -->
@@ -192,6 +212,106 @@ public class DslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseTechnology(Technology object)
       {
         return createTechnologyAdapter();
+      }
+      @Override
+      public Adapter caseAbstractFrontElement(AbstractFrontElement object)
+      {
+        return createAbstractFrontElementAdapter();
+      }
+      @Override
+      public Adapter caseReactApp(ReactApp object)
+      {
+        return createReactAppAdapter();
+      }
+      @Override
+      public Adapter caseFunctionality(Functionality object)
+      {
+        return createFunctionalityAdapter();
+      }
+      @Override
+      public Adapter caseRouterComponent(RouterComponent object)
+      {
+        return createRouterComponentAdapter();
+      }
+      @Override
+      public Adapter caseUIComponent(UIComponent object)
+      {
+        return createUIComponentAdapter();
+      }
+      @Override
+      public Adapter caseContainer(Container object)
+      {
+        return createContainerAdapter();
+      }
+      @Override
+      public Adapter caseVisualizer(Visualizer object)
+      {
+        return createVisualizerAdapter();
+      }
+      @Override
+      public Adapter caseServiceFront(ServiceFront object)
+      {
+        return createServiceFrontAdapter();
+      }
+      @Override
+      public Adapter caseDirectory(Directory object)
+      {
+        return createDirectoryAdapter();
+      }
+      @Override
+      public Adapter caseFile(File object)
+      {
+        return createFileAdapter();
+      }
+      @Override
+      public Adapter caseMd(Md object)
+      {
+        return createMdAdapter();
+      }
+      @Override
+      public Adapter caseJs(Js object)
+      {
+        return createJsAdapter();
+      }
+      @Override
+      public Adapter caseJson(Json object)
+      {
+        return createJsonAdapter();
+      }
+      @Override
+      public Adapter caseCss(Css object)
+      {
+        return createCssAdapter();
+      }
+      @Override
+      public Adapter caseState(State object)
+      {
+        return createStateAdapter();
+      }
+      @Override
+      public Adapter caseAction(Action object)
+      {
+        return createActionAdapter();
+      }
+      @Override
+      public Adapter caseActionCreator(ActionCreator object)
+      {
+        return createActionCreatorAdapter();
+      }
+      @Override
+      public Adapter caseActionDispatcher(ActionDispatcher object)
+      {
+        return createActionDispatcherAdapter();
+      }
+      @Override
+      public Adapter caseReducer(Reducer object)
+      {
+        return createReducerAdapter();
+      }
+      @Override
+      public Adapter caseJsModule(JsModule object)
+      {
+        return createJsModuleAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -511,6 +631,306 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTechnologyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.AbstractFrontElement <em>Abstract Front Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.AbstractFrontElement
+   * @generated
+   */
+  public Adapter createAbstractFrontElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.ReactApp <em>React App</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.ReactApp
+   * @generated
+   */
+  public Adapter createReactAppAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Functionality <em>Functionality</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Functionality
+   * @generated
+   */
+  public Adapter createFunctionalityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.RouterComponent <em>Router Component</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.RouterComponent
+   * @generated
+   */
+  public Adapter createRouterComponentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.UIComponent <em>UI Component</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.UIComponent
+   * @generated
+   */
+  public Adapter createUIComponentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Container <em>Container</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Container
+   * @generated
+   */
+  public Adapter createContainerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Visualizer <em>Visualizer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Visualizer
+   * @generated
+   */
+  public Adapter createVisualizerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.ServiceFront <em>Service Front</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.ServiceFront
+   * @generated
+   */
+  public Adapter createServiceFrontAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Directory <em>Directory</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Directory
+   * @generated
+   */
+  public Adapter createDirectoryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.File <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.File
+   * @generated
+   */
+  public Adapter createFileAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Md <em>Md</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Md
+   * @generated
+   */
+  public Adapter createMdAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Js <em>Js</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Js
+   * @generated
+   */
+  public Adapter createJsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Json <em>Json</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Json
+   * @generated
+   */
+  public Adapter createJsonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Css <em>Css</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Css
+   * @generated
+   */
+  public Adapter createCssAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.State
+   * @generated
+   */
+  public Adapter createStateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Action
+   * @generated
+   */
+  public Adapter createActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.ActionCreator <em>Action Creator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.ActionCreator
+   * @generated
+   */
+  public Adapter createActionCreatorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.ActionDispatcher <em>Action Dispatcher</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.ActionDispatcher
+   * @generated
+   */
+  public Adapter createActionDispatcherAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.Reducer <em>Reducer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.Reducer
+   * @generated
+   */
+  public Adapter createReducerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.JsModule <em>Js Module</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.JsModule
+   * @generated
+   */
+  public Adapter createJsModuleAdapter()
   {
     return null;
   }

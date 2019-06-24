@@ -45,7 +45,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Type">
+  <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//AbstractFrontElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecialEntity"/>
@@ -93,6 +93,80 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Technology">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="java" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="react" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="react" eType="#//ReactApp"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractFrontElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReactApp" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//AbstractFrontElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//Functionality"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dir" eType="#//Directory"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mod" eType="#//JsModule"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Functionality" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="route" eType="#//RouterComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wrap" eType="#//Container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="render" eType="#//Visualizer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//ServiceFront"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Directory"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RouterComponent" eSuperTypes="#//AbstractFrontElement #//UIComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//AbstractFrontElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="route" eType="#//UIComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Container" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//AbstractFrontElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Visualizer" eSuperTypes="#//AbstractFrontElement #//UIComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//AbstractFrontElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceFront" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//JsModule"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Directory" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="file" eType="#//File"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subdirectory" eType="#//Directory"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="File" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Md" eSuperTypes="#//File"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Js" eSuperTypes="#//File"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Json" eSuperTypes="#//File"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Css" eSuperTypes="#//File"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//Action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reducer" eType="#//Reducer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionCreator" eType="#//ActionCreator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionDispatcher" eType="#//ActionDispatcher"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dir" eType="#//Directory"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionCreator" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionDispatcher" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ActionCreator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reducer" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//AbstractFrontElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JsModule" eSuperTypes="#//AbstractFrontElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Directory"/>
   </eClassifiers>
 </ecore:EPackage>

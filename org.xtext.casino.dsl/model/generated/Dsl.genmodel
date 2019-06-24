@@ -76,7 +76,79 @@
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Technology">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Technology/java"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Technology/react"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Technology/react"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//AbstractFrontElement"/>
+    <genClasses ecoreClass="Dsl.ecore#//ReactApp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//ReactApp/elements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//ReactApp/func"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//ReactApp/dir"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//ReactApp/mod"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Functionality">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Functionality/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Functionality/route"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Functionality/wrap"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Functionality/render"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Functionality/state"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Functionality/service"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Functionality/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//RouterComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//RouterComponent/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//RouterComponent/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//RouterComponent/route"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//UIComponent"/>
+    <genClasses ecoreClass="Dsl.ecore#//Container">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Container/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Container/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Visualizer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Visualizer/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Visualizer/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//ServiceFront">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//ServiceFront/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//ServiceFront/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Directory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Directory/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Directory/file"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Directory/subdirectory"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//File">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//File/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Md"/>
+    <genClasses ecoreClass="Dsl.ecore#//Js"/>
+    <genClasses ecoreClass="Dsl.ecore#//Json"/>
+    <genClasses ecoreClass="Dsl.ecore#//Css"/>
+    <genClasses ecoreClass="Dsl.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//State/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//State/action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//State/reducer"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Action/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Action/actionCreator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Action/actionDispatcher"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Action/dir"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//ActionCreator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//ActionCreator/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//ActionDispatcher">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//ActionDispatcher/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//ActionDispatcher/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//Reducer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Reducer/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Reducer/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//JsModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//JsModule/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//JsModule/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

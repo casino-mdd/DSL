@@ -363,6 +363,25 @@ public interface DslPackage extends EPackage
   int PROPERTY_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.AbstractFrontElementImpl <em>Abstract Front Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.AbstractFrontElementImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAbstractFrontElement()
+   * @generated
+   */
+  int ABSTRACT_FRONT_ELEMENT = 20;
+
+  /**
+   * The number of structural features of the '<em>Abstract Front Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.TypeImpl <em>Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -379,7 +398,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__NAME = 0;
+  int TYPE__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -388,7 +407,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = 1;
+  int TYPE_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.SpecialEntityImpl <em>Special Entity</em>}' class.
@@ -726,7 +745,7 @@ public interface DslPackage extends EPackage
   int TECHNOLOGY__JAVA = 0;
 
   /**
-   * The feature id for the '<em><b>React</b></em>' attribute.
+   * The feature id for the '<em><b>React</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -742,6 +761,745 @@ public interface DslPackage extends EPackage
    * @ordered
    */
   int TECHNOLOGY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ReactAppImpl <em>React App</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.ReactAppImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getReactApp()
+   * @generated
+   */
+  int REACT_APP = 21;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_APP__ELEMENTS = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Func</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_APP__FUNC = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Dir</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_APP__DIR = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Mod</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_APP__MOD = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>React App</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REACT_APP_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.FunctionalityImpl <em>Functionality</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.FunctionalityImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getFunctionality()
+   * @generated
+   */
+  int FUNCTIONALITY = 22;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONALITY__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Route</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONALITY__ROUTE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Wrap</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONALITY__WRAP = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Render</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONALITY__RENDER = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONALITY__STATE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Service</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONALITY__SERVICE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONALITY__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The number of structural features of the '<em>Functionality</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTIONALITY_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 7;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.RouterComponentImpl <em>Router Component</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.RouterComponentImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getRouterComponent()
+   * @generated
+   */
+  int ROUTER_COMPONENT = 23;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTER_COMPONENT__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTER_COMPONENT__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Route</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTER_COMPONENT__ROUTE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Router Component</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTER_COMPONENT_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.UIComponentImpl <em>UI Component</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.UIComponentImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getUIComponent()
+   * @generated
+   */
+  int UI_COMPONENT = 24;
+
+  /**
+   * The number of structural features of the '<em>UI Component</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ContainerImpl <em>Container</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.ContainerImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getContainer()
+   * @generated
+   */
+  int CONTAINER = 25;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINER__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINER__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Container</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINER_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.VisualizerImpl <em>Visualizer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.VisualizerImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getVisualizer()
+   * @generated
+   */
+  int VISUALIZER = 26;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISUALIZER__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISUALIZER__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Visualizer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISUALIZER_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ServiceFrontImpl <em>Service Front</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.ServiceFrontImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getServiceFront()
+   * @generated
+   */
+  int SERVICE_FRONT = 27;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVICE_FRONT__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVICE_FRONT__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Service Front</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVICE_FRONT_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.DirectoryImpl <em>Directory</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.DirectoryImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getDirectory()
+   * @generated
+   */
+  int DIRECTORY = 28;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECTORY__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>File</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECTORY__FILE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Subdirectory</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECTORY__SUBDIRECTORY = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Directory</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECTORY_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.FileImpl <em>File</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.FileImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getFile()
+   * @generated
+   */
+  int FILE = 29;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>File</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.MdImpl <em>Md</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.MdImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getMd()
+   * @generated
+   */
+  int MD = 30;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MD__NAME = FILE__NAME;
+
+  /**
+   * The number of structural features of the '<em>Md</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MD_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.JsImpl <em>Js</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.JsImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJs()
+   * @generated
+   */
+  int JS = 31;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JS__NAME = FILE__NAME;
+
+  /**
+   * The number of structural features of the '<em>Js</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JS_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.JsonImpl <em>Json</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.JsonImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJson()
+   * @generated
+   */
+  int JSON = 32;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JSON__NAME = FILE__NAME;
+
+  /**
+   * The number of structural features of the '<em>Json</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JSON_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.CssImpl <em>Css</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.CssImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getCss()
+   * @generated
+   */
+  int CSS = 33;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CSS__NAME = FILE__NAME;
+
+  /**
+   * The number of structural features of the '<em>Css</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CSS_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.StateImpl <em>State</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.StateImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getState()
+   * @generated
+   */
+  int STATE = 34;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__ACTION = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Reducer</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__REDUCER = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>State</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ActionImpl <em>Action</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.ActionImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAction()
+   * @generated
+   */
+  int ACTION = 35;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Action Creator</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__ACTION_CREATOR = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Action Dispatcher</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__ACTION_DISPATCHER = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Dir</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__DIR = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ActionCreatorImpl <em>Action Creator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.ActionCreatorImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getActionCreator()
+   * @generated
+   */
+  int ACTION_CREATOR = 36;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_CREATOR__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Action Creator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_CREATOR_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ActionDispatcherImpl <em>Action Dispatcher</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.ActionDispatcherImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getActionDispatcher()
+   * @generated
+   */
+  int ACTION_DISPATCHER = 37;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_DISPATCHER__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_DISPATCHER__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Action Dispatcher</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_DISPATCHER_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ReducerImpl <em>Reducer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.ReducerImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getReducer()
+   * @generated
+   */
+  int REDUCER = 38;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REDUCER__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REDUCER__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Reducer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REDUCER_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.JsModuleImpl <em>Js Module</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.JsModuleImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJsModule()
+   * @generated
+   */
+  int JS_MODULE = 39;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JS_MODULE__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JS_MODULE__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Js Module</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JS_MODULE_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
 
 
   /**
@@ -1308,15 +2066,633 @@ public interface DslPackage extends EPackage
   EAttribute getTechnology_Java();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Technology#getReact <em>React</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.casino.dsl.dsl.Technology#getReact <em>React</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>React</em>'.
+   * @return the meta object for the containment reference '<em>React</em>'.
    * @see org.xtext.casino.dsl.dsl.Technology#getReact()
    * @see #getTechnology()
    * @generated
    */
-  EAttribute getTechnology_React();
+  EReference getTechnology_React();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.AbstractFrontElement <em>Abstract Front Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Abstract Front Element</em>'.
+   * @see org.xtext.casino.dsl.dsl.AbstractFrontElement
+   * @generated
+   */
+  EClass getAbstractFrontElement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.ReactApp <em>React App</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>React App</em>'.
+   * @see org.xtext.casino.dsl.dsl.ReactApp
+   * @generated
+   */
+  EClass getReactApp();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.ReactApp#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see org.xtext.casino.dsl.dsl.ReactApp#getElements()
+   * @see #getReactApp()
+   * @generated
+   */
+  EReference getReactApp_Elements();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.ReactApp#getFunc <em>Func</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Func</em>'.
+   * @see org.xtext.casino.dsl.dsl.ReactApp#getFunc()
+   * @see #getReactApp()
+   * @generated
+   */
+  EReference getReactApp_Func();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.ReactApp#getDir <em>Dir</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Dir</em>'.
+   * @see org.xtext.casino.dsl.dsl.ReactApp#getDir()
+   * @see #getReactApp()
+   * @generated
+   */
+  EReference getReactApp_Dir();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.ReactApp#getMod <em>Mod</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Mod</em>'.
+   * @see org.xtext.casino.dsl.dsl.ReactApp#getMod()
+   * @see #getReactApp()
+   * @generated
+   */
+  EReference getReactApp_Mod();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Functionality <em>Functionality</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Functionality</em>'.
+   * @see org.xtext.casino.dsl.dsl.Functionality
+   * @generated
+   */
+  EClass getFunctionality();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Functionality#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.Functionality#getName()
+   * @see #getFunctionality()
+   * @generated
+   */
+  EAttribute getFunctionality_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Functionality#getRoute <em>Route</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Route</em>'.
+   * @see org.xtext.casino.dsl.dsl.Functionality#getRoute()
+   * @see #getFunctionality()
+   * @generated
+   */
+  EReference getFunctionality_Route();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Functionality#getWrap <em>Wrap</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Wrap</em>'.
+   * @see org.xtext.casino.dsl.dsl.Functionality#getWrap()
+   * @see #getFunctionality()
+   * @generated
+   */
+  EReference getFunctionality_Wrap();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Functionality#getRender <em>Render</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Render</em>'.
+   * @see org.xtext.casino.dsl.dsl.Functionality#getRender()
+   * @see #getFunctionality()
+   * @generated
+   */
+  EReference getFunctionality_Render();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Functionality#getState <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>State</em>'.
+   * @see org.xtext.casino.dsl.dsl.Functionality#getState()
+   * @see #getFunctionality()
+   * @generated
+   */
+  EReference getFunctionality_State();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Functionality#getService <em>Service</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Service</em>'.
+   * @see org.xtext.casino.dsl.dsl.Functionality#getService()
+   * @see #getFunctionality()
+   * @generated
+   */
+  EReference getFunctionality_Service();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Functionality#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.Functionality#getType()
+   * @see #getFunctionality()
+   * @generated
+   */
+  EReference getFunctionality_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.RouterComponent <em>Router Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Router Component</em>'.
+   * @see org.xtext.casino.dsl.dsl.RouterComponent
+   * @generated
+   */
+  EClass getRouterComponent();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.RouterComponent#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.RouterComponent#getName()
+   * @see #getRouterComponent()
+   * @generated
+   */
+  EAttribute getRouterComponent_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.RouterComponent#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.RouterComponent#getType()
+   * @see #getRouterComponent()
+   * @generated
+   */
+  EReference getRouterComponent_Type();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.RouterComponent#getRoute <em>Route</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Route</em>'.
+   * @see org.xtext.casino.dsl.dsl.RouterComponent#getRoute()
+   * @see #getRouterComponent()
+   * @generated
+   */
+  EReference getRouterComponent_Route();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.UIComponent <em>UI Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Component</em>'.
+   * @see org.xtext.casino.dsl.dsl.UIComponent
+   * @generated
+   */
+  EClass getUIComponent();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Container <em>Container</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Container</em>'.
+   * @see org.xtext.casino.dsl.dsl.Container
+   * @generated
+   */
+  EClass getContainer();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Container#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.Container#getName()
+   * @see #getContainer()
+   * @generated
+   */
+  EAttribute getContainer_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Container#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.Container#getType()
+   * @see #getContainer()
+   * @generated
+   */
+  EReference getContainer_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Visualizer <em>Visualizer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Visualizer</em>'.
+   * @see org.xtext.casino.dsl.dsl.Visualizer
+   * @generated
+   */
+  EClass getVisualizer();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Visualizer#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.Visualizer#getName()
+   * @see #getVisualizer()
+   * @generated
+   */
+  EAttribute getVisualizer_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Visualizer#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.Visualizer#getType()
+   * @see #getVisualizer()
+   * @generated
+   */
+  EReference getVisualizer_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.ServiceFront <em>Service Front</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Service Front</em>'.
+   * @see org.xtext.casino.dsl.dsl.ServiceFront
+   * @generated
+   */
+  EClass getServiceFront();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.ServiceFront#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.ServiceFront#getName()
+   * @see #getServiceFront()
+   * @generated
+   */
+  EAttribute getServiceFront_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.ServiceFront#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.ServiceFront#getType()
+   * @see #getServiceFront()
+   * @generated
+   */
+  EReference getServiceFront_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Directory <em>Directory</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Directory</em>'.
+   * @see org.xtext.casino.dsl.dsl.Directory
+   * @generated
+   */
+  EClass getDirectory();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Directory#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.Directory#getName()
+   * @see #getDirectory()
+   * @generated
+   */
+  EAttribute getDirectory_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Directory#getFile <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>File</em>'.
+   * @see org.xtext.casino.dsl.dsl.Directory#getFile()
+   * @see #getDirectory()
+   * @generated
+   */
+  EReference getDirectory_File();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Directory#getSubdirectory <em>Subdirectory</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Subdirectory</em>'.
+   * @see org.xtext.casino.dsl.dsl.Directory#getSubdirectory()
+   * @see #getDirectory()
+   * @generated
+   */
+  EReference getDirectory_Subdirectory();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.File <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>File</em>'.
+   * @see org.xtext.casino.dsl.dsl.File
+   * @generated
+   */
+  EClass getFile();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.File#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.File#getName()
+   * @see #getFile()
+   * @generated
+   */
+  EAttribute getFile_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Md <em>Md</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Md</em>'.
+   * @see org.xtext.casino.dsl.dsl.Md
+   * @generated
+   */
+  EClass getMd();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Js <em>Js</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Js</em>'.
+   * @see org.xtext.casino.dsl.dsl.Js
+   * @generated
+   */
+  EClass getJs();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Json <em>Json</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Json</em>'.
+   * @see org.xtext.casino.dsl.dsl.Json
+   * @generated
+   */
+  EClass getJson();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Css <em>Css</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Css</em>'.
+   * @see org.xtext.casino.dsl.dsl.Css
+   * @generated
+   */
+  EClass getCss();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>State</em>'.
+   * @see org.xtext.casino.dsl.dsl.State
+   * @generated
+   */
+  EClass getState();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.State#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.State#getName()
+   * @see #getState()
+   * @generated
+   */
+  EAttribute getState_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.State#getAction <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Action</em>'.
+   * @see org.xtext.casino.dsl.dsl.State#getAction()
+   * @see #getState()
+   * @generated
+   */
+  EReference getState_Action();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.State#getReducer <em>Reducer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Reducer</em>'.
+   * @see org.xtext.casino.dsl.dsl.State#getReducer()
+   * @see #getState()
+   * @generated
+   */
+  EReference getState_Reducer();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action</em>'.
+   * @see org.xtext.casino.dsl.dsl.Action
+   * @generated
+   */
+  EClass getAction();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Action#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.Action#getName()
+   * @see #getAction()
+   * @generated
+   */
+  EAttribute getAction_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Action#getActionCreator <em>Action Creator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Action Creator</em>'.
+   * @see org.xtext.casino.dsl.dsl.Action#getActionCreator()
+   * @see #getAction()
+   * @generated
+   */
+  EReference getAction_ActionCreator();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Action#getActionDispatcher <em>Action Dispatcher</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Action Dispatcher</em>'.
+   * @see org.xtext.casino.dsl.dsl.Action#getActionDispatcher()
+   * @see #getAction()
+   * @generated
+   */
+  EReference getAction_ActionDispatcher();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Action#getDir <em>Dir</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Dir</em>'.
+   * @see org.xtext.casino.dsl.dsl.Action#getDir()
+   * @see #getAction()
+   * @generated
+   */
+  EReference getAction_Dir();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.ActionCreator <em>Action Creator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action Creator</em>'.
+   * @see org.xtext.casino.dsl.dsl.ActionCreator
+   * @generated
+   */
+  EClass getActionCreator();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.ActionCreator#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.ActionCreator#getName()
+   * @see #getActionCreator()
+   * @generated
+   */
+  EAttribute getActionCreator_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.ActionDispatcher <em>Action Dispatcher</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action Dispatcher</em>'.
+   * @see org.xtext.casino.dsl.dsl.ActionDispatcher
+   * @generated
+   */
+  EClass getActionDispatcher();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.ActionDispatcher#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.ActionDispatcher#getName()
+   * @see #getActionDispatcher()
+   * @generated
+   */
+  EAttribute getActionDispatcher_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.ActionDispatcher#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.ActionDispatcher#getType()
+   * @see #getActionDispatcher()
+   * @generated
+   */
+  EReference getActionDispatcher_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Reducer <em>Reducer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Reducer</em>'.
+   * @see org.xtext.casino.dsl.dsl.Reducer
+   * @generated
+   */
+  EClass getReducer();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Reducer#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.Reducer#getName()
+   * @see #getReducer()
+   * @generated
+   */
+  EAttribute getReducer_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.Reducer#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.Reducer#getType()
+   * @see #getReducer()
+   * @generated
+   */
+  EReference getReducer_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.JsModule <em>Js Module</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Js Module</em>'.
+   * @see org.xtext.casino.dsl.dsl.JsModule
+   * @generated
+   */
+  EClass getJsModule();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.JsModule#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.JsModule#getName()
+   * @see #getJsModule()
+   * @generated
+   */
+  EAttribute getJsModule_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.casino.dsl.dsl.JsModule#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.JsModule#getType()
+   * @see #getJsModule()
+   * @generated
+   */
+  EReference getJsModule_Type();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1806,12 +3182,516 @@ public interface DslPackage extends EPackage
     EAttribute TECHNOLOGY__JAVA = eINSTANCE.getTechnology_Java();
 
     /**
-     * The meta object literal for the '<em><b>React</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>React</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TECHNOLOGY__REACT = eINSTANCE.getTechnology_React();
+    EReference TECHNOLOGY__REACT = eINSTANCE.getTechnology_React();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.AbstractFrontElementImpl <em>Abstract Front Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.AbstractFrontElementImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAbstractFrontElement()
+     * @generated
+     */
+    EClass ABSTRACT_FRONT_ELEMENT = eINSTANCE.getAbstractFrontElement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ReactAppImpl <em>React App</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.ReactAppImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getReactApp()
+     * @generated
+     */
+    EClass REACT_APP = eINSTANCE.getReactApp();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_APP__ELEMENTS = eINSTANCE.getReactApp_Elements();
+
+    /**
+     * The meta object literal for the '<em><b>Func</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_APP__FUNC = eINSTANCE.getReactApp_Func();
+
+    /**
+     * The meta object literal for the '<em><b>Dir</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_APP__DIR = eINSTANCE.getReactApp_Dir();
+
+    /**
+     * The meta object literal for the '<em><b>Mod</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REACT_APP__MOD = eINSTANCE.getReactApp_Mod();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.FunctionalityImpl <em>Functionality</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.FunctionalityImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getFunctionality()
+     * @generated
+     */
+    EClass FUNCTIONALITY = eINSTANCE.getFunctionality();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTIONALITY__NAME = eINSTANCE.getFunctionality_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Route</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTIONALITY__ROUTE = eINSTANCE.getFunctionality_Route();
+
+    /**
+     * The meta object literal for the '<em><b>Wrap</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTIONALITY__WRAP = eINSTANCE.getFunctionality_Wrap();
+
+    /**
+     * The meta object literal for the '<em><b>Render</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTIONALITY__RENDER = eINSTANCE.getFunctionality_Render();
+
+    /**
+     * The meta object literal for the '<em><b>State</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTIONALITY__STATE = eINSTANCE.getFunctionality_State();
+
+    /**
+     * The meta object literal for the '<em><b>Service</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTIONALITY__SERVICE = eINSTANCE.getFunctionality_Service();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTIONALITY__TYPE = eINSTANCE.getFunctionality_Type();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.RouterComponentImpl <em>Router Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.RouterComponentImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getRouterComponent()
+     * @generated
+     */
+    EClass ROUTER_COMPONENT = eINSTANCE.getRouterComponent();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROUTER_COMPONENT__NAME = eINSTANCE.getRouterComponent_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROUTER_COMPONENT__TYPE = eINSTANCE.getRouterComponent_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Route</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROUTER_COMPONENT__ROUTE = eINSTANCE.getRouterComponent_Route();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.UIComponentImpl <em>UI Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.UIComponentImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getUIComponent()
+     * @generated
+     */
+    EClass UI_COMPONENT = eINSTANCE.getUIComponent();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ContainerImpl <em>Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.ContainerImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getContainer()
+     * @generated
+     */
+    EClass CONTAINER = eINSTANCE.getContainer();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTAINER__NAME = eINSTANCE.getContainer_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTAINER__TYPE = eINSTANCE.getContainer_Type();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.VisualizerImpl <em>Visualizer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.VisualizerImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getVisualizer()
+     * @generated
+     */
+    EClass VISUALIZER = eINSTANCE.getVisualizer();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VISUALIZER__NAME = eINSTANCE.getVisualizer_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VISUALIZER__TYPE = eINSTANCE.getVisualizer_Type();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ServiceFrontImpl <em>Service Front</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.ServiceFrontImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getServiceFront()
+     * @generated
+     */
+    EClass SERVICE_FRONT = eINSTANCE.getServiceFront();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SERVICE_FRONT__NAME = eINSTANCE.getServiceFront_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SERVICE_FRONT__TYPE = eINSTANCE.getServiceFront_Type();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.DirectoryImpl <em>Directory</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.DirectoryImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getDirectory()
+     * @generated
+     */
+    EClass DIRECTORY = eINSTANCE.getDirectory();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DIRECTORY__NAME = eINSTANCE.getDirectory_Name();
+
+    /**
+     * The meta object literal for the '<em><b>File</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIRECTORY__FILE = eINSTANCE.getDirectory_File();
+
+    /**
+     * The meta object literal for the '<em><b>Subdirectory</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIRECTORY__SUBDIRECTORY = eINSTANCE.getDirectory_Subdirectory();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.FileImpl <em>File</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.FileImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getFile()
+     * @generated
+     */
+    EClass FILE = eINSTANCE.getFile();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILE__NAME = eINSTANCE.getFile_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.MdImpl <em>Md</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.MdImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getMd()
+     * @generated
+     */
+    EClass MD = eINSTANCE.getMd();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.JsImpl <em>Js</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.JsImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJs()
+     * @generated
+     */
+    EClass JS = eINSTANCE.getJs();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.JsonImpl <em>Json</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.JsonImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJson()
+     * @generated
+     */
+    EClass JSON = eINSTANCE.getJson();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.CssImpl <em>Css</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.CssImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getCss()
+     * @generated
+     */
+    EClass CSS = eINSTANCE.getCss();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.StateImpl <em>State</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.StateImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getState()
+     * @generated
+     */
+    EClass STATE = eINSTANCE.getState();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE__NAME = eINSTANCE.getState_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Action</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE__ACTION = eINSTANCE.getState_Action();
+
+    /**
+     * The meta object literal for the '<em><b>Reducer</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE__REDUCER = eINSTANCE.getState_Reducer();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ActionImpl <em>Action</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.ActionImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAction()
+     * @generated
+     */
+    EClass ACTION = eINSTANCE.getAction();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Action Creator</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION__ACTION_CREATOR = eINSTANCE.getAction_ActionCreator();
+
+    /**
+     * The meta object literal for the '<em><b>Action Dispatcher</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION__ACTION_DISPATCHER = eINSTANCE.getAction_ActionDispatcher();
+
+    /**
+     * The meta object literal for the '<em><b>Dir</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION__DIR = eINSTANCE.getAction_Dir();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ActionCreatorImpl <em>Action Creator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.ActionCreatorImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getActionCreator()
+     * @generated
+     */
+    EClass ACTION_CREATOR = eINSTANCE.getActionCreator();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION_CREATOR__NAME = eINSTANCE.getActionCreator_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ActionDispatcherImpl <em>Action Dispatcher</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.ActionDispatcherImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getActionDispatcher()
+     * @generated
+     */
+    EClass ACTION_DISPATCHER = eINSTANCE.getActionDispatcher();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION_DISPATCHER__NAME = eINSTANCE.getActionDispatcher_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION_DISPATCHER__TYPE = eINSTANCE.getActionDispatcher_Type();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ReducerImpl <em>Reducer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.ReducerImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getReducer()
+     * @generated
+     */
+    EClass REDUCER = eINSTANCE.getReducer();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REDUCER__NAME = eINSTANCE.getReducer_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REDUCER__TYPE = eINSTANCE.getReducer_Type();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.JsModuleImpl <em>Js Module</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.JsModuleImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJsModule()
+     * @generated
+     */
+    EClass JS_MODULE = eINSTANCE.getJsModule();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JS_MODULE__NAME = eINSTANCE.getJsModule_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference JS_MODULE__TYPE = eINSTANCE.getJsModule_Type();
 
   }
 

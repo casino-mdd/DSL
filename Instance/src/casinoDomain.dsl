@@ -269,7 +269,7 @@ Casino{
 			target: Ejb
 		}
 		
-	}
+	} //Architecture
 
 	//-------------------- Technology ---------------------------------
 	tech{
@@ -277,10 +277,186 @@ Casino{
 		javaApp{
 		
 		}
+		
 		//Front
 		reactApp{
-			
-		
-		}
+			module React{
+				presentIn: modules
+			}
+			module Ant{
+				presentIn: modules
+			}
+			module Redux{
+				presentIn: modules
+			}
+			module Axios{
+				presentIn: modules
+			}
+			module Router{
+				presentIn: modules
+			}
+			directory modules{
+				has: ReactJs
+				purpose: 'libraries'
+			}
+			js ReactJs{
+				type: 'library'
+			}
+			js AntDesign{
+				type: 'library'
+			}
+			js Router{
+				type: 'library'
+			}
+			js Axios{
+				type: 'library'
+			}
+			js Redux{
+				type: 'library'
+			}
+			directory modules{
+				has: ReactJs
+				purpose: 'libraries'
+			}
+			js StoreJs{
+				type: 'code'
+			}
+			js Constants{
+				type: 'code'	
+			}
+			js CustomContainer{
+				type: 'code'
+			}
+			css CustomCss{
+				type: 'style sheet'	
+			}
+			directory Styles{
+				has: CustomCss
+				purpose: 'Groups style sheets'
+			}
+			js CustomServicesJs{
+				type: 'code'
+			}
+			service CustomServicesRest{
+				use: Axios
+				method: 'POST'
+				method: 'GET'
+			}
+			directory Containers_{
+				has: CustomContainer
+				purpose: 'Holds components which connect to store'
+			}
+			directory UI {
+				contains: CustomFunctionalityDir
+				purpose: 'Contains UI components'	
+			}
+			directory CustomFunctionalityDir{
+				purpose: 'Contains Components for custom func.'
+			}
+			directory Store_{
+				has: StoreJs
+				has: Constants
+				contains: Reducers_
+				contains: Actions_
+				purpose: 'State management'
+			}
+			js CustomReducer {
+				type: 'code'	
+			}
+			js CustomActions{
+				type: 'code'
+			}
+			directory Reducers_ {
+				has: CustomReducer
+				purpose: 'State division'
+			}
+			directory Actions_{
+				has: CustomActions
+				purpose: 'Handle actions for corresponding func.'
+			}
+			directory RootDirectory{
+				has: Package
+				purpose: 'Encapsulates entire react project'
+			}
+			directory src{
+				has: App
+				has: Index
+				purpose: 'Encapsulates source code (multiple classes)'
+			}
+			json Package{
+				type: 'configuration'
+			}
+			js App{
+				type: 'code'
+			}
+			js Index{
+				type: 'code'
+			}
+			md Readme{
+				type: 'documentation'
+			}
+			router MainRouter{
+				inWithin: src 
+				use: Router
+				route: MainVisualizer
+			}
+			functionality MainFunctionality{
+				uses: MainRouter
+				render: MainVisualizer
+				organizedBy: src
+			}
+
+			visualizer MainVisualizer{
+				inWithin: src
+				use: React
+				use: Ant
+			}
+			visualizer CustomVisualizer{
+				inWithin: CustomFunctionalityDir
+				use: Ant
+				use: React
+			}
+			action CustomAction{
+				create: CustomActionCreator
+				dispatch: CustomActionDispatcher
+				actionDirectory: Actions_
+			}
+			actionDispatcher CustomActionDispatcher{
+				use: CustomActionCreator
+			}
+			actionCreator CustomActionCreator{
+				type: ''
+			}
+			reducer CustomReducer{
+				catch: CustomActionCreator
+				reducerDirectory: Reducers_
+			}	 
+			container CustomContainer{
+				inWithin: Containers_
+				dispatch: CustomActionDispatcher
+				map: CustomReducer
+				use: Redux
+			}
+			functionality CustomFunctionality{
+				wraps: CustomContainer
+				render: CustomVisualizer
+				state: CustomFuncState
+				calls: CustomServicesRest
+				organizedBy: CustomFunctionalityDir
+			}
+			state CustomFuncState{
+				handleAction: CustomAction
+				handleReducer: CustomReducer
+			}
+
+			performs: MainFunctionality
+			performs: CustomFunctionality
+			holds: RootDirectory
+			use: React
+			use: Axios
+			use: Router
+			use: Ant
+			use: Redux 
+		} //React
 	} //Tech
 }// Casino

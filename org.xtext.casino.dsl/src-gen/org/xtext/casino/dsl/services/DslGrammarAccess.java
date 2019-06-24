@@ -1045,20 +1045,113 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
 	}
+	public class AbstractFrontElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.AbstractFrontElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cReactAppParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cFunctionalityParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDirectoryParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cJsModuleParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cRouterComponentParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cContainerParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cVisualizerParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cServiceFrontParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cFileParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cStateParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cActionParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cActionCreatorParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cActionDispatcherParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cReducerParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		
+		//// --------------------- Frontend---- ----------------------------------------------
+		//AbstractFrontElement:
+		//	ReactApp | Functionality | Directory | JsModule | Type | RouterComponent | Container | Visualizer | ServiceFront |
+		//	File | State | Action | ActionCreator | ActionDispatcher | Reducer;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ReactApp | Functionality | Directory | JsModule | Type | RouterComponent | Container | Visualizer | ServiceFront | File
+		//| State | Action | ActionCreator | ActionDispatcher | Reducer
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ReactApp
+		public RuleCall getReactAppParserRuleCall_0() { return cReactAppParserRuleCall_0; }
+		
+		//Functionality
+		public RuleCall getFunctionalityParserRuleCall_1() { return cFunctionalityParserRuleCall_1; }
+		
+		//Directory
+		public RuleCall getDirectoryParserRuleCall_2() { return cDirectoryParserRuleCall_2; }
+		
+		//JsModule
+		public RuleCall getJsModuleParserRuleCall_3() { return cJsModuleParserRuleCall_3; }
+		
+		//Type
+		public RuleCall getTypeParserRuleCall_4() { return cTypeParserRuleCall_4; }
+		
+		//RouterComponent
+		public RuleCall getRouterComponentParserRuleCall_5() { return cRouterComponentParserRuleCall_5; }
+		
+		//Container
+		public RuleCall getContainerParserRuleCall_6() { return cContainerParserRuleCall_6; }
+		
+		//Visualizer
+		public RuleCall getVisualizerParserRuleCall_7() { return cVisualizerParserRuleCall_7; }
+		
+		//ServiceFront
+		public RuleCall getServiceFrontParserRuleCall_8() { return cServiceFrontParserRuleCall_8; }
+		
+		//File
+		public RuleCall getFileParserRuleCall_9() { return cFileParserRuleCall_9; }
+		
+		//State
+		public RuleCall getStateParserRuleCall_10() { return cStateParserRuleCall_10; }
+		
+		//Action
+		public RuleCall getActionParserRuleCall_11() { return cActionParserRuleCall_11; }
+		
+		//ActionCreator
+		public RuleCall getActionCreatorParserRuleCall_12() { return cActionCreatorParserRuleCall_12; }
+		
+		//ActionDispatcher
+		public RuleCall getActionDispatcherParserRuleCall_13() { return cActionDispatcherParserRuleCall_13; }
+		
+		//Reducer
+		public RuleCall getReducerParserRuleCall_14() { return cReducerParserRuleCall_14; }
+	}
 	public class ReactAppElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.ReactApp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReactAppKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsAbstractFrontElementParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cPerformsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cFuncAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cFuncFunctionalityCrossReference_3_1_0 = (CrossReference)cFuncAssignment_3_1.eContents().get(0);
+		private final RuleCall cFuncFunctionalityIDTerminalRuleCall_3_1_0_1 = (RuleCall)cFuncFunctionalityCrossReference_3_1_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cHoldsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDirAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cDirDirectoryCrossReference_4_1_0 = (CrossReference)cDirAssignment_4_1.eContents().get(0);
+		private final RuleCall cDirDirectoryIDTerminalRuleCall_4_1_0_1 = (RuleCall)cDirDirectoryCrossReference_4_1_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cUseKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cModAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cModJsModuleCrossReference_5_1_0 = (CrossReference)cModAssignment_5_1.eContents().get(0);
+		private final RuleCall cModJsModuleIDTerminalRuleCall_5_1_0_1 = (RuleCall)cModJsModuleCrossReference_5_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//// --------------------- Frontend---- ----------------------------------------------
 		//ReactApp:
 		//	'reactApp' '{'
+		//	elements+=AbstractFrontElement+ ('performs:' func=[Functionality])+ ('holds:' dir=[Directory])+ ('use:'
+		//	mod=[JsModule])+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'reactApp' '{' '}'
+		//'reactApp' '{' elements+=AbstractFrontElement+ ('performs:' func=[Functionality])+ ('holds:' dir=[Directory])+ ('use:'
+		//mod=[JsModule])+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'reactApp'
@@ -1067,8 +1160,1194 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
+		//elements+=AbstractFrontElement+
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
+		
+		//AbstractFrontElement
+		public RuleCall getElementsAbstractFrontElementParserRuleCall_2_0() { return cElementsAbstractFrontElementParserRuleCall_2_0; }
+		
+		//('performs:' func=[Functionality])+
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'performs:'
+		public Keyword getPerformsKeyword_3_0() { return cPerformsKeyword_3_0; }
+		
+		//func=[Functionality]
+		public Assignment getFuncAssignment_3_1() { return cFuncAssignment_3_1; }
+		
+		//[Functionality]
+		public CrossReference getFuncFunctionalityCrossReference_3_1_0() { return cFuncFunctionalityCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getFuncFunctionalityIDTerminalRuleCall_3_1_0_1() { return cFuncFunctionalityIDTerminalRuleCall_3_1_0_1; }
+		
+		//('holds:' dir=[Directory])+
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'holds:'
+		public Keyword getHoldsKeyword_4_0() { return cHoldsKeyword_4_0; }
+		
+		//dir=[Directory]
+		public Assignment getDirAssignment_4_1() { return cDirAssignment_4_1; }
+		
+		//[Directory]
+		public CrossReference getDirDirectoryCrossReference_4_1_0() { return cDirDirectoryCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getDirDirectoryIDTerminalRuleCall_4_1_0_1() { return cDirDirectoryIDTerminalRuleCall_4_1_0_1; }
+		
+		//('use:' mod=[JsModule])+
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'use:'
+		public Keyword getUseKeyword_5_0() { return cUseKeyword_5_0; }
+		
+		//mod=[JsModule]
+		public Assignment getModAssignment_5_1() { return cModAssignment_5_1; }
+		
+		//[JsModule]
+		public CrossReference getModJsModuleCrossReference_5_1_0() { return cModJsModuleCrossReference_5_1_0; }
+		
+		//ID
+		public RuleCall getModJsModuleIDTerminalRuleCall_5_1_0_1() { return cModJsModuleIDTerminalRuleCall_5_1_0_1; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class FunctionalityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Functionality");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFunctionalityKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cUsesKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cRouteAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cRouteRouterComponentCrossReference_3_1_0 = (CrossReference)cRouteAssignment_3_1.eContents().get(0);
+		private final RuleCall cRouteRouterComponentIDTerminalRuleCall_3_1_0_1 = (RuleCall)cRouteRouterComponentCrossReference_3_1_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cWrapsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cWrapAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cWrapContainerCrossReference_4_1_0 = (CrossReference)cWrapAssignment_4_1.eContents().get(0);
+		private final RuleCall cWrapContainerIDTerminalRuleCall_4_1_0_1 = (RuleCall)cWrapContainerCrossReference_4_1_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cRenderKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cRenderAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cRenderVisualizerCrossReference_5_1_0 = (CrossReference)cRenderAssignment_5_1.eContents().get(0);
+		private final RuleCall cRenderVisualizerIDTerminalRuleCall_5_1_0_1 = (RuleCall)cRenderVisualizerCrossReference_5_1_0.eContents().get(1);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cStateKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cStateAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final CrossReference cStateStateCrossReference_6_1_0 = (CrossReference)cStateAssignment_6_1.eContents().get(0);
+		private final RuleCall cStateStateIDTerminalRuleCall_6_1_0_1 = (RuleCall)cStateStateCrossReference_6_1_0.eContents().get(1);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cCallsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cServiceAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cServiceServiceFrontCrossReference_7_1_0 = (CrossReference)cServiceAssignment_7_1.eContents().get(0);
+		private final RuleCall cServiceServiceFrontIDTerminalRuleCall_7_1_0_1 = (RuleCall)cServiceServiceFrontCrossReference_7_1_0.eContents().get(1);
+		private final Keyword cOrganizedByKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cTypeAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final CrossReference cTypeDirectoryCrossReference_9_0 = (CrossReference)cTypeAssignment_9.eContents().get(0);
+		private final RuleCall cTypeDirectoryIDTerminalRuleCall_9_0_1 = (RuleCall)cTypeDirectoryCrossReference_9_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		
+		//Functionality:
+		//	'functionality' name=ID '{' ('uses:' route=[RouterComponent])* ('wraps:' wrap=[Container])* ('render:'
+		//	render=[Visualizer])+ ('state:' state=[State])* ('calls:' service=[ServiceFront])*
+		//	'organizedBy:' type=[Directory]
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'functionality' name=ID '{' ('uses:' route=[RouterComponent])* ('wraps:' wrap=[Container])* ('render:'
+		//render=[Visualizer])+ ('state:' state=[State])* ('calls:' service=[ServiceFront])* 'organizedBy:' type=[Directory] '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'functionality'
+		public Keyword getFunctionalityKeyword_0() { return cFunctionalityKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('uses:' route=[RouterComponent])*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'uses:'
+		public Keyword getUsesKeyword_3_0() { return cUsesKeyword_3_0; }
+		
+		//route=[RouterComponent]
+		public Assignment getRouteAssignment_3_1() { return cRouteAssignment_3_1; }
+		
+		//[RouterComponent]
+		public CrossReference getRouteRouterComponentCrossReference_3_1_0() { return cRouteRouterComponentCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getRouteRouterComponentIDTerminalRuleCall_3_1_0_1() { return cRouteRouterComponentIDTerminalRuleCall_3_1_0_1; }
+		
+		//('wraps:' wrap=[Container])*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'wraps:'
+		public Keyword getWrapsKeyword_4_0() { return cWrapsKeyword_4_0; }
+		
+		//wrap=[Container]
+		public Assignment getWrapAssignment_4_1() { return cWrapAssignment_4_1; }
+		
+		//[Container]
+		public CrossReference getWrapContainerCrossReference_4_1_0() { return cWrapContainerCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getWrapContainerIDTerminalRuleCall_4_1_0_1() { return cWrapContainerIDTerminalRuleCall_4_1_0_1; }
+		
+		//('render:' render=[Visualizer])+
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'render:'
+		public Keyword getRenderKeyword_5_0() { return cRenderKeyword_5_0; }
+		
+		//render=[Visualizer]
+		public Assignment getRenderAssignment_5_1() { return cRenderAssignment_5_1; }
+		
+		//[Visualizer]
+		public CrossReference getRenderVisualizerCrossReference_5_1_0() { return cRenderVisualizerCrossReference_5_1_0; }
+		
+		//ID
+		public RuleCall getRenderVisualizerIDTerminalRuleCall_5_1_0_1() { return cRenderVisualizerIDTerminalRuleCall_5_1_0_1; }
+		
+		//('state:' state=[State])*
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'state:'
+		public Keyword getStateKeyword_6_0() { return cStateKeyword_6_0; }
+		
+		//state=[State]
+		public Assignment getStateAssignment_6_1() { return cStateAssignment_6_1; }
+		
+		//[State]
+		public CrossReference getStateStateCrossReference_6_1_0() { return cStateStateCrossReference_6_1_0; }
+		
+		//ID
+		public RuleCall getStateStateIDTerminalRuleCall_6_1_0_1() { return cStateStateIDTerminalRuleCall_6_1_0_1; }
+		
+		//('calls:' service=[ServiceFront])*
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'calls:'
+		public Keyword getCallsKeyword_7_0() { return cCallsKeyword_7_0; }
+		
+		//service=[ServiceFront]
+		public Assignment getServiceAssignment_7_1() { return cServiceAssignment_7_1; }
+		
+		//[ServiceFront]
+		public CrossReference getServiceServiceFrontCrossReference_7_1_0() { return cServiceServiceFrontCrossReference_7_1_0; }
+		
+		//ID
+		public RuleCall getServiceServiceFrontIDTerminalRuleCall_7_1_0_1() { return cServiceServiceFrontIDTerminalRuleCall_7_1_0_1; }
+		
+		//'organizedBy:'
+		public Keyword getOrganizedByKeyword_8() { return cOrganizedByKeyword_8; }
+		
+		//type=[Directory]
+		public Assignment getTypeAssignment_9() { return cTypeAssignment_9; }
+		
+		//[Directory]
+		public CrossReference getTypeDirectoryCrossReference_9_0() { return cTypeDirectoryCrossReference_9_0; }
+		
+		//ID
+		public RuleCall getTypeDirectoryIDTerminalRuleCall_9_0_1() { return cTypeDirectoryIDTerminalRuleCall_9_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+	}
+	public class RouterComponentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.RouterComponent");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRouterKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cInWithinKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cTypeDirectoryCrossReference_4_0 = (CrossReference)cTypeAssignment_4.eContents().get(0);
+		private final RuleCall cTypeDirectoryIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeDirectoryCrossReference_4_0.eContents().get(1);
+		private final Keyword cUseKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cTypeJsModuleCrossReference_6_0 = (CrossReference)cTypeAssignment_6.eContents().get(0);
+		private final RuleCall cTypeJsModuleIDTerminalRuleCall_6_0_1 = (RuleCall)cTypeJsModuleCrossReference_6_0.eContents().get(1);
+		private final Keyword cRouteKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cRouteAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cRouteUIComponentCrossReference_8_0 = (CrossReference)cRouteAssignment_8.eContents().get(0);
+		private final RuleCall cRouteUIComponentIDTerminalRuleCall_8_0_1 = (RuleCall)cRouteUIComponentCrossReference_8_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		
+		//RouterComponent:
+		//	'router' name=ID '{'
+		//	'inWithin:' type=[Directory]
+		//	'use:' type=[JsModule]
+		//	'route:' route=[UIComponent]
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'router' name=ID '{' 'inWithin:' type=[Directory] 'use:' type=[JsModule] 'route:' route=[UIComponent] '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'router'
+		public Keyword getRouterKeyword_0() { return cRouterKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'inWithin:'
+		public Keyword getInWithinKeyword_3() { return cInWithinKeyword_3; }
+		
+		//type=[Directory]
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
+		//[Directory]
+		public CrossReference getTypeDirectoryCrossReference_4_0() { return cTypeDirectoryCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getTypeDirectoryIDTerminalRuleCall_4_0_1() { return cTypeDirectoryIDTerminalRuleCall_4_0_1; }
+		
+		//'use:'
+		public Keyword getUseKeyword_5() { return cUseKeyword_5; }
+		
+		//type=[JsModule]
+		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
+		
+		//[JsModule]
+		public CrossReference getTypeJsModuleCrossReference_6_0() { return cTypeJsModuleCrossReference_6_0; }
+		
+		//ID
+		public RuleCall getTypeJsModuleIDTerminalRuleCall_6_0_1() { return cTypeJsModuleIDTerminalRuleCall_6_0_1; }
+		
+		//'route:'
+		public Keyword getRouteKeyword_7() { return cRouteKeyword_7; }
+		
+		//route=[UIComponent]
+		public Assignment getRouteAssignment_8() { return cRouteAssignment_8; }
+		
+		//[UIComponent]
+		public CrossReference getRouteUIComponentCrossReference_8_0() { return cRouteUIComponentCrossReference_8_0; }
+		
+		//ID
+		public RuleCall getRouteUIComponentIDTerminalRuleCall_8_0_1() { return cRouteUIComponentIDTerminalRuleCall_8_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+	}
+	public class UIComponentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.UIComponent");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cRouterComponentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cVisualizerParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//UIComponent:
+		//	RouterComponent | Visualizer;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//RouterComponent | Visualizer
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//RouterComponent
+		public RuleCall getRouterComponentParserRuleCall_0() { return cRouterComponentParserRuleCall_0; }
+		
+		//Visualizer
+		public RuleCall getVisualizerParserRuleCall_1() { return cVisualizerParserRuleCall_1; }
+	}
+	public class ContainerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Container");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cContainerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cInWithinKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cTypeDirectoryCrossReference_4_0 = (CrossReference)cTypeAssignment_4.eContents().get(0);
+		private final RuleCall cTypeDirectoryIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeDirectoryCrossReference_4_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cDispatchKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cTypeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cTypeActionDispatcherCrossReference_5_1_0 = (CrossReference)cTypeAssignment_5_1.eContents().get(0);
+		private final RuleCall cTypeActionDispatcherIDTerminalRuleCall_5_1_0_1 = (RuleCall)cTypeActionDispatcherCrossReference_5_1_0.eContents().get(1);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cMapKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cTypeAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final CrossReference cTypeReducerCrossReference_6_1_0 = (CrossReference)cTypeAssignment_6_1.eContents().get(0);
+		private final RuleCall cTypeReducerIDTerminalRuleCall_6_1_0_1 = (RuleCall)cTypeReducerCrossReference_6_1_0.eContents().get(1);
+		private final Keyword cUseKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cTypeAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cTypeJsModuleCrossReference_8_0 = (CrossReference)cTypeAssignment_8.eContents().get(0);
+		private final RuleCall cTypeJsModuleIDTerminalRuleCall_8_0_1 = (RuleCall)cTypeJsModuleCrossReference_8_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		
+		//Container:
+		//	'container' name=ID '{'
+		//	'inWithin:' type=[Directory] ('dispatch:' type=[ActionDispatcher])? ('map:' type=[Reducer])*
+		//	'use:' type=[JsModule]
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'container' name=ID '{' 'inWithin:' type=[Directory] ('dispatch:' type=[ActionDispatcher])? ('map:' type=[Reducer])*
+		//'use:' type=[JsModule] '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'container'
+		public Keyword getContainerKeyword_0() { return cContainerKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'inWithin:'
+		public Keyword getInWithinKeyword_3() { return cInWithinKeyword_3; }
+		
+		//type=[Directory]
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
+		//[Directory]
+		public CrossReference getTypeDirectoryCrossReference_4_0() { return cTypeDirectoryCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getTypeDirectoryIDTerminalRuleCall_4_0_1() { return cTypeDirectoryIDTerminalRuleCall_4_0_1; }
+		
+		//('dispatch:' type=[ActionDispatcher])?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'dispatch:'
+		public Keyword getDispatchKeyword_5_0() { return cDispatchKeyword_5_0; }
+		
+		//type=[ActionDispatcher]
+		public Assignment getTypeAssignment_5_1() { return cTypeAssignment_5_1; }
+		
+		//[ActionDispatcher]
+		public CrossReference getTypeActionDispatcherCrossReference_5_1_0() { return cTypeActionDispatcherCrossReference_5_1_0; }
+		
+		//ID
+		public RuleCall getTypeActionDispatcherIDTerminalRuleCall_5_1_0_1() { return cTypeActionDispatcherIDTerminalRuleCall_5_1_0_1; }
+		
+		//('map:' type=[Reducer])*
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'map:'
+		public Keyword getMapKeyword_6_0() { return cMapKeyword_6_0; }
+		
+		//type=[Reducer]
+		public Assignment getTypeAssignment_6_1() { return cTypeAssignment_6_1; }
+		
+		//[Reducer]
+		public CrossReference getTypeReducerCrossReference_6_1_0() { return cTypeReducerCrossReference_6_1_0; }
+		
+		//ID
+		public RuleCall getTypeReducerIDTerminalRuleCall_6_1_0_1() { return cTypeReducerIDTerminalRuleCall_6_1_0_1; }
+		
+		//'use:'
+		public Keyword getUseKeyword_7() { return cUseKeyword_7; }
+		
+		//type=[JsModule]
+		public Assignment getTypeAssignment_8() { return cTypeAssignment_8; }
+		
+		//[JsModule]
+		public CrossReference getTypeJsModuleCrossReference_8_0() { return cTypeJsModuleCrossReference_8_0; }
+		
+		//ID
+		public RuleCall getTypeJsModuleIDTerminalRuleCall_8_0_1() { return cTypeJsModuleIDTerminalRuleCall_8_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+	}
+	public class VisualizerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Visualizer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cVisualizerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cInWithinKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cTypeDirectoryCrossReference_4_0 = (CrossReference)cTypeAssignment_4.eContents().get(0);
+		private final RuleCall cTypeDirectoryIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeDirectoryCrossReference_4_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cUseKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cTypeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cTypeJsModuleCrossReference_5_1_0 = (CrossReference)cTypeAssignment_5_1.eContents().get(0);
+		private final RuleCall cTypeJsModuleIDTerminalRuleCall_5_1_0_1 = (RuleCall)cTypeJsModuleCrossReference_5_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Visualizer:
+		//	'visualizer' name=ID '{'
+		//	'inWithin:' type=[Directory] ('use:' type=[JsModule])+
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'visualizer' name=ID '{' 'inWithin:' type=[Directory] ('use:' type=[JsModule])+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'visualizer'
+		public Keyword getVisualizerKeyword_0() { return cVisualizerKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'inWithin:'
+		public Keyword getInWithinKeyword_3() { return cInWithinKeyword_3; }
+		
+		//type=[Directory]
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
+		//[Directory]
+		public CrossReference getTypeDirectoryCrossReference_4_0() { return cTypeDirectoryCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getTypeDirectoryIDTerminalRuleCall_4_0_1() { return cTypeDirectoryIDTerminalRuleCall_4_0_1; }
+		
+		//('use:' type=[JsModule])+
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'use:'
+		public Keyword getUseKeyword_5_0() { return cUseKeyword_5_0; }
+		
+		//type=[JsModule]
+		public Assignment getTypeAssignment_5_1() { return cTypeAssignment_5_1; }
+		
+		//[JsModule]
+		public CrossReference getTypeJsModuleCrossReference_5_1_0() { return cTypeJsModuleCrossReference_5_1_0; }
+		
+		//ID
+		public RuleCall getTypeJsModuleIDTerminalRuleCall_5_1_0_1() { return cTypeJsModuleIDTerminalRuleCall_5_1_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class ServiceFrontElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.ServiceFront");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cServiceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cUseKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cTypeJsModuleCrossReference_4_0 = (CrossReference)cTypeAssignment_4.eContents().get(0);
+		private final RuleCall cTypeJsModuleIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeJsModuleCrossReference_4_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cMethodKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final RuleCall cSTRINGTerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//ServiceFront:
+		//	'service' name=ID '{'
+		//	'use:' type=[JsModule] ('method:' STRING)+
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'service' name=ID '{' 'use:' type=[JsModule] ('method:' STRING)+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'service'
+		public Keyword getServiceKeyword_0() { return cServiceKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'use:'
+		public Keyword getUseKeyword_3() { return cUseKeyword_3; }
+		
+		//type=[JsModule]
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
+		//[JsModule]
+		public CrossReference getTypeJsModuleCrossReference_4_0() { return cTypeJsModuleCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getTypeJsModuleIDTerminalRuleCall_4_0_1() { return cTypeJsModuleIDTerminalRuleCall_4_0_1; }
+		
+		//('method:' STRING)+
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'method:'
+		public Keyword getMethodKeyword_5_0() { return cMethodKeyword_5_0; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_5_1() { return cSTRINGTerminalRuleCall_5_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class DirectoryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Directory");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDirectoryKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cHasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cFileAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cFileFileCrossReference_3_1_0 = (CrossReference)cFileAssignment_3_1.eContents().get(0);
+		private final RuleCall cFileFileIDTerminalRuleCall_3_1_0_1 = (RuleCall)cFileFileCrossReference_3_1_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cContainsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cSubdirectoryAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cSubdirectoryDirectoryCrossReference_4_1_0 = (CrossReference)cSubdirectoryAssignment_4_1.eContents().get(0);
+		private final RuleCall cSubdirectoryDirectoryIDTerminalRuleCall_4_1_0_1 = (RuleCall)cSubdirectoryDirectoryCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cPurposeKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cSTRINGTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//Directory:
+		//	'directory' name=ID '{' ('has:'+ file=[File])* ('contains:' subdirectory=[Directory])*
+		//	'purpose:' STRING
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'directory' name=ID '{' ('has:'+ file=[File])* ('contains:' subdirectory=[Directory])* 'purpose:' STRING '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'directory'
+		public Keyword getDirectoryKeyword_0() { return cDirectoryKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('has:'+ file=[File])*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'has:'+
+		public Keyword getHasKeyword_3_0() { return cHasKeyword_3_0; }
+		
+		//file=[File]
+		public Assignment getFileAssignment_3_1() { return cFileAssignment_3_1; }
+		
+		//[File]
+		public CrossReference getFileFileCrossReference_3_1_0() { return cFileFileCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getFileFileIDTerminalRuleCall_3_1_0_1() { return cFileFileIDTerminalRuleCall_3_1_0_1; }
+		
+		//('contains:' subdirectory=[Directory])*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'contains:'
+		public Keyword getContainsKeyword_4_0() { return cContainsKeyword_4_0; }
+		
+		//subdirectory=[Directory]
+		public Assignment getSubdirectoryAssignment_4_1() { return cSubdirectoryAssignment_4_1; }
+		
+		//[Directory]
+		public CrossReference getSubdirectoryDirectoryCrossReference_4_1_0() { return cSubdirectoryDirectoryCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getSubdirectoryDirectoryIDTerminalRuleCall_4_1_0_1() { return cSubdirectoryDirectoryIDTerminalRuleCall_4_1_0_1; }
+		
+		//'purpose:'
+		public Keyword getPurposeKeyword_5() { return cPurposeKeyword_5; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_6() { return cSTRINGTerminalRuleCall_6; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+	public class FileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.File");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMdParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cJsParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cJsonParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCssParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		
+		//File:
+		//	Md | Js | Json | Css;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Md | Js | Json | Css
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Md
+		public RuleCall getMdParserRuleCall_0() { return cMdParserRuleCall_0; }
+		
+		//Js
+		public RuleCall getJsParserRuleCall_1() { return cJsParserRuleCall_1; }
+		
+		//Json
+		public RuleCall getJsonParserRuleCall_2() { return cJsonParserRuleCall_2; }
+		
+		//Css
+		public RuleCall getCssParserRuleCall_3() { return cCssParserRuleCall_3; }
+	}
+	public class MdElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Md");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMdKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Md:
+		//	'md' name=ID '{'
+		//	'type:' STRING
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'md' name=ID '{' 'type:' STRING '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'md'
+		public Keyword getMdKeyword_0() { return cMdKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'type:'
+		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class JsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Js");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cJsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Js:
+		//	'js' name=ID '{'
+		//	'type:' STRING
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'js' name=ID '{' 'type:' STRING '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'js'
+		public Keyword getJsKeyword_0() { return cJsKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'type:'
+		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class JsonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Json");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cJsonKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Json:
+		//	'json' name=ID '{'
+		//	'type:' STRING
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'json' name=ID '{' 'type:' STRING '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'json'
+		public Keyword getJsonKeyword_0() { return cJsonKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'type:'
+		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class CssElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Css");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCssKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Css:
+		//	'css' name=ID '{'
+		//	'type:' STRING
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'css' name=ID '{' 'type:' STRING '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'css'
+		public Keyword getCssKeyword_0() { return cCssKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'type:'
+		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class StateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.State");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cHandleActionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cActionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cActionActionCrossReference_3_1_0 = (CrossReference)cActionAssignment_3_1.eContents().get(0);
+		private final RuleCall cActionActionIDTerminalRuleCall_3_1_0_1 = (RuleCall)cActionActionCrossReference_3_1_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cHandleReducerKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cReducerAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cReducerReducerCrossReference_4_1_0 = (CrossReference)cReducerAssignment_4_1.eContents().get(0);
+		private final RuleCall cReducerReducerIDTerminalRuleCall_4_1_0_1 = (RuleCall)cReducerReducerCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//State:
+		//	'state' name=ID '{' ('handleAction:' action=[Action])* ('handleReducer:' reducer=[Reducer])*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'state' name=ID '{' ('handleAction:' action=[Action])* ('handleReducer:' reducer=[Reducer])* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'state'
+		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('handleAction:' action=[Action])*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'handleAction:'
+		public Keyword getHandleActionKeyword_3_0() { return cHandleActionKeyword_3_0; }
+		
+		//action=[Action]
+		public Assignment getActionAssignment_3_1() { return cActionAssignment_3_1; }
+		
+		//[Action]
+		public CrossReference getActionActionCrossReference_3_1_0() { return cActionActionCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getActionActionIDTerminalRuleCall_3_1_0_1() { return cActionActionIDTerminalRuleCall_3_1_0_1; }
+		
+		//('handleReducer:' reducer=[Reducer])*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'handleReducer:'
+		public Keyword getHandleReducerKeyword_4_0() { return cHandleReducerKeyword_4_0; }
+		
+		//reducer=[Reducer]
+		public Assignment getReducerAssignment_4_1() { return cReducerAssignment_4_1; }
+		
+		//[Reducer]
+		public CrossReference getReducerReducerCrossReference_4_1_0() { return cReducerReducerCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getReducerReducerIDTerminalRuleCall_4_1_0_1() { return cReducerReducerIDTerminalRuleCall_4_1_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class ActionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Action");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cActionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCreateKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cActionCreatorAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cActionCreatorActionCreatorCrossReference_3_1_0 = (CrossReference)cActionCreatorAssignment_3_1.eContents().get(0);
+		private final RuleCall cActionCreatorActionCreatorIDTerminalRuleCall_3_1_0_1 = (RuleCall)cActionCreatorActionCreatorCrossReference_3_1_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cDispatchKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cActionDispatcherAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cActionDispatcherActionDispatcherCrossReference_4_1_0 = (CrossReference)cActionDispatcherAssignment_4_1.eContents().get(0);
+		private final RuleCall cActionDispatcherActionDispatcherIDTerminalRuleCall_4_1_0_1 = (RuleCall)cActionDispatcherActionDispatcherCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cActionDirectoryKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cDirAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cDirDirectoryCrossReference_6_0 = (CrossReference)cDirAssignment_6.eContents().get(0);
+		private final RuleCall cDirDirectoryIDTerminalRuleCall_6_0_1 = (RuleCall)cDirDirectoryCrossReference_6_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//Action:
+		//	'action' name=ID '{' ('create:' actionCreator=[ActionCreator])* ('dispatch:' actionDispatcher=[ActionDispatcher])*
+		//	'actionDirectory:' dir=[Directory]
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'action' name=ID '{' ('create:' actionCreator=[ActionCreator])* ('dispatch:' actionDispatcher=[ActionDispatcher])*
+		//'actionDirectory:' dir=[Directory] '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'action'
+		public Keyword getActionKeyword_0() { return cActionKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('create:' actionCreator=[ActionCreator])*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'create:'
+		public Keyword getCreateKeyword_3_0() { return cCreateKeyword_3_0; }
+		
+		//actionCreator=[ActionCreator]
+		public Assignment getActionCreatorAssignment_3_1() { return cActionCreatorAssignment_3_1; }
+		
+		//[ActionCreator]
+		public CrossReference getActionCreatorActionCreatorCrossReference_3_1_0() { return cActionCreatorActionCreatorCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getActionCreatorActionCreatorIDTerminalRuleCall_3_1_0_1() { return cActionCreatorActionCreatorIDTerminalRuleCall_3_1_0_1; }
+		
+		//('dispatch:' actionDispatcher=[ActionDispatcher])*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'dispatch:'
+		public Keyword getDispatchKeyword_4_0() { return cDispatchKeyword_4_0; }
+		
+		//actionDispatcher=[ActionDispatcher]
+		public Assignment getActionDispatcherAssignment_4_1() { return cActionDispatcherAssignment_4_1; }
+		
+		//[ActionDispatcher]
+		public CrossReference getActionDispatcherActionDispatcherCrossReference_4_1_0() { return cActionDispatcherActionDispatcherCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getActionDispatcherActionDispatcherIDTerminalRuleCall_4_1_0_1() { return cActionDispatcherActionDispatcherIDTerminalRuleCall_4_1_0_1; }
+		
+		//'actionDirectory:'
+		public Keyword getActionDirectoryKeyword_5() { return cActionDirectoryKeyword_5; }
+		
+		//dir=[Directory]
+		public Assignment getDirAssignment_6() { return cDirAssignment_6; }
+		
+		//[Directory]
+		public CrossReference getDirDirectoryCrossReference_6_0() { return cDirDirectoryCrossReference_6_0; }
+		
+		//ID
+		public RuleCall getDirDirectoryIDTerminalRuleCall_6_0_1() { return cDirDirectoryIDTerminalRuleCall_6_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+	public class ActionCreatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.ActionCreator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cActionCreatorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//ActionCreator:
+		//	'actionCreator' name=ID '{'
+		//	'type:' STRING
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'actionCreator' name=ID '{' 'type:' STRING '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'actionCreator'
+		public Keyword getActionCreatorKeyword_0() { return cActionCreatorKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'type:'
+		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class ActionDispatcherElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.ActionDispatcher");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cActionDispatcherKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cUseKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cTypeActionCreatorCrossReference_3_1_0 = (CrossReference)cTypeAssignment_3_1.eContents().get(0);
+		private final RuleCall cTypeActionCreatorIDTerminalRuleCall_3_1_0_1 = (RuleCall)cTypeActionCreatorCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//ActionDispatcher:
+		//	'actionDispatcher' name=ID '{' ('use:' type=[ActionCreator])*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'actionDispatcher' name=ID '{' ('use:' type=[ActionCreator])* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'actionDispatcher'
+		public Keyword getActionDispatcherKeyword_0() { return cActionDispatcherKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('use:' type=[ActionCreator])*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'use:'
+		public Keyword getUseKeyword_3_0() { return cUseKeyword_3_0; }
+		
+		//type=[ActionCreator]
+		public Assignment getTypeAssignment_3_1() { return cTypeAssignment_3_1; }
+		
+		//[ActionCreator]
+		public CrossReference getTypeActionCreatorCrossReference_3_1_0() { return cTypeActionCreatorCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getTypeActionCreatorIDTerminalRuleCall_3_1_0_1() { return cTypeActionCreatorIDTerminalRuleCall_3_1_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class ReducerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Reducer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cReducerKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCatchKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cTypeActionCreatorCrossReference_3_1_0 = (CrossReference)cTypeAssignment_3_1.eContents().get(0);
+		private final RuleCall cTypeActionCreatorIDTerminalRuleCall_3_1_0_1 = (RuleCall)cTypeActionCreatorCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cReducerDirectoryKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cTypeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cTypeDirectoryCrossReference_5_0 = (CrossReference)cTypeAssignment_5.eContents().get(0);
+		private final RuleCall cTypeDirectoryIDTerminalRuleCall_5_0_1 = (RuleCall)cTypeDirectoryCrossReference_5_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Reducer:
+		//	'reducer' name=ID '{' ('catch:' type=[ActionCreator])+
+		//	'reducerDirectory:' type=[Directory]
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'reducer' name=ID '{' ('catch:' type=[ActionCreator])+ 'reducerDirectory:' type=[Directory] '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'reducer'
+		public Keyword getReducerKeyword_0() { return cReducerKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//('catch:' type=[ActionCreator])+
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'catch:'
+		public Keyword getCatchKeyword_3_0() { return cCatchKeyword_3_0; }
+		
+		//type=[ActionCreator]
+		public Assignment getTypeAssignment_3_1() { return cTypeAssignment_3_1; }
+		
+		//[ActionCreator]
+		public CrossReference getTypeActionCreatorCrossReference_3_1_0() { return cTypeActionCreatorCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getTypeActionCreatorIDTerminalRuleCall_3_1_0_1() { return cTypeActionCreatorIDTerminalRuleCall_3_1_0_1; }
+		
+		//'reducerDirectory:'
+		public Keyword getReducerDirectoryKeyword_4() { return cReducerDirectoryKeyword_4; }
+		
+		//type=[Directory]
+		public Assignment getTypeAssignment_5() { return cTypeAssignment_5; }
+		
+		//[Directory]
+		public CrossReference getTypeDirectoryCrossReference_5_0() { return cTypeDirectoryCrossReference_5_0; }
+		
+		//ID
+		public RuleCall getTypeDirectoryIDTerminalRuleCall_5_0_1() { return cTypeDirectoryIDTerminalRuleCall_5_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class JsModuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.JsModule");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cModuleKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cPresentInKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cTypeDirectoryCrossReference_4_0 = (CrossReference)cTypeAssignment_4.eContents().get(0);
+		private final RuleCall cTypeDirectoryIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeDirectoryCrossReference_4_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//JsModule:
+		//	'module' name=ID '{'
+		//	'presentIn:' type=[Directory]
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'module' name=ID '{' 'presentIn:' type=[Directory] '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'module'
+		public Keyword getModuleKeyword_0() { return cModuleKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'presentIn:'
+		public Keyword getPresentInKeyword_3() { return cPresentInKeyword_3; }
+		
+		//type=[Directory]
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
+		//[Directory]
+		public CrossReference getTypeDirectoryCrossReference_4_0() { return cTypeDirectoryCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getTypeDirectoryIDTerminalRuleCall_4_0_1() { return cTypeDirectoryIDTerminalRuleCall_4_0_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	
 	
@@ -1100,7 +2379,26 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final RelationArchElements pRelationArch;
 	private final TechnologyElements pTechnology;
 	private final JavaAppElements pJavaApp;
+	private final AbstractFrontElementElements pAbstractFrontElement;
 	private final ReactAppElements pReactApp;
+	private final FunctionalityElements pFunctionality;
+	private final RouterComponentElements pRouterComponent;
+	private final UIComponentElements pUIComponent;
+	private final ContainerElements pContainer;
+	private final VisualizerElements pVisualizer;
+	private final ServiceFrontElements pServiceFront;
+	private final DirectoryElements pDirectory;
+	private final FileElements pFile;
+	private final MdElements pMd;
+	private final JsElements pJs;
+	private final JsonElements pJson;
+	private final CssElements pCss;
+	private final StateElements pState;
+	private final ActionElements pAction;
+	private final ActionCreatorElements pActionCreator;
+	private final ActionDispatcherElements pActionDispatcher;
+	private final ReducerElements pReducer;
+	private final JsModuleElements pJsModule;
 	
 	private final Grammar grammar;
 	
@@ -1139,7 +2437,26 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pRelationArch = new RelationArchElements();
 		this.pTechnology = new TechnologyElements();
 		this.pJavaApp = new JavaAppElements();
+		this.pAbstractFrontElement = new AbstractFrontElementElements();
 		this.pReactApp = new ReactAppElements();
+		this.pFunctionality = new FunctionalityElements();
+		this.pRouterComponent = new RouterComponentElements();
+		this.pUIComponent = new UIComponentElements();
+		this.pContainer = new ContainerElements();
+		this.pVisualizer = new VisualizerElements();
+		this.pServiceFront = new ServiceFrontElements();
+		this.pDirectory = new DirectoryElements();
+		this.pFile = new FileElements();
+		this.pMd = new MdElements();
+		this.pJs = new JsElements();
+		this.pJson = new JsonElements();
+		this.pCss = new CssElements();
+		this.pState = new StateElements();
+		this.pAction = new ActionElements();
+		this.pActionCreator = new ActionCreatorElements();
+		this.pActionDispatcher = new ActionDispatcherElements();
+		this.pReducer = new ReducerElements();
+		this.pJsModule = new JsModuleElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1499,8 +2816,21 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// --------------------- Frontend---- ----------------------------------------------
+	//AbstractFrontElement:
+	//	ReactApp | Functionality | Directory | JsModule | Type | RouterComponent | Container | Visualizer | ServiceFront |
+	//	File | State | Action | ActionCreator | ActionDispatcher | Reducer;
+	public AbstractFrontElementElements getAbstractFrontElementAccess() {
+		return pAbstractFrontElement;
+	}
+	
+	public ParserRule getAbstractFrontElementRule() {
+		return getAbstractFrontElementAccess().getRule();
+	}
+	
 	//ReactApp:
 	//	'reactApp' '{'
+	//	elements+=AbstractFrontElement+ ('performs:' func=[Functionality])+ ('holds:' dir=[Directory])+ ('use:'
+	//	mod=[JsModule])+
 	//	'}';
 	public ReactAppElements getReactAppAccess() {
 		return pReactApp;
@@ -1508,6 +2838,220 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getReactAppRule() {
 		return getReactAppAccess().getRule();
+	}
+	
+	//Functionality:
+	//	'functionality' name=ID '{' ('uses:' route=[RouterComponent])* ('wraps:' wrap=[Container])* ('render:'
+	//	render=[Visualizer])+ ('state:' state=[State])* ('calls:' service=[ServiceFront])*
+	//	'organizedBy:' type=[Directory]
+	//	'}';
+	public FunctionalityElements getFunctionalityAccess() {
+		return pFunctionality;
+	}
+	
+	public ParserRule getFunctionalityRule() {
+		return getFunctionalityAccess().getRule();
+	}
+	
+	//RouterComponent:
+	//	'router' name=ID '{'
+	//	'inWithin:' type=[Directory]
+	//	'use:' type=[JsModule]
+	//	'route:' route=[UIComponent]
+	//	'}';
+	public RouterComponentElements getRouterComponentAccess() {
+		return pRouterComponent;
+	}
+	
+	public ParserRule getRouterComponentRule() {
+		return getRouterComponentAccess().getRule();
+	}
+	
+	//UIComponent:
+	//	RouterComponent | Visualizer;
+	public UIComponentElements getUIComponentAccess() {
+		return pUIComponent;
+	}
+	
+	public ParserRule getUIComponentRule() {
+		return getUIComponentAccess().getRule();
+	}
+	
+	//Container:
+	//	'container' name=ID '{'
+	//	'inWithin:' type=[Directory] ('dispatch:' type=[ActionDispatcher])? ('map:' type=[Reducer])*
+	//	'use:' type=[JsModule]
+	//	'}';
+	public ContainerElements getContainerAccess() {
+		return pContainer;
+	}
+	
+	public ParserRule getContainerRule() {
+		return getContainerAccess().getRule();
+	}
+	
+	//Visualizer:
+	//	'visualizer' name=ID '{'
+	//	'inWithin:' type=[Directory] ('use:' type=[JsModule])+
+	//	'}';
+	public VisualizerElements getVisualizerAccess() {
+		return pVisualizer;
+	}
+	
+	public ParserRule getVisualizerRule() {
+		return getVisualizerAccess().getRule();
+	}
+	
+	//ServiceFront:
+	//	'service' name=ID '{'
+	//	'use:' type=[JsModule] ('method:' STRING)+
+	//	'}';
+	public ServiceFrontElements getServiceFrontAccess() {
+		return pServiceFront;
+	}
+	
+	public ParserRule getServiceFrontRule() {
+		return getServiceFrontAccess().getRule();
+	}
+	
+	//Directory:
+	//	'directory' name=ID '{' ('has:'+ file=[File])* ('contains:' subdirectory=[Directory])*
+	//	'purpose:' STRING
+	//	'}';
+	public DirectoryElements getDirectoryAccess() {
+		return pDirectory;
+	}
+	
+	public ParserRule getDirectoryRule() {
+		return getDirectoryAccess().getRule();
+	}
+	
+	//File:
+	//	Md | Js | Json | Css;
+	public FileElements getFileAccess() {
+		return pFile;
+	}
+	
+	public ParserRule getFileRule() {
+		return getFileAccess().getRule();
+	}
+	
+	//Md:
+	//	'md' name=ID '{'
+	//	'type:' STRING
+	//	'}';
+	public MdElements getMdAccess() {
+		return pMd;
+	}
+	
+	public ParserRule getMdRule() {
+		return getMdAccess().getRule();
+	}
+	
+	//Js:
+	//	'js' name=ID '{'
+	//	'type:' STRING
+	//	'}';
+	public JsElements getJsAccess() {
+		return pJs;
+	}
+	
+	public ParserRule getJsRule() {
+		return getJsAccess().getRule();
+	}
+	
+	//Json:
+	//	'json' name=ID '{'
+	//	'type:' STRING
+	//	'}';
+	public JsonElements getJsonAccess() {
+		return pJson;
+	}
+	
+	public ParserRule getJsonRule() {
+		return getJsonAccess().getRule();
+	}
+	
+	//Css:
+	//	'css' name=ID '{'
+	//	'type:' STRING
+	//	'}';
+	public CssElements getCssAccess() {
+		return pCss;
+	}
+	
+	public ParserRule getCssRule() {
+		return getCssAccess().getRule();
+	}
+	
+	//State:
+	//	'state' name=ID '{' ('handleAction:' action=[Action])* ('handleReducer:' reducer=[Reducer])*
+	//	'}';
+	public StateElements getStateAccess() {
+		return pState;
+	}
+	
+	public ParserRule getStateRule() {
+		return getStateAccess().getRule();
+	}
+	
+	//Action:
+	//	'action' name=ID '{' ('create:' actionCreator=[ActionCreator])* ('dispatch:' actionDispatcher=[ActionDispatcher])*
+	//	'actionDirectory:' dir=[Directory]
+	//	'}';
+	public ActionElements getActionAccess() {
+		return pAction;
+	}
+	
+	public ParserRule getActionRule() {
+		return getActionAccess().getRule();
+	}
+	
+	//ActionCreator:
+	//	'actionCreator' name=ID '{'
+	//	'type:' STRING
+	//	'}';
+	public ActionCreatorElements getActionCreatorAccess() {
+		return pActionCreator;
+	}
+	
+	public ParserRule getActionCreatorRule() {
+		return getActionCreatorAccess().getRule();
+	}
+	
+	//ActionDispatcher:
+	//	'actionDispatcher' name=ID '{' ('use:' type=[ActionCreator])*
+	//	'}';
+	public ActionDispatcherElements getActionDispatcherAccess() {
+		return pActionDispatcher;
+	}
+	
+	public ParserRule getActionDispatcherRule() {
+		return getActionDispatcherAccess().getRule();
+	}
+	
+	//Reducer:
+	//	'reducer' name=ID '{' ('catch:' type=[ActionCreator])+
+	//	'reducerDirectory:' type=[Directory]
+	//	'}';
+	public ReducerElements getReducerAccess() {
+		return pReducer;
+	}
+	
+	public ParserRule getReducerRule() {
+		return getReducerAccess().getRule();
+	}
+	
+	//JsModule:
+	//	'module' name=ID '{'
+	//	'presentIn:' type=[Directory]
+	//	'}';
+	public JsModuleElements getJsModuleAccess() {
+		return pJsModule;
+	}
+	
+	public ParserRule getJsModuleRule() {
+		return getJsModuleAccess().getRule();
 	}
 	
 	//terminal ID:
