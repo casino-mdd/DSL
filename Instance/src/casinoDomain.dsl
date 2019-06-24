@@ -274,9 +274,67 @@ Casino{
 	//-------------------- Technology ---------------------------------
 	tech{
 		//Back
-		javaApp{
-		
+		javaApp {
+		 jeeProject casino_ear {
+		 	
+		 	subproject casino_ejb{
+		 		epackage facade{
+		 			genericClass EntityManager{}
+		 			abstractClass AbstractFacade{
+		 				attribute emf : EntityManager			
+		 			}
+		 			genericClass xFacade{
+		 				extends : AbstractFacade
+		 			}
+		 		}
+		 		epackage dto{}
+		 		epackage pojo{}
+		 		epackage util{
+		 			nativeClass String{}
+		 			genericClass JsonImpl{} 
+		 			genericClass JsonUtil{
+		 				attribute jsonContent : String 
+		 				methodBack objectToJson { 
+		 					argument JsonImpl
+		 					return String
+		 				}
+		 				methodBack jsonToObject{
+		 					argument String
+		 					return JsonImpl
+		 				}
+		 			}
+		 		},
+		 		library jdk8{isNative true}
+		 		library gson{isNative false}
+		 		library hibernate{
+		 			isNative false
+		 			annotation EJB {}
+		 		},
+		 		descriptor persistence_xml{ path "./config"}
+		 	} 
+		 	
+		 	subproject casino_war{
+		 		epackage rest{
+		 			abstractClass AbstractRest{
+		 			}
+		 			genericClass xRest{
+		 				extends :AbstractRest
+		 			} 
+		 		},
+		 		library jdk8{isNative true}
+		 		library JAX_WS{
+		 			isNative false
+		 			annotation POST{propertie "params"}
+		 			annotation REST{propertie "params"}
+		 			annotation PUT{}
+		 			annotation ENDPOINT{propertie "path"}
+		 		},
+		 		descriptor web_xm{ path "./WEB-INF"}
+		 	}
+		 	
+		 }//jeeProject
 		}
+		
 		
 		//Front
 		reactApp{

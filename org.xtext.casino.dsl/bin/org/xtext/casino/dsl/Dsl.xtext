@@ -153,9 +153,92 @@ Technology:
 // --------------------- Backend----- ----------------------------------------------
 JavaApp:
 	'javaApp' '{'
-	
-	
+	  jeeproject+=JeeProject
 	'}'
+;
+
+JeeProject: 'jeeProject' name=ID '{'
+	subproject+=Subproject+
+'}'
+;
+
+Subproject: 'subproject' name=ID '{'
+	epackage+=Epackage+ ','
+	library+=Library+ ','
+	descriptor+=Descriptor+
+'}'
+;
+
+AbstractClass: 'abstractClass' name=ID '{' 
+	attribute+=Attribute*
+	methodClass+=MethodBack*
+	('use :' annotation=[Annotation])*
+	abstractMethod+=AbstractMethod*
+'}'
+;
+
+GenericClass: 'genericClass' name=ID '{' 
+	attribute+=Attribute*
+	methodClass+=MethodBack*
+	('use :' annotation=[Annotation])* // *: 0-n   +:1-n   ?:optional
+	('extends :' abs=[AbstractClass])?
+	('implements :' imp=[Einterface])*
+'}'
+;
+
+Einterface: 'eInterface' name=ID '{'
+	attribute+=Attribute*
+	abstractMethod+=AbstractMethod*
+'}'	
+;
+
+NativeClass: 'nativeClass' name=ID '{' 
+	attribute+=Attribute*
+	methodClass+=MethodBack*
+'}'
+;
+
+Eclass :
+	AbstractClass|GenericClass|NativeClass|Annotation
+;
+
+Attribute: 'attribute' name=ID ':' type=[Eclass]
+;
+
+Epackage: 'epackage' name=ID '{'
+	eclass+=Eclass*	
+'}'
+;
+
+MethodBack: 'methodBack' name=ID '{'
+	('argument' arg=[Eclass])* 
+	('return' type=[Eclass])?
+'}'
+;
+
+AbstractMethod: 'methodBack' name=ID '{'
+	('argument' arg=[Eclass])* 
+	('return' type=[Eclass])?
+'}'
+;
+
+Descriptor: 'descriptor' name=ID '{'
+	'path' name=STRING
+'}'
+;
+
+Annotation: 'annotation' name=ID '{'
+	('propertie' name=STRING)*
+'}'
+;
+
+Library : 'library' name=ID '{'
+  'isNative' Boolean
+   annotation+= Annotation*
+'}';
+
+Boolean:
+'true'|'false'
 ;
 // --------------------- Frontend---- ----------------------------------------------
 

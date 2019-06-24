@@ -92,9 +92,90 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Technology">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="java" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="java" eType="#//JavaApp"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="react" eType="#//ReactApp"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaApp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jeeproject" upperBound="-1"
+        eType="#//JeeProject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JeeProject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subproject" upperBound="-1"
+        eType="#//Subproject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subproject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="epackage" upperBound="-1"
+        eType="#//Epackage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="library" upperBound="-1"
+        eType="#//Library" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descriptor" upperBound="-1"
+        eType="#//Descriptor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractClass" eSuperTypes="#//Eclass">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodClass" upperBound="-1"
+        eType="#//MethodBack" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" eType="#//Annotation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractMethod" upperBound="-1"
+        eType="#//AbstractMethod" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericClass" eSuperTypes="#//Eclass">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodClass" upperBound="-1"
+        eType="#//MethodBack" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" eType="#//Annotation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abs" eType="#//AbstractClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imp" eType="#//Einterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Einterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractMethod" upperBound="-1"
+        eType="#//AbstractMethod" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NativeClass" eSuperTypes="#//Eclass">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodClass" upperBound="-1"
+        eType="#//MethodBack" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Eclass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Eclass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Epackage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eclass" upperBound="-1"
+        eType="#//Eclass" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodBack">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arg" eType="#//Eclass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Eclass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractMethod">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arg" eType="#//Eclass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Eclass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Descriptor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//Eclass"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Library">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" upperBound="-1"
+        eType="#//Annotation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractFrontElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ReactApp" eSuperTypes="#//AbstractFrontElement">
