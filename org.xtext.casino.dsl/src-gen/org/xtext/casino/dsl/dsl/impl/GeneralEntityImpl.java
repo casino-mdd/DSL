@@ -5,6 +5,8 @@ package org.xtext.casino.dsl.dsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
 
@@ -15,7 +17,7 @@ import org.xtext.casino.dsl.dsl.GeneralEntity;
  *
  * @generated
  */
-public class GeneralEntityImpl extends AbstractElementImpl implements GeneralEntity
+public class GeneralEntityImpl extends MinimalEObjectImpl.Container implements GeneralEntity
 {
   /**
    * <!-- begin-user-doc -->

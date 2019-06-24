@@ -7,23 +7,23 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Qualified Name</b></em>'.
+ * A representation of the model object '<em><b>Entity Name</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.casino.dsl.dsl.QualifiedName#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.casino.dsl.dsl.QualifiedName#getProperties <em>Properties</em>}</li>
- *   <li>{@link org.xtext.casino.dsl.dsl.QualifiedName#getTransactions <em>Transactions</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.EntityName#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.EntityName#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.EntityName#getTransactions <em>Transactions</em>}</li>
  * </ul>
  *
- * @see org.xtext.casino.dsl.dsl.DslPackage#getQualifiedName()
+ * @see org.xtext.casino.dsl.dsl.DslPackage#getEntityName()
  * @model
  * @generated
  */
-public interface QualifiedName extends GeneralEntity, SpecialEntity
+public interface EntityName extends GeneralEntity, SpecialEntity
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -31,14 +31,14 @@ public interface QualifiedName extends GeneralEntity, SpecialEntity
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.xtext.casino.dsl.dsl.DslPackage#getQualifiedName_Name()
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getEntityName_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.QualifiedName#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.EntityName#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -53,7 +53,7 @@ public interface QualifiedName extends GeneralEntity, SpecialEntity
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Properties</em>' containment reference list.
-   * @see org.xtext.casino.dsl.dsl.DslPackage#getQualifiedName_Properties()
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getEntityName_Properties()
    * @model containment="true"
    * @generated
    */
@@ -65,10 +65,10 @@ public interface QualifiedName extends GeneralEntity, SpecialEntity
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Transactions</em>' containment reference list.
-   * @see org.xtext.casino.dsl.dsl.DslPackage#getQualifiedName_Transactions()
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getEntityName_Transactions()
    * @model containment="true"
    * @generated
    */
   EList<Transaction> getTransactions();
 
-} // QualifiedName
+} // EntityName

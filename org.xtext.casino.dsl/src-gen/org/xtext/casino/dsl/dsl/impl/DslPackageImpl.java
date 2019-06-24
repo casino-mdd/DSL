@@ -10,20 +10,18 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.Architecture;
 import org.xtext.casino.dsl.dsl.Component;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslFactory;
 import org.xtext.casino.dsl.dsl.DslPackage;
-import org.xtext.casino.dsl.dsl.Entity;
+import org.xtext.casino.dsl.dsl.EntityName;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
-import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
@@ -60,13 +58,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass abstractElementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass moduleEClass = null;
 
   /**
@@ -81,21 +72,14 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass entityEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass qualifiedNameEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass operationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass entityNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -319,7 +303,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EReference getDomain_Elements()
+  public EReference getDomain_Types()
   {
     return (EReference)domainEClass.getEStructuralFeatures().get(0);
   }
@@ -344,17 +328,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EReference getDomain_Relations()
   {
     return (EReference)domainEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getAbstractElement()
-  {
-    return abstractElementEClass;
   }
 
   /**
@@ -440,72 +413,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EClass getEntity()
-  {
-    return entityEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEntity_Type()
-  {
-    return (EReference)entityEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getQualifiedName()
-  {
-    return qualifiedNameEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getQualifiedName_Name()
-  {
-    return (EAttribute)qualifiedNameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getQualifiedName_Properties()
-  {
-    return (EReference)qualifiedNameEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getQualifiedName_Transactions()
-  {
-    return (EReference)qualifiedNameEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getOperation()
   {
     return operationEClass;
@@ -520,6 +427,50 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EReference getOperation_Target()
   {
     return (EReference)operationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEntityName()
+  {
+    return entityNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEntityName_Name()
+  {
+    return (EAttribute)entityNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEntityName_Properties()
+  {
+    return (EReference)entityNameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEntityName_Transactions()
+  {
+    return (EReference)entityNameEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -638,7 +589,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EReference getOperateson_Type()
+  public EReference getOperateson_Operateson()
   {
     return (EReference)operatesonEClass.getEStructuralFeatures().get(0);
   }
@@ -660,7 +611,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EReference getRelationDom_Type()
+  public EReference getRelationDom_Source()
   {
     return (EReference)relationDomEClass.getEStructuralFeatures().get(0);
   }
@@ -922,11 +873,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(systemEClass, SYSTEM__TECH);
 
     domainEClass = createEClass(DOMAIN);
-    createEReference(domainEClass, DOMAIN__ELEMENTS);
+    createEReference(domainEClass, DOMAIN__TYPES);
     createEReference(domainEClass, DOMAIN__MODULES);
     createEReference(domainEClass, DOMAIN__RELATIONS);
-
-    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
 
     moduleEClass = createEClass(MODULE);
     createEAttribute(moduleEClass, MODULE__NAME);
@@ -937,16 +886,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(submoduleEClass, SUBMODULE__OPERATIONS);
     createEReference(submoduleEClass, SUBMODULE__ENTITIES);
 
-    entityEClass = createEClass(ENTITY);
-    createEReference(entityEClass, ENTITY__TYPE);
-
-    qualifiedNameEClass = createEClass(QUALIFIED_NAME);
-    createEAttribute(qualifiedNameEClass, QUALIFIED_NAME__NAME);
-    createEReference(qualifiedNameEClass, QUALIFIED_NAME__PROPERTIES);
-    createEReference(qualifiedNameEClass, QUALIFIED_NAME__TRANSACTIONS);
-
     operationEClass = createEClass(OPERATION);
     createEReference(operationEClass, OPERATION__TARGET);
+
+    entityNameEClass = createEClass(ENTITY_NAME);
+    createEAttribute(entityNameEClass, ENTITY_NAME__NAME);
+    createEReference(entityNameEClass, ENTITY_NAME__PROPERTIES);
+    createEReference(entityNameEClass, ENTITY_NAME__TRANSACTIONS);
 
     generalEntityEClass = createEClass(GENERAL_ENTITY);
 
@@ -963,10 +909,10 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(transactionEClass, TRANSACTION__OPERATESON);
 
     operatesonEClass = createEClass(OPERATESON);
-    createEReference(operatesonEClass, OPERATESON__TYPE);
+    createEReference(operatesonEClass, OPERATESON__OPERATESON);
 
     relationDomEClass = createEClass(RELATION_DOM);
-    createEReference(relationDomEClass, RELATION_DOM__TYPE);
+    createEReference(relationDomEClass, RELATION_DOM__SOURCE);
     createEReference(relationDomEClass, RELATION_DOM__TARGET);
 
     architectureEClass = createEClass(ARCHITECTURE);
@@ -1025,11 +971,8 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    qualifiedNameEClass.getESuperTypes().add(this.getGeneralEntity());
-    qualifiedNameEClass.getESuperTypes().add(this.getSpecialEntity());
-    generalEntityEClass.getESuperTypes().add(this.getAbstractElement());
-    typeEClass.getESuperTypes().add(this.getAbstractElement());
-    specialEntityEClass.getESuperTypes().add(this.getAbstractElement());
+    entityNameEClass.getESuperTypes().add(this.getGeneralEntity());
+    entityNameEClass.getESuperTypes().add(this.getSpecialEntity());
 
     // Initialize classes and features; add operations and parameters
     initEClass(systemEClass, org.xtext.casino.dsl.dsl.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1038,11 +981,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEReference(getSystem_Tech(), this.getTechnology(), null, "tech", null, 0, 1, org.xtext.casino.dsl.dsl.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomain_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomain_Types(), this.getType(), null, "types", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomain_Modules(), this.getModule(), null, "modules", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomain_Relations(), this.getRelationDom(), null, "relations", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(moduleEClass, org.xtext.casino.dsl.dsl.Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.casino.dsl.dsl.Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1051,18 +992,15 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEClass(submoduleEClass, Submodule.class, "Submodule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSubmodule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Submodule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSubmodule_Operations(), this.getOperation(), null, "operations", null, 0, -1, Submodule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSubmodule_Entities(), this.getEntity(), null, "entities", null, 0, -1, Submodule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEntity_Type(), this.getQualifiedName(), null, "type", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(qualifiedNameEClass, QualifiedName.class, "QualifiedName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getQualifiedName_Name(), ecorePackage.getEString(), "name", null, 0, 1, QualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getQualifiedName_Properties(), this.getProperty(), null, "properties", null, 0, -1, QualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getQualifiedName_Transactions(), this.getTransaction(), null, "transactions", null, 0, -1, QualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSubmodule_Entities(), ecorePackage.getEObject(), null, "entities", null, 0, -1, Submodule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOperation_Target(), this.getEntity(), null, "target", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperation_Target(), this.getEntityName(), null, "target", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(entityNameEClass, EntityName.class, "EntityName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEntityName_Name(), ecorePackage.getEString(), "name", null, 0, 1, EntityName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEntityName_Properties(), this.getProperty(), null, "properties", null, 0, -1, EntityName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEntityName_Transactions(), this.getTransaction(), null, "transactions", null, 0, -1, EntityName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(generalEntityEClass, GeneralEntity.class, "GeneralEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1079,11 +1017,11 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEReference(getTransaction_Operateson(), this.getOperateson(), null, "operateson", null, 0, -1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operatesonEClass, Operateson.class, "Operateson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOperateson_Type(), this.getGeneralEntity(), null, "type", null, 0, 1, Operateson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperateson_Operateson(), this.getEntityName(), null, "operateson", null, 0, -1, Operateson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relationDomEClass, RelationDom.class, "RelationDom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRelationDom_Type(), this.getGeneralEntity(), null, "type", null, 0, 1, RelationDom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRelationDom_Target(), this.getEntity(), null, "target", null, 0, -1, RelationDom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelationDom_Source(), this.getEntityName(), null, "source", null, 0, -1, RelationDom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelationDom_Target(), this.getEntityName(), null, "target", null, 0, -1, RelationDom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(architectureEClass, Architecture.class, "Architecture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArchitecture_Componentes(), this.getComponent(), null, "componentes", null, 0, -1, Architecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

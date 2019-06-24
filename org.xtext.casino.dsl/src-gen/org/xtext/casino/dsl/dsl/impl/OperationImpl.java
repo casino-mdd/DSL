@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.casino.dsl.dsl.DslPackage;
-import org.xtext.casino.dsl.dsl.Entity;
+import org.xtext.casino.dsl.dsl.EntityName;
 import org.xtext.casino.dsl.dsl.Operation;
 
 /**
@@ -44,7 +44,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * @generated
    * @ordered
    */
-  protected EList<Entity> target;
+  protected EList<EntityName> target;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,11 +73,11 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * @generated
    */
   @Override
-  public EList<Entity> getTarget()
+  public EList<EntityName> getTarget()
   {
     if (target == null)
     {
-      target = new EObjectContainmentEList<Entity>(Entity.class, this, DslPackage.OPERATION__TARGET);
+      target = new EObjectContainmentEList<EntityName>(EntityName.class, this, DslPackage.OPERATION__TARGET);
     }
     return target;
   }
@@ -127,7 +127,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
     {
       case DslPackage.OPERATION__TARGET:
         getTarget().clear();
-        getTarget().addAll((Collection<? extends Entity>)newValue);
+        getTarget().addAll((Collection<? extends EntityName>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

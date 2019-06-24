@@ -5,7 +5,6 @@ package org.xtext.casino.dsl.dsl.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,15 +12,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.casino.dsl.dsl.DslPackage;
-import org.xtext.casino.dsl.dsl.Entity;
-import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.EntityName;
 import org.xtext.casino.dsl.dsl.RelationDom;
 
 /**
@@ -32,7 +29,7 @@ import org.xtext.casino.dsl.dsl.RelationDom;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.casino.dsl.dsl.impl.RelationDomImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.RelationDomImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.RelationDomImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -41,14 +38,14 @@ import org.xtext.casino.dsl.dsl.RelationDom;
 public class RelationDomImpl extends MinimalEObjectImpl.Container implements RelationDom
 {
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getSource()
    * @generated
    * @ordered
    */
-  protected GeneralEntity type;
+  protected EList<EntityName> source;
 
   /**
    * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -58,7 +55,7 @@ public class RelationDomImpl extends MinimalEObjectImpl.Container implements Rel
    * @generated
    * @ordered
    */
-  protected EList<Entity> target;
+  protected EList<EntityName> target;
 
   /**
    * <!-- begin-user-doc -->
@@ -87,29 +84,13 @@ public class RelationDomImpl extends MinimalEObjectImpl.Container implements Rel
    * @generated
    */
   @Override
-  public GeneralEntity getType()
+  public EList<EntityName> getSource()
   {
-    if (type != null && type.eIsProxy())
+    if (source == null)
     {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (GeneralEntity)eResolveProxy(oldType);
-      if (type != oldType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DslPackage.RELATION_DOM__TYPE, oldType, type));
-      }
+      source = new EObjectContainmentEList<EntityName>(EntityName.class, this, DslPackage.RELATION_DOM__SOURCE);
     }
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GeneralEntity basicGetType()
-  {
-    return type;
+    return source;
   }
 
   /**
@@ -118,25 +99,11 @@ public class RelationDomImpl extends MinimalEObjectImpl.Container implements Rel
    * @generated
    */
   @Override
-  public void setType(GeneralEntity newType)
-  {
-    GeneralEntity oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.RELATION_DOM__TYPE, oldType, type));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<Entity> getTarget()
+  public EList<EntityName> getTarget()
   {
     if (target == null)
     {
-      target = new EObjectContainmentEList<Entity>(Entity.class, this, DslPackage.RELATION_DOM__TARGET);
+      target = new EObjectContainmentEList<EntityName>(EntityName.class, this, DslPackage.RELATION_DOM__TARGET);
     }
     return target;
   }
@@ -151,6 +118,8 @@ public class RelationDomImpl extends MinimalEObjectImpl.Container implements Rel
   {
     switch (featureID)
     {
+      case DslPackage.RELATION_DOM__SOURCE:
+        return ((InternalEList<?>)getSource()).basicRemove(otherEnd, msgs);
       case DslPackage.RELATION_DOM__TARGET:
         return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
     }
@@ -167,9 +136,8 @@ public class RelationDomImpl extends MinimalEObjectImpl.Container implements Rel
   {
     switch (featureID)
     {
-      case DslPackage.RELATION_DOM__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+      case DslPackage.RELATION_DOM__SOURCE:
+        return getSource();
       case DslPackage.RELATION_DOM__TARGET:
         return getTarget();
     }
@@ -187,12 +155,13 @@ public class RelationDomImpl extends MinimalEObjectImpl.Container implements Rel
   {
     switch (featureID)
     {
-      case DslPackage.RELATION_DOM__TYPE:
-        setType((GeneralEntity)newValue);
+      case DslPackage.RELATION_DOM__SOURCE:
+        getSource().clear();
+        getSource().addAll((Collection<? extends EntityName>)newValue);
         return;
       case DslPackage.RELATION_DOM__TARGET:
         getTarget().clear();
-        getTarget().addAll((Collection<? extends Entity>)newValue);
+        getTarget().addAll((Collection<? extends EntityName>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -208,8 +177,8 @@ public class RelationDomImpl extends MinimalEObjectImpl.Container implements Rel
   {
     switch (featureID)
     {
-      case DslPackage.RELATION_DOM__TYPE:
-        setType((GeneralEntity)null);
+      case DslPackage.RELATION_DOM__SOURCE:
+        getSource().clear();
         return;
       case DslPackage.RELATION_DOM__TARGET:
         getTarget().clear();
@@ -228,8 +197,8 @@ public class RelationDomImpl extends MinimalEObjectImpl.Container implements Rel
   {
     switch (featureID)
     {
-      case DslPackage.RELATION_DOM__TYPE:
-        return type != null;
+      case DslPackage.RELATION_DOM__SOURCE:
+        return source != null && !source.isEmpty();
       case DslPackage.RELATION_DOM__TARGET:
         return target != null && !target.isEmpty();
     }

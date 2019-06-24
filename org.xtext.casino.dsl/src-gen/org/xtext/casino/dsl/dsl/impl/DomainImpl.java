@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.RelationDom;
+import org.xtext.casino.dsl.dsl.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ import org.xtext.casino.dsl.dsl.RelationDom;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getModules <em>Modules</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.DomainImpl#getRelations <em>Relations</em>}</li>
  * </ul>
@@ -40,14 +40,14 @@ import org.xtext.casino.dsl.dsl.RelationDom;
 public class DomainImpl extends MinimalEObjectImpl.Container implements Domain
 {
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getTypes()
    * @generated
    * @ordered
    */
-  protected EList<AbstractElement> elements;
+  protected EList<Type> types;
 
   /**
    * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
@@ -96,13 +96,13 @@ public class DomainImpl extends MinimalEObjectImpl.Container implements Domain
    * @generated
    */
   @Override
-  public EList<AbstractElement> getElements()
+  public EList<Type> getTypes()
   {
-    if (elements == null)
+    if (types == null)
     {
-      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, DslPackage.DOMAIN__ELEMENTS);
+      types = new EObjectContainmentEList<Type>(Type.class, this, DslPackage.DOMAIN__TYPES);
     }
-    return elements;
+    return types;
   }
 
   /**
@@ -145,8 +145,8 @@ public class DomainImpl extends MinimalEObjectImpl.Container implements Domain
   {
     switch (featureID)
     {
-      case DslPackage.DOMAIN__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+      case DslPackage.DOMAIN__TYPES:
+        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
       case DslPackage.DOMAIN__MODULES:
         return ((InternalEList<?>)getModules()).basicRemove(otherEnd, msgs);
       case DslPackage.DOMAIN__RELATIONS:
@@ -165,8 +165,8 @@ public class DomainImpl extends MinimalEObjectImpl.Container implements Domain
   {
     switch (featureID)
     {
-      case DslPackage.DOMAIN__ELEMENTS:
-        return getElements();
+      case DslPackage.DOMAIN__TYPES:
+        return getTypes();
       case DslPackage.DOMAIN__MODULES:
         return getModules();
       case DslPackage.DOMAIN__RELATIONS:
@@ -186,9 +186,9 @@ public class DomainImpl extends MinimalEObjectImpl.Container implements Domain
   {
     switch (featureID)
     {
-      case DslPackage.DOMAIN__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends AbstractElement>)newValue);
+      case DslPackage.DOMAIN__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends Type>)newValue);
         return;
       case DslPackage.DOMAIN__MODULES:
         getModules().clear();
@@ -212,8 +212,8 @@ public class DomainImpl extends MinimalEObjectImpl.Container implements Domain
   {
     switch (featureID)
     {
-      case DslPackage.DOMAIN__ELEMENTS:
-        getElements().clear();
+      case DslPackage.DOMAIN__TYPES:
+        getTypes().clear();
         return;
       case DslPackage.DOMAIN__MODULES:
         getModules().clear();
@@ -235,8 +235,8 @@ public class DomainImpl extends MinimalEObjectImpl.Container implements Domain
   {
     switch (featureID)
     {
-      case DslPackage.DOMAIN__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case DslPackage.DOMAIN__TYPES:
+        return types != null && !types.isEmpty();
       case DslPackage.DOMAIN__MODULES:
         return modules != null && !modules.isEmpty();
       case DslPackage.DOMAIN__RELATIONS:

@@ -27,7 +27,7 @@ public interface Operation extends EObject
 {
   /**
    * Returns the value of the '<em><b>Target</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Entity}.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.EntityName}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Target</em>' containment reference list.
@@ -35,6 +35,6 @@ public interface Operation extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Entity> getTarget();
+  EList<EntityName> getTarget();
 
 } // Operation

@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.Type;
@@ -25,7 +26,7 @@ import org.xtext.casino.dsl.dsl.Type;
  *
  * @generated
  */
-public class TypeImpl extends AbstractElementImpl implements Type
+public class TypeImpl extends MinimalEObjectImpl.Container implements Type
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

@@ -18,13 +18,12 @@ import org.xtext.casino.dsl.dsl.Architecture;
 import org.xtext.casino.dsl.dsl.Component;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslPackage;
-import org.xtext.casino.dsl.dsl.Entity;
+import org.xtext.casino.dsl.dsl.EntityName;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
-import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SublayerSegment;
@@ -57,9 +56,20 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.DOMAIN:
 				sequence_Domain(context, (Domain) semanticObject); 
 				return; 
-			case DslPackage.ENTITY:
-				sequence_Entity(context, (Entity) semanticObject); 
-				return; 
+			case DslPackage.ENTITY_NAME:
+				if (rule == grammarAccess.getEntityNameRule()) {
+					sequence_EntityName(context, (EntityName) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getGeneralEntityRule()) {
+					sequence_EntityName_GeneralEntity(context, (EntityName) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSpecialEntityRule()) {
+					sequence_EntityName_SpecialEntity(context, (EntityName) semanticObject); 
+					return; 
+				}
+				else break;
 			case DslPackage.LAYER:
 				sequence_Layer(context, (Layer) semanticObject); 
 				return; 
@@ -78,24 +88,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.PROPERTY:
 				sequence_Property(context, (Property) semanticObject); 
 				return; 
-			case DslPackage.QUALIFIED_NAME:
-				if (rule == grammarAccess.getGeneralEntityRule()) {
-					sequence_GeneralEntity_QualifiedName(context, (QualifiedName) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getAbstractElementRule()) {
-					sequence_GeneralEntity_QualifiedName_SpecialEntity(context, (QualifiedName) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getQualifiedNameRule()) {
-					sequence_QualifiedName(context, (QualifiedName) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getSpecialEntityRule()) {
-					sequence_QualifiedName_SpecialEntity(context, (QualifiedName) semanticObject); 
-					return; 
-				}
-				else break;
 			case DslPackage.RELATION_ARCH:
 				sequence_RelationArch(context, (RelationArch) semanticObject); 
 				return; 
@@ -154,7 +146,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Domain returns Domain
 	 *
 	 * Constraint:
-	 *     (elements+=AbstractElement* modules+=Module+ relations+=RelationDom+)
+	 *     (types+=Type* modules+=Module+ relations+=RelationDom+)
 	 */
 	protected void sequence_Domain(ISerializationContext context, Domain semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -163,42 +155,42 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Entity returns Entity
+	 *     EntityName returns EntityName
 	 *
 	 * Constraint:
-	 *     type=[QualifiedName|ID]
+	 *     name=ID
 	 */
-	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
+	protected void sequence_EntityName(ISerializationContext context, EntityName semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ENTITY__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ENTITY__TYPE));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ENTITY_NAME__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ENTITY_NAME__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEntityAccess().getTypeQualifiedNameIDTerminalRuleCall_0_1(), semanticObject.eGet(DslPackage.Literals.ENTITY__TYPE, false));
+		feeder.accept(grammarAccess.getEntityNameAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     GeneralEntity returns QualifiedName
+	 *     GeneralEntity returns EntityName
 	 *
 	 * Constraint:
 	 *     (name=ID properties+=Property+)
 	 */
-	protected void sequence_GeneralEntity_QualifiedName(ISerializationContext context, QualifiedName semanticObject) {
+	protected void sequence_EntityName_GeneralEntity(ISerializationContext context, EntityName semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns QualifiedName
+	 *     SpecialEntity returns EntityName
 	 *
 	 * Constraint:
-	 *     (name=ID (properties+=Property+ | (properties+=Property+ transactions+=Transaction+)))
+	 *     (name=ID properties+=Property+ transactions+=Transaction+)
 	 */
-	protected void sequence_GeneralEntity_QualifiedName_SpecialEntity(ISerializationContext context, QualifiedName semanticObject) {
+	protected void sequence_EntityName_SpecialEntity(ISerializationContext context, EntityName semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -244,16 +236,10 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Operateson returns Operateson
 	 *
 	 * Constraint:
-	 *     type=[GeneralEntity|ID]
+	 *     operateson+=EntityName
 	 */
 	protected void sequence_Operateson(ISerializationContext context, Operateson semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.OPERATESON__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.OPERATESON__TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOperatesonAccess().getTypeGeneralEntityIDTerminalRuleCall_1_0_1(), semanticObject.eGet(DslPackage.Literals.OPERATESON__TYPE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -262,7 +248,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Operation returns Operation
 	 *
 	 * Constraint:
-	 *     target+=Entity
+	 *     target+=EntityName
 	 */
 	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -292,36 +278,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     QualifiedName returns QualifiedName
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_QualifiedName(ISerializationContext context, QualifiedName semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.QUALIFIED_NAME__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.QUALIFIED_NAME__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getQualifiedNameAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SpecialEntity returns QualifiedName
-	 *
-	 * Constraint:
-	 *     (name=ID properties+=Property+ transactions+=Transaction+)
-	 */
-	protected void sequence_QualifiedName_SpecialEntity(ISerializationContext context, QualifiedName semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     RelationArch returns RelationArch
 	 *
 	 * Constraint:
@@ -343,7 +299,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RelationDom returns RelationDom
 	 *
 	 * Constraint:
-	 *     (type=[GeneralEntity|ID] target+=Entity)
+	 *     (source+=EntityName target+=EntityName)
 	 */
 	protected void sequence_RelationDom(ISerializationContext context, RelationDom semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -373,7 +329,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Submodule returns Submodule
 	 *
 	 * Constraint:
-	 *     (name=ID operations+=Operation+ entities+=Entity+)
+	 *     (name=ID operations+=Operation+ (entities+=GeneralEntity | entities+=SpecialEntity)+)
 	 */
 	protected void sequence_Submodule(ISerializationContext context, Submodule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -439,7 +395,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns Type
 	 *     Type returns Type
 	 *
 	 * Constraint:

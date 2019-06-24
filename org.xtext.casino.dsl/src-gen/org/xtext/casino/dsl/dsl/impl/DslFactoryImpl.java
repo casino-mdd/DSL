@@ -11,20 +11,18 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.xtext.casino.dsl.dsl.AbstractElement;
 import org.xtext.casino.dsl.dsl.Architecture;
 import org.xtext.casino.dsl.dsl.Component;
 import org.xtext.casino.dsl.dsl.Domain;
 import org.xtext.casino.dsl.dsl.DslFactory;
 import org.xtext.casino.dsl.dsl.DslPackage;
-import org.xtext.casino.dsl.dsl.Entity;
+import org.xtext.casino.dsl.dsl.EntityName;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
 import org.xtext.casino.dsl.dsl.Operateson;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Property;
-import org.xtext.casino.dsl.dsl.QualifiedName;
 import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.SpecialEntity;
@@ -88,12 +86,10 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
     {
       case DslPackage.SYSTEM: return createSystem();
       case DslPackage.DOMAIN: return createDomain();
-      case DslPackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case DslPackage.MODULE: return createModule();
       case DslPackage.SUBMODULE: return createSubmodule();
-      case DslPackage.ENTITY: return createEntity();
-      case DslPackage.QUALIFIED_NAME: return createQualifiedName();
       case DslPackage.OPERATION: return createOperation();
+      case DslPackage.ENTITY_NAME: return createEntityName();
       case DslPackage.GENERAL_ENTITY: return createGeneralEntity();
       case DslPackage.PROPERTY: return createProperty();
       case DslPackage.TYPE: return createType();
@@ -143,18 +139,6 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * @generated
    */
   @Override
-  public AbstractElement createAbstractElement()
-  {
-    AbstractElementImpl abstractElement = new AbstractElementImpl();
-    return abstractElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public org.xtext.casino.dsl.dsl.Module createModule()
   {
     ModuleImpl module = new ModuleImpl();
@@ -179,34 +163,22 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * @generated
    */
   @Override
-  public Entity createEntity()
-  {
-    EntityImpl entity = new EntityImpl();
-    return entity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public QualifiedName createQualifiedName()
-  {
-    QualifiedNameImpl qualifiedName = new QualifiedNameImpl();
-    return qualifiedName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Operation createOperation()
   {
     OperationImpl operation = new OperationImpl();
     return operation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EntityName createEntityName()
+  {
+    EntityNameImpl entityName = new EntityNameImpl();
+    return entityName;
   }
 
   /**

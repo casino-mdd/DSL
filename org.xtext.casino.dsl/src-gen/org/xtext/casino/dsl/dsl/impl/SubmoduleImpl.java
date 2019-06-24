@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.casino.dsl.dsl.DslPackage;
-import org.xtext.casino.dsl.dsl.Entity;
 import org.xtext.casino.dsl.dsl.Operation;
 import org.xtext.casino.dsl.dsl.Submodule;
 
@@ -79,7 +79,7 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
    * @generated
    * @ordered
    */
-  protected EList<Entity> entities;
+  protected EList<EObject> entities;
 
   /**
    * <!-- begin-user-doc -->
@@ -148,11 +148,11 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
    * @generated
    */
   @Override
-  public EList<Entity> getEntities()
+  public EList<EObject> getEntities()
   {
     if (entities == null)
     {
-      entities = new EObjectContainmentEList<Entity>(Entity.class, this, DslPackage.SUBMODULE__ENTITIES);
+      entities = new EObjectContainmentEList<EObject>(EObject.class, this, DslPackage.SUBMODULE__ENTITIES);
     }
     return entities;
   }
@@ -215,7 +215,7 @@ public class SubmoduleImpl extends MinimalEObjectImpl.Container implements Submo
         return;
       case DslPackage.SUBMODULE__ENTITIES:
         getEntities().clear();
-        getEntities().addAll((Collection<? extends Entity>)newValue);
+        getEntities().addAll((Collection<? extends EObject>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

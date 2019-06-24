@@ -10,7 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -22,13 +21,11 @@ import org.xtext.casino.dsl.services.DslGrammarAccess;
 public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0;
 	protected AbstractElementAlias match_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
-		match_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getGeneralEntityAccess().getGeneralEntityKeyword_0()), new TokenAlias(false, false, grammarAccess.getSpecialEntityAccess().getSpecialEntityKeyword_0()));
 		match_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getLayerSegmentAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getLayerSegmentAccess().getRightCurlyBracketKeyword_3_2()));
 	}
 	
@@ -95,25 +92,12 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0.equals(syntax))
-				emit_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
+			if (match_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
 				emit_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     'generalEntity' | 'specialEntity'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) name=ID
-	 */
-	protected void emit_GeneralEntity_SpecialEntity_GeneralEntityKeyword_0_or_SpecialEntityKeyword_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Ambiguous syntax:
 	 *     ('{' '}')?

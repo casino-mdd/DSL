@@ -12,17 +12,12 @@ System: 'Casino' '{'
 
 // --------------------- Domain ------------------------------------------------
 Domain: 'domain' '{'
-	(elements+=AbstractElement)*
+	(types+=Type)*
 	(modules+=Module)+
 	(relations+=RelationDom)+
-
 	'}'
 ;	
-
-AbstractElement:
-     SpecialEntity | GeneralEntity |  Type
-;
-     
+ 
 Module: 'module' name=ID '{'
 	(submodules+=Submodule)+
 	'}' 
@@ -30,22 +25,18 @@ Module: 'module' name=ID '{'
 	
 Submodule: 'submodule' name=ID '{'
 	(operations+=Operation)+
-	(entities+=Entity)+
+	(entities+= (GeneralEntity | SpecialEntity) )+
 	'}'
-;
-   
-Entity:
-	  type=[QualifiedName]
-;
-   
-QualifiedName:
-     name=ID
 ;
 
 Operation: 'op' '{'
 	'type:' SubOperation
-	'operates_on:' target+=Entity
+	'operates_on:' target+=EntityName
 	'}'	
+;
+
+EntityName:
+     name=ID
 ;
 
 SubOperation:
@@ -53,7 +44,7 @@ SubOperation:
 ;
 
 GeneralEntity: 
-	'generalEntity' QualifiedName '{'
+	'generalEntity' EntityName '{'
 	(properties+=Property)+
 	'}'
 ;
@@ -66,7 +57,7 @@ Type:
 ;
 
 SpecialEntity: 
-	'specialEntity' QualifiedName '{'
+	'specialEntity' EntityName '{'
 	(properties+=Property)+
 	(transactions+=Transaction)+	
 	'}'	
@@ -83,13 +74,13 @@ SubTransaction:
 ;
 
 Operateson:
-	'operates_on:' type=[GeneralEntity]
+	'operates_on:' operateson+=EntityName
 ;
 
 RelationDom: 'rel' '{'
 	'type:' 'Composition'
-	'source:' type=[GeneralEntity]
-	'target:' target+=Entity
+	'source:' source+=EntityName
+	'target:' target+=EntityName
 	'}'
 ;
 

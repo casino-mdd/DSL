@@ -8,101 +8,6 @@ Casino{
 		dataType Num
 		dataType Date
 
-		generalEntity Client {   
-			idClient:Num
-			age:Num
-			gender:String
-			name:String
-			surname:String
-			email:String
-			phone:Num
-			indentificationNumber:Num
-			createdAt:Date
-			updatedAt:Date	
-		}
-
-		generalEntity Employee {   
-			idEmployee:Num
-			age:Num
-			gender:String
-			name:String
-			surname:String
-			email:String
-			phone:Num
-			indentificationNumber:Num
-			createdAt:Date
-			updatedAt:Date		
-			idOffice:Num
-			position:String
-			admitionDate:Date
-		}
-
-		generalEntity Reward {   
-			idReward:Num
-			idOffice:Num
-			name: String
-			pointNeed:Num
-			isAvailable:Boolean	
-		}	
-
-		generalEntity Points {   
-			idPoint:Num
-			idSale:Num
-			totalPoints:Num
-			expDate:Date
-			createdAt:Date
-		}
-
-		generalEntity Office {  
-			idOffice:Num 
-			name: String
-			address: String
-			city:String
-			createdAt:Date
-			updatedAt:Date	
-		}
-
-		generalEntity Sale {
-			idSale:Num
-			idEmployee:Num
-			idClient:Num
-			idOffice:Num
-			token:Num
-			cost:Num
-			paymentMethod:String
-			createdAt:Date   
-		}
-
-		generalEntity Exchange {   
-			idExchange:Num
-			idClient:Num
-			idReward:Num
-			idEmployee:Num
-			createdAt:Date
-		}
-
-		specialEntity UserAcc {
-			idUserAcc:Num
-			idEmployee:Num
-			username:String
-			password:String
-			updatedAt:Date
-			createdAt:String
-			isActive:Boolean
-			profile:String	
-			trx {
-				type: exchange	
-				operates_on: Points
-				operates_on: Reward
-				operates_on: Exchange
-			}
-			trx {
-				type: sale	
-				operates_on: Points
-				operates_on: Sale
-			}
-		}
-
 		module Authentication {
 			submodule User {
 				op {
@@ -113,7 +18,27 @@ Casino{
 					type: Create
 					operates_on: UserAcc
 				}
-				UserAcc
+				specialEntity UserAcc {
+					idUserAcc:Num
+					idEmployee:Num
+					username:String
+					password:String
+					updatedAt:Date
+					createdAt:String
+					isActive:Boolean
+					profile:String	
+					trx {
+						type: exchange	
+						operates_on: Points
+						operates_on: Reward
+						operates_on: Exchange
+					}
+					trx {
+						type: sale	
+						operates_on: Points
+						operates_on: Sale
+					}
+				}
 			}
 		}
 		
@@ -127,14 +52,26 @@ Casino{
 					type:Create
 					operates_on:Exchange
 				}
-				Exchange
+				generalEntity Exchange {   
+					idExchange:Num
+					idClient:Num
+					idReward:Num
+					idEmployee:Num
+					createdAt:Date
+				}
 			}
 			submodule PointsReport {
 				op{
 					type:Read
 					operates_on:Points
 				}
-				Points
+				generalEntity Points {   
+					idPoint:Num
+				idSale:Num
+				totalPoints:Num
+				expDate:Date
+				createdAt:Date
+				}
 			}		
 		}
 	
@@ -148,7 +85,14 @@ Casino{
 					type: Create
 					operates_on:Office
 				}
-				Office
+				generalEntity Office {  
+					idOffice:Num 
+					name: String
+					address: String
+					city:String
+					createdAt:Date
+					updatedAt:Date	
+				}
 			}
 	
 			submodule RewardsMngmt{
@@ -160,7 +104,13 @@ Casino{
 					type: Create
 					operates_on:Reward
 				}
-				Reward
+				generalEntity Reward {   
+					idReward:Num
+					idOffice:Num
+					name: String
+					pointNeed:Num
+					isAvailable:Boolean	
+				}	
 			} 
 		}
 	
@@ -174,7 +124,21 @@ Casino{
 					type: Create
 					operates_on:Employee
 				}
-				Employee
+				generalEntity Employee {   
+					idEmployee:Num
+					age:Num
+					gender:String
+					name:String
+					surname:String
+					email:String
+					phone:Num
+					indentificationNumber:Num
+					createdAt:Date
+					updatedAt:Date		
+					idOffice:Num
+					position:String
+					admitionDate:Date
+				}
 			}
 		}
 	
@@ -188,7 +152,18 @@ Casino{
 					type: Create
 					operates_on:Client
 				}
-				Client
+				generalEntity Client {   
+					idClient:Num
+				age:Num
+				gender:String
+				name:String
+				surname:String
+				email:String
+				phone:Num
+				indentificationNumber:Num
+				createdAt:Date
+				updatedAt:Date	
+				}
 			}
 		}
 	
@@ -206,7 +181,16 @@ Casino{
 					type: Create
 					operates_on:Points
 				}
-				Sale
+				generalEntity Sale {
+					idSale:Num
+					idEmployee:Num
+					idClient:Num
+					idOffice:Num
+					token:Num
+					cost:Num
+					paymentMethod:String
+					createdAt:Date   
+				}
 			}
 		}
 	
@@ -228,16 +212,20 @@ Casino{
 			target: UserAcc
 		}
 	} //Domain
-
+	
 	//------------------- Architecture -------------------------------
 	arch {
 		component Front {
 			layer JavaScript {
 				layerSegment Ui {
-					{ allowedToUse: Containers}
+					{ 
+						allowedToUse: Containers
+					}
 				}
 				layerSegment Containers { 
-					{ allowedToUse: Store }
+					{ 
+						allowedToUse: Store
+					}
 				}
 				layerSegment Store {
 					{
@@ -247,13 +235,17 @@ Casino{
 					sublayerSegment Actions				
 				}
 				layerSegment Services { 
-					{ allowedToUse: RestEntity }
+					{ 
+						allowedToUse: RestEntity
+					}
 				}
 			}
 		}
 		component Back {
 			layer War {
-				layerSegment RestEntity { }
+				layerSegment RestEntity {
+					
+				}
 			}
 			layer Ejb {
 				layerSegment Facade {

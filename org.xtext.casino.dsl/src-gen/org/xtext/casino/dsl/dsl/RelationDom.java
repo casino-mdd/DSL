@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.casino.dsl.dsl.RelationDom#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.RelationDom#getSource <em>Source</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.RelationDom#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -27,30 +27,20 @@ import org.eclipse.emf.ecore.EObject;
 public interface RelationDom extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * Returns the value of the '<em><b>Source</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.EntityName}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(GeneralEntity)
-   * @see org.xtext.casino.dsl.dsl.DslPackage#getRelationDom_Type()
-   * @model
+   * @return the value of the '<em>Source</em>' containment reference list.
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getRelationDom_Source()
+   * @model containment="true"
    * @generated
    */
-  GeneralEntity getType();
-
-  /**
-   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.RelationDom#getType <em>Type</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' reference.
-   * @see #getType()
-   * @generated
-   */
-  void setType(GeneralEntity value);
+  EList<EntityName> getSource();
 
   /**
    * Returns the value of the '<em><b>Target</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Entity}.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.EntityName}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Target</em>' containment reference list.
@@ -58,6 +48,6 @@ public interface RelationDom extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Entity> getTarget();
+  EList<EntityName> getTarget();
 
 } // RelationDom

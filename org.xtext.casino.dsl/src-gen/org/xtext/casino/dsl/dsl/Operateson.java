@@ -3,6 +3,8 @@
  */
 package org.xtext.casino.dsl.dsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.casino.dsl.dsl.Operateson#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.Operateson#getOperateson <em>Operateson</em>}</li>
  * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getOperateson()
@@ -24,25 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Operateson extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * Returns the value of the '<em><b>Operateson</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.EntityName}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(GeneralEntity)
-   * @see org.xtext.casino.dsl.dsl.DslPackage#getOperateson_Type()
-   * @model
+   * @return the value of the '<em>Operateson</em>' containment reference list.
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getOperateson_Operateson()
+   * @model containment="true"
    * @generated
    */
-  GeneralEntity getType();
-
-  /**
-   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.Operateson#getType <em>Type</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' reference.
-   * @see #getType()
-   * @generated
-   */
-  void setType(GeneralEntity value);
+  EList<EntityName> getOperateson();
 
 } // Operateson

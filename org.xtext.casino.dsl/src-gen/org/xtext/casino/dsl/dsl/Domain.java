@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.casino.dsl.dsl.Domain#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.Domain#getTypes <em>Types</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.Domain#getModules <em>Modules</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.Domain#getRelations <em>Relations</em>}</li>
  * </ul>
@@ -28,16 +28,16 @@ import org.eclipse.emf.ecore.EObject;
 public interface Domain extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.casino.dsl.dsl.AbstractElement}.
+   * Returns the value of the '<em><b>Types</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Type}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see org.xtext.casino.dsl.dsl.DslPackage#getDomain_Elements()
+   * @return the value of the '<em>Types</em>' containment reference list.
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getDomain_Types()
    * @model containment="true"
    * @generated
    */
-  EList<AbstractElement> getElements();
+  EList<Type> getTypes();
 
   /**
    * Returns the value of the '<em><b>Modules</b></em>' containment reference list.

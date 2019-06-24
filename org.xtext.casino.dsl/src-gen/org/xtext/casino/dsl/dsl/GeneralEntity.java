@@ -3,6 +3,7 @@
  */
 package org.xtext.casino.dsl.dsl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,6 @@ package org.xtext.casino.dsl.dsl;
  * @model
  * @generated
  */
-public interface GeneralEntity extends AbstractElement
+public interface GeneralEntity extends EObject
 {
 } // GeneralEntity

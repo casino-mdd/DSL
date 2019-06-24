@@ -63,7 +63,7 @@ public interface Submodule extends EObject
 
   /**
    * Returns the value of the '<em><b>Entities</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Entity}.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Entities</em>' containment reference list.
@@ -71,6 +71,6 @@ public interface Submodule extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Entity> getEntities();
+  EList<EObject> getEntities();
 
 } // Submodule

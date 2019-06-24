@@ -175,18 +175,18 @@ ruleDomain returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDomainAccess().getElementsAbstractElementParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDomainAccess().getTypesTypeParserRuleCall_2_0());
 				}
-				lv_elements_2_0=ruleAbstractElement
+				lv_types_2_0=ruleType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDomainRule());
 					}
 					add(
 						$current,
-						"elements",
-						lv_elements_2_0,
-						"org.xtext.casino.dsl.Dsl.AbstractElement");
+						"types",
+						lv_types_2_0,
+						"org.xtext.casino.dsl.Dsl.Type");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -232,51 +232,6 @@ ruleDomain returns [EObject current=null]
 		otherlv_5='}'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getDomainAccess().getRightCurlyBracketKeyword_5());
-		}
-	)
-;
-
-// Entry rule entryRuleAbstractElement
-entryRuleAbstractElement returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAbstractElementRule()); }
-	iv_ruleAbstractElement=ruleAbstractElement
-	{ $current=$iv_ruleAbstractElement.current; }
-	EOF;
-
-// Rule AbstractElement
-ruleAbstractElement returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getSpecialEntityParserRuleCall_0());
-		}
-		this_SpecialEntity_0=ruleSpecialEntity
-		{
-			$current = $this_SpecialEntity_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getGeneralEntityParserRuleCall_1());
-		}
-		this_GeneralEntity_1=ruleGeneralEntity
-		{
-			$current = $this_GeneralEntity_1.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getTypeParserRuleCall_2());
-		}
-		this_Type_2=ruleType
-		{
-			$current = $this_Type_2.current;
-			afterParserOrEnumRuleCall();
 		}
 	)
 ;
@@ -412,92 +367,45 @@ ruleSubmodule returns [EObject current=null]
 		)+
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getSubmoduleAccess().getEntitiesEntityParserRuleCall_4_0());
-				}
-				lv_entities_4_0=ruleEntity
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSubmoduleRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getSubmoduleAccess().getEntitiesGeneralEntityParserRuleCall_4_0_0());
 					}
-					add(
-						$current,
-						"entities",
-						lv_entities_4_0,
-						"org.xtext.casino.dsl.Dsl.Entity");
-					afterParserOrEnumRuleCall();
-				}
+					lv_entities_4_1=ruleGeneralEntity
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSubmoduleRule());
+						}
+						add(
+							$current,
+							"entities",
+							lv_entities_4_1,
+							"org.xtext.casino.dsl.Dsl.GeneralEntity");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getSubmoduleAccess().getEntitiesSpecialEntityParserRuleCall_4_0_1());
+					}
+					lv_entities_4_2=ruleSpecialEntity
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSubmoduleRule());
+						}
+						add(
+							$current,
+							"entities",
+							lv_entities_4_2,
+							"org.xtext.casino.dsl.Dsl.SpecialEntity");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)+
 		otherlv_5='}'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getSubmoduleAccess().getRightCurlyBracketKeyword_5());
 		}
-	)
-;
-
-// Entry rule entryRuleEntity
-entryRuleEntity returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEntityRule()); }
-	iv_ruleEntity=ruleEntity
-	{ $current=$iv_ruleEntity.current; }
-	EOF;
-
-// Rule Entity
-ruleEntity returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getEntityRule());
-				}
-			}
-			otherlv_0=RULE_ID
-			{
-				newLeafNode(otherlv_0, grammarAccess.getEntityAccess().getTypeQualifiedNameCrossReference_0());
-			}
-		)
-	)
-;
-
-// Entry rule entryRuleQualifiedName
-entryRuleQualifiedName returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getQualifiedNameRule()); }
-	iv_ruleQualifiedName=ruleQualifiedName
-	{ $current=$iv_ruleQualifiedName.current; }
-	EOF;
-
-// Rule QualifiedName
-ruleQualifiedName returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			lv_name_0_0=RULE_ID
-			{
-				newLeafNode(lv_name_0_0, grammarAccess.getQualifiedNameAccess().getNameIDTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getQualifiedNameRule());
-				}
-				setWithLastConsumed(
-					$current,
-					"name",
-					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
-			}
-		)
 	)
 ;
 
@@ -543,9 +451,9 @@ ruleOperation returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getOperationAccess().getTargetEntityParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getOperationAccess().getTargetEntityNameParserRuleCall_5_0());
 				}
-				lv_target_5_0=ruleEntity
+				lv_target_5_0=ruleEntityName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getOperationRule());
@@ -554,7 +462,7 @@ ruleOperation returns [EObject current=null]
 						$current,
 						"target",
 						lv_target_5_0,
-						"org.xtext.casino.dsl.Dsl.Entity");
+						"org.xtext.casino.dsl.Dsl.EntityName");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -563,6 +471,41 @@ ruleOperation returns [EObject current=null]
 		{
 			newLeafNode(otherlv_6, grammarAccess.getOperationAccess().getRightCurlyBracketKeyword_6());
 		}
+	)
+;
+
+// Entry rule entryRuleEntityName
+entryRuleEntityName returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEntityNameRule()); }
+	iv_ruleEntityName=ruleEntityName
+	{ $current=$iv_ruleEntityName.current; }
+	EOF;
+
+// Rule EntityName
+ruleEntityName returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getEntityNameAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getEntityNameRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
+		)
 	)
 ;
 
@@ -617,11 +560,11 @@ ruleGeneralEntity returns [EObject current=null]
 			newLeafNode(otherlv_0, grammarAccess.getGeneralEntityAccess().getGeneralEntityKeyword_0());
 		}
 		{
-			newCompositeNode(grammarAccess.getGeneralEntityAccess().getQualifiedNameParserRuleCall_1());
+			newCompositeNode(grammarAccess.getGeneralEntityAccess().getEntityNameParserRuleCall_1());
 		}
-		this_QualifiedName_1=ruleQualifiedName
+		this_EntityName_1=ruleEntityName
 		{
-			$current = $this_QualifiedName_1.current;
+			$current = $this_EntityName_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		otherlv_2='{'
@@ -770,11 +713,11 @@ ruleSpecialEntity returns [EObject current=null]
 			newLeafNode(otherlv_0, grammarAccess.getSpecialEntityAccess().getSpecialEntityKeyword_0());
 		}
 		{
-			newCompositeNode(grammarAccess.getSpecialEntityAccess().getQualifiedNameParserRuleCall_1());
+			newCompositeNode(grammarAccess.getSpecialEntityAccess().getEntityNameParserRuleCall_1());
 		}
-		this_QualifiedName_1=ruleQualifiedName
+		this_EntityName_1=ruleEntityName
 		{
-			$current = $this_QualifiedName_1.current;
+			$current = $this_EntityName_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		otherlv_2='{'
@@ -940,13 +883,19 @@ ruleOperateson returns [EObject current=null]
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getOperatesonRule());
-					}
+					newCompositeNode(grammarAccess.getOperatesonAccess().getOperatesonEntityNameParserRuleCall_1_0());
 				}
-				otherlv_1=RULE_ID
+				lv_operateson_1_0=ruleEntityName
 				{
-					newLeafNode(otherlv_1, grammarAccess.getOperatesonAccess().getTypeGeneralEntityCrossReference_1_0());
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getOperatesonRule());
+					}
+					add(
+						$current,
+						"operateson",
+						lv_operateson_1_0,
+						"org.xtext.casino.dsl.Dsl.EntityName");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -992,13 +941,19 @@ ruleRelationDom returns [EObject current=null]
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getRelationDomRule());
-					}
+					newCompositeNode(grammarAccess.getRelationDomAccess().getSourceEntityNameParserRuleCall_5_0());
 				}
-				otherlv_5=RULE_ID
+				lv_source_5_0=ruleEntityName
 				{
-					newLeafNode(otherlv_5, grammarAccess.getRelationDomAccess().getTypeGeneralEntityCrossReference_5_0());
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRelationDomRule());
+					}
+					add(
+						$current,
+						"source",
+						lv_source_5_0,
+						"org.xtext.casino.dsl.Dsl.EntityName");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1009,9 +964,9 @@ ruleRelationDom returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRelationDomAccess().getTargetEntityParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getRelationDomAccess().getTargetEntityNameParserRuleCall_7_0());
 				}
-				lv_target_7_0=ruleEntity
+				lv_target_7_0=ruleEntityName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRelationDomRule());
@@ -1020,7 +975,7 @@ ruleRelationDom returns [EObject current=null]
 						$current,
 						"target",
 						lv_target_7_0,
-						"org.xtext.casino.dsl.Dsl.Entity");
+						"org.xtext.casino.dsl.Dsl.EntityName");
 					afterParserOrEnumRuleCall();
 				}
 			)
