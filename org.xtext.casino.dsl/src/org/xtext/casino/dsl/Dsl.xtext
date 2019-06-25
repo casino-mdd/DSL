@@ -216,7 +216,7 @@ MethodBack: 'methodBack' name=ID '{'
 '}'
 ;
 
-AbstractMethod: 'methodBack' name=ID '{'
+AbstractMethod: 'abstractMethodBack' name=ID '{'
 	('argument' arg=[Eclass])* 
 	('return' type=[Eclass])?
 '}'
