@@ -24,7 +24,7 @@ Casino{
 					username:String
 					password:String
 					updatedAt:Date
-					createdAt:String
+					createdAt:Date
 					isActive:Boolean
 					profile:String	
 					trx {
@@ -273,7 +273,7 @@ Casino{
 
 	//-------------------- Technology ---------------------------------
 	tech{
-		//Back
+		//------------------------------- Back ------------------------
 		javaApp {
 		 jeeProject casino_ear {
 		 	
@@ -336,7 +336,7 @@ Casino{
 		}
 		
 		
-		//Front
+		//------------------------ Front ----------------------------------
 		reactApp{
 			module React{
 				presentIn: modules
