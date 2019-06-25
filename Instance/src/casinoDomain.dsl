@@ -24,7 +24,7 @@ Casino{
 					username:String
 					password:String
 					updatedAt:Date
-					createdAt:Date
+					createdAt:String
 					isActive:Boolean
 					profile:String	
 					trx {
@@ -273,7 +273,7 @@ Casino{
 
 	//-------------------- Technology ---------------------------------
 	tech{
-		//------------------------------- Back ------------------------
+		//Back
 		javaApp {
 		 jeeProject casino_ear {
 		 	
@@ -336,7 +336,7 @@ Casino{
 		}
 		
 		
-		//------------------------ Front ----------------------------------
+		//Front
 		reactApp{
 			module React{
 				presentIn: modules
@@ -355,6 +355,10 @@ Casino{
 			}
 			directory modules{
 				has: ReactJs
+				has: AntDesign
+				has: Axios
+				has: Redux
+				has: Router
 				purpose: 'libraries'
 			}
 			js ReactJs{
@@ -371,10 +375,6 @@ Casino{
 			}
 			js Redux{
 				type: 'library'
-			}
-			directory modules{
-				has: ReactJs
-				purpose: 'libraries'
 			}
 			js StoreJs{
 				type: 'code'
