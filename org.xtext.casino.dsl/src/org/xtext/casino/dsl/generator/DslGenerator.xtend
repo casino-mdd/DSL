@@ -7,6 +7,14 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+ 
+import com.google.inject.Inject
+import org.xtext.casino.dsl.dsl.GeneralEntity
+import org.xtext.casino.dsl.dsl.EntityName
+import org.xtext.casino.dsl.dsl.LayerSegment
+import org.xtext.casino.dsl.dsl.Layer
+import org.eclipse.emf.ecore.EObject
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +23,65 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class DslGenerator extends AbstractGenerator {
 
+	@Inject extension IQualifiedNameProvider
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
-	}
+
+		for (layerS : resource.allContents.toIterable.filter(LayerSegment)) {
+			/*  if(e.fullyQualifiedName.toString().equals("Ejb")){
+			    fsa.generateFile(e.fullyQualifiedName.toString("/"),e.compile)
+			 	
+			 }*/	
+			 
+			  if(layerS.fullyQualifiedName.toString().equals("Ejb.Facade")){
+			  	  //fsa.generateFile(layerS.fullyQualifiedName.toString("/"),layerS.compile)
+			  	  for (en : resource.allContents.toIterable.filter(EntityName)) {
+			  	  	 fsa.generateFile(layerS.fullyQualifiedName.toString("/")+"/"+en.name+"Facade.java",en.compile)
+			  	  }
+			 }	 
+	     }
+	 
+	    
+	   
+   }
+
+  
+ 	 def compile(LayerSegment e) ''' 
+ 	'''
+ 	
+ 	 def compile(Layer e) ''' 
+ 	 
+ 	 
+ 	 
+ 	'''
+ 
+    def compile(EntityName e) ''' 
+    	
+    	package mdd.casino.jpa.entity.facade;
+    	
+    	import javax.ejb.Stateless;
+    	import javax.persistence.EntityManager;
+    	import javax.persistence.EntityManagerFactory;
+    	import javax.persistence.PersistenceUnit;
+    	import mdd.casino.jpa.entity.pojo.«e.name»;
+    	
+    	@Stateless
+		 public class «e.name»Facade extends AbtractFacade{
+		 	
+		 	
+		 	    @PersistenceUnit
+		 	    private EntityManagerFactory emf;
+		 	
+		 	    @Override
+		 	    protected EntityManager getEntityManager() {
+		 	        return emf.createEntityManager();
+		 	    }
+		 	
+		 	    public «e.name»Facade() {
+		 	        super(«e.name».class);
+		 	    }
+		 	    
+		 	
+		 }	
+     '''
+     
 }
