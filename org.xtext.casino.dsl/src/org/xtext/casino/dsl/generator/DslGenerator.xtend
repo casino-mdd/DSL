@@ -8,11 +8,12 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.naming.IQualifiedNameProvider
- 
+
 import com.google.inject.Inject
 import org.xtext.casino.dsl.dsl.GeneralEntity
 import org.xtext.casino.dsl.dsl.EntityName
 import org.xtext.casino.dsl.dsl.LayerSegment
+import org.xtext.casino.dsl.dsl.Property
 import org.xtext.casino.dsl.dsl.Layer
 import org.eclipse.emf.ecore.EObject
 
@@ -24,64 +25,136 @@ import org.eclipse.emf.ecore.EObject
 class DslGenerator extends AbstractGenerator {
 
 	@Inject extension IQualifiedNameProvider
+
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 
 		for (layerS : resource.allContents.toIterable.filter(LayerSegment)) {
 			/*  if(e.fullyQualifiedName.toString().equals("Ejb")){
-			    fsa.generateFile(e.fullyQualifiedName.toString("/"),e.compile)
-			 	
-			 }*/	
-			 
-			  if(layerS.fullyQualifiedName.toString().equals("Ejb.Facade")){
-			  	  //fsa.generateFile(layerS.fullyQualifiedName.toString("/"),layerS.compile)
-			  	  for (en : resource.allContents.toIterable.filter(EntityName)) {
-			  	  	 fsa.generateFile(layerS.fullyQualifiedName.toString("/")+"/"+en.name+"Facade.java",en.compile)
-			  	  }
-			 }	 
-	     }
-	 
-	    
-	   
-   }
+			 *     fsa.generateFile(e.fullyQualifiedName.toString("/"),e.compile)
+			 *  	
+			 }*/
+			if (layerS.fullyQualifiedName.toString().equals("Ejb.Facade")) {
+				// fsa.generateFile(layerS.fullyQualifiedName.toString("/"),layerS.compile)
+				for (en : resource.allContents.toIterable.filter(EntityName)) {
+					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.name + "Facade.java",
+						en.compile)
+				}
+			}
 
-  
- 	 def compile(LayerSegment e) ''' 
+			if (layerS.fullyQualifiedName.toString().equals("Ejb.Dto")) {
+				for (en : resource.allContents.toIterable.filter(EntityName)) {
+					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.name + "Dto.java",
+						en.compileDto)
+				}
+			}
+
+			if (layerS.fullyQualifiedName.toString().equals("War.RestEntity")) {
+				for (en : resource.allContents.toIterable.filter(EntityName)) {
+					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.name + "Rest.java",
+						en.compileRest)
+				}
+			}
+
+			if (layerS.fullyQualifiedName.toString().equals("Ejb.Pojo")) {
+				for (en : resource.allContents.toIterable.filter(GeneralEntity)) {
+					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.entity.name + ".java",
+						en.compilePojo)
+				}
+			}
+
+		}
+
+	}
+
+	def compile(LayerSegment e) ''' 
+	'''
+
+	def compile(Layer e) ''' 
+ 	 
  	'''
- 	
- 	 def compile(Layer e) ''' 
- 	 
- 	 
- 	 
- 	'''
- 
-    def compile(EntityName e) ''' 
-    	
-    	package mdd.casino.jpa.entity.facade;
-    	
-    	import javax.ejb.Stateless;
-    	import javax.persistence.EntityManager;
-    	import javax.persistence.EntityManagerFactory;
-    	import javax.persistence.PersistenceUnit;
-    	import mdd.casino.jpa.entity.pojo.«e.name»;
-    	
-    	@Stateless
-		 public class «e.name»Facade extends AbtractFacade{
-		 	
-		 	
-		 	    @PersistenceUnit
-		 	    private EntityManagerFactory emf;
-		 	
-		 	    @Override
-		 	    protected EntityManager getEntityManager() {
-		 	        return emf.createEntityManager();
-		 	    }
-		 	
-		 	    public «e.name»Facade() {
-		 	        super(«e.name».class);
-		 	    }
-		 	    
-		 	
-		 }	
-     '''
-     
+	def compileProperty(Property p)'''
+	«IF p.type.name==='Num'»
+		Integer
+	«ELSE»
+		«p.type.name»
+	«ENDIF»
+		«» «p.name» ;
+	''' 
+	def compilePojo(GeneralEntity e) ''' 
+		
+		package mdd.casino.jpa.entity.pojo;
+		
+		public class «e.entity.name»{
+	
+			«FOR p:e.properties»
+				«p.compileProperty» 
+			«ENDFOR»
+	
+			
+		}
+		
+	'''
+
+	def compileDto(EntityName e) ''' 
+		
+		package mdd.casino.jpa.entity.dto;
+		
+		public class «e.name»Dto {
+			
+		}
+		
+	'''
+
+	def compileRest(EntityName e) ''' 
+		
+		package mdd.casino.rest.entity;
+		
+		public class «e.name»Res  extends AbstractRest<«e.name»> {
+			    @Context
+			    private UriInfo context;
+			    
+			    «e.name»Facade facade = BeanUtil.lookupFacadeBean(«e.name»Facade.class);
+			    
+			       public  «e.name»Rest() {
+			            super( «e.name».class);
+			        }
+			    
+			        @Override
+			        public  «e.name»Facade getFacade() {
+			            return facade;
+			        }
+		}
+		
+	'''
+
+	def compile(EntityName e) ''' 
+		
+		package mdd.casino.jpa.entity.facade;
+		
+		import javax.ejb.Stateless;
+		import javax.persistence.EntityManager;
+		import javax.persistence.EntityManagerFactory;
+		import javax.persistence.PersistenceUnit;
+		import mdd.casino.jpa.entity.pojo.«e.name»;
+		
+		@Stateless
+		public class «e.name»Facade extends AbtractFacade{
+		
+		
+			    @PersistenceUnit
+			    private EntityManagerFactory emf;
+		
+			    @Override
+			    protected EntityManager getEntityManager() {
+			        return emf.createEntityManager();
+			    }
+		
+			    public «e.name»Facade() {
+			        super(«e.name».class);
+			    }
+			    
+		
+		}	
+	 '''
+
 }

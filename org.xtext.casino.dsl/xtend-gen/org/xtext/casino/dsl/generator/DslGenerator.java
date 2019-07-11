@@ -3,10 +3,19 @@
  */
 package org.xtext.casino.dsl.generator;
 
+import com.google.inject.Inject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.xtext.casino.dsl.dsl.EntityName;
+import org.xtext.casino.dsl.dsl.GeneralEntity;
+import org.xtext.casino.dsl.dsl.Layer;
+import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.Property;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +24,217 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class DslGenerator extends AbstractGenerator {
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field entity is undefined for the type GeneralEntity"
+      + "\nname cannot be resolved");
+  }
+  
+  public CharSequence compile(final LayerSegment e) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Layer e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" \t ");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compileProperty(final Property p) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _name = p.getType().getName();
+      boolean _tripleEquals = (_name == "Num");
+      if (_tripleEquals) {
+        _builder.append("Integer");
+        _builder.newLine();
+      } else {
+        String _name_1 = p.getType().getName();
+        _builder.append(_name_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t ");
+    String _name_2 = p.getName();
+    _builder.append(_name_2, "\t ");
+    _builder.append(" ;");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compilePojo(final GeneralEntity e) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field entity is undefined for the type GeneralEntity"
+      + "\nThe method or field properties is undefined for the type GeneralEntity"
+      + "\nname cannot be resolved"
+      + "\ncompileProperty cannot be resolved");
+  }
+  
+  public CharSequence compileDto(final EntityName e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.newLine();
+    _builder.append("package mdd.casino.jpa.entity.dto;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append("Dto {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compileRest(final EntityName e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.newLine();
+    _builder.append("package mdd.casino.rest.entity;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append("Res  extends AbstractRest<");
+    String _name_1 = e.getName();
+    _builder.append(_name_1);
+    _builder.append("> {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t    ");
+    _builder.append("@Context");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("private UriInfo context;");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.newLine();
+    _builder.append("\t    ");
+    String _name_2 = e.getName();
+    _builder.append(_name_2, "\t    ");
+    _builder.append("Facade facade = BeanUtil.lookupFacadeBean(");
+    String _name_3 = e.getName();
+    _builder.append(_name_3, "\t    ");
+    _builder.append("Facade.class);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t    ");
+    _builder.newLine();
+    _builder.append("\t       ");
+    _builder.append("public  ");
+    String _name_4 = e.getName();
+    _builder.append(_name_4, "\t       ");
+    _builder.append("Rest() {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t            ");
+    _builder.append("super( ");
+    String _name_5 = e.getName();
+    _builder.append(_name_5, "\t            ");
+    _builder.append(".class);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t        ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("@Override");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("public  ");
+    String _name_6 = e.getName();
+    _builder.append(_name_6, "\t        ");
+    _builder.append("Facade getFacade() {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t            ");
+    _builder.append("return facade;");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final EntityName e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.newLine();
+    _builder.append("package mdd.casino.jpa.entity.facade;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import javax.ejb.Stateless;");
+    _builder.newLine();
+    _builder.append("import javax.persistence.EntityManager;");
+    _builder.newLine();
+    _builder.append("import javax.persistence.EntityManagerFactory;");
+    _builder.newLine();
+    _builder.append("import javax.persistence.PersistenceUnit;");
+    _builder.newLine();
+    _builder.append("import mdd.casino.jpa.entity.pojo.");
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("@Stateless");
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name_1 = e.getName();
+    _builder.append(_name_1);
+    _builder.append("Facade extends AbtractFacade{");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("@PersistenceUnit");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("private EntityManagerFactory emf;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("@Override");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("protected EntityManager getEntityManager() {");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("return emf.createEntityManager();");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.append("public ");
+    String _name_2 = e.getName();
+    _builder.append(_name_2, "\t    ");
+    _builder.append("Facade() {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t        ");
+    _builder.append("super(");
+    String _name_3 = e.getName();
+    _builder.append(_name_3, "\t        ");
+    _builder.append(".class);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t    ");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("}\t");
+    _builder.newLine();
+    return _builder;
   }
 }
