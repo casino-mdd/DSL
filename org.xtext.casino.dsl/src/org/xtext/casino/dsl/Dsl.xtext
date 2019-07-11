@@ -30,7 +30,7 @@ Submodule: 'submodule' name=ID '{'
 ;
 
 Operation: 'op' '{'
-	'type:' SubOperation
+	'type:' type=SubOperation
 	'operates_on:' target+=EntityName
 	'}'	
 ;
@@ -44,7 +44,7 @@ SubOperation:
 ;
 
 GeneralEntity: 
-	'generalEntity' EntityName '{'
+	'generalEntity' name=EntityName '{'
 	(properties+=Property)+
 	'}'
 ;
@@ -57,14 +57,14 @@ Type:
 ;
 
 SpecialEntity: 
-	'specialEntity' EntityName '{'
+	'specialEntity' name=EntityName '{'
 	(properties+=Property)+
 	(transactions+=Transaction)+	
 	'}'	
 ;
 	
 Transaction: 'trx' '{'
-	'type:' SubTransaction
+	'type:' type=SubTransaction
 	(operateson+=Operateson)+
 	'}'
 ;
@@ -93,7 +93,7 @@ Architecture:
 	'}'
 ;
 Component:
-	'component' ComponentName '{' 
+	'component' name=ComponentName '{' 
 		layer+=Layer+		
 	'}' 
 ;
@@ -119,12 +119,12 @@ LayerSegment:
 	'}'	
 ;
 
-LayerSegmentName: 
-	'Services'|'Ui'|'Store'|'RestEntity'|'Pojo'|'Facade'|'Dto'|'Util'|'Containers'
+LayerSegmentRelation:
+	'allowedToUse:' layerSegment=LayerSegmentName
 ;
 
-LayerSegmentRelation:
-	'allowedToUse:' LayerSegmentName
+LayerSegmentName: 
+	'Services'|'Ui'|'Store'|'RestEntity'|'Pojo'|'Facade'|'Dto'|'Util'|'Containers'
 ;
 
 SublayerSegment:
@@ -137,8 +137,8 @@ SublayerSegmentName:
 
 RelationArch:
 	'relationArch' name=ID '{'
-		'source:' LayerName ','
-		'target:' LayerName
+		'source:' source=LayerName ','
+		'target:' source=LayerName
 	'}'
 ;
 
@@ -228,12 +228,12 @@ Descriptor: 'descriptor' name=ID '{'
 ;
 
 Annotation: 'annotation' name=ID '{'
-	('propertie' name=STRING)*
+	('propertie' propertie=STRING)*
 '}'
 ;
 
 Library : 'library' name=ID '{'
-  'isNative' Boolean
+  'isNative' isNative=Boolean
    annotation+= Annotation*
 '}';
 
@@ -299,7 +299,7 @@ Visualizer:
 ServiceFront: 
 'service' name=ID '{' 
 	'use:' type=[JsModule]
-	('method:' STRING)+
+	('method:' method=STRING)+
 '}'
 ;
 
@@ -308,7 +308,7 @@ Directory:
 'directory' name=ID '{' 
 	('has:'+file=[File])*
 	('contains:'subdirectory=[Directory])*
-	'purpose:' STRING	
+	'purpose:' purpose=STRING	
 '}'
 ;
 
@@ -317,24 +317,24 @@ File:
 
 Md:
 'md' name=ID '{'
-	'type:' STRING
+	'type:' type=STRING
 '}'
 ;
 
 Js: 
 'js' name=ID '{'
-	'type:' STRING
+	'type:' type=STRING
 '}'
 ;
 
 Json:
 'json' name=ID '{'
-	'type:' STRING
+	'type:' type=STRING
 '}';
 
 Css:
 'css' name=ID '{'
-	'type:' STRING
+	'type:' type=STRING
 '}'
 ;
 
@@ -355,7 +355,7 @@ Action:
 
 ActionCreator:
 'actionCreator' name=ID '{'
-	'type:' STRING
+	'type:' type=STRING
 '}'
 ;
 
