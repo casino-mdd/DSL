@@ -57,7 +57,7 @@ class DslGenerator extends AbstractGenerator {
 
 			if (layerS.fullyQualifiedName.toString().equals("Ejb.Pojo")) {
 				for (en : resource.allContents.toIterable.filter(GeneralEntity)) {
-					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.entity.name + ".java",
+					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.name.name + ".java",
 						en.compilePojo)
 				}
 			}
@@ -84,7 +84,7 @@ class DslGenerator extends AbstractGenerator {
 		
 		package mdd.casino.jpa.entity.pojo;
 		
-		public class «e.entity.name»{
+		public class «e.name.name»{
 	
 			«FOR p:e.properties»
 				«p.compileProperty» 
