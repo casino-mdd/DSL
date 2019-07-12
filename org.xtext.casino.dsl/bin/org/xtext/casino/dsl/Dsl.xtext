@@ -1,6 +1,6 @@
-grammar org.xtext.example.mydsl1.MyDsl with org.eclipse.xtext.common.Terminals
+grammar org.xtext.casino.dsl.Dsl with org.eclipse.xtext.common.Terminals
 
-generate myDsl "http://www.xtext.org/example/mydsl1/MyDsl"
+generate dsl "http://www.xtext.org/casino/dsl/Dsl"
 
 //---------------------- System ------------------------------------------------
 System: 'Casino' '{' 
