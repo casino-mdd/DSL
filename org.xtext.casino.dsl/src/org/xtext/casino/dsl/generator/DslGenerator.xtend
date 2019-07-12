@@ -28,58 +28,50 @@ class DslGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 
-		for (layerS : resource.allContents.toIterable.filter(LayerSegment)) {
-			/*  if(e.fullyQualifiedName.toString().equals("Ejb")){
-			 *     fsa.generateFile(e.fullyQualifiedName.toString("/"),e.compile)
-			 *  	
-			 }*/
-			if (layerS.fullyQualifiedName.toString().equals("Ejb.Facade")) {
-				// fsa.generateFile(layerS.fullyQualifiedName.toString("/"),layerS.compile)
+for (layerS : resource.allContents.toIterable.filter(LayerSegment)) {
+			 
+			if (layerS.fullyQualifiedName.toString().equals("Back.Ejb.Facade")) {
+				
 				for (en : resource.allContents.toIterable.filter(EntityName)) {
 					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.name + "Facade.java",
 						en.compile)
 				}
 			}
 
-			if (layerS.fullyQualifiedName.toString().equals("Ejb.Dto")) {
+			if (layerS.fullyQualifiedName.toString().equals("Back.Ejb.Dto")) {
 				for (en : resource.allContents.toIterable.filter(EntityName)) {
 					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.name + "Dto.java",
 						en.compileDto)
 				}
 			}
 
-			if (layerS.fullyQualifiedName.toString().equals("War.RestEntity")) {
+			if (layerS.fullyQualifiedName.toString().equals("Back.War.RestEntity")) {
 				for (en : resource.allContents.toIterable.filter(EntityName)) {
 					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.name + "Rest.java",
 						en.compileRest)
 				}
 			}
 
-			if (layerS.fullyQualifiedName.toString().equals("Ejb.Pojo")) {
+			if (layerS.fullyQualifiedName.toString().equals("Back.Ejb.Pojo")) {
 				for (en : resource.allContents.toIterable.filter(GeneralEntity)) {
 					fsa.generateFile(layerS.fullyQualifiedName.toString("/") + "/" + en.name.name + ".java",
 						en.compilePojo)
 				}
 			}
-
+ 
 		}
-
-	}
-
-	def compile(LayerSegment e) ''' 
-	'''
-
-	def compile(Layer e) ''' 
- 	 
- 	'''
+		
+		}
+  	
 	def compileProperty(Property p)'''
-	«IF p.type.name==='Num'»
-		Integer
+	«IF p.type.name ==='Num'»
+		Integer «p.name» ;
 	«ELSE»
-		«p.type.name»
+		«p.type.name» «p.name» ;
 	«ENDIF»
-		«» «p.name» ;
+		
 	''' 
+	
 	def compilePojo(GeneralEntity e) ''' 
 		
 		package mdd.casino.jpa.entity.pojo;
@@ -104,7 +96,7 @@ class DslGenerator extends AbstractGenerator {
 		}
 		
 	'''
-
+	
 	def compileRest(EntityName e) ''' 
 		
 		package mdd.casino.rest.entity;
@@ -126,7 +118,6 @@ class DslGenerator extends AbstractGenerator {
 		}
 		
 	'''
-
 	def compile(EntityName e) ''' 
 		
 		package mdd.casino.jpa.entity.facade;

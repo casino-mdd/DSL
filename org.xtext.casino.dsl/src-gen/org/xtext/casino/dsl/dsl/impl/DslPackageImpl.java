@@ -40,6 +40,7 @@ import org.xtext.casino.dsl.dsl.JsModule;
 import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.LayerSegmentRelation;
 import org.xtext.casino.dsl.dsl.Library;
 import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.MethodBack;
@@ -190,6 +191,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass layerSegmentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layerSegmentRelationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -702,9 +710,20 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EAttribute getOperation_Type()
+  {
+    return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getOperation_Target()
   {
-    return (EReference)operationEClass.getEStructuralFeatures().get(0);
+    return (EReference)operationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -735,31 +754,31 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EReference getEntityName_Properties()
-  {
-    return (EReference)entityNameEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEntityName_Transactions()
-  {
-    return (EReference)entityNameEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getGeneralEntity()
   {
     return generalEntityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGeneralEntity_Name()
+  {
+    return (EReference)generalEntityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getGeneralEntity_Properties()
+  {
+    return (EReference)generalEntityEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -834,6 +853,39 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EReference getSpecialEntity_Name()
+  {
+    return (EReference)specialEntityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSpecialEntity_Properties()
+  {
+    return (EReference)specialEntityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSpecialEntity_Transactions()
+  {
+    return (EReference)specialEntityEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getTransaction()
   {
     return transactionEClass;
@@ -845,9 +897,20 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EAttribute getTransaction_Type()
+  {
+    return (EAttribute)transactionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getTransaction_Operateson()
   {
-    return (EReference)transactionEClass.getEStructuralFeatures().get(0);
+    return (EReference)transactionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -955,9 +1018,20 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EAttribute getComponent_Name()
+  {
+    return (EAttribute)componentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getComponent_Layer()
   {
-    return (EReference)componentEClass.getEStructuralFeatures().get(0);
+    return (EReference)componentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1021,9 +1095,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EAttribute getLayerSegment_Relations()
+  public EReference getLayerSegment_Relations()
   {
-    return (EAttribute)layerSegmentEClass.getEStructuralFeatures().get(1);
+    return (EReference)layerSegmentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1035,6 +1109,28 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EReference getLayerSegment_SublayerSegments()
   {
     return (EReference)layerSegmentEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLayerSegmentRelation()
+  {
+    return layerSegmentRelationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLayerSegmentRelation_LayerSegment()
+  {
+    return (EAttribute)layerSegmentRelationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1079,6 +1175,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EAttribute getRelationArch_Name()
   {
     return (EAttribute)relationArchEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRelationArch_Source()
+  {
+    return (EAttribute)relationArchEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1637,6 +1744,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EAttribute getAnnotation_Propertie()
+  {
+    return (EAttribute)annotationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getLibrary()
   {
     return libraryEClass;
@@ -1659,9 +1777,20 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EAttribute getLibrary_IsNative()
+  {
+    return (EAttribute)libraryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getLibrary_Annotation()
   {
-    return (EReference)libraryEClass.getEStructuralFeatures().get(1);
+    return (EReference)libraryEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1978,6 +2107,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EAttribute getServiceFront_Method()
+  {
+    return (EAttribute)serviceFrontEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getDirectory()
   {
     return directoryEClass;
@@ -2022,6 +2162,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EAttribute getDirectory_Purpose()
+  {
+    return (EAttribute)directoryEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFile()
   {
     return fileEClass;
@@ -2036,6 +2187,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
   public EAttribute getFile_Name()
   {
     return (EAttribute)fileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFile_Type()
+  {
+    return (EAttribute)fileEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2209,6 +2371,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
+  public EAttribute getActionCreator_Type()
+  {
+    return (EAttribute)actionCreatorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getActionDispatcher()
   {
     return actionDispatcherEClass;
@@ -2353,14 +2526,15 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(submoduleEClass, SUBMODULE__ENTITIES);
 
     operationEClass = createEClass(OPERATION);
+    createEAttribute(operationEClass, OPERATION__TYPE);
     createEReference(operationEClass, OPERATION__TARGET);
 
     entityNameEClass = createEClass(ENTITY_NAME);
     createEAttribute(entityNameEClass, ENTITY_NAME__NAME);
-    createEReference(entityNameEClass, ENTITY_NAME__PROPERTIES);
-    createEReference(entityNameEClass, ENTITY_NAME__TRANSACTIONS);
 
     generalEntityEClass = createEClass(GENERAL_ENTITY);
+    createEReference(generalEntityEClass, GENERAL_ENTITY__NAME);
+    createEReference(generalEntityEClass, GENERAL_ENTITY__PROPERTIES);
 
     propertyEClass = createEClass(PROPERTY);
     createEAttribute(propertyEClass, PROPERTY__NAME);
@@ -2370,8 +2544,12 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEAttribute(typeEClass, TYPE__NAME);
 
     specialEntityEClass = createEClass(SPECIAL_ENTITY);
+    createEReference(specialEntityEClass, SPECIAL_ENTITY__NAME);
+    createEReference(specialEntityEClass, SPECIAL_ENTITY__PROPERTIES);
+    createEReference(specialEntityEClass, SPECIAL_ENTITY__TRANSACTIONS);
 
     transactionEClass = createEClass(TRANSACTION);
+    createEAttribute(transactionEClass, TRANSACTION__TYPE);
     createEReference(transactionEClass, TRANSACTION__OPERATESON);
 
     operatesonEClass = createEClass(OPERATESON);
@@ -2386,6 +2564,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEReference(architectureEClass, ARCHITECTURE__RELATION_ARCH);
 
     componentEClass = createEClass(COMPONENT);
+    createEAttribute(componentEClass, COMPONENT__NAME);
     createEReference(componentEClass, COMPONENT__LAYER);
 
     layerEClass = createEClass(LAYER);
@@ -2394,14 +2573,18 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     layerSegmentEClass = createEClass(LAYER_SEGMENT);
     createEAttribute(layerSegmentEClass, LAYER_SEGMENT__NAME);
-    createEAttribute(layerSegmentEClass, LAYER_SEGMENT__RELATIONS);
+    createEReference(layerSegmentEClass, LAYER_SEGMENT__RELATIONS);
     createEReference(layerSegmentEClass, LAYER_SEGMENT__SUBLAYER_SEGMENTS);
+
+    layerSegmentRelationEClass = createEClass(LAYER_SEGMENT_RELATION);
+    createEAttribute(layerSegmentRelationEClass, LAYER_SEGMENT_RELATION__LAYER_SEGMENT);
 
     sublayerSegmentEClass = createEClass(SUBLAYER_SEGMENT);
     createEAttribute(sublayerSegmentEClass, SUBLAYER_SEGMENT__NAME);
 
     relationArchEClass = createEClass(RELATION_ARCH);
     createEAttribute(relationArchEClass, RELATION_ARCH__NAME);
+    createEAttribute(relationArchEClass, RELATION_ARCH__SOURCE);
 
     technologyEClass = createEClass(TECHNOLOGY);
     createEReference(technologyEClass, TECHNOLOGY__JAVA);
@@ -2467,9 +2650,11 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     createEAttribute(descriptorEClass, DESCRIPTOR__NAME);
 
     annotationEClass = createEClass(ANNOTATION);
+    createEAttribute(annotationEClass, ANNOTATION__PROPERTIE);
 
     libraryEClass = createEClass(LIBRARY);
     createEAttribute(libraryEClass, LIBRARY__NAME);
+    createEAttribute(libraryEClass, LIBRARY__IS_NATIVE);
     createEReference(libraryEClass, LIBRARY__ANNOTATION);
 
     abstractFrontElementEClass = createEClass(ABSTRACT_FRONT_ELEMENT);
@@ -2507,14 +2692,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     serviceFrontEClass = createEClass(SERVICE_FRONT);
     createEAttribute(serviceFrontEClass, SERVICE_FRONT__NAME);
     createEReference(serviceFrontEClass, SERVICE_FRONT__TYPE);
+    createEAttribute(serviceFrontEClass, SERVICE_FRONT__METHOD);
 
     directoryEClass = createEClass(DIRECTORY);
     createEAttribute(directoryEClass, DIRECTORY__NAME);
     createEReference(directoryEClass, DIRECTORY__FILE);
     createEReference(directoryEClass, DIRECTORY__SUBDIRECTORY);
+    createEAttribute(directoryEClass, DIRECTORY__PURPOSE);
 
     fileEClass = createEClass(FILE);
     createEAttribute(fileEClass, FILE__NAME);
+    createEAttribute(fileEClass, FILE__TYPE);
 
     mdEClass = createEClass(MD);
 
@@ -2537,6 +2725,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     actionCreatorEClass = createEClass(ACTION_CREATOR);
     createEAttribute(actionCreatorEClass, ACTION_CREATOR__NAME);
+    createEAttribute(actionCreatorEClass, ACTION_CREATOR__TYPE);
 
     actionDispatcherEClass = createEClass(ACTION_DISPATCHER);
     createEAttribute(actionDispatcherEClass, ACTION_DISPATCHER__NAME);
@@ -2580,8 +2769,6 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    entityNameEClass.getESuperTypes().add(this.getGeneralEntity());
-    entityNameEClass.getESuperTypes().add(this.getSpecialEntity());
     typeEClass.getESuperTypes().add(this.getAbstractFrontElement());
     abstractClassEClass.getESuperTypes().add(this.getEclass());
     genericClassEClass.getESuperTypes().add(this.getEclass());
@@ -2629,14 +2816,15 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEReference(getSubmodule_Entities(), ecorePackage.getEObject(), null, "entities", null, 0, -1, Submodule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOperation_Type(), ecorePackage.getEString(), "type", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperation_Target(), this.getEntityName(), null, "target", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityNameEClass, EntityName.class, "EntityName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEntityName_Name(), ecorePackage.getEString(), "name", null, 0, 1, EntityName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEntityName_Properties(), this.getProperty(), null, "properties", null, 0, -1, EntityName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEntityName_Transactions(), this.getTransaction(), null, "transactions", null, 0, -1, EntityName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(generalEntityEClass, GeneralEntity.class, "GeneralEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGeneralEntity_Name(), this.getEntityName(), null, "name", null, 0, 1, GeneralEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGeneralEntity_Properties(), this.getProperty(), null, "properties", null, 0, -1, GeneralEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2646,8 +2834,12 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(specialEntityEClass, SpecialEntity.class, "SpecialEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSpecialEntity_Name(), this.getEntityName(), null, "name", null, 0, 1, SpecialEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecialEntity_Properties(), this.getProperty(), null, "properties", null, 0, -1, SpecialEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecialEntity_Transactions(), this.getTransaction(), null, "transactions", null, 0, -1, SpecialEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(transactionEClass, Transaction.class, "Transaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTransaction_Type(), ecorePackage.getEString(), "type", null, 0, 1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransaction_Operateson(), this.getOperateson(), null, "operateson", null, 0, -1, Transaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operatesonEClass, Operateson.class, "Operateson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2662,6 +2854,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEReference(getArchitecture_RelationArch(), this.getRelationArch(), null, "relationArch", null, 0, -1, Architecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_Layer(), this.getLayer(), null, "layer", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2670,14 +2863,18 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     initEClass(layerSegmentEClass, LayerSegment.class, "LayerSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLayerSegment_Name(), ecorePackage.getEString(), "name", null, 0, 1, LayerSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLayerSegment_Relations(), ecorePackage.getEString(), "relations", null, 0, -1, LayerSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLayerSegment_Relations(), this.getLayerSegmentRelation(), null, "relations", null, 0, -1, LayerSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLayerSegment_SublayerSegments(), this.getSublayerSegment(), null, "sublayerSegments", null, 0, -1, LayerSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layerSegmentRelationEClass, LayerSegmentRelation.class, "LayerSegmentRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLayerSegmentRelation_LayerSegment(), ecorePackage.getEString(), "layerSegment", null, 0, 1, LayerSegmentRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sublayerSegmentEClass, SublayerSegment.class, "SublayerSegment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSublayerSegment_Name(), ecorePackage.getEString(), "name", null, 0, 1, SublayerSegment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relationArchEClass, RelationArch.class, "RelationArch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRelationArch_Name(), ecorePackage.getEString(), "name", null, 0, 1, RelationArch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRelationArch_Source(), ecorePackage.getEString(), "source", null, 0, 1, RelationArch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(technologyEClass, Technology.class, "Technology", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTechnology_Java(), this.getJavaApp(), null, "java", null, 0, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2743,9 +2940,11 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEAttribute(getDescriptor_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.casino.dsl.dsl.Descriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAnnotation_Propertie(), ecorePackage.getEString(), "propertie", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLibrary_IsNative(), ecorePackage.getEString(), "isNative", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLibrary_Annotation(), this.getAnnotation(), null, "annotation", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abstractFrontElementEClass, AbstractFrontElement.class, "AbstractFrontElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2783,14 +2982,17 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     initEClass(serviceFrontEClass, ServiceFront.class, "ServiceFront", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getServiceFront_Name(), ecorePackage.getEString(), "name", null, 0, 1, ServiceFront.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getServiceFront_Type(), this.getJsModule(), null, "type", null, 0, 1, ServiceFront.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getServiceFront_Method(), ecorePackage.getEString(), "method", null, 0, 1, ServiceFront.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(directoryEClass, Directory.class, "Directory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDirectory_Name(), ecorePackage.getEString(), "name", null, 0, 1, Directory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDirectory_File(), this.getFile(), null, "file", null, 0, 1, Directory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDirectory_Subdirectory(), this.getDirectory(), null, "subdirectory", null, 0, 1, Directory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDirectory_Purpose(), ecorePackage.getEString(), "purpose", null, 0, 1, Directory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFile_Name(), ecorePackage.getEString(), "name", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFile_Type(), ecorePackage.getEString(), "type", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mdEClass, Md.class, "Md", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2813,6 +3015,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     initEClass(actionCreatorEClass, ActionCreator.class, "ActionCreator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getActionCreator_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActionCreator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActionCreator_Type(), ecorePackage.getEString(), "type", null, 0, 1, ActionCreator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionDispatcherEClass, ActionDispatcher.class, "ActionDispatcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getActionDispatcher_Name(), ecorePackage.getEString(), "name", null, 0, 1, ActionDispatcher.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -50,16 +50,16 @@ public interface LayerSegment extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Relations</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Relations</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.LayerSegmentRelation}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Relations</em>' attribute list.
+   * @return the value of the '<em>Relations</em>' containment reference list.
    * @see org.xtext.casino.dsl.dsl.DslPackage#getLayerSegment_Relations()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getRelations();
+  EList<LayerSegmentRelation> getRelations();
 
   /**
    * Returns the value of the '<em><b>Sublayer Segments</b></em>' containment reference list.

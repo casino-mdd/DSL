@@ -177,6 +177,15 @@ public interface DslFactory extends EFactory
   LayerSegment createLayerSegment();
 
   /**
+   * Returns a new object of class '<em>Layer Segment Relation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layer Segment Relation</em>'.
+   * @generated
+   */
+  LayerSegmentRelation createLayerSegmentRelation();
+
+  /**
    * Returns a new object of class '<em>Sublayer Segment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -9,6 +9,12 @@ package org.xtext.casino.dsl.dsl;
  * A representation of the model object '<em><b>Annotation</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.casino.dsl.dsl.Annotation#getPropertie <em>Propertie</em>}</li>
+ * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getAnnotation()
  * @model
@@ -16,4 +22,26 @@ package org.xtext.casino.dsl.dsl;
  */
 public interface Annotation extends Eclass
 {
+  /**
+   * Returns the value of the '<em><b>Propertie</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Propertie</em>' attribute.
+   * @see #setPropertie(String)
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getAnnotation_Propertie()
+   * @model
+   * @generated
+   */
+  String getPropertie();
+
+  /**
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.Annotation#getPropertie <em>Propertie</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Propertie</em>' attribute.
+   * @see #getPropertie()
+   * @generated
+   */
+  void setPropertie(String value);
+
 } // Annotation

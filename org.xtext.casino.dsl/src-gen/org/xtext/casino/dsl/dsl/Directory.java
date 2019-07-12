@@ -16,6 +16,7 @@ package org.xtext.casino.dsl.dsl;
  *   <li>{@link org.xtext.casino.dsl.dsl.Directory#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.Directory#getFile <em>File</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.Directory#getSubdirectory <em>Subdirectory</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.Directory#getPurpose <em>Purpose</em>}</li>
  * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getDirectory()
@@ -89,5 +90,27 @@ public interface Directory extends AbstractFrontElement
    * @generated
    */
   void setSubdirectory(Directory value);
+
+  /**
+   * Returns the value of the '<em><b>Purpose</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Purpose</em>' attribute.
+   * @see #setPurpose(String)
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getDirectory_Purpose()
+   * @model
+   * @generated
+   */
+  String getPurpose();
+
+  /**
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.Directory#getPurpose <em>Purpose</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Purpose</em>' attribute.
+   * @see #getPurpose()
+   * @generated
+   */
+  void setPurpose(String value);
 
 } // Directory

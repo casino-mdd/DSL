@@ -32,6 +32,7 @@ import org.xtext.casino.dsl.dsl.Library;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.LibraryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.LibraryImpl#getIsNative <em>Is Native</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.LibraryImpl#getAnnotation <em>Annotation</em>}</li>
  * </ul>
  *
@@ -58,6 +59,26 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getIsNative() <em>Is Native</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIsNative()
+   * @generated
+   * @ordered
+   */
+  protected static final String IS_NATIVE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getIsNative() <em>Is Native</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIsNative()
+   * @generated
+   * @ordered
+   */
+  protected String isNative = IS_NATIVE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' containment reference list.
@@ -121,6 +142,31 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
    * @generated
    */
   @Override
+  public String getIsNative()
+  {
+    return isNative;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setIsNative(String newIsNative)
+  {
+    String oldIsNative = isNative;
+    isNative = newIsNative;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.LIBRARY__IS_NATIVE, oldIsNative, isNative));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Annotation> getAnnotation()
   {
     if (annotation == null)
@@ -158,6 +204,8 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
     {
       case DslPackage.LIBRARY__NAME:
         return getName();
+      case DslPackage.LIBRARY__IS_NATIVE:
+        return getIsNative();
       case DslPackage.LIBRARY__ANNOTATION:
         return getAnnotation();
     }
@@ -177,6 +225,9 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
     {
       case DslPackage.LIBRARY__NAME:
         setName((String)newValue);
+        return;
+      case DslPackage.LIBRARY__IS_NATIVE:
+        setIsNative((String)newValue);
         return;
       case DslPackage.LIBRARY__ANNOTATION:
         getAnnotation().clear();
@@ -199,6 +250,9 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
       case DslPackage.LIBRARY__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DslPackage.LIBRARY__IS_NATIVE:
+        setIsNative(IS_NATIVE_EDEFAULT);
+        return;
       case DslPackage.LIBRARY__ANNOTATION:
         getAnnotation().clear();
         return;
@@ -218,6 +272,8 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
     {
       case DslPackage.LIBRARY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DslPackage.LIBRARY__IS_NATIVE:
+        return IS_NATIVE_EDEFAULT == null ? isNative != null : !IS_NATIVE_EDEFAULT.equals(isNative);
       case DslPackage.LIBRARY__ANNOTATION:
         return annotation != null && !annotation.isEmpty();
     }
@@ -237,6 +293,8 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", isNative: ");
+    result.append(isNative);
     result.append(')');
     return result.toString();
   }

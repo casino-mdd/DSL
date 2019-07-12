@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.RelationArch#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.RelationArch#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getRelationArch()
@@ -44,5 +45,27 @@ public interface RelationArch extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Source</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Source</em>' attribute.
+   * @see #setSource(String)
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getRelationArch_Source()
+   * @model
+   * @generated
+   */
+  String getSource();
+
+  /**
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.RelationArch#getSource <em>Source</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Source</em>' attribute.
+   * @see #getSource()
+   * @generated
+   */
+  void setSource(String value);
 
 } // RelationArch

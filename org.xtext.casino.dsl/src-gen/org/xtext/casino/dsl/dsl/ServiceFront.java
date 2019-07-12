@@ -15,6 +15,7 @@ package org.xtext.casino.dsl.dsl;
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.ServiceFront#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.ServiceFront#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.ServiceFront#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getServiceFront()
@@ -66,5 +67,27 @@ public interface ServiceFront extends AbstractFrontElement
    * @generated
    */
   void setType(JsModule value);
+
+  /**
+   * Returns the value of the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Method</em>' attribute.
+   * @see #setMethod(String)
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getServiceFront_Method()
+   * @model
+   * @generated
+   */
+  String getMethod();
+
+  /**
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.ServiceFront#getMethod <em>Method</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Method</em>' attribute.
+   * @see #getMethod()
+   * @generated
+   */
+  void setMethod(String value);
 
 } // ServiceFront

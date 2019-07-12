@@ -243,13 +243,22 @@ public interface DslPackage extends EPackage
   int OPERATION = 4;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION__TYPE = 0;
+
+  /**
    * The feature id for the '<em><b>Target</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__TARGET = 0;
+  int OPERATION__TARGET = 1;
 
   /**
    * The number of structural features of the '<em>Operation</em>' class.
@@ -258,26 +267,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.GeneralEntityImpl <em>General Entity</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.casino.dsl.dsl.impl.GeneralEntityImpl
-   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getGeneralEntity()
-   * @generated
-   */
-  int GENERAL_ENTITY = 6;
-
-  /**
-   * The number of structural features of the '<em>General Entity</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GENERAL_ENTITY_FEATURE_COUNT = 0;
+  int OPERATION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.EntityNameImpl <em>Entity Name</em>}' class.
@@ -296,25 +286,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY_NAME__NAME = GENERAL_ENTITY_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Properties</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTITY_NAME__PROPERTIES = GENERAL_ENTITY_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Transactions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTITY_NAME__TRANSACTIONS = GENERAL_ENTITY_FEATURE_COUNT + 2;
+  int ENTITY_NAME__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Entity Name</em>' class.
@@ -323,7 +295,44 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY_NAME_FEATURE_COUNT = GENERAL_ENTITY_FEATURE_COUNT + 3;
+  int ENTITY_NAME_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.GeneralEntityImpl <em>General Entity</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.GeneralEntityImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getGeneralEntity()
+   * @generated
+   */
+  int GENERAL_ENTITY = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GENERAL_ENTITY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GENERAL_ENTITY__PROPERTIES = 1;
+
+  /**
+   * The number of structural features of the '<em>General Entity</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GENERAL_ENTITY_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.PropertyImpl <em>Property</em>}' class.
@@ -370,7 +379,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAbstractFrontElement()
    * @generated
    */
-  int ABSTRACT_FRONT_ELEMENT = 35;
+  int ABSTRACT_FRONT_ELEMENT = 36;
 
   /**
    * The number of structural features of the '<em>Abstract Front Element</em>' class.
@@ -420,13 +429,40 @@ public interface DslPackage extends EPackage
   int SPECIAL_ENTITY = 9;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPECIAL_ENTITY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPECIAL_ENTITY__PROPERTIES = 1;
+
+  /**
+   * The feature id for the '<em><b>Transactions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPECIAL_ENTITY__TRANSACTIONS = 2;
+
+  /**
    * The number of structural features of the '<em>Special Entity</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SPECIAL_ENTITY_FEATURE_COUNT = 0;
+  int SPECIAL_ENTITY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.TransactionImpl <em>Transaction</em>}' class.
@@ -439,13 +475,22 @@ public interface DslPackage extends EPackage
   int TRANSACTION = 10;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSACTION__TYPE = 0;
+
+  /**
    * The feature id for the '<em><b>Operateson</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSACTION__OPERATESON = 0;
+  int TRANSACTION__OPERATESON = 1;
 
   /**
    * The number of structural features of the '<em>Transaction</em>' class.
@@ -454,7 +499,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSACTION_FEATURE_COUNT = 1;
+  int TRANSACTION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.OperatesonImpl <em>Operateson</em>}' class.
@@ -569,13 +614,22 @@ public interface DslPackage extends EPackage
   int COMPONENT = 14;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Layer</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT__LAYER = 0;
+  int COMPONENT__LAYER = 1;
 
   /**
    * The number of structural features of the '<em>Component</em>' class.
@@ -584,7 +638,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT_FEATURE_COUNT = 1;
+  int COMPONENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.LayerImpl <em>Layer</em>}' class.
@@ -643,7 +697,7 @@ public interface DslPackage extends EPackage
   int LAYER_SEGMENT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Relations</b></em>' attribute list.
+   * The feature id for the '<em><b>Relations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -670,6 +724,34 @@ public interface DslPackage extends EPackage
   int LAYER_SEGMENT_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.LayerSegmentRelationImpl <em>Layer Segment Relation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.casino.dsl.dsl.impl.LayerSegmentRelationImpl
+   * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getLayerSegmentRelation()
+   * @generated
+   */
+  int LAYER_SEGMENT_RELATION = 17;
+
+  /**
+   * The feature id for the '<em><b>Layer Segment</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER_SEGMENT_RELATION__LAYER_SEGMENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Layer Segment Relation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYER_SEGMENT_RELATION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.SublayerSegmentImpl <em>Sublayer Segment</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -677,7 +759,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getSublayerSegment()
    * @generated
    */
-  int SUBLAYER_SEGMENT = 17;
+  int SUBLAYER_SEGMENT = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -705,7 +787,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getRelationArch()
    * @generated
    */
-  int RELATION_ARCH = 18;
+  int RELATION_ARCH = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -717,13 +799,22 @@ public interface DslPackage extends EPackage
   int RELATION_ARCH__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Source</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATION_ARCH__SOURCE = 1;
+
+  /**
    * The number of structural features of the '<em>Relation Arch</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATION_ARCH_FEATURE_COUNT = 1;
+  int RELATION_ARCH_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.TechnologyImpl <em>Technology</em>}' class.
@@ -733,7 +824,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getTechnology()
    * @generated
    */
-  int TECHNOLOGY = 19;
+  int TECHNOLOGY = 20;
 
   /**
    * The feature id for the '<em><b>Java</b></em>' containment reference.
@@ -770,7 +861,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJavaApp()
    * @generated
    */
-  int JAVA_APP = 20;
+  int JAVA_APP = 21;
 
   /**
    * The feature id for the '<em><b>Jeeproject</b></em>' containment reference list.
@@ -798,7 +889,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJeeProject()
    * @generated
    */
-  int JEE_PROJECT = 21;
+  int JEE_PROJECT = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -835,7 +926,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getSubproject()
    * @generated
    */
-  int SUBPROJECT = 22;
+  int SUBPROJECT = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -890,7 +981,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getEclass()
    * @generated
    */
-  int ECLASS = 27;
+  int ECLASS = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -918,7 +1009,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAbstractClass()
    * @generated
    */
-  int ABSTRACT_CLASS = 23;
+  int ABSTRACT_CLASS = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -982,7 +1073,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getGenericClass()
    * @generated
    */
-  int GENERIC_CLASS = 24;
+  int GENERIC_CLASS = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1055,7 +1146,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getEinterface()
    * @generated
    */
-  int EINTERFACE = 25;
+  int EINTERFACE = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1101,7 +1192,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getNativeClass()
    * @generated
    */
-  int NATIVE_CLASS = 26;
+  int NATIVE_CLASS = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1147,7 +1238,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 28;
+  int ATTRIBUTE = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1184,7 +1275,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getEpackage()
    * @generated
    */
-  int EPACKAGE = 29;
+  int EPACKAGE = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1221,7 +1312,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getMethodBack()
    * @generated
    */
-  int METHOD_BACK = 30;
+  int METHOD_BACK = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1267,7 +1358,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAbstractMethod()
    * @generated
    */
-  int ABSTRACT_METHOD = 31;
+  int ABSTRACT_METHOD = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1313,7 +1404,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getDescriptor()
    * @generated
    */
-  int DESCRIPTOR = 32;
+  int DESCRIPTOR = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1341,7 +1432,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAnnotation()
    * @generated
    */
-  int ANNOTATION = 33;
+  int ANNOTATION = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1353,13 +1444,22 @@ public interface DslPackage extends EPackage
   int ANNOTATION__NAME = ECLASS__NAME;
 
   /**
+   * The feature id for the '<em><b>Propertie</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANNOTATION__PROPERTIE = ECLASS_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Annotation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANNOTATION_FEATURE_COUNT = ECLASS_FEATURE_COUNT + 0;
+  int ANNOTATION_FEATURE_COUNT = ECLASS_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.LibraryImpl <em>Library</em>}' class.
@@ -1369,7 +1469,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getLibrary()
    * @generated
    */
-  int LIBRARY = 34;
+  int LIBRARY = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1381,13 +1481,22 @@ public interface DslPackage extends EPackage
   int LIBRARY__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Is Native</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIBRARY__IS_NATIVE = 1;
+
+  /**
    * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LIBRARY__ANNOTATION = 1;
+  int LIBRARY__ANNOTATION = 2;
 
   /**
    * The number of structural features of the '<em>Library</em>' class.
@@ -1396,7 +1505,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIBRARY_FEATURE_COUNT = 2;
+  int LIBRARY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ReactAppImpl <em>React App</em>}' class.
@@ -1406,7 +1515,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getReactApp()
    * @generated
    */
-  int REACT_APP = 36;
+  int REACT_APP = 37;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1461,7 +1570,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getFunctionality()
    * @generated
    */
-  int FUNCTIONALITY = 37;
+  int FUNCTIONALITY = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1543,7 +1652,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getRouterComponent()
    * @generated
    */
-  int ROUTER_COMPONENT = 38;
+  int ROUTER_COMPONENT = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1589,7 +1698,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getUIComponent()
    * @generated
    */
-  int UI_COMPONENT = 39;
+  int UI_COMPONENT = 40;
 
   /**
    * The number of structural features of the '<em>UI Component</em>' class.
@@ -1608,7 +1717,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getContainer()
    * @generated
    */
-  int CONTAINER = 40;
+  int CONTAINER = 41;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1645,7 +1754,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getVisualizer()
    * @generated
    */
-  int VISUALIZER = 41;
+  int VISUALIZER = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1682,7 +1791,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getServiceFront()
    * @generated
    */
-  int SERVICE_FRONT = 42;
+  int SERVICE_FRONT = 43;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1703,13 +1812,22 @@ public interface DslPackage extends EPackage
   int SERVICE_FRONT__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SERVICE_FRONT__METHOD = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Service Front</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SERVICE_FRONT_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
+  int SERVICE_FRONT_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.DirectoryImpl <em>Directory</em>}' class.
@@ -1719,7 +1837,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getDirectory()
    * @generated
    */
-  int DIRECTORY = 43;
+  int DIRECTORY = 44;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1749,13 +1867,22 @@ public interface DslPackage extends EPackage
   int DIRECTORY__SUBDIRECTORY = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Purpose</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECTORY__PURPOSE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Directory</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DIRECTORY_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 3;
+  int DIRECTORY_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.FileImpl <em>File</em>}' class.
@@ -1765,7 +1892,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getFile()
    * @generated
    */
-  int FILE = 44;
+  int FILE = 45;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1777,13 +1904,22 @@ public interface DslPackage extends EPackage
   int FILE__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>File</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILE_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+  int FILE_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.MdImpl <em>Md</em>}' class.
@@ -1793,7 +1929,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getMd()
    * @generated
    */
-  int MD = 45;
+  int MD = 46;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1803,6 +1939,15 @@ public interface DslPackage extends EPackage
    * @ordered
    */
   int MD__NAME = FILE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MD__TYPE = FILE__TYPE;
 
   /**
    * The number of structural features of the '<em>Md</em>' class.
@@ -1821,7 +1966,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJs()
    * @generated
    */
-  int JS = 46;
+  int JS = 47;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1831,6 +1976,15 @@ public interface DslPackage extends EPackage
    * @ordered
    */
   int JS__NAME = FILE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JS__TYPE = FILE__TYPE;
 
   /**
    * The number of structural features of the '<em>Js</em>' class.
@@ -1849,7 +2003,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJson()
    * @generated
    */
-  int JSON = 47;
+  int JSON = 48;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1859,6 +2013,15 @@ public interface DslPackage extends EPackage
    * @ordered
    */
   int JSON__NAME = FILE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JSON__TYPE = FILE__TYPE;
 
   /**
    * The number of structural features of the '<em>Json</em>' class.
@@ -1877,7 +2040,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getCss()
    * @generated
    */
-  int CSS = 48;
+  int CSS = 49;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1887,6 +2050,15 @@ public interface DslPackage extends EPackage
    * @ordered
    */
   int CSS__NAME = FILE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CSS__TYPE = FILE__TYPE;
 
   /**
    * The number of structural features of the '<em>Css</em>' class.
@@ -1905,7 +2077,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getState()
    * @generated
    */
-  int STATE = 49;
+  int STATE = 50;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1951,7 +2123,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getAction()
    * @generated
    */
-  int ACTION = 50;
+  int ACTION = 51;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2006,7 +2178,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getActionCreator()
    * @generated
    */
-  int ACTION_CREATOR = 51;
+  int ACTION_CREATOR = 52;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2018,13 +2190,22 @@ public interface DslPackage extends EPackage
   int ACTION_CREATOR__NAME = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_CREATOR__TYPE = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Action Creator</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_CREATOR_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 1;
+  int ACTION_CREATOR_FEATURE_COUNT = ABSTRACT_FRONT_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.casino.dsl.dsl.impl.ActionDispatcherImpl <em>Action Dispatcher</em>}' class.
@@ -2034,7 +2215,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getActionDispatcher()
    * @generated
    */
-  int ACTION_DISPATCHER = 52;
+  int ACTION_DISPATCHER = 53;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2071,7 +2252,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getReducer()
    * @generated
    */
-  int REDUCER = 53;
+  int REDUCER = 54;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2108,7 +2289,7 @@ public interface DslPackage extends EPackage
    * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getJsModule()
    * @generated
    */
-  int JS_MODULE = 54;
+  int JS_MODULE = 55;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2310,6 +2491,17 @@ public interface DslPackage extends EPackage
   EClass getOperation();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Operation#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.Operation#getType()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_Type();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Operation#getTarget <em>Target</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2342,28 +2534,6 @@ public interface DslPackage extends EPackage
   EAttribute getEntityName_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.EntityName#getProperties <em>Properties</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Properties</em>'.
-   * @see org.xtext.casino.dsl.dsl.EntityName#getProperties()
-   * @see #getEntityName()
-   * @generated
-   */
-  EReference getEntityName_Properties();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.EntityName#getTransactions <em>Transactions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Transactions</em>'.
-   * @see org.xtext.casino.dsl.dsl.EntityName#getTransactions()
-   * @see #getEntityName()
-   * @generated
-   */
-  EReference getEntityName_Transactions();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.GeneralEntity <em>General Entity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2372,6 +2542,28 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EClass getGeneralEntity();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.casino.dsl.dsl.GeneralEntity#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.GeneralEntity#getName()
+   * @see #getGeneralEntity()
+   * @generated
+   */
+  EReference getGeneralEntity_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.GeneralEntity#getProperties <em>Properties</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Properties</em>'.
+   * @see org.xtext.casino.dsl.dsl.GeneralEntity#getProperties()
+   * @see #getGeneralEntity()
+   * @generated
+   */
+  EReference getGeneralEntity_Properties();
 
   /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Property <em>Property</em>}'.
@@ -2437,6 +2629,39 @@ public interface DslPackage extends EPackage
   EClass getSpecialEntity();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.casino.dsl.dsl.SpecialEntity#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.SpecialEntity#getName()
+   * @see #getSpecialEntity()
+   * @generated
+   */
+  EReference getSpecialEntity_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.SpecialEntity#getProperties <em>Properties</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Properties</em>'.
+   * @see org.xtext.casino.dsl.dsl.SpecialEntity#getProperties()
+   * @see #getSpecialEntity()
+   * @generated
+   */
+  EReference getSpecialEntity_Properties();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.SpecialEntity#getTransactions <em>Transactions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Transactions</em>'.
+   * @see org.xtext.casino.dsl.dsl.SpecialEntity#getTransactions()
+   * @see #getSpecialEntity()
+   * @generated
+   */
+  EReference getSpecialEntity_Transactions();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Transaction <em>Transaction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2445,6 +2670,17 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EClass getTransaction();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Transaction#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.Transaction#getType()
+   * @see #getTransaction()
+   * @generated
+   */
+  EAttribute getTransaction_Type();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Transaction#getOperateson <em>Operateson</em>}'.
@@ -2553,6 +2789,17 @@ public interface DslPackage extends EPackage
   EClass getComponent();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Component#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.casino.dsl.dsl.Component#getName()
+   * @see #getComponent()
+   * @generated
+   */
+  EAttribute getComponent_Name();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Component#getLayer <em>Layer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2617,15 +2864,15 @@ public interface DslPackage extends EPackage
   EAttribute getLayerSegment_Name();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.casino.dsl.dsl.LayerSegment#getRelations <em>Relations</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.LayerSegment#getRelations <em>Relations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Relations</em>'.
+   * @return the meta object for the containment reference list '<em>Relations</em>'.
    * @see org.xtext.casino.dsl.dsl.LayerSegment#getRelations()
    * @see #getLayerSegment()
    * @generated
    */
-  EAttribute getLayerSegment_Relations();
+  EReference getLayerSegment_Relations();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.LayerSegment#getSublayerSegments <em>Sublayer Segments</em>}'.
@@ -2637,6 +2884,27 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EReference getLayerSegment_SublayerSegments();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.LayerSegmentRelation <em>Layer Segment Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layer Segment Relation</em>'.
+   * @see org.xtext.casino.dsl.dsl.LayerSegmentRelation
+   * @generated
+   */
+  EClass getLayerSegmentRelation();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.LayerSegmentRelation#getLayerSegment <em>Layer Segment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Layer Segment</em>'.
+   * @see org.xtext.casino.dsl.dsl.LayerSegmentRelation#getLayerSegment()
+   * @see #getLayerSegmentRelation()
+   * @generated
+   */
+  EAttribute getLayerSegmentRelation_LayerSegment();
 
   /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.SublayerSegment <em>Sublayer Segment</em>}'.
@@ -2679,6 +2947,17 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EAttribute getRelationArch_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.RelationArch#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Source</em>'.
+   * @see org.xtext.casino.dsl.dsl.RelationArch#getSource()
+   * @see #getRelationArch()
+   * @generated
+   */
+  EAttribute getRelationArch_Source();
 
   /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Technology <em>Technology</em>}'.
@@ -3216,6 +3495,17 @@ public interface DslPackage extends EPackage
   EClass getAnnotation();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Annotation#getPropertie <em>Propertie</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Propertie</em>'.
+   * @see org.xtext.casino.dsl.dsl.Annotation#getPropertie()
+   * @see #getAnnotation()
+   * @generated
+   */
+  EAttribute getAnnotation_Propertie();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Library <em>Library</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3235,6 +3525,17 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EAttribute getLibrary_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Library#getIsNative <em>Is Native</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Native</em>'.
+   * @see org.xtext.casino.dsl.dsl.Library#getIsNative()
+   * @see #getLibrary()
+   * @generated
+   */
+  EAttribute getLibrary_IsNative();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.casino.dsl.dsl.Library#getAnnotation <em>Annotation</em>}'.
@@ -3548,6 +3849,17 @@ public interface DslPackage extends EPackage
   EReference getServiceFront_Type();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.ServiceFront#getMethod <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Method</em>'.
+   * @see org.xtext.casino.dsl.dsl.ServiceFront#getMethod()
+   * @see #getServiceFront()
+   * @generated
+   */
+  EAttribute getServiceFront_Method();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Directory <em>Directory</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3591,6 +3903,17 @@ public interface DslPackage extends EPackage
   EReference getDirectory_Subdirectory();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.Directory#getPurpose <em>Purpose</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Purpose</em>'.
+   * @see org.xtext.casino.dsl.dsl.Directory#getPurpose()
+   * @see #getDirectory()
+   * @generated
+   */
+  EAttribute getDirectory_Purpose();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.File <em>File</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3610,6 +3933,17 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EAttribute getFile_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.File#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.File#getType()
+   * @see #getFile()
+   * @generated
+   */
+  EAttribute getFile_Type();
 
   /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.Md <em>Md</em>}'.
@@ -3768,6 +4102,17 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EAttribute getActionCreator_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.casino.dsl.dsl.ActionCreator#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.casino.dsl.dsl.ActionCreator#getType()
+   * @see #getActionCreator()
+   * @generated
+   */
+  EAttribute getActionCreator_Type();
 
   /**
    * Returns the meta object for class '{@link org.xtext.casino.dsl.dsl.ActionDispatcher <em>Action Dispatcher</em>}'.
@@ -4027,6 +4372,14 @@ public interface DslPackage extends EPackage
     EClass OPERATION = eINSTANCE.getOperation();
 
     /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__TYPE = eINSTANCE.getOperation_Type();
+
+    /**
      * The meta object literal for the '<em><b>Target</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4053,22 +4406,6 @@ public interface DslPackage extends EPackage
     EAttribute ENTITY_NAME__NAME = eINSTANCE.getEntityName_Name();
 
     /**
-     * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENTITY_NAME__PROPERTIES = eINSTANCE.getEntityName_Properties();
-
-    /**
-     * The meta object literal for the '<em><b>Transactions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENTITY_NAME__TRANSACTIONS = eINSTANCE.getEntityName_Transactions();
-
-    /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.GeneralEntityImpl <em>General Entity</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4077,6 +4414,22 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EClass GENERAL_ENTITY = eINSTANCE.getGeneralEntity();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GENERAL_ENTITY__NAME = eINSTANCE.getGeneralEntity_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GENERAL_ENTITY__PROPERTIES = eINSTANCE.getGeneralEntity_Properties();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.PropertyImpl <em>Property</em>}' class.
@@ -4133,6 +4486,30 @@ public interface DslPackage extends EPackage
     EClass SPECIAL_ENTITY = eINSTANCE.getSpecialEntity();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SPECIAL_ENTITY__NAME = eINSTANCE.getSpecialEntity_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SPECIAL_ENTITY__PROPERTIES = eINSTANCE.getSpecialEntity_Properties();
+
+    /**
+     * The meta object literal for the '<em><b>Transactions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SPECIAL_ENTITY__TRANSACTIONS = eINSTANCE.getSpecialEntity_Transactions();
+
+    /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.TransactionImpl <em>Transaction</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4141,6 +4518,14 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EClass TRANSACTION = eINSTANCE.getTransaction();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TRANSACTION__TYPE = eINSTANCE.getTransaction_Type();
 
     /**
      * The meta object literal for the '<em><b>Operateson</b></em>' containment reference list feature.
@@ -4231,6 +4616,14 @@ public interface DslPackage extends EPackage
     EClass COMPONENT = eINSTANCE.getComponent();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPONENT__NAME = eINSTANCE.getComponent_Name();
+
+    /**
      * The meta object literal for the '<em><b>Layer</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4283,12 +4676,12 @@ public interface DslPackage extends EPackage
     EAttribute LAYER_SEGMENT__NAME = eINSTANCE.getLayerSegment_Name();
 
     /**
-     * The meta object literal for the '<em><b>Relations</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Relations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LAYER_SEGMENT__RELATIONS = eINSTANCE.getLayerSegment_Relations();
+    EReference LAYER_SEGMENT__RELATIONS = eINSTANCE.getLayerSegment_Relations();
 
     /**
      * The meta object literal for the '<em><b>Sublayer Segments</b></em>' containment reference list feature.
@@ -4297,6 +4690,24 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EReference LAYER_SEGMENT__SUBLAYER_SEGMENTS = eINSTANCE.getLayerSegment_SublayerSegments();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.LayerSegmentRelationImpl <em>Layer Segment Relation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.casino.dsl.dsl.impl.LayerSegmentRelationImpl
+     * @see org.xtext.casino.dsl.dsl.impl.DslPackageImpl#getLayerSegmentRelation()
+     * @generated
+     */
+    EClass LAYER_SEGMENT_RELATION = eINSTANCE.getLayerSegmentRelation();
+
+    /**
+     * The meta object literal for the '<em><b>Layer Segment</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAYER_SEGMENT_RELATION__LAYER_SEGMENT = eINSTANCE.getLayerSegmentRelation_LayerSegment();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.SublayerSegmentImpl <em>Sublayer Segment</em>}' class.
@@ -4333,6 +4744,14 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EAttribute RELATION_ARCH__NAME = eINSTANCE.getRelationArch_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RELATION_ARCH__SOURCE = eINSTANCE.getRelationArch_Source();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.TechnologyImpl <em>Technology</em>}' class.
@@ -4765,6 +5184,14 @@ public interface DslPackage extends EPackage
     EClass ANNOTATION = eINSTANCE.getAnnotation();
 
     /**
+     * The meta object literal for the '<em><b>Propertie</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ANNOTATION__PROPERTIE = eINSTANCE.getAnnotation_Propertie();
+
+    /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.LibraryImpl <em>Library</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4781,6 +5208,14 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EAttribute LIBRARY__NAME = eINSTANCE.getLibrary_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Is Native</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LIBRARY__IS_NATIVE = eINSTANCE.getLibrary_IsNative();
 
     /**
      * The meta object literal for the '<em><b>Annotation</b></em>' containment reference list feature.
@@ -5031,6 +5466,14 @@ public interface DslPackage extends EPackage
     EReference SERVICE_FRONT__TYPE = eINSTANCE.getServiceFront_Type();
 
     /**
+     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SERVICE_FRONT__METHOD = eINSTANCE.getServiceFront_Method();
+
+    /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.DirectoryImpl <em>Directory</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5065,6 +5508,14 @@ public interface DslPackage extends EPackage
     EReference DIRECTORY__SUBDIRECTORY = eINSTANCE.getDirectory_Subdirectory();
 
     /**
+     * The meta object literal for the '<em><b>Purpose</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DIRECTORY__PURPOSE = eINSTANCE.getDirectory_Purpose();
+
+    /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.FileImpl <em>File</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5081,6 +5532,14 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EAttribute FILE__NAME = eINSTANCE.getFile_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILE__TYPE = eINSTANCE.getFile_Type();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.MdImpl <em>Md</em>}' class.
@@ -5215,6 +5674,14 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EAttribute ACTION_CREATOR__NAME = eINSTANCE.getActionCreator_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION_CREATOR__TYPE = eINSTANCE.getActionCreator_Type();
 
     /**
      * The meta object literal for the '{@link org.xtext.casino.dsl.dsl.impl.ActionDispatcherImpl <em>Action Dispatcher</em>}' class.

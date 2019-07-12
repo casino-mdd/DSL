@@ -26,14 +26,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Submodule/entities"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Operation/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Operation/target"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//EntityName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//EntityName/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//EntityName/properties"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//EntityName/transactions"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//GeneralEntity"/>
+    <genClasses ecoreClass="Dsl.ecore#//GeneralEntity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//GeneralEntity/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//GeneralEntity/properties"/>
+    </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Property/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Property/type"/>
@@ -41,8 +43,13 @@
     <genClasses ecoreClass="Dsl.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Type/name"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//SpecialEntity"/>
+    <genClasses ecoreClass="Dsl.ecore#//SpecialEntity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//SpecialEntity/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//SpecialEntity/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//SpecialEntity/transactions"/>
+    </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Transaction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Transaction/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Transaction/operateson"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Operateson">
@@ -57,6 +64,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Architecture/relationArch"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Component/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Component/layer"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Layer">
@@ -65,14 +73,18 @@
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//LayerSegment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//LayerSegment/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//LayerSegment/relations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//LayerSegment/relations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//LayerSegment/sublayerSegments"/>
+    </genClasses>
+    <genClasses ecoreClass="Dsl.ecore#//LayerSegmentRelation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//LayerSegmentRelation/layerSegment"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//SublayerSegment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//SublayerSegment/name"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//RelationArch">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//RelationArch/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//RelationArch/source"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Technology">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Technology/java"/>
@@ -137,9 +149,12 @@
     <genClasses ecoreClass="Dsl.ecore#//Descriptor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Descriptor/name"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//Annotation"/>
+    <genClasses ecoreClass="Dsl.ecore#//Annotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Annotation/propertie"/>
+    </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Library">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Library/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Library/isNative"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Library/annotation"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//AbstractFrontElement"/>
@@ -175,14 +190,17 @@
     <genClasses ecoreClass="Dsl.ecore#//ServiceFront">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//ServiceFront/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//ServiceFront/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//ServiceFront/method"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Directory">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Directory/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Directory/file"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Dsl.ecore#//Directory/subdirectory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Directory/purpose"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//File">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//File/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//File/type"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Md"/>
     <genClasses ecoreClass="Dsl.ecore#//Js"/>
@@ -201,6 +219,7 @@
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//ActionCreator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//ActionCreator/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//ActionCreator/type"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//ActionDispatcher">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//ActionDispatcher/name"/>

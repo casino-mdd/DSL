@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.Library#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.Library#getIsNative <em>Is Native</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.Library#getAnnotation <em>Annotation</em>}</li>
  * </ul>
  *
@@ -47,6 +48,28 @@ public interface Library extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Is Native</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Native</em>' attribute.
+   * @see #setIsNative(String)
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getLibrary_IsNative()
+   * @model
+   * @generated
+   */
+  String getIsNative();
+
+  /**
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.Library#getIsNative <em>Is Native</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Native</em>' attribute.
+   * @see #getIsNative()
+   * @generated
+   */
+  void setIsNative(String value);
 
   /**
    * Returns the value of the '<em><b>Annotation</b></em>' containment reference list.

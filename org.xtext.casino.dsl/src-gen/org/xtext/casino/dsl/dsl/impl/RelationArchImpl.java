@@ -22,6 +22,7 @@ import org.xtext.casino.dsl.dsl.RelationArch;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.RelationArchImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.RelationArchImpl#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +48,26 @@ public class RelationArchImpl extends MinimalEObjectImpl.Container implements Re
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSource()
+   * @generated
+   * @ordered
+   */
+  protected static final String SOURCE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSource()
+   * @generated
+   * @ordered
+   */
+  protected String source = SOURCE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +121,39 @@ public class RelationArchImpl extends MinimalEObjectImpl.Container implements Re
    * @generated
    */
   @Override
+  public String getSource()
+  {
+    return source;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSource(String newSource)
+  {
+    String oldSource = source;
+    source = newSource;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.RELATION_ARCH__SOURCE, oldSource, source));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case DslPackage.RELATION_ARCH__NAME:
         return getName();
+      case DslPackage.RELATION_ARCH__SOURCE:
+        return getSource();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +170,9 @@ public class RelationArchImpl extends MinimalEObjectImpl.Container implements Re
     {
       case DslPackage.RELATION_ARCH__NAME:
         setName((String)newValue);
+        return;
+      case DslPackage.RELATION_ARCH__SOURCE:
+        setSource((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +191,9 @@ public class RelationArchImpl extends MinimalEObjectImpl.Container implements Re
       case DslPackage.RELATION_ARCH__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DslPackage.RELATION_ARCH__SOURCE:
+        setSource(SOURCE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +210,8 @@ public class RelationArchImpl extends MinimalEObjectImpl.Container implements Re
     {
       case DslPackage.RELATION_ARCH__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DslPackage.RELATION_ARCH__SOURCE:
+        return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
     }
     return super.eIsSet(featureID);
   }
@@ -173,6 +229,8 @@ public class RelationArchImpl extends MinimalEObjectImpl.Container implements Re
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", source: ");
+    result.append(source);
     result.append(')');
     return result.toString();
   }

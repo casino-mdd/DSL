@@ -21,6 +21,7 @@ import org.xtext.casino.dsl.dsl.DslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.ActionCreatorImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.ActionCreatorImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +47,26 @@ public class ActionCreatorImpl extends AbstractFrontElementImpl implements Actio
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,12 +120,39 @@ public class ActionCreatorImpl extends AbstractFrontElementImpl implements Actio
    * @generated
    */
   @Override
+  public String getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setType(String newType)
+  {
+    String oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ACTION_CREATOR__TYPE, oldType, type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case DslPackage.ACTION_CREATOR__NAME:
         return getName();
+      case DslPackage.ACTION_CREATOR__TYPE:
+        return getType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,6 +169,9 @@ public class ActionCreatorImpl extends AbstractFrontElementImpl implements Actio
     {
       case DslPackage.ACTION_CREATOR__NAME:
         setName((String)newValue);
+        return;
+      case DslPackage.ACTION_CREATOR__TYPE:
+        setType((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -139,6 +190,9 @@ public class ActionCreatorImpl extends AbstractFrontElementImpl implements Actio
       case DslPackage.ACTION_CREATOR__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case DslPackage.ACTION_CREATOR__TYPE:
+        setType(TYPE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -155,6 +209,8 @@ public class ActionCreatorImpl extends AbstractFrontElementImpl implements Actio
     {
       case DslPackage.ACTION_CREATOR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DslPackage.ACTION_CREATOR__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
     return super.eIsSet(featureID);
   }
@@ -172,6 +228,8 @@ public class ActionCreatorImpl extends AbstractFrontElementImpl implements Actio
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", type: ");
+    result.append(type);
     result.append(')');
     return result.toString();
   }

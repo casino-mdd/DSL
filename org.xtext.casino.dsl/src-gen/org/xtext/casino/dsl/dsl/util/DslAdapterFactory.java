@@ -41,6 +41,7 @@ import org.xtext.casino.dsl.dsl.JsModule;
 import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.LayerSegmentRelation;
 import org.xtext.casino.dsl.dsl.Library;
 import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.MethodBack;
@@ -212,6 +213,11 @@ public class DslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLayerSegment(LayerSegment object)
       {
         return createLayerSegmentAdapter();
+      }
+      @Override
+      public Adapter caseLayerSegmentRelation(LayerSegmentRelation object)
+      {
+        return createLayerSegmentRelationAdapter();
       }
       @Override
       public Adapter caseSublayerSegment(SublayerSegment object)
@@ -676,6 +682,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLayerSegmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.casino.dsl.dsl.LayerSegmentRelation <em>Layer Segment Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.casino.dsl.dsl.LayerSegmentRelation
+   * @generated
+   */
+  public Adapter createLayerSegmentRelationAdapter()
   {
     return null;
   }

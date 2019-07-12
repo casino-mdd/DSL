@@ -232,7 +232,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cOpKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cTypeKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cSubOperationParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeSubOperationParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		private final Keyword cOperates_onKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cTargetAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cTargetEntityNameParserRuleCall_5_0 = (RuleCall)cTargetAssignment_5.eContents().get(0);
@@ -240,12 +241,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Operation:
 		//	'op' '{'
-		//	'type:' SubOperation
+		//	'type:' type=SubOperation
 		//	'operates_on:' target+=EntityName
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'op' '{' 'type:' SubOperation 'operates_on:' target+=EntityName '}'
+		//'op' '{' 'type:' type=SubOperation 'operates_on:' target+=EntityName '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'op'
@@ -257,8 +258,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'type:'
 		public Keyword getTypeKeyword_2() { return cTypeKeyword_2; }
 		
+		//type=SubOperation
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		
 		//SubOperation
-		public RuleCall getSubOperationParserRuleCall_3() { return cSubOperationParserRuleCall_3; }
+		public RuleCall getTypeSubOperationParserRuleCall_3_0() { return cTypeSubOperationParserRuleCall_3_0; }
 		
 		//'operates_on:'
 		public Keyword getOperates_onKeyword_4() { return cOperates_onKeyword_4; }
@@ -310,26 +314,30 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.GeneralEntity");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGeneralEntityKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cEntityNameParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEntityNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPropertiesAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPropertiesPropertyParserRuleCall_3_0 = (RuleCall)cPropertiesAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//GeneralEntity:
-		//	'generalEntity' EntityName '{'
+		//	'generalEntity' name=EntityName '{'
 		//	properties+=Property+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'generalEntity' EntityName '{' properties+=Property+ '}'
+		//'generalEntity' name=EntityName '{' properties+=Property+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'generalEntity'
 		public Keyword getGeneralEntityKeyword_0() { return cGeneralEntityKeyword_0; }
 		
+		//name=EntityName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
 		//EntityName
-		public RuleCall getEntityNameParserRuleCall_1() { return cEntityNameParserRuleCall_1; }
+		public RuleCall getNameEntityNameParserRuleCall_1_0() { return cNameEntityNameParserRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -405,7 +413,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.SpecialEntity");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSpecialEntityKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cEntityNameParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEntityNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPropertiesAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPropertiesPropertyParserRuleCall_3_0 = (RuleCall)cPropertiesAssignment_3.eContents().get(0);
@@ -414,20 +423,23 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//SpecialEntity:
-		//	'specialEntity' EntityName '{'
+		//	'specialEntity' name=EntityName '{'
 		//	properties+=Property+
 		//	transactions+=Transaction+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'specialEntity' EntityName '{' properties+=Property+ transactions+=Transaction+ '}'
+		//'specialEntity' name=EntityName '{' properties+=Property+ transactions+=Transaction+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'specialEntity'
 		public Keyword getSpecialEntityKeyword_0() { return cSpecialEntityKeyword_0; }
 		
+		//name=EntityName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
 		//EntityName
-		public RuleCall getEntityNameParserRuleCall_1() { return cEntityNameParserRuleCall_1; }
+		public RuleCall getNameEntityNameParserRuleCall_1_0() { return cNameEntityNameParserRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -453,19 +465,20 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTrxKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cTypeKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cSubTransactionParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeSubTransactionParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		private final Assignment cOperatesonAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cOperatesonOperatesonParserRuleCall_4_0 = (RuleCall)cOperatesonAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Transaction:
 		//	'trx' '{'
-		//	'type:' SubTransaction
+		//	'type:' type=SubTransaction
 		//	operateson+=Operateson+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'trx' '{' 'type:' SubTransaction operateson+=Operateson+ '}'
+		//'trx' '{' 'type:' type=SubTransaction operateson+=Operateson+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'trx'
@@ -477,8 +490,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'type:'
 		public Keyword getTypeKeyword_2() { return cTypeKeyword_2; }
 		
+		//type=SubTransaction
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		
 		//SubTransaction
-		public RuleCall getSubTransactionParserRuleCall_3() { return cSubTransactionParserRuleCall_3; }
+		public RuleCall getTypeSubTransactionParserRuleCall_3_0() { return cTypeSubTransactionParserRuleCall_3_0; }
 		
 		//operateson+=Operateson+
 		public Assignment getOperatesonAssignment_4() { return cOperatesonAssignment_4; }
@@ -637,26 +653,30 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.Component");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cComponentNameParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameComponentNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cLayerAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cLayerLayerParserRuleCall_3_0 = (RuleCall)cLayerAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Component:
-		//	'component' ComponentName '{'
+		//	'component' name=ComponentName '{'
 		//	layer+=Layer+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'component' ComponentName '{' layer+=Layer+ '}'
+		//'component' name=ComponentName '{' layer+=Layer+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'component'
 		public Keyword getComponentKeyword_0() { return cComponentKeyword_0; }
 		
+		//name=ComponentName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
 		//ComponentName
-		public RuleCall getComponentNameParserRuleCall_1() { return cComponentNameParserRuleCall_1; }
+		public RuleCall getNameComponentNameParserRuleCall_1_0() { return cNameComponentNameParserRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -815,6 +835,29 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
+	public class LayerSegmentRelationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.LayerSegmentRelation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAllowedToUseKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cLayerSegmentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLayerSegmentLayerSegmentNameParserRuleCall_1_0 = (RuleCall)cLayerSegmentAssignment_1.eContents().get(0);
+		
+		//LayerSegmentRelation:
+		//	'allowedToUse:' layerSegment=LayerSegmentName;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'allowedToUse:' layerSegment=LayerSegmentName
+		public Group getGroup() { return cGroup; }
+		
+		//'allowedToUse:'
+		public Keyword getAllowedToUseKeyword_0() { return cAllowedToUseKeyword_0; }
+		
+		//layerSegment=LayerSegmentName
+		public Assignment getLayerSegmentAssignment_1() { return cLayerSegmentAssignment_1; }
+		
+		//LayerSegmentName
+		public RuleCall getLayerSegmentLayerSegmentNameParserRuleCall_1_0() { return cLayerSegmentLayerSegmentNameParserRuleCall_1_0; }
+	}
 	public class LayerSegmentNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.LayerSegmentName");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -861,25 +904,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'Containers'
 		public Keyword getContainersKeyword_8() { return cContainersKeyword_8; }
-	}
-	public class LayerSegmentRelationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.LayerSegmentRelation");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cAllowedToUseKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cLayerSegmentNameParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		
-		//LayerSegmentRelation:
-		//	'allowedToUse:' LayerSegmentName;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'allowedToUse:' LayerSegmentName
-		public Group getGroup() { return cGroup; }
-		
-		//'allowedToUse:'
-		public Keyword getAllowedToUseKeyword_0() { return cAllowedToUseKeyword_0; }
-		
-		//LayerSegmentName
-		public RuleCall getLayerSegmentNameParserRuleCall_1() { return cLayerSegmentNameParserRuleCall_1; }
 	}
 	public class SublayerSegmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.casino.dsl.Dsl.SublayerSegment");
@@ -931,20 +955,22 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cSourceKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cLayerNameParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cSourceAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSourceLayerNameParserRuleCall_4_0 = (RuleCall)cSourceAssignment_4.eContents().get(0);
 		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cTargetKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final RuleCall cLayerNameParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final Assignment cSourceAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cSourceLayerNameParserRuleCall_7_0 = (RuleCall)cSourceAssignment_7.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//RelationArch:
 		//	'relationArch' name=ID '{'
-		//	'source:' LayerName ','
-		//	'target:' LayerName
+		//	'source:' source=LayerName ','
+		//	'target:' source=LayerName
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'relationArch' name=ID '{' 'source:' LayerName ',' 'target:' LayerName '}'
+		//'relationArch' name=ID '{' 'source:' source=LayerName ',' 'target:' source=LayerName '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'relationArch'
@@ -962,8 +988,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'source:'
 		public Keyword getSourceKeyword_3() { return cSourceKeyword_3; }
 		
+		//source=LayerName
+		public Assignment getSourceAssignment_4() { return cSourceAssignment_4; }
+		
 		//LayerName
-		public RuleCall getLayerNameParserRuleCall_4() { return cLayerNameParserRuleCall_4; }
+		public RuleCall getSourceLayerNameParserRuleCall_4_0() { return cSourceLayerNameParserRuleCall_4_0; }
 		
 		//','
 		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
@@ -971,8 +1000,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'target:'
 		public Keyword getTargetKeyword_6() { return cTargetKeyword_6; }
 		
+		//source=LayerName
+		public Assignment getSourceAssignment_7() { return cSourceAssignment_7; }
+		
 		//LayerName
-		public RuleCall getLayerNameParserRuleCall_7() { return cLayerNameParserRuleCall_7; }
+		public RuleCall getSourceLayerNameParserRuleCall_7_0() { return cSourceLayerNameParserRuleCall_7_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
@@ -1759,16 +1791,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cPropertieKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final Assignment cPropertieAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPropertieSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cPropertieAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Annotation:
-		//	'annotation' name=ID '{' ('propertie' name=STRING)*
+		//	'annotation' name=ID '{' ('propertie' propertie=STRING)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'annotation' name=ID '{' ('propertie' name=STRING)* '}'
+		//'annotation' name=ID '{' ('propertie' propertie=STRING)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'annotation'
@@ -1783,17 +1815,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('propertie' name=STRING)*
+		//('propertie' propertie=STRING)*
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'propertie'
 		public Keyword getPropertieKeyword_3_0() { return cPropertieKeyword_3_0; }
 		
-		//name=STRING
-		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
+		//propertie=STRING
+		public Assignment getPropertieAssignment_3_1() { return cPropertieAssignment_3_1; }
 		
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_3_1_0() { return cNameSTRINGTerminalRuleCall_3_1_0; }
+		public RuleCall getPropertieSTRINGTerminalRuleCall_3_1_0() { return cPropertieSTRINGTerminalRuleCall_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -1806,19 +1838,20 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cIsNativeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cBooleanParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cIsNativeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cIsNativeBooleanParserRuleCall_4_0 = (RuleCall)cIsNativeAssignment_4.eContents().get(0);
 		private final Assignment cAnnotationAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cAnnotationAnnotationParserRuleCall_5_0 = (RuleCall)cAnnotationAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Library:
 		//	'library' name=ID '{'
-		//	'isNative' Boolean
+		//	'isNative' isNative=Boolean
 		//	annotation+=Annotation*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'library' name=ID '{' 'isNative' Boolean annotation+=Annotation* '}'
+		//'library' name=ID '{' 'isNative' isNative=Boolean annotation+=Annotation* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'library'
@@ -1836,8 +1869,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'isNative'
 		public Keyword getIsNativeKeyword_3() { return cIsNativeKeyword_3; }
 		
+		//isNative=Boolean
+		public Assignment getIsNativeAssignment_4() { return cIsNativeAssignment_4; }
+		
 		//Boolean
-		public RuleCall getBooleanParserRuleCall_4() { return cBooleanParserRuleCall_4; }
+		public RuleCall getIsNativeBooleanParserRuleCall_4_0() { return cIsNativeBooleanParserRuleCall_4_0; }
 		
 		//annotation+=Annotation*
 		public Assignment getAnnotationAssignment_5() { return cAnnotationAssignment_5; }
@@ -2478,16 +2514,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeJsModuleIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeJsModuleCrossReference_4_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cMethodKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final RuleCall cSTRINGTerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final Assignment cMethodAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cMethodSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cMethodAssignment_5_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ServiceFront:
 		//	'service' name=ID '{'
-		//	'use:' type=[JsModule] ('method:' STRING)+
+		//	'use:' type=[JsModule] ('method:' method=STRING)+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'service' name=ID '{' 'use:' type=[JsModule] ('method:' STRING)+ '}'
+		//'service' name=ID '{' 'use:' type=[JsModule] ('method:' method=STRING)+ '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'service'
@@ -2514,14 +2551,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getTypeJsModuleIDTerminalRuleCall_4_0_1() { return cTypeJsModuleIDTerminalRuleCall_4_0_1; }
 		
-		//('method:' STRING)+
+		//('method:' method=STRING)+
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'method:'
 		public Keyword getMethodKeyword_5_0() { return cMethodKeyword_5_0; }
 		
+		//method=STRING
+		public Assignment getMethodAssignment_5_1() { return cMethodAssignment_5_1; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_5_1() { return cSTRINGTerminalRuleCall_5_1; }
+		public RuleCall getMethodSTRINGTerminalRuleCall_5_1_0() { return cMethodSTRINGTerminalRuleCall_5_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -2544,16 +2584,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cSubdirectoryDirectoryCrossReference_4_1_0 = (CrossReference)cSubdirectoryAssignment_4_1.eContents().get(0);
 		private final RuleCall cSubdirectoryDirectoryIDTerminalRuleCall_4_1_0_1 = (RuleCall)cSubdirectoryDirectoryCrossReference_4_1_0.eContents().get(1);
 		private final Keyword cPurposeKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final RuleCall cSTRINGTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Assignment cPurposeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPurposeSTRINGTerminalRuleCall_6_0 = (RuleCall)cPurposeAssignment_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Directory:
 		//	'directory' name=ID '{' ('has:'+ file=[File])* ('contains:' subdirectory=[Directory])*
-		//	'purpose:' STRING
+		//	'purpose:' purpose=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'directory' name=ID '{' ('has:'+ file=[File])* ('contains:' subdirectory=[Directory])* 'purpose:' STRING '}'
+		//'directory' name=ID '{' ('has:'+ file=[File])* ('contains:' subdirectory=[Directory])* 'purpose:' purpose=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'directory'
@@ -2601,8 +2642,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'purpose:'
 		public Keyword getPurposeKeyword_5() { return cPurposeKeyword_5; }
 		
+		//purpose=STRING
+		public Assignment getPurposeAssignment_6() { return cPurposeAssignment_6; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_6() { return cSTRINGTerminalRuleCall_6; }
+		public RuleCall getPurposeSTRINGTerminalRuleCall_6_0() { return cPurposeSTRINGTerminalRuleCall_6_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
@@ -2642,16 +2686,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Md:
 		//	'md' name=ID '{'
-		//	'type:' STRING
+		//	'type:' type=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'md' name=ID '{' 'type:' STRING '}'
+		//'md' name=ID '{' 'type:' type=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'md'
@@ -2669,8 +2714,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'type:'
 		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
 		
+		//type=STRING
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getTypeSTRINGTerminalRuleCall_4_0() { return cTypeSTRINGTerminalRuleCall_4_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -2683,16 +2731,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Js:
 		//	'js' name=ID '{'
-		//	'type:' STRING
+		//	'type:' type=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'js' name=ID '{' 'type:' STRING '}'
+		//'js' name=ID '{' 'type:' type=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'js'
@@ -2710,8 +2759,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'type:'
 		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
 		
+		//type=STRING
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getTypeSTRINGTerminalRuleCall_4_0() { return cTypeSTRINGTerminalRuleCall_4_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -2724,16 +2776,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Json:
 		//	'json' name=ID '{'
-		//	'type:' STRING
+		//	'type:' type=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'json' name=ID '{' 'type:' STRING '}'
+		//'json' name=ID '{' 'type:' type=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'json'
@@ -2751,8 +2804,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'type:'
 		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
 		
+		//type=STRING
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getTypeSTRINGTerminalRuleCall_4_0() { return cTypeSTRINGTerminalRuleCall_4_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -2765,16 +2821,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Css:
 		//	'css' name=ID '{'
-		//	'type:' STRING
+		//	'type:' type=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'css' name=ID '{' 'type:' STRING '}'
+		//'css' name=ID '{' 'type:' type=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'css'
@@ -2792,8 +2849,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'type:'
 		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
 		
+		//type=STRING
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getTypeSTRINGTerminalRuleCall_4_0() { return cTypeSTRINGTerminalRuleCall_4_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -2968,16 +3028,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ActionCreator:
 		//	'actionCreator' name=ID '{'
-		//	'type:' STRING
+		//	'type:' type=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'actionCreator' name=ID '{' 'type:' STRING '}'
+		//'actionCreator' name=ID '{' 'type:' type=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'actionCreator'
@@ -2995,8 +3056,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'type:'
 		public Keyword getTypeKeyword_3() { return cTypeKeyword_3; }
 		
+		//type=STRING
+		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getTypeSTRINGTerminalRuleCall_4_0() { return cTypeSTRINGTerminalRuleCall_4_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -3194,8 +3258,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private final LayerElements pLayer;
 	private final LayerNameElements pLayerName;
 	private final LayerSegmentElements pLayerSegment;
-	private final LayerSegmentNameElements pLayerSegmentName;
 	private final LayerSegmentRelationElements pLayerSegmentRelation;
+	private final LayerSegmentNameElements pLayerSegmentName;
 	private final SublayerSegmentElements pSublayerSegment;
 	private final SublayerSegmentNameElements pSublayerSegmentName;
 	private final RelationArchElements pRelationArch;
@@ -3267,8 +3331,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pLayer = new LayerElements();
 		this.pLayerName = new LayerNameElements();
 		this.pLayerSegment = new LayerSegmentElements();
-		this.pLayerSegmentName = new LayerSegmentNameElements();
 		this.pLayerSegmentRelation = new LayerSegmentRelationElements();
+		this.pLayerSegmentName = new LayerSegmentNameElements();
 		this.pSublayerSegment = new SublayerSegmentElements();
 		this.pSublayerSegmentName = new SublayerSegmentNameElements();
 		this.pRelationArch = new RelationArchElements();
@@ -3395,7 +3459,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Operation:
 	//	'op' '{'
-	//	'type:' SubOperation
+	//	'type:' type=SubOperation
 	//	'operates_on:' target+=EntityName
 	//	'}';
 	public OperationElements getOperationAccess() {
@@ -3427,7 +3491,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GeneralEntity:
-	//	'generalEntity' EntityName '{'
+	//	'generalEntity' name=EntityName '{'
 	//	properties+=Property+
 	//	'}';
 	public GeneralEntityElements getGeneralEntityAccess() {
@@ -3459,7 +3523,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SpecialEntity:
-	//	'specialEntity' EntityName '{'
+	//	'specialEntity' name=EntityName '{'
 	//	properties+=Property+
 	//	transactions+=Transaction+
 	//	'}';
@@ -3473,7 +3537,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Transaction:
 	//	'trx' '{'
-	//	'type:' SubTransaction
+	//	'type:' type=SubTransaction
 	//	operateson+=Operateson+
 	//	'}';
 	public TransactionElements getTransactionAccess() {
@@ -3533,7 +3597,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Component:
-	//	'component' ComponentName '{'
+	//	'component' name=ComponentName '{'
 	//	layer+=Layer+
 	//	'}';
 	public ComponentElements getComponentAccess() {
@@ -3588,6 +3652,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getLayerSegmentAccess().getRule();
 	}
 	
+	//LayerSegmentRelation:
+	//	'allowedToUse:' layerSegment=LayerSegmentName;
+	public LayerSegmentRelationElements getLayerSegmentRelationAccess() {
+		return pLayerSegmentRelation;
+	}
+	
+	public ParserRule getLayerSegmentRelationRule() {
+		return getLayerSegmentRelationAccess().getRule();
+	}
+	
 	//LayerSegmentName:
 	//	'Services' | 'Ui' | 'Store' | 'RestEntity' | 'Pojo' | 'Facade' | 'Dto' | 'Util' | 'Containers';
 	public LayerSegmentNameElements getLayerSegmentNameAccess() {
@@ -3596,16 +3670,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getLayerSegmentNameRule() {
 		return getLayerSegmentNameAccess().getRule();
-	}
-	
-	//LayerSegmentRelation:
-	//	'allowedToUse:' LayerSegmentName;
-	public LayerSegmentRelationElements getLayerSegmentRelationAccess() {
-		return pLayerSegmentRelation;
-	}
-	
-	public ParserRule getLayerSegmentRelationRule() {
-		return getLayerSegmentRelationAccess().getRule();
 	}
 	
 	//SublayerSegment:
@@ -3630,8 +3694,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//RelationArch:
 	//	'relationArch' name=ID '{'
-	//	'source:' LayerName ','
-	//	'target:' LayerName
+	//	'source:' source=LayerName ','
+	//	'target:' source=LayerName
 	//	'}';
 	public RelationArchElements getRelationArchAccess() {
 		return pRelationArch;
@@ -3815,7 +3879,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Annotation:
-	//	'annotation' name=ID '{' ('propertie' name=STRING)*
+	//	'annotation' name=ID '{' ('propertie' propertie=STRING)*
 	//	'}';
 	public AnnotationElements getAnnotationAccess() {
 		return pAnnotation;
@@ -3827,7 +3891,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Library:
 	//	'library' name=ID '{'
-	//	'isNative' Boolean
+	//	'isNative' isNative=Boolean
 	//	annotation+=Annotation*
 	//	'}';
 	public LibraryElements getLibraryAccess() {
@@ -3937,7 +4001,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//ServiceFront:
 	//	'service' name=ID '{'
-	//	'use:' type=[JsModule] ('method:' STRING)+
+	//	'use:' type=[JsModule] ('method:' method=STRING)+
 	//	'}';
 	public ServiceFrontElements getServiceFrontAccess() {
 		return pServiceFront;
@@ -3949,7 +4013,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Directory:
 	//	'directory' name=ID '{' ('has:'+ file=[File])* ('contains:' subdirectory=[Directory])*
-	//	'purpose:' STRING
+	//	'purpose:' purpose=STRING
 	//	'}';
 	public DirectoryElements getDirectoryAccess() {
 		return pDirectory;
@@ -3971,7 +4035,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Md:
 	//	'md' name=ID '{'
-	//	'type:' STRING
+	//	'type:' type=STRING
 	//	'}';
 	public MdElements getMdAccess() {
 		return pMd;
@@ -3983,7 +4047,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Js:
 	//	'js' name=ID '{'
-	//	'type:' STRING
+	//	'type:' type=STRING
 	//	'}';
 	public JsElements getJsAccess() {
 		return pJs;
@@ -3995,7 +4059,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Json:
 	//	'json' name=ID '{'
-	//	'type:' STRING
+	//	'type:' type=STRING
 	//	'}';
 	public JsonElements getJsonAccess() {
 		return pJson;
@@ -4007,7 +4071,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Css:
 	//	'css' name=ID '{'
-	//	'type:' STRING
+	//	'type:' type=STRING
 	//	'}';
 	public CssElements getCssAccess() {
 		return pCss;
@@ -4042,7 +4106,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//ActionCreator:
 	//	'actionCreator' name=ID '{'
-	//	'type:' STRING
+	//	'type:' type=STRING
 	//	'}';
 	public ActionCreatorElements getActionCreatorAccess() {
 		return pActionCreator;

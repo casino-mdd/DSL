@@ -3,7 +3,10 @@
  */
 package org.xtext.casino.dsl.generator;
 
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -11,9 +14,9 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.casino.dsl.dsl.EntityName;
 import org.xtext.casino.dsl.dsl.GeneralEntity;
-import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
 import org.xtext.casino.dsl.dsl.Property;
 
@@ -30,21 +33,63 @@ public class DslGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field entity is undefined for the type GeneralEntity"
-      + "\nname cannot be resolved");
-  }
-  
-  public CharSequence compile(final LayerSegment e) {
-    StringConcatenation _builder = new StringConcatenation();
-    return _builder;
-  }
-  
-  public CharSequence compile(final Layer e) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append(" \t ");
-    _builder.newLine();
-    return _builder;
+    Iterable<LayerSegment> _filter = Iterables.<LayerSegment>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), LayerSegment.class);
+    for (final LayerSegment layerS : _filter) {
+      {
+        boolean _equals = this._iQualifiedNameProvider.getFullyQualifiedName(layerS).toString().equals("Back.Ejb.Facade");
+        if (_equals) {
+          Iterable<EntityName> _filter_1 = Iterables.<EntityName>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), EntityName.class);
+          for (final EntityName en : _filter_1) {
+            String _string = this._iQualifiedNameProvider.getFullyQualifiedName(layerS).toString("/");
+            String _plus = (_string + "/");
+            String _name = en.getName();
+            String _plus_1 = (_plus + _name);
+            String _plus_2 = (_plus_1 + "Facade.java");
+            fsa.generateFile(_plus_2, 
+              this.compile(en));
+          }
+        }
+        boolean _equals_1 = this._iQualifiedNameProvider.getFullyQualifiedName(layerS).toString().equals("Back.Ejb.Dto");
+        if (_equals_1) {
+          Iterable<EntityName> _filter_2 = Iterables.<EntityName>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), EntityName.class);
+          for (final EntityName en_1 : _filter_2) {
+            String _string_1 = this._iQualifiedNameProvider.getFullyQualifiedName(layerS).toString("/");
+            String _plus_3 = (_string_1 + "/");
+            String _name_1 = en_1.getName();
+            String _plus_4 = (_plus_3 + _name_1);
+            String _plus_5 = (_plus_4 + "Dto.java");
+            fsa.generateFile(_plus_5, 
+              this.compileDto(en_1));
+          }
+        }
+        boolean _equals_2 = this._iQualifiedNameProvider.getFullyQualifiedName(layerS).toString().equals("Back.War.RestEntity");
+        if (_equals_2) {
+          Iterable<EntityName> _filter_3 = Iterables.<EntityName>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), EntityName.class);
+          for (final EntityName en_2 : _filter_3) {
+            String _string_2 = this._iQualifiedNameProvider.getFullyQualifiedName(layerS).toString("/");
+            String _plus_6 = (_string_2 + "/");
+            String _name_2 = en_2.getName();
+            String _plus_7 = (_plus_6 + _name_2);
+            String _plus_8 = (_plus_7 + "Rest.java");
+            fsa.generateFile(_plus_8, 
+              this.compileRest(en_2));
+          }
+        }
+        boolean _equals_3 = this._iQualifiedNameProvider.getFullyQualifiedName(layerS).toString().equals("Back.Ejb.Pojo");
+        if (_equals_3) {
+          Iterable<GeneralEntity> _filter_4 = Iterables.<GeneralEntity>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), GeneralEntity.class);
+          for (final GeneralEntity en_3 : _filter_4) {
+            String _string_3 = this._iQualifiedNameProvider.getFullyQualifiedName(layerS).toString("/");
+            String _plus_9 = (_string_3 + "/");
+            String _name_3 = en_3.getName().getName();
+            String _plus_10 = (_plus_9 + _name_3);
+            String _plus_11 = (_plus_10 + ".java");
+            fsa.generateFile(_plus_11, 
+              this.compilePojo(en_3));
+          }
+        }
+      }
+    }
   }
   
   public CharSequence compileProperty(final Property p) {
@@ -53,28 +98,57 @@ public class DslGenerator extends AbstractGenerator {
       String _name = p.getType().getName();
       boolean _tripleEquals = (_name == "Num");
       if (_tripleEquals) {
-        _builder.append("Integer");
-        _builder.newLine();
-      } else {
-        String _name_1 = p.getType().getName();
+        _builder.append("Integer ");
+        String _name_1 = p.getName();
         _builder.append(_name_1);
+        _builder.append(" ;");
+        _builder.newLineIfNotEmpty();
+      } else {
+        String _name_2 = p.getType().getName();
+        _builder.append(_name_2);
+        _builder.append(" ");
+        String _name_3 = p.getName();
+        _builder.append(_name_3);
+        _builder.append(" ;");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t ");
-    String _name_2 = p.getName();
-    _builder.append(_name_2, "\t ");
-    _builder.append(" ;");
-    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
     return _builder;
   }
   
   public CharSequence compilePojo(final GeneralEntity e) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field entity is undefined for the type GeneralEntity"
-      + "\nThe method or field properties is undefined for the type GeneralEntity"
-      + "\nname cannot be resolved"
-      + "\ncompileProperty cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.newLine();
+    _builder.append("package mdd.casino.jpa.entity.pojo;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name = e.getName().getName();
+    _builder.append(_name);
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<Property> _properties = e.getProperties();
+      for(final Property p : _properties) {
+        _builder.append("\t");
+        CharSequence _compileProperty = this.compileProperty(p);
+        _builder.append(_compileProperty, "\t");
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder;
   }
   
   public CharSequence compileDto(final EntityName e) {

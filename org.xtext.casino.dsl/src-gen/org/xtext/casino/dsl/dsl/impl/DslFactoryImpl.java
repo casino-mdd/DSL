@@ -42,6 +42,7 @@ import org.xtext.casino.dsl.dsl.JsModule;
 import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.LayerSegmentRelation;
 import org.xtext.casino.dsl.dsl.Library;
 import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.MethodBack;
@@ -135,6 +136,7 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
       case DslPackage.COMPONENT: return createComponent();
       case DslPackage.LAYER: return createLayer();
       case DslPackage.LAYER_SEGMENT: return createLayerSegment();
+      case DslPackage.LAYER_SEGMENT_RELATION: return createLayerSegmentRelation();
       case DslPackage.SUBLAYER_SEGMENT: return createSublayerSegment();
       case DslPackage.RELATION_ARCH: return createRelationArch();
       case DslPackage.TECHNOLOGY: return createTechnology();
@@ -380,6 +382,18 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     LayerSegmentImpl layerSegment = new LayerSegmentImpl();
     return layerSegment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayerSegmentRelation createLayerSegmentRelation()
+  {
+    LayerSegmentRelationImpl layerSegmentRelation = new LayerSegmentRelationImpl();
+    return layerSegmentRelation;
   }
 
   /**

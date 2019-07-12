@@ -3,6 +3,8 @@
  */
 package org.xtext.casino.dsl.dsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -10,6 +12,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>General Entity</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.casino.dsl.dsl.GeneralEntity#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.GeneralEntity#getProperties <em>Properties</em>}</li>
+ * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getGeneralEntity()
  * @model
@@ -17,4 +26,38 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface GeneralEntity extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(EntityName)
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getGeneralEntity_Name()
+   * @model containment="true"
+   * @generated
+   */
+  EntityName getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.GeneralEntity#getName <em>Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @see #getName()
+   * @generated
+   */
+  void setName(EntityName value);
+
+  /**
+   * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Property}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Properties</em>' containment reference list.
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getGeneralEntity_Properties()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Property> getProperties();
+
 } // GeneralEntity

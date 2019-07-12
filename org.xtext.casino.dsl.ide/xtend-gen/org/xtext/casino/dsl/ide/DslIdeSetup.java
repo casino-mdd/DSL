@@ -3,16 +3,22 @@
  */
 package org.xtext.casino.dsl.ide;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
+import org.eclipse.xtext.util.Modules2;
+import org.xtext.casino.dsl.DslRuntimeModule;
+import org.xtext.casino.dsl.DslStandaloneSetup;
+import org.xtext.casino.dsl.ide.DslIdeModule;
 
 /**
  * Initialization support for running Xtext languages as language servers.
  */
 @SuppressWarnings("all")
-public class DslIdeSetup /* implements DslStandaloneSetup  */{
+public class DslIdeSetup extends DslStandaloneSetup {
   @Override
   public Injector createInjector() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nDslRuntimeModule cannot be resolved.");
+    DslRuntimeModule _dslRuntimeModule = new DslRuntimeModule();
+    DslIdeModule _dslIdeModule = new DslIdeModule();
+    return Guice.createInjector(Modules2.mixin(_dslRuntimeModule, _dslIdeModule));
   }
 }

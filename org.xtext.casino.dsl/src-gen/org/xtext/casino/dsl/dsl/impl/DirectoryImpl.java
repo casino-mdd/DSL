@@ -25,6 +25,7 @@ import org.xtext.casino.dsl.dsl.File;
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.DirectoryImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.DirectoryImpl#getFile <em>File</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.DirectoryImpl#getSubdirectory <em>Subdirectory</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.DirectoryImpl#getPurpose <em>Purpose</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,6 +71,26 @@ public class DirectoryImpl extends AbstractFrontElementImpl implements Directory
    * @ordered
    */
   protected Directory subdirectory;
+
+  /**
+   * The default value of the '{@link #getPurpose() <em>Purpose</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPurpose()
+   * @generated
+   * @ordered
+   */
+  protected static final String PURPOSE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPurpose() <em>Purpose</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPurpose()
+   * @generated
+   * @ordered
+   */
+  protected String purpose = PURPOSE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -213,6 +234,31 @@ public class DirectoryImpl extends AbstractFrontElementImpl implements Directory
    * @generated
    */
   @Override
+  public String getPurpose()
+  {
+    return purpose;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPurpose(String newPurpose)
+  {
+    String oldPurpose = purpose;
+    purpose = newPurpose;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.DIRECTORY__PURPOSE, oldPurpose, purpose));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -225,6 +271,8 @@ public class DirectoryImpl extends AbstractFrontElementImpl implements Directory
       case DslPackage.DIRECTORY__SUBDIRECTORY:
         if (resolve) return getSubdirectory();
         return basicGetSubdirectory();
+      case DslPackage.DIRECTORY__PURPOSE:
+        return getPurpose();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -247,6 +295,9 @@ public class DirectoryImpl extends AbstractFrontElementImpl implements Directory
         return;
       case DslPackage.DIRECTORY__SUBDIRECTORY:
         setSubdirectory((Directory)newValue);
+        return;
+      case DslPackage.DIRECTORY__PURPOSE:
+        setPurpose((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -271,6 +322,9 @@ public class DirectoryImpl extends AbstractFrontElementImpl implements Directory
       case DslPackage.DIRECTORY__SUBDIRECTORY:
         setSubdirectory((Directory)null);
         return;
+      case DslPackage.DIRECTORY__PURPOSE:
+        setPurpose(PURPOSE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -291,6 +345,8 @@ public class DirectoryImpl extends AbstractFrontElementImpl implements Directory
         return file != null;
       case DslPackage.DIRECTORY__SUBDIRECTORY:
         return subdirectory != null;
+      case DslPackage.DIRECTORY__PURPOSE:
+        return PURPOSE_EDEFAULT == null ? purpose != null : !PURPOSE_EDEFAULT.equals(purpose);
     }
     return super.eIsSet(featureID);
   }
@@ -308,6 +364,8 @@ public class DirectoryImpl extends AbstractFrontElementImpl implements Directory
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", purpose: ");
+    result.append(purpose);
     result.append(')');
     return result.toString();
   }

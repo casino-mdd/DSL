@@ -39,6 +39,7 @@ import org.xtext.casino.dsl.dsl.JsModule;
 import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.LayerSegmentRelation;
 import org.xtext.casino.dsl.dsl.Library;
 import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.MethodBack;
@@ -165,8 +166,6 @@ public class DslSwitch<T> extends Switch<T>
       {
         EntityName entityName = (EntityName)theEObject;
         T result = caseEntityName(entityName);
-        if (result == null) result = caseGeneralEntity(entityName);
-        if (result == null) result = caseSpecialEntity(entityName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -245,6 +244,13 @@ public class DslSwitch<T> extends Switch<T>
       {
         LayerSegment layerSegment = (LayerSegment)theEObject;
         T result = caseLayerSegment(layerSegment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DslPackage.LAYER_SEGMENT_RELATION:
+      {
+        LayerSegmentRelation layerSegmentRelation = (LayerSegmentRelation)theEObject;
+        T result = caseLayerSegmentRelation(layerSegmentRelation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -814,6 +820,22 @@ public class DslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLayerSegment(LayerSegment object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layer Segment Relation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layer Segment Relation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayerSegmentRelation(LayerSegmentRelation object)
   {
     return null;
   }

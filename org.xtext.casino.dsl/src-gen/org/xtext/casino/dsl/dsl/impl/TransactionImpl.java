@@ -5,6 +5,7 @@ package org.xtext.casino.dsl.dsl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +31,7 @@ import org.xtext.casino.dsl.dsl.Transaction;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.TransactionImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.TransactionImpl#getOperateson <em>Operateson</em>}</li>
  * </ul>
  *
@@ -36,6 +39,26 @@ import org.xtext.casino.dsl.dsl.Transaction;
  */
 public class TransactionImpl extends MinimalEObjectImpl.Container implements Transaction
 {
+  /**
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getOperateson() <em>Operateson</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -65,6 +88,31 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
   protected EClass eStaticClass()
   {
     return DslPackage.Literals.TRANSACTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setType(String newType)
+  {
+    String oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.TRANSACTION__TYPE, oldType, type));
   }
 
   /**
@@ -108,6 +156,8 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
   {
     switch (featureID)
     {
+      case DslPackage.TRANSACTION__TYPE:
+        return getType();
       case DslPackage.TRANSACTION__OPERATESON:
         return getOperateson();
     }
@@ -125,6 +175,9 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
   {
     switch (featureID)
     {
+      case DslPackage.TRANSACTION__TYPE:
+        setType((String)newValue);
+        return;
       case DslPackage.TRANSACTION__OPERATESON:
         getOperateson().clear();
         getOperateson().addAll((Collection<? extends Operateson>)newValue);
@@ -143,6 +196,9 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
   {
     switch (featureID)
     {
+      case DslPackage.TRANSACTION__TYPE:
+        setType(TYPE_EDEFAULT);
+        return;
       case DslPackage.TRANSACTION__OPERATESON:
         getOperateson().clear();
         return;
@@ -160,10 +216,29 @@ public class TransactionImpl extends MinimalEObjectImpl.Container implements Tra
   {
     switch (featureID)
     {
+      case DslPackage.TRANSACTION__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case DslPackage.TRANSACTION__OPERATESON:
         return operateson != null && !operateson.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (type: ");
+    result.append(type);
+    result.append(')');
+    return result.toString();
   }
 
 } //TransactionImpl

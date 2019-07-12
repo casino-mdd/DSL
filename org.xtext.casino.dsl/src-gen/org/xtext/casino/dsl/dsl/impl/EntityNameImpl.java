@@ -3,25 +3,15 @@
  */
 package org.xtext.casino.dsl.dsl.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.EntityName;
-import org.xtext.casino.dsl.dsl.Property;
-import org.xtext.casino.dsl.dsl.Transaction;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,13 +22,11 @@ import org.xtext.casino.dsl.dsl.Transaction;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.EntityNameImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.casino.dsl.dsl.impl.EntityNameImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link org.xtext.casino.dsl.dsl.impl.EntityNameImpl#getTransactions <em>Transactions</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EntityNameImpl extends GeneralEntityImpl implements EntityName
+public class EntityNameImpl extends MinimalEObjectImpl.Container implements EntityName
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -59,26 +47,6 @@ public class EntityNameImpl extends GeneralEntityImpl implements EntityName
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getProperties()
-   * @generated
-   * @ordered
-   */
-  protected EList<Property> properties;
-
-  /**
-   * The cached value of the '{@link #getTransactions() <em>Transactions</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTransactions()
-   * @generated
-   * @ordered
-   */
-  protected EList<Transaction> transactions;
 
   /**
    * <!-- begin-user-doc -->
@@ -132,64 +100,12 @@ public class EntityNameImpl extends GeneralEntityImpl implements EntityName
    * @generated
    */
   @Override
-  public EList<Property> getProperties()
-  {
-    if (properties == null)
-    {
-      properties = new EObjectContainmentEList<Property>(Property.class, this, DslPackage.ENTITY_NAME__PROPERTIES);
-    }
-    return properties;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<Transaction> getTransactions()
-  {
-    if (transactions == null)
-    {
-      transactions = new EObjectContainmentEList<Transaction>(Transaction.class, this, DslPackage.ENTITY_NAME__TRANSACTIONS);
-    }
-    return transactions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DslPackage.ENTITY_NAME__PROPERTIES:
-        return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-      case DslPackage.ENTITY_NAME__TRANSACTIONS:
-        return ((InternalEList<?>)getTransactions()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case DslPackage.ENTITY_NAME__NAME:
         return getName();
-      case DslPackage.ENTITY_NAME__PROPERTIES:
-        return getProperties();
-      case DslPackage.ENTITY_NAME__TRANSACTIONS:
-        return getTransactions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -199,7 +115,6 @@ public class EntityNameImpl extends GeneralEntityImpl implements EntityName
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -207,14 +122,6 @@ public class EntityNameImpl extends GeneralEntityImpl implements EntityName
     {
       case DslPackage.ENTITY_NAME__NAME:
         setName((String)newValue);
-        return;
-      case DslPackage.ENTITY_NAME__PROPERTIES:
-        getProperties().clear();
-        getProperties().addAll((Collection<? extends Property>)newValue);
-        return;
-      case DslPackage.ENTITY_NAME__TRANSACTIONS:
-        getTransactions().clear();
-        getTransactions().addAll((Collection<? extends Transaction>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -233,12 +140,6 @@ public class EntityNameImpl extends GeneralEntityImpl implements EntityName
       case DslPackage.ENTITY_NAME__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DslPackage.ENTITY_NAME__PROPERTIES:
-        getProperties().clear();
-        return;
-      case DslPackage.ENTITY_NAME__TRANSACTIONS:
-        getTransactions().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -255,10 +156,6 @@ public class EntityNameImpl extends GeneralEntityImpl implements EntityName
     {
       case DslPackage.ENTITY_NAME__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DslPackage.ENTITY_NAME__PROPERTIES:
-        return properties != null && !properties.isEmpty();
-      case DslPackage.ENTITY_NAME__TRANSACTIONS:
-        return transactions != null && !transactions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -14,6 +14,7 @@ package org.xtext.casino.dsl.dsl;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.File#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.File#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getFile()
@@ -43,5 +44,27 @@ public interface File extends AbstractFrontElement
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(String)
+   * @see org.xtext.casino.dsl.dsl.DslPackage#getFile_Type()
+   * @model
+   * @generated
+   */
+  String getType();
+
+  /**
+   * Sets the value of the '{@link org.xtext.casino.dsl.dsl.File#getType <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #getType()
+   * @generated
+   */
+  void setType(String value);
 
 } // File

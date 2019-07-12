@@ -32,6 +32,7 @@ import org.xtext.casino.dsl.dsl.Einterface;
 import org.xtext.casino.dsl.dsl.EntityName;
 import org.xtext.casino.dsl.dsl.Epackage;
 import org.xtext.casino.dsl.dsl.Functionality;
+import org.xtext.casino.dsl.dsl.GeneralEntity;
 import org.xtext.casino.dsl.dsl.GenericClass;
 import org.xtext.casino.dsl.dsl.JavaApp;
 import org.xtext.casino.dsl.dsl.JeeProject;
@@ -40,6 +41,7 @@ import org.xtext.casino.dsl.dsl.JsModule;
 import org.xtext.casino.dsl.dsl.Json;
 import org.xtext.casino.dsl.dsl.Layer;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.LayerSegmentRelation;
 import org.xtext.casino.dsl.dsl.Library;
 import org.xtext.casino.dsl.dsl.Md;
 import org.xtext.casino.dsl.dsl.MethodBack;
@@ -53,6 +55,7 @@ import org.xtext.casino.dsl.dsl.RelationArch;
 import org.xtext.casino.dsl.dsl.RelationDom;
 import org.xtext.casino.dsl.dsl.RouterComponent;
 import org.xtext.casino.dsl.dsl.ServiceFront;
+import org.xtext.casino.dsl.dsl.SpecialEntity;
 import org.xtext.casino.dsl.dsl.State;
 import org.xtext.casino.dsl.dsl.SublayerSegment;
 import org.xtext.casino.dsl.dsl.Submodule;
@@ -123,24 +126,16 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Einterface(context, (Einterface) semanticObject); 
 				return; 
 			case DslPackage.ENTITY_NAME:
-				if (rule == grammarAccess.getEntityNameRule()) {
-					sequence_EntityName(context, (EntityName) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getGeneralEntityRule()) {
-					sequence_EntityName_GeneralEntity(context, (EntityName) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getSpecialEntityRule()) {
-					sequence_EntityName_SpecialEntity(context, (EntityName) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_EntityName(context, (EntityName) semanticObject); 
+				return; 
 			case DslPackage.EPACKAGE:
 				sequence_Epackage(context, (Epackage) semanticObject); 
 				return; 
 			case DslPackage.FUNCTIONALITY:
 				sequence_Functionality(context, (Functionality) semanticObject); 
+				return; 
+			case DslPackage.GENERAL_ENTITY:
+				sequence_GeneralEntity(context, (GeneralEntity) semanticObject); 
 				return; 
 			case DslPackage.GENERIC_CLASS:
 				sequence_GenericClass(context, (GenericClass) semanticObject); 
@@ -165,6 +160,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.LAYER_SEGMENT:
 				sequence_LayerSegment(context, (LayerSegment) semanticObject); 
+				return; 
+			case DslPackage.LAYER_SEGMENT_RELATION:
+				sequence_LayerSegmentRelation(context, (LayerSegmentRelation) semanticObject); 
 				return; 
 			case DslPackage.LIBRARY:
 				sequence_Library(context, (Library) semanticObject); 
@@ -207,6 +205,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case DslPackage.SERVICE_FRONT:
 				sequence_ServiceFront(context, (ServiceFront) semanticObject); 
+				return; 
+			case DslPackage.SPECIAL_ENTITY:
+				sequence_SpecialEntity(context, (SpecialEntity) semanticObject); 
 				return; 
 			case DslPackage.STATE:
 				sequence_State(context, (State) semanticObject); 
@@ -271,15 +272,18 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ActionCreator returns ActionCreator
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID type=STRING)
 	 */
 	protected void sequence_ActionCreator(ISerializationContext context, ActionCreator semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ACTION_CREATOR__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ACTION_CREATOR__NAME));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.ACTION_CREATOR__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ACTION_CREATOR__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getActionCreatorAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getActionCreatorAccess().getTypeSTRINGTerminalRuleCall_4_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -316,7 +320,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Annotation returns Annotation
 	 *
 	 * Constraint:
-	 *     (name=ID name=STRING*)
+	 *     (name=ID propertie=STRING*)
 	 */
 	protected void sequence_Annotation(ISerializationContext context, Annotation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -361,7 +365,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Component returns Component
 	 *
 	 * Constraint:
-	 *     layer+=Layer+
+	 *     (name=ComponentName layer+=Layer+)
 	 */
 	protected void sequence_Component(ISerializationContext context, Component semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -388,15 +392,18 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Css returns Css
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID type=STRING)
 	 */
 	protected void sequence_Css(ISerializationContext context, Css semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__NAME));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCssAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCssAccess().getTypeSTRINGTerminalRuleCall_4_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -419,7 +426,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Directory returns Directory
 	 *
 	 * Constraint:
-	 *     (name=ID file=[File|ID]* subdirectory=[Directory|ID]*)
+	 *     (name=ID file=[File|ID]* subdirectory=[Directory|ID]* purpose=STRING)
 	 */
 	protected void sequence_Directory(ISerializationContext context, Directory semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -470,30 +477,6 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     GeneralEntity returns EntityName
-	 *
-	 * Constraint:
-	 *     (name=ID properties+=Property+)
-	 */
-	protected void sequence_EntityName_GeneralEntity(ISerializationContext context, EntityName semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SpecialEntity returns EntityName
-	 *
-	 * Constraint:
-	 *     (name=ID properties+=Property+ transactions+=Transaction+)
-	 */
-	protected void sequence_EntityName_SpecialEntity(ISerializationContext context, EntityName semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Epackage returns Epackage
 	 *
 	 * Constraint:
@@ -521,6 +504,18 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_Functionality(ISerializationContext context, Functionality semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     GeneralEntity returns GeneralEntity
+	 *
+	 * Constraint:
+	 *     (name=EntityName properties+=Property+)
+	 */
+	protected void sequence_GeneralEntity(ISerializationContext context, GeneralEntity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -598,15 +593,18 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Js returns Js
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID type=STRING)
 	 */
 	protected void sequence_Js(ISerializationContext context, Js semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__NAME));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getJsAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getJsAccess().getTypeSTRINGTerminalRuleCall_4_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -618,15 +616,36 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Json returns Json
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID type=STRING)
 	 */
 	protected void sequence_Json(ISerializationContext context, Json semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__NAME));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getJsonAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getJsonAccess().getTypeSTRINGTerminalRuleCall_4_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LayerSegmentRelation returns LayerSegmentRelation
+	 *
+	 * Constraint:
+	 *     layerSegment=LayerSegmentName
+	 */
+	protected void sequence_LayerSegmentRelation(ISerializationContext context, LayerSegmentRelation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.LAYER_SEGMENT_RELATION__LAYER_SEGMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.LAYER_SEGMENT_RELATION__LAYER_SEGMENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLayerSegmentRelationAccess().getLayerSegmentLayerSegmentNameParserRuleCall_1_0(), semanticObject.getLayerSegment());
 		feeder.finish();
 	}
 	
@@ -660,7 +679,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Library returns Library
 	 *
 	 * Constraint:
-	 *     (name=ID annotation+=Annotation*)
+	 *     (name=ID isNative=Boolean annotation+=Annotation*)
 	 */
 	protected void sequence_Library(ISerializationContext context, Library semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -674,15 +693,18 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Md returns Md
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID type=STRING)
 	 */
 	protected void sequence_Md(ISerializationContext context, Md semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__NAME));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.FILE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.FILE__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMdAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMdAccess().getTypeSTRINGTerminalRuleCall_4_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -741,7 +763,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Operation returns Operation
 	 *
 	 * Constraint:
-	 *     target+=EntityName
+	 *     (type=SubOperation target+=EntityName)
 	 */
 	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -800,16 +822,10 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RelationArch returns RelationArch
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID source=LayerName source=LayerName)
 	 */
 	protected void sequence_RelationArch(ISerializationContext context, RelationArch semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.RELATION_ARCH__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.RELATION_ARCH__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRelationArchAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -845,19 +861,22 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ServiceFront returns ServiceFront
 	 *
 	 * Constraint:
-	 *     (name=ID type=[JsModule|ID])
+	 *     (name=ID type=[JsModule|ID] method=STRING+)
 	 */
 	protected void sequence_ServiceFront(ISerializationContext context, ServiceFront semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SERVICE_FRONT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SERVICE_FRONT__NAME));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SERVICE_FRONT__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SERVICE_FRONT__TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getServiceFrontAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getServiceFrontAccess().getTypeJsModuleIDTerminalRuleCall_4_0_1(), semanticObject.eGet(DslPackage.Literals.SERVICE_FRONT__TYPE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SpecialEntity returns SpecialEntity
+	 *
+	 * Constraint:
+	 *     (name=EntityName properties+=Property+ transactions+=Transaction+)
+	 */
+	protected void sequence_SpecialEntity(ISerializationContext context, SpecialEntity semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -966,7 +985,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Transaction returns Transaction
 	 *
 	 * Constraint:
-	 *     operateson+=Operateson+
+	 *     (type=SubTransaction operateson+=Operateson+)
 	 */
 	protected void sequence_Transaction(ISerializationContext context, Transaction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

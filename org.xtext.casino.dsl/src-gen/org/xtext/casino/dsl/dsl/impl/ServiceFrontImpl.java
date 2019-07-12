@@ -24,6 +24,7 @@ import org.xtext.casino.dsl.dsl.ServiceFront;
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.ServiceFrontImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.casino.dsl.dsl.impl.ServiceFrontImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.casino.dsl.dsl.impl.ServiceFrontImpl#getMethod <em>Method</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +60,26 @@ public class ServiceFrontImpl extends AbstractFrontElementImpl implements Servic
    * @ordered
    */
   protected JsModule type;
+
+  /**
+   * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMethod()
+   * @generated
+   * @ordered
+   */
+  protected static final String METHOD_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMethod()
+   * @generated
+   * @ordered
+   */
+  protected String method = METHOD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -157,6 +178,31 @@ public class ServiceFrontImpl extends AbstractFrontElementImpl implements Servic
    * @generated
    */
   @Override
+  public String getMethod()
+  {
+    return method;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setMethod(String newMethod)
+  {
+    String oldMethod = method;
+    method = newMethod;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.SERVICE_FRONT__METHOD, oldMethod, method));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -166,6 +212,8 @@ public class ServiceFrontImpl extends AbstractFrontElementImpl implements Servic
       case DslPackage.SERVICE_FRONT__TYPE:
         if (resolve) return getType();
         return basicGetType();
+      case DslPackage.SERVICE_FRONT__METHOD:
+        return getMethod();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -185,6 +233,9 @@ public class ServiceFrontImpl extends AbstractFrontElementImpl implements Servic
         return;
       case DslPackage.SERVICE_FRONT__TYPE:
         setType((JsModule)newValue);
+        return;
+      case DslPackage.SERVICE_FRONT__METHOD:
+        setMethod((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -206,6 +257,9 @@ public class ServiceFrontImpl extends AbstractFrontElementImpl implements Servic
       case DslPackage.SERVICE_FRONT__TYPE:
         setType((JsModule)null);
         return;
+      case DslPackage.SERVICE_FRONT__METHOD:
+        setMethod(METHOD_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -224,6 +278,8 @@ public class ServiceFrontImpl extends AbstractFrontElementImpl implements Servic
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DslPackage.SERVICE_FRONT__TYPE:
         return type != null;
+      case DslPackage.SERVICE_FRONT__METHOD:
+        return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
     }
     return super.eIsSet(featureID);
   }
@@ -241,6 +297,8 @@ public class ServiceFrontImpl extends AbstractFrontElementImpl implements Servic
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", method: ");
+    result.append(method);
     result.append(')');
     return result.toString();
   }

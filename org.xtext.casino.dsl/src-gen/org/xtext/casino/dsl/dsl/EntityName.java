@@ -3,7 +3,7 @@
  */
 package org.xtext.casino.dsl.dsl;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,15 +15,13 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.casino.dsl.dsl.EntityName#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.casino.dsl.dsl.EntityName#getProperties <em>Properties</em>}</li>
- *   <li>{@link org.xtext.casino.dsl.dsl.EntityName#getTransactions <em>Transactions</em>}</li>
  * </ul>
  *
  * @see org.xtext.casino.dsl.dsl.DslPackage#getEntityName()
  * @model
  * @generated
  */
-public interface EntityName extends GeneralEntity, SpecialEntity
+public interface EntityName extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -46,29 +44,5 @@ public interface EntityName extends GeneralEntity, SpecialEntity
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Property}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Properties</em>' containment reference list.
-   * @see org.xtext.casino.dsl.dsl.DslPackage#getEntityName_Properties()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Property> getProperties();
-
-  /**
-   * Returns the value of the '<em><b>Transactions</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.casino.dsl.dsl.Transaction}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Transactions</em>' containment reference list.
-   * @see org.xtext.casino.dsl.dsl.DslPackage#getEntityName_Transactions()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Transaction> getTransactions();
 
 } // EntityName

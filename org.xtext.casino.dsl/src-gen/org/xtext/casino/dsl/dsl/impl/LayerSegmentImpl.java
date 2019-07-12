@@ -16,12 +16,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.casino.dsl.dsl.DslPackage;
 import org.xtext.casino.dsl.dsl.LayerSegment;
+import org.xtext.casino.dsl.dsl.LayerSegmentRelation;
 import org.xtext.casino.dsl.dsl.SublayerSegment;
 
 /**
@@ -62,14 +62,14 @@ public class LayerSegmentImpl extends MinimalEObjectImpl.Container implements La
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRelations() <em>Relations</em>}' attribute list.
+   * The cached value of the '{@link #getRelations() <em>Relations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRelations()
    * @generated
    * @ordered
    */
-  protected EList<String> relations;
+  protected EList<LayerSegmentRelation> relations;
 
   /**
    * The cached value of the '{@link #getSublayerSegments() <em>Sublayer Segments</em>}' containment reference list.
@@ -133,11 +133,11 @@ public class LayerSegmentImpl extends MinimalEObjectImpl.Container implements La
    * @generated
    */
   @Override
-  public EList<String> getRelations()
+  public EList<LayerSegmentRelation> getRelations()
   {
     if (relations == null)
     {
-      relations = new EDataTypeEList<String>(String.class, this, DslPackage.LAYER_SEGMENT__RELATIONS);
+      relations = new EObjectContainmentEList<LayerSegmentRelation>(LayerSegmentRelation.class, this, DslPackage.LAYER_SEGMENT__RELATIONS);
     }
     return relations;
   }
@@ -167,6 +167,8 @@ public class LayerSegmentImpl extends MinimalEObjectImpl.Container implements La
   {
     switch (featureID)
     {
+      case DslPackage.LAYER_SEGMENT__RELATIONS:
+        return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
       case DslPackage.LAYER_SEGMENT__SUBLAYER_SEGMENTS:
         return ((InternalEList<?>)getSublayerSegments()).basicRemove(otherEnd, msgs);
     }
@@ -209,7 +211,7 @@ public class LayerSegmentImpl extends MinimalEObjectImpl.Container implements La
         return;
       case DslPackage.LAYER_SEGMENT__RELATIONS:
         getRelations().clear();
-        getRelations().addAll((Collection<? extends String>)newValue);
+        getRelations().addAll((Collection<? extends LayerSegmentRelation>)newValue);
         return;
       case DslPackage.LAYER_SEGMENT__SUBLAYER_SEGMENTS:
         getSublayerSegments().clear();
@@ -275,8 +277,6 @@ public class LayerSegmentImpl extends MinimalEObjectImpl.Container implements La
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", relations: ");
-    result.append(relations);
     result.append(')');
     return result.toString();
   }

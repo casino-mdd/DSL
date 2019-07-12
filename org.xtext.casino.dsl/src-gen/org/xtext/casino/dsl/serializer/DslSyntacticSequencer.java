@@ -23,99 +23,19 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected DslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Directory_HasKeyword_3_0_p;
 	protected AbstractElementAlias match_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q;
-	protected AbstractElementAlias match_ServiceFront___MethodKeyword_5_0_STRINGTerminalRuleCall_5_1__p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
 		match_Directory_HasKeyword_3_0_p = new TokenAlias(true, false, grammarAccess.getDirectoryAccess().getHasKeyword_3_0());
 		match_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getLayerSegmentAccess().getLeftCurlyBracketKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getLayerSegmentAccess().getRightCurlyBracketKeyword_3_2()));
-		match_ServiceFront___MethodKeyword_5_0_STRINGTerminalRuleCall_5_1__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getServiceFrontAccess().getMethodKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getServiceFrontAccess().getSTRINGTerminalRuleCall_5_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getBooleanRule())
-			return getBooleanToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getComponentNameRule())
-			return getComponentNameToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getLayerNameRule())
-			return getLayerNameToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
-			return getSTRINGToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSubOperationRule())
-			return getSubOperationToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSubTransactionRule())
-			return getSubTransactionToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * Boolean:
-	 * 'true'|'false'
-	 * ;
-	 */
-	protected String getBooleanToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "true";
-	}
-	
-	/**
-	 * ComponentName:
-	 * 	'Back' | 'Front'	
-	 * ;
-	 */
-	protected String getComponentNameToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "Back";
-	}
-	
-	/**
-	 * LayerName:
-	 * 	'JavaScript' | 'Ejb' | 'War'
-	 * ;
-	 */
-	protected String getLayerNameToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "JavaScript";
-	}
-	
-	/**
-	 * terminal STRING:
-	 * 			'"' ( '\\' .  | !('\\'|'"') )* '"' |
-	 * 			"'" ( '\\' .  | !('\\'|"'") )* "'"
-	 * 		;
-	 */
-	protected String getSTRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\"\"";
-	}
-	
-	/**
-	 * SubOperation:
-	 * 	'Read' | 'Create'
-	 * ;
-	 */
-	protected String getSubOperationToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "Read";
-	}
-	
-	/**
-	 * SubTransaction:
-	 * 	'exchange' | 'sale'
-	 * ;
-	 */
-	protected String getSubTransactionToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "exchange";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -127,8 +47,6 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Directory_HasKeyword_3_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q.equals(syntax))
 				emit_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ServiceFront___MethodKeyword_5_0_STRINGTerminalRuleCall_5_1__p.equals(syntax))
-				emit_ServiceFront___MethodKeyword_5_0_STRINGTerminalRuleCall_5_1__p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -154,17 +72,6 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     name=LayerSegmentName '{' (ambiguity) sublayerSegments+=SublayerSegment
 	 */
 	protected void emit_LayerSegment___LeftCurlyBracketKeyword_3_0_RightCurlyBracketKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('method:' STRING)+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     type=[JsModule|ID] (ambiguity) '}' (rule end)
-	 */
-	protected void emit_ServiceFront___MethodKeyword_5_0_STRINGTerminalRuleCall_5_1__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
